@@ -1,0 +1,24 @@
+\chapter{MQTT}
+
+\section{Resumen sobre publicaciones de mensajes y suscripciones de mqtt}
+
+MQTT (del inglés Message Queuing Telemetry Transport) es una arquitectura de publicación suscripción que fue desarrollada primordialmente para conectar dispositivos con limitaciones de ancho de banda y energía a través de comunicaciones inalámbricas. Se trata de un protocolo sencillo y ligero que puede ser ejecutado sobre un socket TCP/IP, un WebSocket, y SSL. \\
+
+MQTT cuenta con dos componentes: 
+
+\begin{itemize}
+    \item MQTT broker - Un broker es un punto central de la comunicación. Es el responsable de despachar todos los mensajes entre los clientes
+    \item MQTT client - Un cliente es cualquier dispositivo que se conecta al broker. Un cliente que envía mensajes es un cliente publicador. El cliente que recibe el mensaje es un suscriptor. Para que un cliente pueda recibir un mensaje, este debe estar suscrito al Asunto (topic) del mensaje.
+\end{itemize}
+
+\subsection{el Asunto}
+El asunto o tópico de un mensaje el identificador utilizado por el broker para identificar a los clientes correctos a la hora de entregar los mensajes. Cada cliente que quiera enviar un mensaje, lo publica en su respectivo Asunto, y cada cliente que esté suscrito a dicho Asunto, puede recibir este mensaje. El Asunto es una variable del tipo String, y puede consistir de uno o más niveles de Asunto. Cada nivel está separado por una barra /, por ejemplo \texttt{home/livingroom/temperature}. El Asunto tiene que tener al menos un caracter, y puede diferenciarse por mayúsculas. 
+
+\subsection{Comodines de los asuntos}
+
+Los comodines son caracteres especiales en un asunto que se usa por los cloentes para suscribirse a múltiples Asuntos. MQTT soporta comodines de un nivel y multinivel.
+
+\begin{itemize}
+    \item Un comodin de un nivel está representado por el signo (+). Para que un cliente reciba mensajes, todos los niveles del Asunto suscrito, excepto el nivel con el signo (+), deben coincidir con el Asunto del mensaje entrante. Como ejemplo, si un cliente se susvribe a \texttt{home/floor1/+/temperature}, entonces, dicho cliente podrá recibir mensajes que se publiquen a los Asuntos \texttt{home/floor1/livingroom/temperature}, \texttt{home/floor1/kitchen/temperature}
+    \item Para los comodines multinivel, se usa el caracter \#; representa un reemplazo en el nivel y todos los subniveles. Como ejemplo, un cliente suscrito a \texttt{home/floor1/ \#}, podrá recibir mensajes que se publiquen en \texttt{home/floor1/kitchen/temperature}, \texttt{home/floor1/kitchen/temperature/sensor3}, \texttt{home/floor1/hall/camera2/movementSensor}, etc. 
+\end{itemize}

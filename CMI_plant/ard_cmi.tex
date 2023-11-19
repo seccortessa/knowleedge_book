@@ -1,0 +1,84 @@
+\chapter{Mejoramiento planta de asfalto}
+
+El sistema alterno de control de la planta de asfalto CMI se compone de cuatro programas de los cuales tres son dispositivos esclavos y el restante es maestro.
+
+\section{Esclavo 1: Estado Motores}
+
+Se declaran variables de tipo \texttt{char} con las entradas de cada uno de los motores y máquinas de la planta, se inicializan con el valor de caracter \texttt{"0"}. Adicionalmente, se declaran tres valores \texttt{double} para temperaturas de casa de bolsas, mezcla y presión de la casa de bolsas. Un entero llamado \texttt{BytesEnBuffer} iniciado en cero, entero llamado  \texttt{lectura}, carácter llamado \texttt{lectura2}, carácter llamado \texttt{Lectura}, entero \texttt{posDatoLeido = 0}, \textbf{pos = 0}. Cadenas de tamaño 100 llamados \texttt{DatoLeido}, \texttt{Dato\_a\_enviar}, \texttt{DatoAnalogo\_a\_enviar}, \texttt{Dato\_de\_Maestro}, \texttt{Dato\_de\_Maestro\_para\_Esclavo2}  enteros llamados \texttt{a} y \texttt{b}. Finalmente se declaran los números de los pines para los estados de cada uno de los motores
+
+\subsection{configuración \texttt{setup}}
+
+
+Se configuran lo pines de entrada \texttt{Estadoxxx} como entradas con \texttt{pullup}. Se inicializa el Ethernet y el servidor con UDP. Ademas se inicia comunicación serial.
+
+\subsection{\texttt{void loop}}
+
+Lo que se hace en el blucle principal es ejecutar dos subrutirnas: \texttt{LecturaPuertos()} y \texttt{Envio\_a\_Maestro()}. Finalmente tras un delay de 100ms, se ejecuta una rutina llamada \texttt{Solicitud\_servidor}.
+
+
+\subsection{\texttt{LecturaPuertos()}}
+
+Realiza lectura de las entradas digitales, si estas se activan, entonces cambia cada una de las variables \texttt{xxxEstado} a \texttt{"1"}. En caso diferente, \texttt{"0"}. 
+
+\subsection{\texttt{Envio\_a\_Maestro()}}
+
+En esta rutina el programa asigna a cada uno de los índices de \texttt{Dat0\_a\_enviar} los estados leídos de las entradas digitales. Y finalmente ejecuta el envío por UDP a maestro. Esta rutina configura la ruta IP y el puerto del maestro para enviar el dato a enviar por este medio.
+
+
+
+\subsection{\texttt{Solicitud\_servidor}} 
+
+Esta rutina activa el puerto ethernet, revisando si hay un servidor disponible, una vez encuentra uno, escribe por este medio también los datos a enviar para poder ser visualizados y monitoreados por internet.
+
+\section{Esclavo 2: Prender motores}
+
+Se realizan las mismas declaraciones de variables del tipo caracter para los \texttt{xxxEntrada="0"}, del mismo modo para los \texttt{Solicitudxxx='0'}. 
+
+\subsection{setup}
+
+Los pines de salida se llaman \texttt{Salidaxxx}, se inician configuraciones de ethernet y UDP. Se ejecuta rutina \texttt{apagartodos()}
+
+\subsection{void loop}
+
+\begin{verbatim}
+     EscrituraSalidas();    
+     Modificar_motores();
+     delay (10);                              
+     leer_paquetes();
+     Solicitud_servidor(); 
+\end{verbatim}
+
+
+\subsection{\texttt{leer\_paquetes()}}
+
+Configura el UDP para recibir un paquete en la variable \texttt{packetBuffer} y luego asigna esta variable a \texttt{Datoleido}.
+
+\subsection{\texttt{Modificar\_motores()}}
+
+Asigna a las variables \texttt{Solicitudxxx} los valores leídos por \texttt{DatoLeido}. 
+
+\subsection{\texttt{apagartodos()}}
+
+Pone en estado alto todas las salidas digitales.
+
+\subsection{EscriturasSalidas()}
+
+Pone en valor bajo a cada salida dependiendo del valor enviado por \texttt{Solicitudxxx}, si este está en "1".
+
+\section{Esclavo 3: Análogas y otros motores}
+
+Se declaran variables iniciales del tipo \texttt{double} para los siguientes datos:
+\begin{itemize}
+    \item PresionCasadeBolsas
+    \item TemperaturaCasadeBolsas
+    \item TemperaturadeMezcla
+    \item TemperaturadeAsfalto
+    \item TemperaturaExaustDrum
+    \item PosicionDamperBH
+    \item PosicionValvulaCombustible
+    \item PosicionDamperBHSolicitado
+    \item PosicionDamperQuemadorSolicitado
+    
+\end{itemize}
+
+También cadenas de caracteres para los mismos.

@@ -1,0 +1,258 @@
+\chapter{Intro to computational thinking and data science}
+
+\section{Introducción y modelos de optimización}
+
+Existen tres tipos de modelos: Modelos de optimización, modelos estadísticos y modelos de simulación.
+
+Si se piensa en una función cuyo objetivo sea de maximizar  minimizar, es importante tener en cuenta las restricciones o reglas que dicha función debería seguir. Estas restricciones eliminan algunas de las soluciones, por simplemente no cumplir con los requerimientos.
+
+Lo anterior puede ser considerado como la definición de un modelo de optimización
+
+Pensar en el problema de la maleta; un ladrón debe encontrar la manera de robar las cosas con mayor valor de una casa y que todas quepan dentro de la maleta.
+
+\begin{itemize}
+    \item Hay un peso máximo de cosas
+    \item Se quiere llevar más cosas de las que se pueden llevar
+    \item Decisión de escoger cuáles son las cosas que hay que llevar y cuáles hay que dejar de lado
+\end{itemize}
+
+Se piensa en cada objeto como un par; valor y peso.
+La maleta puede acomodar objetos con un peso total que no exceda a $w$. Sea también un vecto $L$ con tamaño $n$, que representa el conjunto de objetos disponibles. Cada elemento del vector es un objeto. 
+Sea un vector $v$ que se usa para indicar cuándo se toma un objeto o no. si $V[i] = 1$, el objeto $L[i]$ se toma, si es cero, no se toma.
+
+Matemáticamente se puede resumir el problema de optimización de la siguiente forma: encontrar un $V$ que maximice
+
+\begin{equation}
+    \sum_{i=0}^{n-1} V[i] * L[i].value
+\end{equation}
+
+sujeto a la restricción
+
+
+\begin{equation}
+    \sum_{i=0}^{n-1} V[i] * L[i].weight \leq w
+\end{equation}
+
+
+¿Cuál algoritmo puede usarse para resolver este problema de optimización?
+No existe un algoritmo que no sea exponencial que pueda resolverlo; de hecho muchos problemas de optimización son inherentemente exponenciales. Así que aunque no existen soluciones exactas o perfectas, se puede echar un vistaso a un conjunto de soluciones buenas. Una es el algoritmo voráz (Greedy)
+
+\begin{verbatim}
+while knapsack not full:
+    put "best" available element 
+\end{verbatim}
+
+\subsection{Árbol de búsqueda}
+
+Es una forma de implementar algo parecido a un algoritmo de búsqueda bruta de optimización; un árbol de búsqueda es en esencia un tipo de grafo. 
+Se puede representar como una 'raíz' y uno o más 'hijos' que salen de esa raíz. Vemos nuestra lista de elementos, y miramos el primer elemento de esta lista. \\
+
+Si de este elemento de la lista, lo escogemos para el robo, entonces se toma el brazo o 'hijo' izquierdo del árbol; si no se coge el elemento, entonces se toma el brazo derecho. En este punto nace otra rama de decisión para el segundo elemento de la lista.\\
+
+Se completa el árbol con todas las ramas u hojas posibles de decisiones y se determina cuál de ellas cumplen las restricciones y cuál es la que tiene un mayor valor de optimización.
+
+Complejidad de este procedimiento:
+
+La cantidad de niveles que tiene el árbol depende directamente de la cantidad de elementos que tenga la lista o arreglo.
+
+La cantidad de nodos que hay en cada nivel etá dado por $2^{i}$ donde $i$ es el nivel.\\
+
+La cantidad total de nodos cuando una lista tiene $n$ elementos es
+
+
+\begin{equation}
+    \sum_{i=0}^{i=n} 2^i
+\end{equation}
+
+Sea el ejemplo de función recursica para encontrar el enésimo número de fibonacci:
+
+\begin{verbatim}
+def fiboRecursive(n):
+    if n == 0 or n ==1:
+        return 1
+    else:
+        return fiboRecursive(n-1) + fiboRecursive(n-2)
+\end{verbatim}
+
+La complejidad de este algoritmo es exponencial. Si se analiza el modo de operar del algoritmo, nos damos cuenta que cuando el número $n$ se incrementa, se hacen muchos llamados a la función de manera recursiva lo cual resulta en múltiples llamado de la función, es un gasto terrible de recursos. Se puede llegar a repetir \texttt{fiboRecursive(10)} muchas veces, entonces surge la pregunta ¿Cómo se puede guardar el valor de retorno de una función para tenerla disponible si se necesita varias veces?
+
+El anterior es el truco básico de la programación dinámica.\\
+
+Cambiar tiempo por espacio de almacenamiento, crear una tabla para guardad lo que ya se ha realizado. Antes de ejecutar \texttt{fib(x)} verificar si ya se hizo antes y se guardó su valor de retorno. Si el valor está guardado, entonces lo tomo; si no, entonces ejecuto la función y guardo su valor retornado. Esta técnica se llama \textbf{memoización}.
+
+
+Para el ejemplo de la bolsa del ladrón, es importante identificar que las operaciones que se repiten y que hay que guardad en la memoria son aquellas en las que tengo los items restantes a considerar, junto con el peso disponible y los items a ser considerados representador por \texttt{len(toCosider)}
+
+
+\section{Modelos de grafos}
+
+Suponga que tiene una lista de los precios de todos los vuelos entre cada par de ciudades del país. Suponga también que para todas las ciudades (sean A, B y C), el costo del vuelo desde A hasta C, pasando por B, es el mismo precio de volar desde A hasta B y luego desde B hasta C. Usted puede preguntarse las siguientes cuestiones:
+
+\begin{itemize}
+    \item ¿Cuál es el menor número de paradas entre un par de ciudades?
+    \item ¿Cuál es el pasaje más barato entre dos ciudades dadas?
+    \item ¿Cuál es el pasaje más barato entre dos ciudades dadas teniendo no más de dos paradas?
+    \item ¿Cuál es la forma más barata de visitar un grupo de ciudades?
+\end{itemize}
+
+Un grafo es una representación gráfica de una estructura que tiene nodos que pueden representar una información sencilla como un número o una más complicada, y los bordes o arcos que conectan los nodos.
+
+Un conjunto de nodos o vértices que pueden tener propiedades asociadas a estos. Y un conjunto de bordes o arcos, los cuales consisten en un par de nodos.\\
+
+Los arcos pueden tener dirección, no tenerla (tener ambas). También puede ser que exista un peso asociado a cada arco, una especie de información adicional proporcionada a cada nodo.
+
+Sea un problema en el que dado un grafo, debo encontrar el camino más corto para llegar de un nodo A a un nodo B. Este tipo de problema también se trata de un problema de optimización. Y una manera de abordarlo sería mediante un procedimiento denominado primera búsqueda en profundidad:
+
+
+\begin{itemize}
+    \item Inicia el el primer nodo
+    \item Considere en un orden cualquiera todos los bordes que dejan ese nodo
+    \item Dirigirse por el primer nodo y revisar si llegué al lugar correcto
+    \item Si no estoy en el nodo correcto, repito el paso anterior pero desde este nodo (se genera una especie de bucle)
+    \item Continuar hasta encontrar el nodo correcto o hasta ya no tener más opciones. 
+    \item Si se agotan las opciones, devolverse al nodo anterior y verificar el segundo borde, repitiendo todo el proceso. 
+\end{itemize}
+
+\begin{verbatim}
+def DFS(graph, start, end, path, shortest, toPrint = False):
+    path = path + [start] # añade el nodo inicial al camino
+    
+    if toPrint:
+        print('Current DFS path:',printPath(path))
+    if start == end:
+        return path
+    for node in graph.childrenOf(start):
+        if node not in path: # con esto se evita indagar por el mismo nodo más de una vez
+            if shortest == None or len(path) < len(shortest):
+                #si lo que he recorrido (path) es menor que el camino anterior encontrado (shortest)
+                newpath = DFS(graph,node,end,path,shortest,toPrint)
+                print('oops, I finised')
+                if newpath != None:
+                    shortest = newpath
+    return shortest
+
+\end{verbatim}
+
+El algoritmo anterior es una implementación de un algoritmo \textbf{DFS} (depht first search). En general, un algoritmo de este tipo comienza por escoger un hijo del nodo inicial. Luego escoge un hijo de ese nodo, y así sucesivamente, yendo cada vez más profundo hasta encontrar el nodo buscado, o hasta encontrar un nodo sin hijos. La búsqueda entonces se retrocede, devolviéndose al nodo más reciente que tenga arcos que no han sido visitados. Una vez todos los camino han sido visitados, se escoge el más corto de estos. 
+
+\begin{itemize}
+    \item Una función que llame a DFS lo hace ingresando el parámetro \texttt{path = []} con esto se indica que el camino a ser explorado está vacío y \texttt{shortest = None} para indicar que no ha sido encontrado ningún camino desde el nodo inicial al final.
+    \item \texttt{DFS} empieza escogiendo un arco hijo como inicio, luego escoge un arco hijo de ese nodo, así sucesivamente, hasta que ocurran dos posibilidades: encontrar el nodo de llegada, o llegar a un nodo que no tenga salida.
+    \item La verificación \texttt{if node not in path} se hace para evitar volver a visitar un nodo y se genere un posible bucle sin salida.
+    \item La verificación \texttt{if shortest == None or len(path) < len(shortest):} se usa para decidir si es posible que al seguir busando por este camino se obtenga una ruta más corta que la mejor ruta encontrada hasta el momento. Si esto se cumple, entonces se llama de nuevo a DFS recursivamente. Si este encuentra un camino nuevo hasta el nodo final que es más corto que el anterior, entonces se actualiza. Con ello se garantiza que el valor retornado será el más pequeño de todas las posibilidades. 
+\end{itemize}
+
+\section{Pensamiento estocástico}
+
+Pensamiento no determinístico en la computación; extrapolando la idea de que el mundo ciertamente no es determinista, y que al conocer que el universo no puede ser predicho se configura un concepto llamado no determinismo predecible.
+
+En ciencias de la computación se usa el concepto \textbf{proceso estocástico} y su definición puede ser la siguiente:
+
+Un proceso estocástico es un proceso continuo en el el estado siguiente será función de un estado previo \textbf{y un elemento aleatorio}.
+
+Cuando los eventos son independientes entre sí, la probabilidad de que todos los eventos ocurran es igual al producto de las probabilidades individuales. Y dos eventos son independientes si la ocurrencia de uno no tiene influencia sobre la ocurrencia del otro. 
+
+\section{Caminos aleatorios}
+
+Está presente en varios modelos físicos de difusión tales como calor o difusión de moléculas, etc. 
+
+Sea un espacio cartesiano y un ente que caminará sobre él. Si asumimos que el individuo camina solo en cuatro direcciones (norte, sur, este, oeste) entonces hay cuatro posibilidades de dar el primer paso, y a partir de este paso se abren cuatro posibilidades , y así sucesivamente. Se puede calcular en promedio cuánto recorre después de dar una determinada cantidad de pasos. 
+
+Este modelo se simula.
+
+\section{Simulación de Monte Carlo}
+
+Es un método para estimar el valor de una cantidad desconocida utilizando los principios de la estadística inferencial. Donde existe una población, una muestra y un acontecimiento o hecho clave, el cual es una muestra aleatoria que tiende a exhibir las mismas propiedades que la población de la cual se toma.
+
+considere el ejemplo de tirar una moneda cierto número de veces. en el primer experimento se tira la moneda dos veces y en el segundo experimento se tira la moneda cien veces. En ambos experimentos el resultado es que la moneda cae siempre en cara. ¿por qué nos resulta más fácil adivinar que para el segundo experimento si tiramos la moneda por 101va vez, esta saldrá con seguridad cara, que si lo intentamos para el experimento en que se tiró dos veces la moneda?
+
+La respuesta está en la varianza o variabilidad de los resultados. A medida que la varianza crece, se necesita una muestra mayor para obtener la misma cantidad de confianza 
+
+\paragraph{Ley del número grande}
+En un número repetido de pruebas independientes con la misma probabilidad $p$ de una salida particular en cada prueba, la probabilidad de que la relación de veces que la salida ocurre difiera de p converge a cero cuando el número de intentos tiende a infinito.
+
+Para un ejemplo con el juego de la ruleta, si giramos la ruleta un número infinito de veces, la ganancia de apuestas esperada será cero. 
+
+\subsection{Distribuciones de probabilidad}
+
+\subsubsection{Distribución normal}
+
+Su ecuación matemática es de la forma 
+
+\begin{equation}
+    P(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{(x-\mu)^2}{2 \sigma ^2}}
+\end{equation}
+
+sabiendo, para e, que
+
+\begin{equation}
+    e = \sum_{n=0}^{\infty}
+\end{equation}
+
+\section{Intervalos de confianza}
+
+\subsection{Teorema del límite central}
+
+Dada una muestra lo suficientemente grande: 
+\begin{itemize}
+    \item Las medias de las muestras en un conjunto de muestras (la media de las muestras) se aproximará a una distribución normal. Esto significa que si tomamos varias muestras, y tomamos sus respectivas medias, y graficamos esas medias; esta gráfica tenderá a ser una gráfica de distribución normal. Dicho en otras palabras, si se toman muestras de lotes de datos de una población que tenga cualquier tipo de distribución de probabilidad, y luego se toma la media de cada lote, la distribución de las medias será normal 
+\end{itemize}
+
+\section{Muestreo}
+
+Como resumen de lo visto ya:
+
+\begin{itemize}
+    \item La estadística inferencial es realizar conclusiones e inferir resultados acerca de una población mediante el examen de algunas muestras aleatorias sacadas de la población.
+    \item Con la simulación de Monte Carlo podemos generar una gran cantidad de muestras aleatorias, y utilizarlas para calcular intervalos de confianza.
+    \item Pero suponiendo que no se pueden generar muestras aleatorias. 
+    
+    Si queremos realizar lo que se llama muestreo de probabilidad, pensemos en dos escenarios; el primero es uno en el que cada miembro de la población tiene una probabilidad no nula de ser incluida en la muestra.
+    
+    El segundo es que cada miembro tiene una probabilidad igual de ser escogido
+    
+\end{itemize}
+
+El error estándar de la media está dador por 
+
+\begin{equation}
+    SE = \frac{\sigma}{\sqrt{n}}
+\end{equation}
+
+donde $\sigma$ es la desviación de la población y $n$ es el tamaño de la muestra
+
+Imagine que para un conjunto muy grande de datos e información, no se tiene acceso a la totalidad de los datos, y en su lugar queremos estimar algunas estadísticas sobre estos como totalidad, pero sacando un conjunto pequeño aleatorio de datos.
+
+Si se toma un número pequeño escogido aleatoriamente, nos damos cuenta de que valores como media y desviación estándar son muy similares, aunque la forma de la distribución sea mucho más distinta o alejada de la distribución normal, ¿es un indicador esperado?
+
+Es importante encontrar un intervalo de confianza que nos permita realizar una conclusión verdadera y segura. Dada una sola muestra (de cualquier tamaño) sacada de una población más grande, la mejor estimación de la media de la población es la media de la muestra. Estimar el tamaño del intervalo de confianza requerido para lograr un nivel de confianza deseado es más complicado.
+
+Se sabe que nos acercaremos más a medida que el tamaño de la muestra sea mayor, pero ¿qué tan grande será lo suficientemente grande? Esto depende de la varianza de la población. Mientras más grande sea la varianza, se necesitarás más muestras.
+
+Considérese dos distribuciones normales, ambas con media de 0 y las desviaciones estándar son 1 y 100. Si tuviéramos que seleccionar aleatoriamente un elemento de una de las distribuciones y utilizarlo para estimar la media de la distribución, la probabilidad de esta estimación de estar dentro de un rango deseado $\epsilon$ al rededor del valor verdadero (0), sería igual al área bajo la curva de la función densidad de probabilidad en el intervalo $(- \epsilon,\epsilon)$.
+
+Realizando una prueba en la que se toma una serie de muestras de una población grande y variando tanto el número como el tamaño de las muestras; una conclusión de las prueba realizada es que, tal como indica el teorema del límite central, las medias calculadas de las muestras tomadas se comportan como una distribución normal a medida que se toman más muestras (esto es, si se toman 100 muestras de tamaño 10, y se toman 1000 muestras del mismo tamaño, las medias de esta última tenderá más a distribución normal que la otra y su media estará más cercana a la media poblacional); sin embargo, para que la desviación estándar sea menor, es importante que el tamaño de las muestras sea mayor, es decir, que se tome un número grande de muestras de un tamaño grande, garantizará que la media se acerque más a la poblacional y que su desviación estándar sea más pequeña
+
+
+
+
+
+
+
+
+\section{Introducción}
+
+\section{Introducción}
+
+\section{Introducción}
+
+\section{Introducción}
+
+\section{Introducción}
+
+\section{Introducción}
+
+\section{Introducción}
+
+\section{Introducción}
+

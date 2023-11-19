@@ -1,0 +1,49 @@
+\chapter{Scrapping}
+
+    \section{Introducción al Scrapping}
+
+    El web scraping es una técnica poderosa utilizada para extraer información de páginas web. Esta técnica emplea programas o scripts para simular la navegación de un usuario en la web, accediendo a páginas web y extrayendo los datos necesarios de ellas. La flexibilidad del web scraping permite su aplicación en una variedad de contextos, desde la recopilación de datos para análisis de mercado hasta la automatización de tareas de recolección de datos para investigación académica o desarrollo de productos.
+
+    Una característica notable del web scraping es su capacidad para interactuar tanto con páginas web estáticas como dinámicas. Las páginas estáticas son aquellas cuyo contenido no cambia con cada solicitud y generalmente se sirven directamente desde el servidor en formato HTML. Por otro lado, las páginas dinámicas son aquellas cuyos contenidos pueden cambiar en función de la interacción del usuario, los datos de entrada, o incluso el tiempo, y a menudo implican la carga de datos a través de APIs o tecnologías de frontend como JavaScript.
+
+    Además, el web scraping moderno puede manejar desafíos más complejos como el análisis y la interacción con APIs, así como la superación de CAPTCHAs, que son mecanismos diseñados para diferenciar entre usuarios humanos y bots automatizados. El manejo de CAPTCHAs es un área avanzada del web scraping, que a menudo implica técnicas sofisticadas y, en algunos casos, cuestiones éticas y legales.
+
+    En el corazón del web scraping se encuentran varias herramientas y tecnologías clave. Bibliotecas como BeautifulSoup (bs4) y Scrapy en Python son ampliamente utilizadas para parsear y navegar por el contenido de las páginas web. BeautifulSoup es particularmente conocida por su simplicidad y eficiencia en extraer datos de HTML y XML, mientras que Scrapy ofrece un marco más completo para la creación de spiders - programas que automatizan la navegación y extracción de datos de múltiples páginas.
+
+    La biblioteca \texttt{requests} en Python es otra herramienta esencial, que se utiliza para realizar solicitudes HTTP a servidores web. Esta biblioteca simplifica el proceso de envío de solicitudes y manejo de respuestas, lo cual es fundamental para acceder a los contenidos de las páginas web.
+
+    Un aspecto crucial del web scraping es el análisis y la selección de los datos específicos a extraer. Aquí es donde entra en juego XPath, un lenguaje que permite navegar a través de los elementos y atributos en los documentos HTML y XML. XPath proporciona una forma poderosa y flexible de identificar y extraer partes específicas de una página web, lo que facilita enormemente la tarea de localizar y recopilar los datos deseados.
+
+    En resumen, el web scraping es una técnica multifacética que se ha vuelto indispensable en el mundo del análisis de datos y la automatización. Con la ayuda de herramientas como BeautifulSoup, Scrapy, `requests`, y el uso de XPath para el análisis de HTML, los desarrolladores y analistas pueden extraer una gran cantidad de información de la web, abarcando desde páginas web estáticas sencillas hasta páginas dinámicas y APIs complejas. Sin embargo, es crucial tener en cuenta las implicaciones legales y éticas al realizar web scraping, asegurándose de respetar las políticas de uso de los sitios web y las leyes de protección de datos.
+    
+        \subsection{XPath}
+
+        XPath, que significa XML Path Language, es un lenguaje de consulta que se utiliza para seleccionar nodos de un documento XML. Este lenguaje ofrece una forma precisa y flexible de navegar y localizar partes específicas de un documento, lo cual es esencial en el contexto del procesamiento de XML y HTML, especialmente en tareas como el web scraping y la transformación de datos. XPath utiliza una sintaxis de ruta similar a las rutas de archivo en sistemas operativos, lo que permite a los usuarios y desarrolladores especificar patrones para identificar nodos, atributos y valores dentro del documento XML.
+
+        La fuerza de XPath radica en su capacidad para realizar búsquedas tanto específicas como generales dentro de un documento. Por ejemplo, puede seleccionar todos los nodos que cumplen con cierto criterio, o puede enfocarse en un solo elemento con una identificación única. Además, XPath soporta funciones integradas para cadenas, números y lógica booleana, lo que añade una capa adicional de potencia y versatilidad a las consultas. Esta combinación de flexibilidad y precisión hace de XPath una herramienta indispensable en muchas aplicaciones que involucran XML, como la transformación de datos con XSLT, la configuración de ciertos frameworks de desarrollo de software y, más comúnmente, la extracción de datos específicos de páginas web en el web scraping. Con su enfoque en la estructura del documento y su capacidad para manejar consultas complejas, XPath se ha establecido como un estándar para la manipulación y consulta de documentos XML.
+
+        La siguiente es una lista de los comandos más utilizados en XPath:
+
+        \begin{itemize}
+            \item \texttt{/}: Selector de raíz, selecciona desde el nodo raíz.
+            \item \texttt{//}: Selecciona nodos en todo el documento desde el nodo actual que coinciden con la selección.
+            \item \texttt{.}: Selecciona el nodo actual.
+            \item \texttt{..}: Selecciona el nodo padre del nodo actual.
+            \item \texttt{@}: Selecciona atributos. Ejemplo: \texttt{@class}.
+            \item \texttt{*}: Selecciona todos los nodos hijos del nodo actual.
+            \item \texttt{node()}: Selecciona todos los tipos de nodos bajo el nodo actual.
+            \item \texttt{[]}: Aplica un filtro, seleccionando elementos que cumplen el criterio dentro de los corchetes.
+            \item \texttt{|}: Combina expresiones y devuelve la unión de sus resultados.
+            \item \texttt{text()}: Selecciona todos los nodos de texto bajo el nodo actual.
+            \item \texttt{@*[local-name()='nombre']}: Selecciona atributos con un nombre local específico.
+            \item \texttt{[n]}: Selecciona el enésimo nodo en un conjunto.
+            \item \texttt{[last()]}: Selecciona el último nodo en un conjunto.
+            \item \texttt{[position()<n]}: Selecciona nodos en posiciones menores que \texttt{n}.
+            \item \texttt{[contains(@atributo, 'texto')]}: Selecciona nodos con un atributo que contiene un texto dado.
+            \item \texttt{[starts-with(@atributo, 'texto')]}: Selecciona nodos con un atributo que comienza con un texto dado.
+            \item \texttt{[string-length(@atributo)>n]}: Selecciona nodos con la longitud de cadena de un atributo mayor que \texttt{n}.
+            \item \texttt{[not(expresión)]}: Selecciona nodos que no cumplen con la expresión dada.
+        \end{itemize}
+
+        
+        

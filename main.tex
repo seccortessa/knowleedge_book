@@ -1,0 +1,66 @@
+\documentclass[openany]{book}
+\usepackage[a4paper,tmargin=25.4mm,bmargin=25.4mm,lmargin=25mm,rmargin=30mm]{geometry}
+% \usepackage[margin=1cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{txfonts}
+\usepackage{hyperref} 
+\usepackage{subcaption} 
+\usepackage[RPvoltages]{circuitikz}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+\newcommand{\eq}{=}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\hyperlink{contents}{Ir al Contenido}}
+\renewcommand{\headrulewidth}{0pt} % Si no quieres una línea en el encabezado
+\renewcommand{\footrulewidth}{0pt} % Si no quieres una línea en el pie de página
+
+\definecolor{micolor1}{HTML}{C9D7F8}
+\definecolor{micolor2}{HTML}{F2F5FF}
+
+\setcounter{secnumdepth}{3}
+
+\title{Programming stuff}
+\author{Sebastian Cortes}
+\date{June 2021}
+
+\begin{document}
+
+\tableofcontents
+\hypertarget{contents}{}
+
+
+% \include{latex/latex}
+% \include{C_andmore/C}
+% \include{python/python}
+\include{python/python_section}
+\include{python/pandas_section}
+\include{python/scrapping}
+% \include{math/math}
+% \include{Waves/waves}
+% \include{MQTT/MQTT}
+% \include{RTOS/RTOS}
+% \include{TI_Networks/Networks}
+% \include{CMI_plant/ard_cmi}
+% \include{Lectures_notes/computationalth}
+\include{Github/git}
+% \include{ExcelMacro/Macros}
+% \include{CoreGames/Core}
+% \include{Control/Control}
+% \include{VSC/vscode}
+\include{Data/Data}
+% \include{android_apps/android}
+% \include{Elect_circ/circuitos}
+% \include{Electronica/electronics}
+
+\end{document}

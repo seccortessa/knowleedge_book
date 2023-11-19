@@ -1,0 +1,150 @@
+\chapter{Visual Studio Code}
+
+\section{Snippets personalizados}
+
+Todos los archivos de snippets están escritos en formato JSON. Existen archivos propios para cada lenguage y existen también para uso global en VSCode. La sintaxis para configurar snippets personales es la que se muestra a continuación.
+
+\begin{verbatim}
+"title": {
+    "prefix": "chapter",
+    "body": "\\chapter{$1}"
+}
+\end{verbatim}
+
+Los items más importantes son \texttt{"prefix"}, que indica el texto que se teclea para que intellisense reconozca el snippet y lo ejecute. El segundo es \texttt{"body"}, que indica el texto que se usa dentro del snippet. Las directivas \texttt{$1,$2,...} son usadas para ubicar el cursor para llenar las opciones dentro del snippet. También pueden tener identificadores con palabras y no solamente números.\\
+
+Para proponer una porción de código de varias líneas, se puede usar la siguiente sintaxis
+
+\begin{verbatim}
+"Add a image": {
+    "prefix": "figure",
+    "body": [
+        "\\begin{figure}[$1]",
+        "\t\\centering",
+        "\t\\includegraphics[width=$2\\columnwidth]{$3}",
+        "\t\\caption{$4}",
+        "\t\\label{$5}",
+        "\\end{figure}",
+    ],
+    "description": "Add an image"
+\end{verbatim} 
+
+Se puede observar también la directiva \texttt{\textbackslash t} para proponer dentro del snippet la inclusión de identación.
+
+
+\section{Edicion de texto con markdown para la documentación}
+
+
+Una herramienta que puede ser útil para los repositorios es la de edición de la documentación con markdown, que con la opción \texttt{Markdown: Preview} permite ver cómo está quedando la documentación, y con la opción \texttt{Markdown: open preview on the side} para que se actualice en tiempo real.
+\begin{itemize}
+    \item Título principal: \texttt{\# Title} \\
+    \item Título secundario: \texttt{\#\# Subtitle} \\
+    \item Título de sub-sección: \texttt{\#\#\# Subsection} \\
+    \item Numeración normal: \texttt{1. text}
+    \item Adición de texto en formato código: \texttt{See the following code : 'sudo apt install -g typescript'} \\
+    \item Inserción de una URL a una palabra en particular: \texttt{You can see the documentation in this [link](https://github.com/) } \\
+\end{itemize}
+
+Para la creación de tablas con Markdown se utilizan la barra vertical:
+
+
+\begin{verbatim}
+| Position | Url |
+|----------|-----|
+|All employees  | localshost |
+\end{verbatim}
+
+
+
+
+
+
+
+
+\section{Organizacion del código}
+
+Una herramienta útil para el uso del código es la de reemplazar todas las ocurrencias para una palabra, con el comando \texttt{Ctrl + F2} se renombra todas las palabras realcionadas. Otro comando importante es \texttt{Ctrl+D} el cual selecciona solamente la palabra, en caso de querer reemplazarla o simplemente borrarla.
+
+
+En ocasiones es necesario tener varias terminales para diferentes propósitos dentro del proyecto, una configuración útil para mejorar la productividad es la siguiente configuración de teclado:
+
+
+\begin{verbatim}
+{
+    "key": "ctrl+tab",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+}
+
+{
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+}
+
+{
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+}
+
+{
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+}
+
+{
+    "key": "ctrl+r",
+    "command": "workbench.action.terminal.rename",
+    "when": "terminalFocus" 
+}
+\end{verbatim}
+
+en el archivo \texttt{Json} de los atajos de teclado.
+
+\section{Definición de 'workspace'}
+
+Los entornos de trabajo son básicamente una colección de carpetas las cuales podemos manejar en una misma ventana de VSCode. Estos se guardan con la extensión \texttt{.code-workspace}. Cada espacio de trabajo se puede ver como una entidad diferente en la cual estoy realizando el trabajo de código.
+
+
+\section{Notas adicionales}
+
+\subsection{Comandos importantes}
+
+La siguiente es una lista importante de los comandos que facilitan la productividad
+
+
+
+\begin{itemize}
+    \item \texttt{Alt + Up/Down} Mueve la línea o líneas de código hacia arriba o hacia abajo 
+    \item \texttt{Shift + Alt + T} Muestra u oculta el terminal de VSCode
+    \item \texttt{Ctrl + L} Selecciona toda la línea
+    \item \texttt{Ctrl + D} Selecciona la palabra actual
+    \item \texttt{Ctrl + F3 / Shift+Ctrl+F3} Cuando el cursor está sobre una palabra, selecciona la palabra y mueve el cursor hacia la siguiente lalabara duplicada.
+    \item \texttt{Shift+Alt+K} Borra la línea completa
+    \item \texttt{Ctrl+Shift+E} Abre el explorador de la parte izquierda
+    \item \texttt{Ctrl+Shift+L} Selecciona todas las palabras repetidas
+    \item \texttt{Ctrl+Shift+M} Abre o cierra el panel de problemas de la parte inferior
+    \item \texttt{Ctrl+Shift+Y} Abre o cierra la consola de debug de la parte inferior
+    \item \texttt{Ctrl+Shift+U} Abre o cierra el panel de salida de la parte inferior
+    \item \texttt{Ctrl+Enter} Hace un salto de línea si importar en qué parte de lña línea se encuentre
+    \item \texttt{Shift+Enter} Ejecuta el script
+    \item \texttt{Ctrl+Tab} CAmbia entre pestañas abiertas
+    \item \texttt{Shift+Alt+A} Comentar/quitar comentario de un bloque de código seleccionado
+    \item \texttt{Ctrl+\}} Comentar/quitar comentario de una línea
+    Si en el buscador al que accedemos con \texttt{Ctrl+Shift+P} ponemos dos puntos seguidos con un número, automáticamente se va a seleccionar esa línea de código.
+    \item \texttt{Ctrl+B} Muestra o quita la barra de la izquierda (Explorador,Extensiones, etc)
+    \item \texttt{F2} al tener una palabra seleccionada, si se trata de una dofinición de clase, o una palabra repetida, sirve para cambiar esa definición y se cambiarán todas las ocurrencias de esa palabra.
+    \item \texttt{Shift+Alt+Up/Down} coia la línea entera de código en la línea siguiente o en la linea anterior.
+\end{itemize}
+
+\subsection{Concepto de tareas}
+
+ 
+
+Las tareas en VSCode son una herramienta que sirve para automatizar procesos dentro de VSCode. La creación y ejecución de tareas está manejado mediante archivos JSON. En estos se configura la lista de tareas que serán ejecutadas cuando la tarea asea ejecutada.
+
+
+\subsection{Debug} 
+También es posible personalizar una configuración JSON para ejecutar el programa con el depurador.

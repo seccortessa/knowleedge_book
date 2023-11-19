@@ -1,0 +1,498 @@
+\chapter{Python}
+
+
+\section{Fundamentos}
+
+\subsection{Scope y variables del entorno}
+
+El término "scope" en el contexto de la programación se puede traducir al español como "ámbito" o "alcance". El alcance o ámbito de una variable en Python se refiere a la región del programa donde esa variable es válida y puede ser accedida.
+
+En Python, existen diferentes niveles de alcance, como el alcance global y el alcance local. El alcance global se refiere a las variables que están definidas fuera de cualquier función o clase y son accesibles desde cualquier parte del programa. El alcance local se refiere a las variables que están definidas dentro de una función o clase y solo son accesibles dentro de esa función o clase. El ejemplo más claro puede ser visto a continuación
+
+\begin{verbatim}
+enemies = 1
+
+def increase_enemies():
+    enemies = 2
+    print("enemies is", enemies)
+
+increase_enemies()
+print("enemies is", enemies)
+\end{verbatim}
+
+En este caso se llama a una función que cambia la variable "enemies" de 1 a 2. Sin embarago, la salida de este programa es
+
+\begin{verbatim}
+enemies is 2
+enemies is 1
+\end{verbatim}
+
+Podemos ver que fuera de la función, que fue donde se declaró la variable \texttt{enemies} esta no cambió de valor; solamente fue cambiada dentro de la función. Si por ejemplo tratáramos de escribir un programa que declare una variable solamente dentro de la función y la intentamos imprimir fuera de ella,
+
+\begin{verbatim}
+def drink():
+    var = 1
+    print(var)
+
+
+print(var)
+\end{verbatim}
+
+Saltará un error \texttt{NameError: name 'var' is not defined}. Esto es porque en este caso y en el anterior, las variables \texttt{enemies} y \texttt{var} son variables locales y están dentro del ámbito o alcance de la función que las declara o modifica.\\
+
+Por su parte, cualquier variable declarada fuera de todas las funciones y clases, son denominadas como variables locales y el ámbito o alcance de estas será global. Y es accesible desde cualquier parte del programa. Este concepto de ámbito o alcance no solamente aplica para las variables sino que también aplica para funciones, entre otro tipo de elementos.
+
+\subsubsection{Espacio de nombres}
+
+El concepto de espacio de nombres hace referencia a la manera que se tiene de organizar los diferentes nombres; sean de clases, funciones, variables, etc. Cada espacio de nombre puede ser visto como un contenedor con todos los nombres definidos. Existen diferentes tipos de namespaces:
+
+\begin{enumerate}
+    \item Namespace Global: Es el namespace de nivel superior y contiene los nombres definidos en el alcance global, es decir, fuera de cualquier función o clase. Los nombres definidos en el namespace global son accesibles desde cualquier parte del programa.
+    \item Namespace Local: Es el namespace creado cuando se define una función o clase. Contiene los nombres definidos dentro de esa función o clase y solo son accesibles desde su interior.
+    \item Namespace de Módulo: Cada archivo de Python se considera un módulo y tiene su propio namespace. Los nombres definidos en un módulo son accesibles desde otros módulos si se realiza una importación.
+    \item Namespace Incorporado (Built-in): Contiene los nombres predefinidos que son proporcionados por Python de manera predeterminada. Estos nombres incluyen funciones y tipos incorporados como print(), len(), str(), etc.
+\end{enumerate}
+
+Una característica impotante de Python es que no tiene un ámbito de bloque, a diferencia de otros lenguajes de programación. Esto quiere decir, por ejemplo, 
+
+\begin{verbatim}
+if var1:
+    <code>
+    <code>
+    <code>
+    <code>
+\end{verbatim}
+
+Si el lenguaje tiene ámbito de bloque, entonces cualquier definicion dentro de las líneas subordinadas al \texttt{if} anterior solamente existirán dentro del \texttt{if}. En python esto no pasa, cualqueir variable que este definida aquí estará dentro del ambito en que se encuentre el \texttt{if}.
+
+\subsubsection{Cómo modificar una variable global}
+
+Una cosa importante dentro del tema de los entornos de que siempre que tenemos dos ámbitos diferentes; por ejemplo el entorno global y un entrono local, una variable global comparada con una variable local son dos variables completamente diferentes, aunque tengan el mismo nombre. ES muy mala idea nombrar dos variables con el mismo nombre, aunque estén en dos ámbitos diferentes. En el caso dado de que se requiera modificar el valor de una variable global dentro de una variable local, es imprescindible indicar exlícitamente que se trata de una variable global:
+
+\begin{verbatim}
+var = 2
+def fun():
+    global var
+    var = 1
+    print(var)
+fun()
+print(var)
+\end{verbatim}
+
+En este caso, no se crea una nueva variable en el entorno local de la función, sino que se modifica la variable global declarada al principio.
+
+En general no es muy recuente el uso de este método de cambio de variables globales, porque se presta para confusiones y facilita de ciera manera los erroes. Sin embargo, el uso de las variables globales es importante por ejemplo cuando se necesita declarar una variable constante dentro del programa. Siempre se usa como convención usar letras mayúsculas y barras bajas para declarar constantes dentro del programa (ejemplo \texttt{MY\_EMAIL = "sebas@unal.edu"}).
+
+\section{Tipos de datos, estructuras, objetos incorporados, funciones}
+
+\subsection{variables y su almacenamiento}
+
+al entrar en una funcion, normalmente el entorno se reinicia, con lo cual la mayoría de las variables que se declaren o se modifiquen solamente lo hará en ese entorno. Sin embargo, algunas funciones de algunos tipos de datos (mayoritariamente modificar) como \texttt{list.append()} 
+
+\subsection{Funciones}
+
+Una manera de especificar mejor los argumentos de las funciones, es mediante la siguiente fórma:
+
+\texttt{my\_fun(a=1, b=2, c=3)}
+
+\subsection{Tupla}
+
+De manera similar que una secuencia de caracteres, una tupla es una secuencia de datos de distintos tipos. Colección de distintos datos. Este no se puede modificar una vez se declara. Esto es, no son mutables y por tanto se almacenan en un solo bloque de memoria.\\\
+
+\texttt{tupla = (2,"hola",False)} \\\
+
+Si se suman las tuplas \texttt{a} y \texttt{b}, el resultado es una concatenación \\\
+
+\texttt{tupla = (1,2,3)} \\
+\texttt{tupla2 = (4,5,True)} \\
+\texttt{tupla3 = tupla + tupla2} \\
+\texttt{print(tupla3)} \\
+La salida es\\
+\texttt{(1,2,3,4,5,True)}\\\
+
+Multiplicar una tupla:
+
+\begin{verbatim}
+a = (1,2)
+print(a*5)
+\end{verbatim}
+\begin{lstlisting}
+output: (1, 2, 1, 2, 1, 2, 1, 2, 1, 2)
+\end{lstlisting}
+
+Recorrer una tupla:
+\begin{verbatim}
+for i in tuple:
+    print(i)
+\end{verbatim}
+
+Verificar si es miembro
+
+\begin{verbatim}
+    3 in (1,2,3)
+\end{verbatim}
+
+La tuplas son útiles para hacer cambios de variables en una linea misma: \\\
+
+\texttt{x = 2}\\
+\texttt{y = 5}\\
+\texttt{(x,y) = (y,x)}\\
+\texttt{print(x)}\\
+\texttt{output: 5}\\\
+
+También para definir una función en la que retornan varios valores
+
+\begin{verbatim}
+def funcion(x,y):
+    q = x // y
+    r = x % y
+    return (q,r)
+    
+(cociente,residuo) = funcion(47,11)
+print(residuo)
+\end{verbatim}
+\begin{lstlisting}
+output: 3
+\end{lstlisting}
+
+Para retornar el enésimo elemento de una tupla se pone \texttt{tuple[i]}. Recordar que los índices van dede cero hasta \texttt{length(tuple)-1}. 
+
+\textbf{Nota:} \texttt{tuple[1:5]} retornará los valores de la tupla desde el índice \textbf{2} hasta el \textbf{4}.
+
+\begin{itemize}
+    \item \texttt{len(tuple)}: Retorna el tamaño de la tupla
+    \item \texttt{max(tuple)}: Retorna el valor máximo de la tupla. Si en la tupla hay cadenas de caracteres, tuplas o listas, retorna un error.
+    \item \texttt{tuple(List)}: Retorna una tupla conformada con los elementos de la lista List.
+\end{itemize}
+
+\subsection{Lista}
+
+Otro tipo de arreglo de datos es la lista. La principal diferencia entre tupla y lista es que la lista sí es mutable y también ocupa dos bloques de memoria; esto hace que trabajar con tuplas sea más rápido pero la ventaja de la lista es que es modificable.
+
+\begin{verbatim}
+    list1 = ['physics', 'chemistry', 1997, 2000]
+\end{verbatim}
+
+El tipo de acceso de los elementos de una lista es el mismo que para las tuplas. De la misma forma las operaciones; ver la sección anterior en las operaciones de listas. \\\
+
+\subsubsection{Lista de funciones}
+
+\paragraph{\texttt{len(list)}} Retorna el tamaño de la lista.
+\paragraph{\texttt{max(list)}} Retorna el valor del máximo, si la lista contiene combinaciones de numeros y caracteres o listas o tuplas, genera error.
+\paragraph{\texttt{min(list)}} Retorna el valor mínimo dentro de la lista.
+\paragraph{\texttt{list(seq)}} Retorna una lista compuesta por los elementos de \texttt{seq}.
+\paragraph{\texttt{sorted(list)}} Retorna una lista con los elementos de \texttt{list} ordenados de menor a mayor.
+
+
+\subsubsection{Lista de métodos}
+
+\paragraph{\texttt{list.append(obj)}} Añade el objeto \texttt{obj} al final de la lista
+
+\paragraph{\texttt{list.count(obj)}} Retorna el número de veces que el objeto \texttt{obj} ocurre en la lista.
+
+\paragraph{\texttt{list.extend(seq)}} Añade el contenido de \texttt{seq} a la lista. Lo añade al final de la lista.
+
+\paragraph{\texttt{list.index(obj)}} Retorna el índice más pequeño en la lista en que el objeto \texttt{obj} aparece.
+
+\paragraph{\texttt{list.insert(index, obj)}} Inserta el objeto \texttt{obj} en la casilla \texttt{index} de la lista, moviendo el resto una posición.
+
+\paragraph{\texttt{list.pop(obj = list[-1])}} Remueve y retorna el objeto que se encuentre en la posición \texttt{obj}. Por defecto si no se ingresa argumento, remueve el último objeto de la lista.
+
+\paragraph{\texttt{list.remove(obj)}} Remueve el primer objeto \texttt{obj} que encuentre en la lista.
+
+\paragraph{\texttt{list.reverse()}} Invierte el orden de los componentes de la lista.
+
+\paragraph{\texttt{list.sort(key=None)}} Organiza los elementos de la lista, si hay una directiva de oredenamiento, se puede ingresar como el argumento \texttt{key}, por defecto, organiza de menor a mayor.
+
+\paragraph{\texttt{list.clear(}} Elimina todos los componentes dentro de la lista dejándola como una lista vacía.
+
+\paragraph{\texttt{list.copy()}} Retorna una copia de la lista.
+
+\subparagraph{Nota} Si se declara una lista como sigue
+\begin{verbatim}
+    A = [1,2,3]
+    B = A
+\end{verbatim}
+Tanto \texttt{A} como \texttt{B} están apuntando al mismo objeto, o dirección de memoria. Para realizar una copia de \texttt{A} en otro espacio de memoria se utiliza
+
+\begin{verbatim}
+    B = A[:]
+\end{verbatim}
+
+\subsection{Diccionario}
+
+Es una lista especial en la que se puede dar un identificador especial al índice de la misma
+
+\begin{verbatim}
+    dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+    print(dict["Name"])
+\end{verbatim}
+
+El primer objeto del diccionario tiene un identificador llamado "Name" y un valor asociado a él que en este caso es "Zara". La salida del código anterior será
+
+\begin{verbatim}
+    Zara
+\end{verbatim}
+
+Se puede modificar el valor de una entrada en el diccionario y se puede también añadir una nueva entrada
+
+\begin{verbatim}
+    dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+    dict['Age'] = 8; # update existing entry
+    dict['School'] = "DPS School" # Add new entry
+\end{verbatim}
+
+Para borrar elementos de un diccionario 
+
+\begin{verbatim}
+    del(dict["Name"])
+\end{verbatim}
+
+Una propiedad importante de los diccionarios es que los elementos pueden ser cualquier objeto de python. Las 'llaves' o identificadores deben ser objetos inmutables como cadenas de caracteres o tuplas.
+
+\subsubsection{Funciones}
+
+\paragraph{\texttt{len(dic)}}
+
+\paragraph{\texttt{srt(dic)}} Retorna una cadena de caracteres imprimible de los elementos que contiene el diccionario \texttt{dic}
+
+
+\subsubsection{Métodos}
+
+\paragraph{\texttt{dic.clear()}}
+
+\paragraph{\texttt{dic.copy()}}
+
+\paragraph{\texttt{dic.fromkeys(iterable,value)}} Retorna un nuevo diccionario cuyas 'llaves' estarán determinadas por los elementos de \texttt{iterable} y con un valor asociado (único) de \texttt{value}
+
+\paragraph{\texttt{dic.get(key, default=None)}} Retorna el valor correspondiente a la llave \texttt{key}. El segundo argumento es el retorno cuando no hay una llave que corresponda.
+
+\paragraph{\texttt{dic.items()}} Este método retorna una lista de tuplas, cada tupla corresponde a la llave y al valor correspondiente.
+
+\paragraph{\texttt{dic.keys()}} Retorna una vista de todas las llaves del diccionario. Se puede conseguir la lista nativa a través de \texttt{list()}.
+
+\paragraph{\texttt{dic.setdefault(key, default = None)}} Es similar a \texttt{get()} con la diferencia de que si la llave \texttt{key} no está en el diccionario, entonces la añade y su valor correspondiente será \texttt{default}
+
+\paragraph{\texttt{dic.update(dict2)}} Actualiza el diccionario añadiendo todos los pares (llave-valor) de \texttt{dict2}.
+
+\paragraph{\texttt{dic.values()}} Retorna una vista de los valores del diccionario. Se puede conseguir la lista nativa a través de \texttt{list()}.
+
+\subsection{\texttt{open()}}
+
+El retorno de esta función es un objeto \texttt{file}.
+
+\begin{verbatim}
+open (file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+\end{verbatim}
+
+\begin{itemize}
+    \item \texttt{file} es un objeto \texttt{path-like}, es el nombre del archivo a abrir (incluyendo la ruta si es necesario) o crear.
+    \item \texttt{mode} es un string opcional que especifica el modo en el que el archivo se abre, por defecto \texttt{'r'} para leer \texttt{'w'} para escribir, truncando el archivo primero \texttt{'x'} para creación de archivo nuevo, falla si ya hay un archivo con ese nombre, \texttt{'a'} para escribir en el archivo, anexando al final del archivo si este existe, \texttt{'b'} modo binario, \texttt{'t'} es modo de texto que está por defecto, \texttt{'+'} para abrir y actualizar (leer y escribir) 
+\end{itemize}
+
+Los archivos abiertos en el modo binario retornan el contenido como objetos byte sin ninguna decodificación; en el modo texto, el contenido se lee como string.
+
+\subsubsection{Concatenación especial de cadenas de caracteres.}
+
+una forma interesante de hacer concatenación de caracteres es mediante la siguiente forma. Sea \texttt{score=0} una variable del tipo \texttt{int}. Si hacemos \texttt{print(f"your score is {score}")} se hará la conversión de entero a caracter automáticamente sin la necesidad de hacer \texttt{print("your score is" + str(score)")}
+
+
+
+
+
+\section{Errores y debuggeo de los mismos}
+
+\subsection{Tipos de testeo}
+
+\subsubsection{Test unitario}
+
+Si el programa es modular, es posible hacer tests que aseguren que cada función hace lo que se supone que debe hacer según las especificaciones.
+
+\subsubsection*{Test de regresión}
+
+Cada vez que se soluciona un error, se realiza testeo nuevamente del código, con el objetivo de asegurarse que al realizar la corrección no se agregaron nuevos errores. 
+
+\subsubsection*{Test de integración}
+
+Realizar testeo del programa como un todo. Se ponen juntas cada una de las partes individuales 
+
+\subsubsection{back box testing}
+
+Se tiene el código y se realizan las pruebas con diferentes casos con el fin de encontrar todas las rutas posibles que hay en el código.
+
+Se determina el docstring de una función, ejemplo: \\
+
+\begin{verbatim}
+    def sqrt(x,eps)
+        """Asume x y eps como flotantes, mayores que cero o igual para x, y retorna un res tal que x-eps <= res <= x+eps
+\end{verbatim}
+
+La idea es entonces realizar testeos de diferentes casos dadas las especificaciones del docstring. 
+
+En el caso del ejemplo anterior, se puede hacer un conjunto de pruebas con valores como raíces cuadradas perfectas, números irracionales, menores que 1, o por ejemplo con valores extremos como muy pequeño y muy grandes de ambos \texttt{x} y \texttt{eps}.
+
+\subsubsection{glass box testing}
+
+En este caso lo que se hace es utilizar directamente el código para guiar los casos de prueba. En este caso se pueden llegar a presentar muchas posibilidades de caminos disponibles, teniendo en cuenta la posible presencia de bucles y repeticiones en el código.
+Pr ejemplo, para ramas en los que hay diferentes casos, es importante lograr hacer la prueba para todos y cada uno de los posibles caminos o casos. Para bucles \texttt{for}, se deben preparar pruebas en las que no se entra a dicho bucle, también pruebas en las que se entra una vez, dos veces, tres y así sucesivamente. Para bucles \texttt{while} es de manera similar, pero asegurándose de tener casos de prueba que puedan cubrir todas la formas posibles de romper el bucle.
+
+Hacer el debugging tiene una variedad grande de posibilidades. Utilizar \texttt{print}, por ejemplo, dentro de funciones o bucles.
+
+\subsection{Errores}
+
+\subsubsection{\texttt{IndexError}}
+
+\begin{verbatim}
+    test[1,2,3]
+    test[4]
+\end{verbatim}
+
+\subsubsection{\texttt{TypeError}}
+
+\texttt{int(test)}
+
+\subsubsection{\texttt{NameError}} cuando no se encuentra un nombre ya sea local o global.
+
+\texttt{a}
+una variable inexistente.
+
+\subsubsection{\texttt{SyntaxError}}
+
+Errores de sintaxis. Cuando python no puede interpretar o analizar gramaticalmente el código.
+
+
+\subsubsection{\texttt{AttributeError}} las referencias a atributos falla.
+
+
+\subsubsection{\texttt{ValueError}} el tipo de operador está correcto, pero el valor del mismo es imposible.
+
+
+\subsubsection{\texttt{IOError}} El sistema IO reporta una malfunción (por ejemplo un archivo no encontrado). Los errores son llamados excepciones.
+
+ahora por alguna razón esto no deja seguir y continuar
+
+
+\subsection{Handlers}
+
+Los llamados manejadores, son lo que se encargan de llevar a cabo la rutina o ejecución necesaria cuando determinada cosa ocurre, sean interrupciones o excepciones.
+
+\begin{verbatim}
+    try:
+        xxxxxxx
+        xxxxxx
+    except (exception_type1):
+        xxxxxx
+        xxxxx
+    except (exception_type2):
+        xxxxxx
+        xxxxx
+        .
+        .
+        .
+\end{verbatim}
+
+
+\begin{verbatim}
+    else:
+\end{verbatim}
+
+lo anterior se ejecuta cuando el cuerpo del \texttt{try} asociado se ejecuta sin ninguna excepción.
+
+\begin{verbatim}
+    finally:
+\end{verbatim}
+
+Siempre se ejecuta después del \texttt{try}, \texttt{else}, y \texttt{except}, incluso cuando existen \texttt{break}, \texttt{continue} o \texttt{return}.
+
+\begin{verbatim}
+    raise <ExceptionName> (<Arguments>)
+    raise <ValueError> ("Uis, algo esta mal")
+\end{verbatim}
+
+\subsection{assertions}
+
+programación "defensiva". 
+
+\begin{verbatim}
+    assert <lo_que_se_espera>, <mensaje>
+\end{verbatim}
+
+Da un error de ejecución del tipo \texttt{AssertError}. dando la explicación pertinente.
+
+Ahora hay errores lógicos que son más complicados de tratar. 
+
+Cosas que no se deben hacer:
+
+\begin{enumerate}
+    \item Escribir el código entero para hacer pruebas sobre él
+    \item Hacer debug en el programa entero
+    \item Olvidar en qué lugar estaba el bug
+    \item Olvidar cuáles fueron los cambios que se hicieron
+\end{enumerate}
+
+Por el contrario es más recomendable escribir una función, probarla, hacer depuración, y así con cada función nueva que se escriba. Hacer Testeo de integración. 
+También hacer copias de seguridad del código, cambiarlo, advertir mediante comentarios los cambios, y al realizar pruebas, hacer comparaciones.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{POO}
+
+\texttt{object} es el tipo más básico en python.
+
+\begin{verbatim}
+    class <name>(<parent_class>):
+\end{verbatim}
+
+\begin{verbatim}
+    class coordinate(object):
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+\end{verbatim}
+
+El \texttt{self} es un parámetro para referirse a la instancia de la clase, la que esté ejecutándose. El constructor siempre será \texttt{def \_\_init\_\_():}\\
+
+\subsection{Métodos importantes}
+
+Estos métodos sustituyen operadores o funciones importantes.
+
+\begin{itemize}
+    \item \texttt{\_\_str\_\_():} Su retorno es lo que se muestra cuando se ejecuta la función \texttt{print()}
+    \item \texttt{\_\_add\_\_():} Su retorno es el valor de 'a+b'.
+    \item \texttt{\_\_sub\_\_():} Su retorno es el valor de 'a-b'.
+    \item \texttt{\_\_mul\_\_():} Su retorno es el valor de 'a*b'.
+    \item \texttt{\_\_eq\_\_():} Su retorno es el valor de 'a==b'.
+    \item \texttt{\_\_lt\_\_():} Su retorno es el valor de 'a<b'.
+    \item \texttt{\_\_len\_\_():} Su retorno es el valor de 'len(a)'.
+\end{itemize}
+
+\textbf{nota} las \textbf{variables de clase} son variables cuyo valor se comparte entre todas las instancias de la clase 
+
+
+
+\section{Sobre algoritmos}
+
+¿Cómo se puede establecer o sabe qué tan eficiente es mi algoritmo? 
+
+Los razonamientos que surgen a partir de este punto dan como resultado un análisis interesante sobre las siguientes cuestiones:
+
+\begin{itemize}
+    \item Cómo podemos razonar sobre un algoritmo con el objetivo de predecir la cantidad de tiempo que este necesitará para resolver un problema de un tamaño en particular.
+    \item Cómo podemos relacionar las opciones en el diseño de algoritmos con la eficiencia en tiempo del resultado.
+\end{itemize}
+
+
+
+
+
+

@@ -1,0 +1,3066 @@
+\chapter{Python}
+
+\section{Fundamentos}
+
+\subsection{Scope y variables del entorno}
+
+El término "scope" en el contexto de la programación se puede traducir al
+español como "ámbito" o "alcance". El alcance o ámbito de una variable en
+Python se refiere a la región del programa donde esa variable es válida y puede
+ser accedida.
+
+En Python, existen diferentes niveles de alcance, como el alcance global y el
+alcance local. El alcance global se refiere a las variables que están definidas
+fuera de cualquier función o clase y son accesibles desde cualquier parte del
+programa. El alcance local se refiere a las variables que están definidas
+dentro de una función o clase y solo son accesibles dentro de esa función o
+clase. El ejemplo más claro puede ser visto a continuación
+
+\begin{verbatim}
+enemies = 1
+
+def increase_enemies():
+    enemies = 2
+    print("enemies is", enemies)
+
+increase_enemies()
+print("enemies is", enemies)
+\end{verbatim}
+
+En este caso se llama a una función que cambia la variable "enemies" de 1 a 2.
+Sin embarago, la salida de este programa es
+
+\begin{verbatim}
+enemies is 2
+enemies is 1
+\end{verbatim}
+
+Podemos ver que fuera de la función, que fue donde se declaró la variable
+\texttt{enemies} esta no cambió de valor; solamente fue cambiada dentro de la
+función. Si por ejemplo tratáramos de escribir un programa que declare una
+variable solamente dentro de la función y la intentamos imprimir fuera de ella,
+
+\begin{verbatim}
+def drink():
+    var = 1
+    print(var)
+
+
+print(var)
+\end{verbatim}
+
+Saltará un error \texttt{NameError: name 'var' is not defined}. Esto es porque
+en este caso y en el anterior, las variables \texttt{enemies} y \texttt{var}
+son variables locales y están dentro del ámbito o alcance de la función que las
+declara o modifica.\\
+
+Por su parte, cualquier variable declarada fuera de todas las funciones y
+clases, son denominadas como variables locales y el ámbito o alcance de estas
+será global. Y es accesible desde cualquier parte del programa. Este concepto
+de ámbito o alcance no solamente aplica para las variables sino que también
+aplica para funciones, entre otro tipo de elementos.
+
+\subsubsection{Espacio de nombres}
+
+El concepto de espacio de nombres hace referencia a la manera que se tiene de
+organizar los diferentes nombres; sean de clases, funciones, variables, etc.
+Cada espacio de nombre puede ser visto como un contenedor con todos los nombres
+definidos. Existen diferentes tipos de namespaces:
+
+\begin{enumerate}
+    \item Namespace Global: Es el namespace de nivel superior y contiene los
+          nombres definidos en el alcance global, es decir, fuera de cualquier función o
+          clase. Los nombres definidos en el namespace global son accesibles desde
+          cualquier parte del programa.
+    \item Namespace Local: Es el namespace creado cuando se define una función
+          o clase. Contiene los nombres definidos dentro de esa función o clase y solo
+          son accesibles desde su interior.
+    \item Namespace de Módulo: Cada archivo de Python se considera un módulo y
+          tiene su propio namespace. Los nombres definidos en un módulo son accesibles
+          desde otros módulos si se realiza una importación.
+    \item Namespace Incorporado (Built-in): Contiene los nombres predefinidos
+          que son proporcionados por Python de manera predeterminada. Estos nombres
+          incluyen funciones y tipos incorporados como print(), len(), str(), etc.
+\end{enumerate}
+
+Una característica impotante de Python es que no tiene un ámbito de bloque, a
+diferencia de otros lenguajes de programación. Esto quiere decir, por ejemplo,
+
+\begin{verbatim}
+if var1:
+    <code>
+    <code>
+    <code>
+    <code>
+\end{verbatim}
+
+Si el lenguaje tiene ámbito de bloque, entonces cualquier definicion dentro de
+las líneas subordinadas al \texttt{if} anterior solamente existirán dentro del
+\texttt{if}. En python esto no pasa, cualqueir variable que este definida aquí
+estará dentro del ambito en que se encuentre el \texttt{if}.
+
+\subsubsection{Cómo modificar una variable global}
+
+Una cosa importante dentro del tema de los entornos de que siempre que tenemos
+dos ámbitos diferentes; por ejemplo el entorno global y un entrono local, una
+variable global comparada con una variable local son dos variables
+completamente diferentes, aunque tengan el mismo nombre. ES muy mala idea
+nombrar dos variables con el mismo nombre, aunque estén en dos ámbitos
+diferentes. En el caso dado de que se requiera modificar el valor de una
+variable global dentro de una variable local, es imprescindible indicar
+exlícitamente que se trata de una variable global:
+
+\begin{verbatim}
+var = 2
+def fun():
+    global var
+    var = 1
+    print(var)
+fun()
+print(var)
+\end{verbatim}
+
+En este caso, no se crea una nueva variable en el entorno local de la función,
+sino que se modifica la variable global declarada al principio.
+
+En general no es muy recuente el uso de este método de cambio de variables
+globales, porque se presta para confusiones y facilita de ciera manera los
+erroes. Sin embargo, el uso de las variables globales es importante por ejemplo
+cuando se necesita declarar una variable constante dentro del programa. Siempre
+se usa como convención usar letras mayúsculas y barras bajas para declarar
+constantes dentro del programa (ejemplo \texttt{MY\_EMAIL = "sebas@unal.edu"}).
+
+\section{Tipos de datos, estructuras, objetos incorporados, funciones}
+
+\subsection{variables y su almacenamiento}
+
+al entrar en una funcion, normalmente el entorno se reinicia, con lo cual la
+mayoría de las variables que se declaren o se modifiquen solamente lo hará en
+ese entorno. Sin embargo, algunas funciones de algunos tipos de datos
+(mayoritariamente modificar) como \texttt{list.append()}
+
+\subsection{Funciones}
+
+Una manera de especificar mejor los argumentos de las funciones, es mediante la
+siguiente fórma:
+
+\texttt{my\_fun(a=1, b=2, c=3)}
+
+\subsection{Tupla}
+
+De manera similar que una secuencia de caracteres, una tupla es una secuencia
+de datos de distintos tipos. Colección de distintos datos. Este no se puede
+modificar una vez se declara. Esto es, no son mutables y por tanto se almacenan
+en un solo bloque de memoria.\\\
+
+\texttt{tupla = (2,"hola",False)} \\\
+
+Si se suman las tuplas \texttt{a} y \texttt{b}, el resultado es una
+concatenación \\\
+
+\texttt{tupla = (1,2,3)} \\
+\texttt{tupla2 = (4,5,True)} \\
+\texttt{tupla3 = tupla + tupla2} \\
+\texttt{print(tupla3)} \\
+La salida es\\
+\texttt{(1,2,3,4,5,True)}\\\
+
+Multiplicar una tupla:
+
+\begin{verbatim}
+a = (1,2)
+print(a*5)
+\end{verbatim}
+\begin{lstlisting}
+output: (1, 2, 1, 2, 1, 2, 1, 2, 1, 2)
+\end{lstlisting}
+
+Recorrer una tupla:
+\begin{verbatim}
+for i in tuple:
+    print(i)
+\end{verbatim}
+
+Verificar si es miembro
+
+\begin{verbatim}
+    3 in (1,2,3)
+\end{verbatim}
+
+La tuplas son útiles para hacer cambios de variables en una linea misma: \\\
+
+\texttt{x = 2}\\
+\texttt{y = 5}\\
+\texttt{(x,y) = (y,x)}\\
+\texttt{print(x)}\\
+\texttt{output: 5}\\\
+
+También para definir una función en la que retornan varios valores
+
+\begin{verbatim}
+def funcion(x,y):
+    q = x // y
+    r = x % y
+    return (q,r)
+    
+(cociente,residuo) = funcion(47,11)
+print(residuo)
+\end{verbatim}
+\begin{lstlisting}
+output: 3
+\end{lstlisting}
+
+Para retornar el enésimo elemento de una tupla se pone \texttt{tuple[i]}.
+Recordar que los índices van dede cero hasta \texttt{length(tuple)-1}.
+
+\textbf{Nota:} \texttt{tuple[1:5]} retornará los valores de la tupla desde el
+índice \textbf{2} hasta el \textbf{4}.
+
+\begin{itemize}
+    \item \texttt{len(tuple)}: Retorna el tamaño de la tupla
+    \item \texttt{max(tuple)}: Retorna el valor máximo de la tupla. Si en la
+          tupla hay cadenas de caracteres, tuplas o listas, retorna un error.
+    \item \texttt{tuple(List)}: Retorna una tupla conformada con los elementos
+          de la lista List.
+\end{itemize}
+
+\subsection{Lista}
+
+Otro tipo de arreglo de datos es la lista. La principal diferencia entre tupla
+y lista es que la lista sí es mutable y también ocupa dos bloques de memoria;
+esto hace que trabajar con tuplas sea más rápido pero la ventaja de la lista es
+que es modificable.
+
+\begin{verbatim}
+    list1 = ['physics', 'chemistry', 1997, 2000]
+\end{verbatim}
+
+El tipo de acceso de los elementos de una lista es el mismo que para las
+tuplas. De la misma forma las operaciones; ver la sección anterior en las
+operaciones de listas. \\\
+
+\subsubsection{Lista de funciones}
+
+\paragraph{\texttt{len(list)}} Retorna el tamaño de la lista.
+\paragraph{\texttt{max(list)}} Retorna el valor del máximo, si la lista
+contiene combinaciones de numeros y caracteres o listas o tuplas, genera error.
+\paragraph{\texttt{min(list)}} Retorna el valor mínimo dentro de la lista.
+\paragraph{\texttt{list(seq)}} Retorna una lista compuesta por los elementos de
+\texttt{seq}.
+\paragraph{\texttt{sorted(list)}} Retorna una lista con los elementos de
+\texttt{list} ordenados de menor a mayor.
+
+\subsubsection{Lista de métodos}
+
+\paragraph{\texttt{list.append(obj)}} Añade el objeto \texttt{obj} al final de
+la lista
+
+\paragraph{\texttt{list.count(obj)}} Retorna el número de veces que el objeto
+\texttt{obj} ocurre en la lista.
+
+\paragraph{\texttt{list.extend(seq)}} Añade el contenido de \texttt{seq} a la
+lista. Lo añade al final de la lista.
+
+\paragraph{\texttt{list.index(obj)}} Retorna el índice más pequeño en la lista
+en que el objeto \texttt{obj} aparece.
+
+\paragraph{\texttt{list.insert(index, obj)}} Inserta el objeto \texttt{obj} en
+la casilla \texttt{index} de la lista, moviendo el resto una posición.
+
+\paragraph{\texttt{list.pop(obj = list[-1])}} Remueve y retorna el objeto que
+se encuentre en la posición \texttt{obj}. Por defecto si no se ingresa
+argumento, remueve el último objeto de la lista.
+
+\paragraph{\texttt{list.remove(obj)}} Remueve el primer objeto \texttt{obj} que
+encuentre en la lista.
+
+\paragraph{\texttt{list.reverse()}} Invierte el orden de los componentes de la
+lista.
+
+\paragraph{\texttt{list.sort(key=None)}} Organiza los elementos de la lista, si
+hay una directiva de oredenamiento, se puede ingresar como el argumento
+\texttt{key}, por defecto, organiza de menor a mayor.
+
+\paragraph{\texttt{list.clear(}} Elimina todos los componentes dentro de la
+lista dejándola como una lista vacía.
+
+\paragraph{\texttt{list.copy()}} Retorna una copia de la lista.
+
+\subparagraph{Nota} Si se declara una lista como sigue
+\begin{verbatim}
+    A = [1,2,3]
+    B = A
+\end{verbatim}
+Tanto \texttt{A} como \texttt{B} están apuntando al mismo objeto, o dirección
+de memoria. Para realizar una copia de \texttt{A} en otro espacio de memoria se
+utiliza
+
+\begin{verbatim}
+    B = A[:]
+\end{verbatim}
+
+\subsection{Diccionario}
+
+Es una lista especial en la que se puede dar un identificador especial al
+índice de la misma
+
+\begin{verbatim}
+    dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+    print(dict["Name"])
+\end{verbatim}
+
+El primer objeto del diccionario tiene un identificador llamado "Name" y un
+valor asociado a él que en este caso es "Zara". La salida del código anterior
+será
+
+\begin{verbatim}
+    Zara
+\end{verbatim}
+
+Se puede modificar el valor de una entrada en el diccionario y se puede también
+añadir una nueva entrada
+
+\begin{verbatim}
+    dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+    dict['Age'] = 8; # update existing entry
+    dict['School'] = "DPS School" # Add new entry
+\end{verbatim}
+
+Para borrar elementos de un diccionario
+
+\begin{verbatim}
+    del(dict["Name"])
+\end{verbatim}
+
+Una propiedad importante de los diccionarios es que los elementos pueden ser
+cualquier objeto de python. Las 'llaves' o identificadores deben ser objetos
+inmutables como cadenas de caracteres o tuplas.
+
+\subsubsection{Funciones}
+
+\paragraph{\texttt{len(dic)}}
+
+\paragraph{\texttt{srt(dic)}} Retorna una cadena de caracteres imprimible de
+los elementos que contiene el diccionario \texttt{dic}
+
+\subsubsection{Métodos}
+
+\paragraph{\texttt{dic.clear()}}
+
+\paragraph{\texttt{dic.copy()}}
+
+\paragraph{\texttt{dic.fromkeys(iterable,value)}} Retorna un nuevo diccionario
+cuyas 'llaves' estarán determinadas por los elementos de \texttt{iterable} y
+con un valor asociado (único) de \texttt{value}
+
+\paragraph{\texttt{dic.get(key, default=None)}} Retorna el valor
+correspondiente a la llave \texttt{key}. El segundo argumento es el retorno
+cuando no hay una llave que corresponda.
+
+\paragraph{\texttt{dic.items()}} Este método retorna una lista de tuplas, cada
+tupla corresponde a la llave y al valor correspondiente.
+
+\paragraph{\texttt{dic.keys()}} Retorna una vista de todas las llaves del
+diccionario. Se puede conseguir la lista nativa a través de \texttt{list()}.
+
+\paragraph{\texttt{dic.setdefault(key, default = None)}} Es similar a
+\texttt{get()} con la diferencia de que si la llave \texttt{key} no está en el
+diccionario, entonces la añade y su valor correspondiente será \texttt{default}
+
+\paragraph{\texttt{dic.update(dict2)}} Actualiza el diccionario añadiendo todos
+los pares (llave-valor) de \texttt{dict2}.
+
+\paragraph{\texttt{dic.values()}} Retorna una vista de los valores del
+diccionario. Se puede conseguir la lista nativa a través de \texttt{list()}.
+
+\subsection{\texttt{open()}}
+
+El retorno de esta función es un objeto \texttt{file}.
+
+\begin{verbatim}
+open (file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+\end{verbatim}
+
+\begin{itemize}
+    \item \texttt{file} es un objeto \texttt{path-like}, es el nombre del
+          archivo a abrir (incluyendo la ruta si es necesario) o crear.
+    \item \texttt{mode} es un string opcional que especifica el modo en el que
+          el archivo se abre, por defecto \texttt{'r'} para leer \texttt{'w'} para
+          escribir, truncando el archivo primero \texttt{'x'} para creación de archivo
+          nuevo, falla si ya hay un archivo con ese nombre, \texttt{'a'} para escribir en
+          el archivo, anexando al final del archivo si este existe, \texttt{'b'} modo
+          binario, \texttt{'t'} es modo de texto que está por defecto, \texttt{'+'} para
+          abrir y actualizar (leer y escribir)
+\end{itemize}
+
+Los archivos abiertos en el modo binario retornan el contenido como objetos
+byte sin ninguna decodificación; en el modo texto, el contenido se lee como
+string.
+
+\subsubsection{Concatenación especial de cadenas de caracteres.}
+
+una forma interesante de hacer concatenación de caracteres es mediante la
+siguiente forma. Sea \texttt{score=0} una variable del tipo \texttt{int}. Si
+hacemos \texttt{print(f"your score is {score}")} se hará la conversión de
+entero a caracter automáticamente sin la necesidad de hacer \texttt{print("your
+    score is" + str(score)")}
+
+\section{Errores y debuggeo de los mismos}
+
+\subsection{Tipos de testeo}
+
+\subsubsection{Test unitario}
+
+Si el programa es modular, es posible hacer tests que aseguren que cada función
+hace lo que se supone que debe hacer según las especificaciones.
+
+\subsubsection*{Test de regresión}
+
+Cada vez que se soluciona un error, se realiza testeo nuevamente del código,
+con el objetivo de asegurarse que al realizar la corrección no se agregaron
+nuevos errores.
+
+\subsubsection*{Test de integración}
+
+Realizar testeo del programa como un todo. Se ponen juntas cada una de las
+partes individuales
+
+\subsubsection{back box testing}
+
+Se tiene el código y se realizan las pruebas con diferentes casos con el fin de
+encontrar todas las rutas posibles que hay en el código.
+
+Se determina el docstring de una función, ejemplo: \\
+
+\begin{verbatim}
+    def sqrt(x,eps)
+        """Asume x y eps como flotantes, mayores que cero o igual para x, y retorna un res tal que x-eps <= res <= x+eps
+\end{verbatim}
+
+La idea es entonces realizar testeos de diferentes casos dadas las
+especificaciones del docstring.
+
+En el caso del ejemplo anterior, se puede hacer un conjunto de pruebas con
+valores como raíces cuadradas perfectas, números irracionales, menores que 1, o
+por ejemplo con valores extremos como muy pequeño y muy grandes de ambos
+\texttt{x} y \texttt{eps}.
+
+\subsubsection{glass box testing}
+
+En este caso lo que se hace es utilizar directamente el código para guiar los
+casos de prueba. En este caso se pueden llegar a presentar muchas posibilidades
+de caminos disponibles, teniendo en cuenta la posible presencia de bucles y
+repeticiones en el código.
+Pr ejemplo, para ramas en los que hay diferentes casos, es importante lograr
+hacer la prueba para todos y cada uno de los posibles caminos o casos. Para
+bucles \texttt{for}, se deben preparar pruebas en las que no se entra a dicho
+bucle, también pruebas en las que se entra una vez, dos veces, tres y así
+sucesivamente. Para bucles \texttt{while} es de manera similar, pero
+asegurándose de tener casos de prueba que puedan cubrir todas la formas
+posibles de romper el bucle.
+
+Hacer el debugging tiene una variedad grande de posibilidades. Utilizar
+\texttt{print}, por ejemplo, dentro de funciones o bucles.
+
+\subsection{Errores}
+
+\subsubsection{\texttt{IndexError}}
+
+\begin{verbatim}
+    test[1,2,3]
+    test[4]
+\end{verbatim}
+
+\subsubsection{\texttt{TypeError}}
+
+\texttt{int(test)}
+
+\subsubsection{\texttt{NameError}} cuando no se encuentra un nombre ya sea
+local o global.
+
+\texttt{a}
+una variable inexistente.
+
+\subsubsection{\texttt{SyntaxError}}
+
+Errores de sintaxis. Cuando python no puede interpretar o analizar
+gramaticalmente el código.
+
+\subsubsection{\texttt{AttributeError}} las referencias a atributos falla.
+
+\subsubsection{\texttt{ValueError}} el tipo de operador está correcto, pero el
+valor del mismo es imposible.
+
+\subsubsection{\texttt{IOError}} El sistema IO reporta una malfunción (por
+ejemplo un archivo no encontrado). Los errores son llamados excepciones.
+
+ahora por alguna razón esto no deja seguir y continuar
+
+\subsection{Handlers}
+
+Los llamados manejadores, son lo que se encargan de llevar a cabo la rutina o
+ejecución necesaria cuando determinada cosa ocurre, sean interrupciones o
+excepciones.
+
+\begin{verbatim}
+    try:
+        xxxxxxx
+        xxxxxx
+    except (exception_type1):
+        xxxxxx
+        xxxxx
+    except (exception_type2):
+        xxxxxx
+        xxxxx
+        .
+        .
+        .
+\end{verbatim}
+
+\begin{verbatim}
+    else:
+\end{verbatim}
+
+lo anterior se ejecuta cuando el cuerpo del \texttt{try} asociado se ejecuta
+sin ninguna excepción.
+
+\begin{verbatim}
+    finally:
+\end{verbatim}
+
+Siempre se ejecuta después del \texttt{try}, \texttt{else}, y \texttt{except},
+incluso cuando existen \texttt{break}, \texttt{continue} o \texttt{return}.
+
+\begin{verbatim}
+    raise <ExceptionName> (<Arguments>)
+    raise <ValueError> ("Uis, algo esta mal")
+\end{verbatim}
+
+\subsection{assertions}
+
+programación "defensiva".
+
+\begin{verbatim}
+    assert <lo_que_se_espera>, <mensaje>
+\end{verbatim}
+
+Da un error de ejecución del tipo \texttt{AssertError}. dando la explicación
+pertinente.
+
+Ahora hay errores lógicos que son más complicados de tratar.
+
+Cosas que no se deben hacer:
+
+\begin{enumerate}
+    \item Escribir el código entero para hacer pruebas sobre él
+    \item Hacer debug en el programa entero
+    \item Olvidar en qué lugar estaba el bug
+    \item Olvidar cuáles fueron los cambios que se hicieron
+\end{enumerate}
+
+Por el contrario es más recomendable escribir una función, probarla, hacer
+depuración, y así con cada función nueva que se escriba. Hacer Testeo de
+integración.
+También hacer copias de seguridad del código, cambiarlo, advertir mediante
+comentarios los cambios, y al realizar pruebas, hacer comparaciones.
+
+\section{POO}
+
+\texttt{object} es el tipo más básico en python.
+
+\begin{verbatim}
+    class <name>(<parent_class>):
+\end{verbatim}
+
+\begin{verbatim}
+    class coordinate(object):
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+\end{verbatim}
+
+El \texttt{self} es un parámetro para referirse a la instancia de la clase, la
+que esté ejecutándose. El constructor siempre será \texttt{def
+    \_\_init\_\_():}\\
+
+\subsection{Métodos importantes}
+
+Estos métodos sustituyen operadores o funciones importantes.
+
+\begin{itemize}
+    \item \texttt{\_\_str\_\_():} Su retorno es lo que se muestra cuando se
+          ejecuta la función \texttt{print()}
+    \item \texttt{\_\_add\_\_():} Su retorno es el valor de 'a+b'.
+    \item \texttt{\_\_sub\_\_():} Su retorno es el valor de 'a-b'.
+    \item \texttt{\_\_mul\_\_():} Su retorno es el valor de 'a*b'.
+    \item \texttt{\_\_eq\_\_():} Su retorno es el valor de 'a==b'.
+    \item \texttt{\_\_lt\_\_():} Su retorno es el valor de 'a<b'.
+    \item \texttt{\_\_len\_\_():} Su retorno es el valor de 'len(a)'.
+\end{itemize}
+
+\textbf{nota} las \textbf{variables de clase} son variables cuyo valor se
+comparte entre todas las instancias de la clase
+
+\section{Sobre algoritmos}
+
+¿Cómo se puede establecer o sabe qué tan eficiente es mi algoritmo?
+
+Los razonamientos que surgen a partir de este punto dan como resultado un
+análisis interesante sobre las siguientes cuestiones:
+
+\begin{itemize}
+    \item Cómo podemos razonar sobre un algoritmo con el objetivo de predecir
+          la cantidad de tiempo que este necesitará para resolver un problema de un
+          tamaño en particular.
+    \item Cómo podemos relacionar las opciones en el diseño de algoritmos con
+          la eficiencia en tiempo del resultado.
+\end{itemize}
+
+\section{Pandas}
+
+En el contexto de la biblioteca `pandas` en Python, un **dataframe** es una
+estructura de datos bidimensional, similar a una tabla en una base de datos,
+una hoja de cálculo o una tabla en lenguajes estadísticos como R. Es
+esencialmente una colección ordenada de columnas, donde cada columna puede
+tener un tipo de dato diferente (número, cadena, booleano, etc.).
+
+El término "data tabular" se refiere precisamente a este tipo de datos en forma
+de tabla, donde:
+
+\begin{itemize}
+    \item Las \textit{filas} representan observaciones o entradas individuales.
+    \item Las \textit{columnas} representan características o variables de esas
+          observaciones.
+\end{itemize}
+
+Matemáticamente, podríamos considerar un dataframe como una matriz \( M \) de
+dimensiones \( m \times n \), donde \( m \) es el número de filas y \( n \) es
+el número de columnas. Cada elemento \( M_{ij} \) representa el valor en la
+i-ésima fila y j-ésima columna.
+
+Un dataframe en `pandas` proporciona una serie de funcionalidades útiles para
+manipular y analizar datos tabulares, tales como:
+
+\begin{enumerate}
+    \item Operaciones de filtrado y selección basadas en condiciones.
+    \item Agrupaciones y operaciones de agregación.
+    \item Fusiones y uniones con otros dataframes.
+    \item Operaciones de pivote y reestructuración.
+    \item Funcionalidades para manejo de datos faltantes.
+    \item  Integración con otras bibliotecas de Python como `numpy`, `scipy` y
+          `matplotlib`.
+\end{enumerate}1.
+
+Para ilustrar esto con un pequeño ejemplo, considera el siguiente dataframe:
+
+\[
+    \begin{array}{|c|c|c|}
+        \hline
+        \textbf{Nombre} & \textbf{Edad} & \textbf{Profesión} \\
+        \hline
+        Juan            & 30            & Ingeniero          \\
+        \hline
+        Ana             & 25            & Doctora            \\
+        \hline
+        Carlos          & 28            & Arquitecto         \\
+        \hline
+    \end{array}
+\]
+
+En este dataframe:
+Las filas representan a diferentes individuos.
+Las columnas representan características de estos individuos: su nombre, edad y
+profesión.
+
+La facilidad con la que `pandas` permite manipular, filtrar y analizar este
+tipo de datos ha hecho que sea una herramienta esencial para cualquier persona
+que trabaje con análisis de datos en Python.
+
+\subsection{\texttt{Funciones de entradas y salidas}}
+
+Estas son las funciones mediante las cuales se pueden obtener diferentes
+objetos de pandas o guardar como salidas.
+
+\subsubsection{\texttt{pandas.read\_csv()}}
+
+Esta función es una de las más utilizadas porque importa directamente un
+archivo \texttt{csv} y lo convierte en un \texttt{DataFrame} (en la siguiente
+sección se hablará de este objeto)
+
+\paragraph{Parámetros}
+
+\subparagraph{\texttt{filepath\_or\_buffer}}
+
+\begin{itemize}
+    \item \textbf{Descripción:} Es la ruta del archivo \textit{csv} a importar.
+          Se puede usar una URL
+    \item \textbf{Tipo:} \texttt{str}. También acepta objetos tipo
+          \texttt{PathLike} u objetos \texttt{path}.
+\end{itemize}
+
+\subparagraph{\texttt{sep}}
+
+\begin{itemize}
+    \item \textbf{Descripción:} El tipo de separador de los datos, normalmente
+          son comas \texttt{','} , pero puede ser configurado según el archivo que se va
+          a importar.
+    \item \textbf{Tipo:} \texttt{str}.
+    \item \textbf{Por defecto:} \textit{','}
+\end{itemize}
+
+\subparagraph{\texttt{header}}
+
+\begin{itemize}
+    \item \textbf{Descripción:} Es la especificación de la fila que contiene
+          las etiquetas de las columnas. Por defecto siempre será la primera.
+    \item \textbf{Tipo:} \texttt{int} , \texttt{infer} o \texttt{None}. Si se
+          especifica \texttt{None}, las etiquetas de las columnas serán índices desde 0
+          hasta n. Si se especifica \texttt{infer}, se asume que	\texttt{header = 0}
+    \item \textbf{Por defecto:} \textit{infer} .
+\end{itemize}
+
+\subparagraph{\texttt{index\_col}}
+
+\begin{itemize}
+    \item \textbf{Descripción:} Especifica la columna que se usará como
+          etiquetas de las filas.
+    \item \textbf{Tipo:} \texttt{hashable}. Comúnmente suelen ser del tipo
+          numérico (\texttt{int} o \texttt{float}) o cadenas de caracteres \texttt{str}.
+          Básicamente es la etiqueta de la columna que se usará como etiqueta
+    \item \textbf{Por defecto:}  Es opcional.
+\end{itemize}
+
+\subparagraph{\texttt{usecols}}
+
+\begin{itemize}
+    \item \textbf{Descripción:} Se puede seleccionar un conjunto de columnas
+          para importar y descartar las demás. Este parámetro especifica este conjunto
+    \item \textbf{Tipo:} Lista de \texttt{hashables}.
+    \item \textbf{Por defecto:} Es opcional.
+\end{itemize}
+
+% \subparagraph{\texttt{}}
+% \begin{itemize}
+%     \item \textbf{Descripción:}
+%     \item \textbf{Tipo:}
+%     \item \textbf{Por defecto:}
+% \end{itemize}
+
+% \subparagraph{\texttt{}}
+% \subparagraph{\texttt{}}
+
+\subsection{Funciones generales}
+
+\subsubsection{Filtrado de información}
+
+Existen varios métodos para filtrar los datos de un \texttt{dataframe}. Los más
+básicos son los que solamente tienen una condición. También están las múltiples
+condiciones.
+
+\paragraph{Una sola condición:} Si un dataframe con nombre \texttt{df} tiene
+una columna cuya etiqueta o nombre es \texttt{sex}; una forma de filtrar sería
+la siguiente:
+
+\begin{verbatim}
+                    df[df.sex == "male"]
+                    \end{verbatim}
+
+De esta manera se obtiene o se retorna un dataframe con la información
+filtrada.
+
+Por su parte, se puede utilizar el método \texttt{loc} para realizar el
+filtrado:
+
+\begin{verbatim}
+                    df.loc[df.sex == "male"]    
+                    \end{verbatim}
+
+Y si por ejemplo, se quiere solamente se requiere sacar una columna, se usa
+\begin{verbatim}
+                    df.loc[df.sex == "male", "fare"]    
+                    \end{verbatim}
+
+\paragraph{Varias condiciones:}
+
+Una forma de filtrar por el tipo de variable en el dataframe, en este caso se
+seleccionan una o más columnas
+
+\begin{verbatim}
+                    mask = df.dtypes == "int64"
+                    df.loc[mask]    
+                    \end{verbatim}
+
+Se pueden definir diferentes máscaras, tanto para las filas como para las
+columnas.
+
+\begin{verbatim}
+                    mask1 = df["age"] >= 55
+                    mask2 = df.dtypes == "int64"
+                    df.loc[mask]    
+                    \end{verbatim}
+
+Adicionalmente se pueden usar funciones lógicas para mejorar la precisión del
+filtro:
+\begin{verbatim}
+                    df.loc[(df.sex == "male") & (df.age > 25)]    
+                    \end{verbatim}
+
+Existen algunas reglas adicionales para máscaras para filtrar de forma más
+práctica:
+
+\begin{verbatim}
+                    mask = summer["Year"].between(1960, 1984, inclusive = True)
+                    mask2 = summer["Year"].isin([1972,1996])
+                    \end{verbatim}
+
+Este último es útil para seleccionar explícitamente un conjunto de elementos a
+filtrar, seleccionándolas o extrayéndolas mediante la negación. El argumento
+siempre es una lista con los objetos que quiero filtrar.
+
+\subsubsection{ELiminación de filas y columnas}
+
+Existen varias formas de eliminar filas y columnas de los dataframes. La forma
+más básica es mediante el método \texttt{drop}. Este método tiene el parámetro
+\texttt{inplace}
+
+\begin{verbatim}
+            df.drop(columns = "col")    
+            \end{verbatim}
+
+Para eliminar más de una columna, se pasa una lista con las etiquetas
+correspondientes como argumento.
+
+\begin{verbatim}
+            df.drop(columns = ["col1", "col2"])    
+            \end{verbatim}
+
+Dos alternativas para eliminar una columna son las siguientes.
+
+\begin{verbatim}
+            df.drop(labels = "col_name", axis = "columns")
+            del df["col"]
+            \end{verbatim}
+
+Para eliminar las filas se utiliza la misma forma, reemplazando
+\texttt{columns} por \texttt{index}. Con esta forma se eliminan todas las
+instancias con el índice seleccionado, en caso que haya más de una fila con el
+mismo índice.
+
+\begin{verbatim}
+            df.drop(index = index_name)
+            \end{verbatim}
+
+Otra forma es renombrando el dataframe con una versión filtrada de la misma
+
+\begin{verbatim}
+            df = df.loc[df.col == value]
+            \end{verbatim}
+
+Aquí se seleccionan solamente las filas cuyo valor para la columna \texttt{col}
+es \texttt{value}, descartando todas las otras.
+
+Si creamos diferentes máscaras, y luego filtramos la negación lógica de dichas
+máscaras, entonces estaremos eliminando las filas que cumplan con la máscara o
+máscaras.
+
+\begin{verbatim}
+            mask1 = summer["Year"] == 2012
+            mask2 = summer["Country"] == "RUS"
+            summerf = summer.loc[~(mask1 & mask2)]
+            \end{verbatim}
+
+\subsubsection{Añadidura de columnas}
+
+La forma más básica de añadir una nueva columna es asignando un valor constante
+a dicha columna
+
+\begin{verbatim}
+            df["col_nueva"] = 0
+            \end{verbatim}
+
+Si \texttt{col\_nueva} no existe, entonces se creará y se llenará con el valor
+0 para todos los índices. Si la columna ya existe, entonces se reemplazarán
+todos los valores con la nueva asgnación. Por su parte, si se crea una columna
+de la siguiente forma
+
+\begin{verbatim}
+            df.new_col = 0
+            \end{verbatim}
+
+En realidad se creará un nuevo atributo para el dataframe, con valor 1, pero no
+se creará una columna.\\
+
+Si se utiliza una operación tradicional con una columna del dataframe, se
+creará una columna nueva, y esto se puede utilizar para añadir columnas nuevas
+con base en datos de otras columnas:
+
+\begin{verbatim}
+            titanic["yob"] = 1912 - titanic["age"]
+            \end{verbatim}
+
+Para añadir una nueva columna en una posición específica, se utiliza el método
+\texttt{insert}:
+
+\begin{verbatim}
+            col_new = df[col] + 3
+            df.insert(loc = 6, column = "new_col_name", value = col_new)
+            \end{verbatim}
+
+De esta forma se asegura que la columna nueva sea localizada en la sexta
+posición. Las columnas que estén a la derecha serán desplazadas una posición.
+
+Por otro lado, también se pueden añadir entradas nuevas o filas nuevas.
+Asignando una lista o iterable concordante con el data frame, a un nuevo
+índice.
+
+\subsubsection{Manupulación de valores}
+
+Se puede cambiar un solo valor mediante el atributo \texttt{loc} y también
+\texttt{iloc}
+
+\begin{verbatim}
+            titanic.loc["index","col"] = 40
+            titanic.iloc[1,1] = 40
+            \end{verbatim}
+
+\noindent Para cambiar varios valores puede hacerse de la siguiente forma
+
+\begin{verbatim}
+            titanic.loc[1:3, "age"] = 42
+            \end{verbatim}
+
+\noindent Se puede cambiar un rango específico de valores con una lista de
+valores compatible:
+
+\begin{verbatim}
+            titanic.iloc[1:4, 3] = [43,44,45]
+            \end{verbatim}
+\noindent Recordar que con el comando \texttt{loc} si el índice es numérico, se
+selecciona incluyendo desde el primer número hata el último, mientras que con
+\texttt{iloc} se seleccionar el índice de forma tradicional como si se tratara
+de una lista.
+
+\noindent Para reemplazar o cambiar valores basado en condiciones, se usa la
+siguiente forma
+\begin{verbatim}
+            titanic.loc[titanic.age < 1, "age"]
+            \end{verbatim}
+\noindent Por su parte, si se requiere cambiar más de una columna para una
+entrada (fila) en particular se puede usar el siguiente código
+\begin{verbatim}
+            titanic.loc[0,"survived":"age"] = [1, 2, "female", 24.0]
+            \end{verbatim}
+
+\noindent El método \texttt{replace} es útil cuando queremos reemplazar todas
+las entradas que cumplan una condición
+\begin{verbatim}
+            titanic.replace(0, "zero")
+            \end{verbatim}
+
+\noindent Esto reemplaza todos los ceros que haya en la tabla por el texto
+"zero". \\\
+
+\noindent Es crucial entender que al declarar una variable como referencia a
+una columna de una tabla, en realidad estamos creando un apuntador a dicha
+columna. Esto significa que cualquier cambio o reemplazo de valores en esta
+variable implicará una modificación directa en la columna correspondiente de la
+tabla:
+\begin{verbatim}
+            edad = titanic.age
+            edad.loc[1] = 40 # aquí
+            \end{verbatim}
+\noindent En el reemplazo de variables dentro de una tala la manera correcta de
+realizarlo es como se mencionó en la sección anterior, realizarlo de otra forma
+se considera una mala práctica:
+\begin{verbatim}
+            titanic.loc[1,"age"] = 40 # esta es forma correcta
+            titanic.age[1] = 40 # esta no se debe relizar
+            \end{verbatim}
+\noindent Por otro lado, si se asigna a una variable una o más columnas
+poniendo una lista como argumento, dicha variable si se modifica, no modificará
+la tabla original.
+\begin{verbatim}
+            sexo = titanic[["sex"]]
+            sexo.loc[0] = "ajefemalee"
+            sexo.iloc[0] = "ajefemalee" # también aplica para iloc
+            titanic # no tendrá el valor modificado
+            \end{verbatim}
+\noindent Si se utiliza el campo para el índice \texttt{[:]} obtendremos el
+mismo resultado; sin embargo, al modificar una variable declarada de esta
+forma, Pandas no generará ninguna advertencia.
+\begin{verbatim}
+            sexo = titanic.loc[:,["sex"]]}            
+            \end{verbatim}
+Ahora, si se intenta reemplazar valores mediante la notación de doble
+paréntesis, como se muestra a continuación
+\begin{verbatim}
+            titanic[titanic["age"] < 1]["age"] = 1
+            \end{verbatim}
+\noindent La tabla no será cambiada, y se mostrará una advertencia. Cuando se
+ejecuta \texttt{titanic[titanic["age"] < 1]["age"]}, se está realizando dos
+operaciones de indexación consecutivas. Primero, \texttt{titanic[titanic["age"]
+            < 1]} crea una vista o una copia temporal filtrada del \texttt{DataFrame
+    titanic}, seleccionando solo las filas donde \texttt{age} es menor que 1.
+Luego, \texttt{["age"]} selecciona la columna \texttt{age} de esta vista o
+copia temporal. Al intentar asignar un nuevo valor a esta selección, se está
+modificando la copia temporal y no la tabla original.
+\noindent Pero, si se realiza una selección de la columna primero, y luego se
+realiza el filtro,
+\begin{verbatim}
+            titanic["age"][titanic["age"] < 1] = 1
+            \end{verbatim}
+La tabla sí será modificada. Esto es debido a la forma en que se realiza la
+indexación y asignación en este caso específico. En Pandas, cuando se hace una
+indexación directa sobre una columna del \texttt{DataFrame}, como en
+\texttt{titanic["age"]}, se obtiene una vista directa de esa columna en el
+\texttt{DataFrame} original, no una copia. Esta vista es una referencia a los
+datos en la columna \texttt{age} dentro del \texttt{DataFrame titanic}. Luego,
+cuando se aplica un filtro adicional con \texttt{[titanic["age"] < 1]}, se está
+seleccionando ciertas posiciones de esa vista, y cualquier cambio que hagas
+aquí se reflejará en el \texttt{DataFrame} original. Al asignar \texttt{= 1} a
+esta selección, se está modificando directamente los datos en la columna
+\texttt{age} del \texttt{DataFrame titanic}. Es importante notar que, aunque
+esta forma de indexación y asignación puede funcionar, no es la recomendada, ya
+que puede llevar a confusión y a errores sutiles, especialmente en contextos
+más complejos. \\\
+
+\noindent En conclusión, es importante tener claridad sobre cuándo se está
+realizando una vista de un conjunto de datos tomados de una tabla (apuntador a
+la columna, o conjunto de datos) y cuándo se está realizando una copia (sea
+temporal o no) de los datos; la copia es un objeto completamente independiente
+de la tabla original. Si se selecciona una columna mediante la notación de
+atributo (\texttt{titanic.age}) o mediante la notación de paréntesis cuadrados,
+o cualquier otra notación, es fácil y muy útil utilizar el atributo
+\texttt{\_is\_view} y el método \texttt{\_is\_copy()}.
+
+\paragraph{Consejos de buena práctica:} En general, según el propósito que se
+tenga, es conveniente y recomendado utilizar cierto tipo de métodos y atributos
+a la hora de manipular datos de una tabla.
+Si se requiere trabajar y manipular la tabla entera, entones el consejo es
+evitar el indexado encadenado. La indexación encadenada en Pandas se refiere al
+proceso de realizar varias operaciones de indexación sucesivas, una tras otra,
+típicamente utilizando corchetes \texttt{[]}. Esto suele verse en la forma de
+\texttt{dataframe[...][...]}, donde se realizan dos (o más) operaciones de
+indexación de forma secuencial. Por su parte, si se desea trabajar con
+porciones de la tabla, es recomendado realizar una copia de dicha porción
+mediante el método \texttt{copy()} y trabajar sobre esta.
+
+\subsubsection{Métodos de ordenamiento}
+
+\noindent La manera clásica de ordenar una tabla basado en una columna es la
+siguiente
+\begin{verbatim}
+            titanic.sort_values(by = "age")
+            \end{verbatim}
+Recordar que la línea anterior retorna la tabla ordenada, no modifica la
+actual, para hacer esto se debe usar el parámetro \texttt{inplace}. Recordar
+también el parámetro \texttt{ascending}.
+
+\noindent Se puede hacer ordenamiento no solamente por una columna sino por
+varias, pasando la lista con las etiquetas de las columnas como argumento del
+parámetro \texttt{by}. La columna de la primera etiqueta de la lista que se
+pasa como argumento es la que tiene la primera prioridad. También se puede
+pasar una lista booleana especificando cuáles se ordenarán de forma ascendente
+y cuáles descendente.
+\begin{verbatim}
+            titanic.sort_values(by = ["col1", "col2", "col3"], ascending = [True False False], inplace = True)
+            \end{verbatim}
+\noindent Siempre se puede reordenar la tabla con base en el índice de las
+filas:
+\begin{verbatim}
+            titanic.sort_index(ascending = True, inplace = True)
+            \end{verbatim}
+Cuando se realiza un ordenamiento basado en una columna, los índices también se
+ordenan o "desordenan". En algunas ocasionoes se requiere que el índice
+prevalezca ordenado aun cuando la tabla completa cambió con el ordenamiento.
+Esto se logra con dos formas distintas:
+\begin{verbatim}
+            titanic.sort_values(by = age).reset_index(drop = True)
+            titanc.sort_values(by = "age", ignore_index = True)
+            \end{verbatim}
+
+\subsubsection{Estadísticas con agregación}
+
+El método \texttt{agg} es utilizado para realizar operaciones de agregación
+sobre una tabla, permitiendo aplicar una o más funciones sobre sus ejes. Se
+puede especificar una función, nombre de función, lista de funciones o un
+diccionario que mapea etiquetas de eje a funciones. Por defecto, estas
+operaciones se realizan sobre las filas (`axis=0`), pero también pueden
+aplicarse a las columnas (`axis=1`). El resultado de `agg` puede ser un
+escalar, una Serie o un DataFrame, dependiendo de la operación. Una forma
+efectiva de usarlo es seleccionar columnas de un tipo específico, como las
+numéricas, y luego aplicar un diccionario para realizar distintas operaciones
+en cada columna, tal como \texttt{df.select\_dtypes("number").agg({"col1":
+"mean", "col2": ["min", "std"]})}. Esto permite realizar análisis detallados y
+personalizados sobre los datos de manera eficiente.
+
+\subsubsection{Uso de funciones definidas en las tablas}
+
+\noindent Una funcionalidad interesante es la posibilidad de ejecutar funciones
+sobre todos los elementos de una tabla. Si definimos una función
+\begin{verbatim}
+            def range(series):
+                return series.max() - series.min()
+            \end{verbatim}
+\noindent Al implementar el método \texttt{apply} se puede ejecutar la función
+para los elementos de la columna o los elementos de las filas, según se
+establezca:
+\begin{verbatim}
+            sales.apply(range, axis = 0)
+            \end{verbatim}
+El valor de \texttt{axis = 0} es para las filas y \texttt{axis=1} para las
+columnas. Retornará una tabla con el resultado de la función. \\
+\noindent Se puede pasar la función lambda directamente en caso de requerir
+poco cóidigo:
+\begin{verbatim}
+            sales.apply(lambda x: x.max() - x.min(), axis = 0)
+            \end{verbatim}
+Si se selecciona una sola columna o porción de ella, el intérprete ya sabe que
+se ejecutará la función a dichos elementos:
+\begin{verbatim}
+            sales.loc[1:10,"col1"].apply(lambda x: x[0])
+            \end{verbatim}
+\noindent El método \texttt{map} es similar, con la diferencia de que solamente
+aplica para series de datos, es decir una columna por ejemplo. Por último, Se
+puede aplicar una función a toda la tabla (o parte de ella) mediante el
+siguiente método.
+\begin{verbatim}
+            df.applymap(func)
+            df.loc[1:99,"col"].applymap(func)
+           \end{verbatim}
+
+\subsubsection{Multiindexación}
+En una tabla es posible que como índice, no solamente haya una columna, sino
+más de una:
+\begin{verbatim}
+            df.set_index(["col1", "col2 "])
+           \end{verbatim}
+Podemos ordenar de forma personalizada los diferentes índices:
+\begin{verbatim}
+            df.sort__index(ascending = [True False])
+            \end{verbatim}
+Como podemos ver, hay un índices exterior y uno interior, este orden puede ser
+cambiado mediante el método:
+\begin{verbatim}
+            df.swaplevel()
+            \end{verbatim}
+Se puede restablecer el índice de la siguiente forma:
+\begin{verbatim}
+            df.reset_index(inplace = True)
+            \end{verbatim}
+El indexador \texttt{loc} puede ser usado de la siguiente manera para poder
+extraer o filtrar información necesaria de una tabla:
+si se desea filtrar ambos índices y luego ver una columna, los índices deben
+ser puestos en una tupla:
+\begin{verbatim}
+            df.loc[(idx1,idx2), col]
+            \end{verbatim}
+Se puede no colocar ninguna columna y así veremos todas las columnas.
+Para seleccionar más de un valor para los índices, estos e colocan dentro de
+una lista. Para extraer todas las columnas, es necesario indicar los dos
+puntos:
+\begin{verbatim}
+            df.loc[([idx1a,idx1b],idx2), col]
+            df.loc[([idx1a,idx1b],idx2),:]
+            \end{verbatim}
+Para seleccionar todos los valores de un índice, la notación \texttt{:}
+poroduce un error, por tanto se debe usar \texttt{slice(None)}:
+\begin{verbatim}
+            df.loc[([idx1a,idx1b],slice(None)),:]
+            \end{verbatim}
+\subsubsection{Operaciones con cadenas de texto}
+Para todos los datos dentro de una tabla que sean cadenas de texto, si se
+requiere realizar cualquier operación, se debe implementar el método
+\texttt{.str}:
+\begin{verbatim}
+            df.str.lower()
+            \end{verbatim}
+Para el método \texttt{split}, se tiene la opción de separar de manera
+automática el resultado en columnas separadas:
+\begin{verbatim}
+            summer[col].srt.split("," n = 2, expand = True)
+            \end{verbatim}
+El parámeto \texttt{n} indica cuántos de los caracteres separadores se requiere
+tomar, y el parámetro \texttt{expand} indica si se requiere guardar el retorno
+en columnas separadas. \\
+También es útil utilizar métodos de string como \texttt{contains} para realizar
+filtros personalizados y especializados:
+\begin{verbatim}
+            summer[summer["Event"].str.contains("100M")]
+            \end{verbatim}
+
+\subsection{Objeto \texttt{DataFrame}}
+
+Es una de las clases más importantes de Pandas; una estructura de datos tabular
+de dos dimensiones. Es una representación en Pandas de una tabla de datos.
+
+\subsubsection{Constructor} El constructor es el siguiente
+
+\begin{verbatim}
+            class pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
+            \end{verbatim}
+\paragraph{Parámetros}
+
+\subparagraph{\texttt{data}}
+\begin{itemize}
+    \item \textbf{Descripción:} Es el conjunto de datos que conformará el
+          DataFrame.
+    \item \textbf{Tipo:} \texttt{numpy.ndarray}, elementos iterables,
+          \texttt{dict}, o \texttt{DataFrame}
+    \item \textbf{Por defecto:} \texttt{None}
+\end{itemize}
+
+\subparagraph{\texttt{index}}
+\begin{itemize}
+    \item \textbf{Descripción:} Es el comjunto de etiquetas de las filas de la
+          estructura
+    \item     \textbf{Tipo:} \texttt{Index} o arreglo de índices (una lista de
+          \texttt{str}).
+    \item     \textbf{Por defecto:} \texttt{None}
+\end{itemize}
+
+\subparagraph{\texttt{columns}}
+\begin{itemize}
+    \item \textbf{Descripción:} Es el conjunto de etiquetas de las columnas de
+          la estructura
+    \item \textbf{Tipo:} \texttt{Index} o arreglo de índices (lista de
+          \texttt{str}).
+    \item \textbf{Por defecto:} \texttt{None}.
+\end{itemize}
+
+\subsubsection{Atributos}
+
+La siguiente es la lista de los atributos de la clase \texttt{DataFrame}
+
+\paragraph{~\hspace{2em} \texttt{T}:} La transposición del DataFrame.
+
+\paragraph{~\hspace{2em}\texttt{at}:} Accede a un valor único para un par
+etiqueta de fila/columna.
+
+\paragraph{~\hspace{2em}\texttt{attrs}:} Diccionario de atributos globales de
+este conjunto de datos.
+
+\paragraph{~\hspace{2em}\texttt{axes}:} Devuelve una lista que representa los
+ejes del DataFrame (lista de \texttt{Index}).
+
+\paragraph{~\hspace{2em}\texttt{columns[]}:} Las etiquetas de columna del
+DataFrame. Pueden indexarse como una lista.
+
+\paragraph{~\hspace{2em}\texttt{dtypes}:} Devuelve los tipos de datos en el
+DataFrame.
+
+\paragraph{~\hspace{2em}\texttt{empty}:} Indicador de si la Serie/DataFrame
+está vacío.
+
+\paragraph{~\hspace{2em}\texttt{flags}:} Obtiene las propiedades asociadas con
+este objeto pandas.
+
+\paragraph{~\hspace{2em}\texttt{iat}:} Accede a un valor único para un par
+fila/columna por posición entera.
+
+\paragraph{~\hspace{2em}\texttt{iloc}:} Indexación basada puramente en la
+ubicación por posición entera.
+
+\paragraph{~\hspace{2em}\texttt{index[]}:} El índice (etiquetas de fila) del
+DataFrame. Puede indexarse como en una lista.
+
+\paragraph{~\hspace{2em}\texttt{loc}:} Accede a un grupo de filas y columnas
+por etiqueta(s) o un array booleano.
+
+\paragraph{~\hspace{2em}\texttt{ndim}:} Devuelve un entero que representa el
+número de ejes / dimensiones del array.
+
+\paragraph{~\hspace{2em}\texttt{shape}:} Devuelve una tupla que representa la
+dimensionalidad del DataFrame.
+
+\paragraph{~\hspace{2em}\texttt{size}:} Devuelve un entero que representa el
+número de elementos en este objeto.
+
+\paragraph{~\hspace{2em}\texttt{style}:} Devuelve un objeto Styler.
+
+\paragraph{~\hspace{2em}\texttt{values}:} Devuelve una representación en Numpy
+del DataFrame.
+
+\begin{enumerate}
+    \item\texttt{pd.options.display.min\_rows}
+    \item\texttt{pd.options.display.max\_rows}
+\end{enumerate}
+Estas variables se modifican a conveniencia para mostrar una cantidad mínima y
+máxima requerida de los datos de la tabla.
+
+\subsubsection{Métodos}
+% \paragraph{\texttt{method1}} descripción
+% \subparagraph{\textbf{parámetros}}
+%     \begin{itemize}
+%         \item \texttt{param1}
+%             \begin{itemize}
+%                 \item \textbf{Descripción:}
+%                 \item \textbf{Tipo:}
+%                 \item \textbf{Por defecto:}
+%             \end{itemize}
+%     \end{itemize}
+
+% \subparagraph{\textbf{Tipo de retorno:}}
+
+\paragraph{\texttt{abs()}} Devuelve una Serie/DataFrame con el valor numérico
+absoluto de cada elemento.
+\subparagraph{\textbf{parámetros}}
+\begin{itemize}
+    \item \texttt{Ninguno}
+\end{itemize}
+\subparagraph{\textbf{Retorno:}} \texttt{pandas.Series} o
+\texttt{Pandas.DataaFrame}
+
+\paragraph{\texttt{add(other, axis, level, fill\_value)}} Obtiene la suma de
+los elementos (elemento a elemento) del dataframe con otro dataframe (u objeto
+similar).
+\subparagraph{\textbf{parámetros}}
+\begin{itemize}
+    \item \texttt{other}
+          \begin{itemize}
+              \item \textbf{Descripción:} Objeto con el cual se realiza la
+                    suma.
+              \item \textbf{Tipo:} \texttt{Serie}, \texttt{DataFrame},
+                    \texttt{dict} o cualquier escalar o secuencia.
+              \item \textbf{Por defecto:} Ninguno
+          \end{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Selecciona si comparar por el índice
+                    o por la columna.
+              \item \textbf{Tipo:} \texttt{0} o \texttt{'index'}, \texttt{1} o
+                    \texttt{'column'}
+              \item \textbf{Por defecto:} \texttt{'columns'}
+          \end{itemize}
+    \item \texttt{fill\_value}
+          \begin{itemize}
+              \item \textbf{Descripción:} Rellenar valores que potencialmente
+                    serán no determinados (\texttt{NaN}). Esto es especialmente útil cuando se usan
+                    dos tablas con diferentes índices y/o columnas.
+              \item \textbf{Tipo:} \texttt{float} o \texttt{None}
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+\subparagraph{Retorno:} \texttt{DataFrame} con los resultados de los valores
+
+\paragraph{\texttt{add\_prefix(prefix, axis)}} Añade un prefijo a las columnas.
+Si la columna es \texttt{'a'} y el prefijo dado es \texttt{'col\_'}, la columna
+queda etiquetada como \texttt{col\_a}. No modifica el objeto (retorna uno
+nuevo)
+\subparagraph{\textbf{parámetros}}
+\begin{itemize}
+    \item \texttt{prefix}
+          \begin{itemize}
+              \item \textbf{Descripción:} La cadena de texto para prefijar.
+              \item \textbf{Tipo:} \texttt{String}
+              \item \textbf{Por defecto:} Ninguno
+          \end{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Selecciona el eje al cual añadir el
+                    prefijo.
+              \item \textbf{Tipo:}  \texttt{0} o \texttt{'index'}, \texttt{1} o
+                    \texttt{'column'}
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+\subparagraph{Retorno:} \texttt{DataFrame}
+
+\paragraph{\texttt{add\_suffix(suffix, axis)}} Añade un sufijo a las columnas.
+Análogo al método anterior.
+\subparagraph{\textbf{parámetros}}
+\begin{itemize}
+    \item \texttt{suffix}
+          \begin{itemize}
+              \item \textbf{Descripción:} La cadena de texto a añadir.
+              \item \textbf{Tipo:} \texttt{String}
+              \item \textbf{Por defecto:} Ninguno
+          \end{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Selecciona el eje al cual añadir el
+                    sufijo.
+              \item \textbf{Tipo:} \texttt{0} o \texttt{'index'}, \texttt{1} o
+                    \texttt{'column'}
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+\subparagraph{Retorno:} \texttt{DataFrame}
+
+\paragraph{\texttt{agg(func, axis)}} Agrega utilizando una o más operaciones
+sobre el eje especificado.
+\subparagraph{\textbf{parámetros}}
+\begin{itemize}
+    \item \texttt{func}
+          \begin{itemize}
+              \item \textbf{Descripción:} La función o funciones para aplicar.
+              \item \textbf{Tipo:} Función o lista de funciones (como ejemplo
+                    \texttt{'sum'})
+              \item \textbf{Por defecto:} Ninguno
+          \end{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Eje sobre la cual realizar la
+                    función, si esta última está definida para listas.
+              \item \textbf{Tipo:} \texttt{0} o \texttt{'index'}, \texttt{1} o
+                    \texttt{'column'}
+              \item \textbf{Por defecto:} \texttt{0}
+          \end{itemize}
+\end{itemize}
+\subparagraph{Retorno:} \texttt{DataFrame}, \texttt{Series} o puede ser
+escalar, dependiendo de la función usada.
+
+\paragraph{\texttt{align(other, join, axis, level, copy, fill\_value)}}
+Alinea dos objetos en sus ejes con el método de unión especificado. El método
+de unión está especificado para cada índice de eje.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{other}
+          \begin{itemize}
+              \item \textbf{Descripción:} DataFrame o Series con el que se
+                    quiere alinear.
+              \item \textbf{Tipo:} DataFrame o Series
+              \item \textbf{Por defecto:} Ninguno
+          \end{itemize}
+    \item \texttt{join}
+          \begin{itemize}
+              \item \textbf{Descripción:} Tipo de alineación a realizar
+                    (\texttt{'outer'}, \texttt{'inner'}, \texttt{'left'}, \texttt{'right'}).
+              \item \textbf{Tipo:} Cadena de texto
+              \item \textbf{Por defecto:} \texttt{'outer'}
+          \end{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Eje permitido del otro objeto.
+              \item \textbf{Tipo:} \texttt{0}, \texttt{1}, o \texttt{None}
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+    \item \texttt{level}
+          \begin{itemize}
+              \item \textbf{Descripción:} Difunde a través de un nivel,
+                    coincidiendo con los valores del índice en el nivel MultiIndex pasado.
+              \item \textbf{Tipo:} Entero o nombre de nivel
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+    \item \texttt{copy}
+          \begin{itemize}
+              \item \textbf{Descripción:} Siempre devuelve nuevos objetos. Si
+                    \texttt{copy=False} y no se requiere reindexación, se devuelven los objetos
+                    originales.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+    \item \texttt{fill\_value}
+          \begin{itemize}
+              \item \textbf{Descripción:} Valor a utilizar para valores
+                    faltantes. Por defecto es NaN, pero puede ser cualquier valor "compatible".
+              \item \textbf{Tipo:} Escalar
+              \item \textbf{Por defecto:} \texttt{np.nan}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Tupla de (Series/DataFrame, tipo del otro objeto)
+\begin{itemize}
+    \item \textbf{Descripción:} Objetos alineados.
+    \item \textbf{Tipo:} Tupla
+\end{itemize}
+
+\paragraph{\texttt{all(axis, bool\_only, skipna, **kwargs)}}
+Devuelve si todos los elementos son \texttt{True}, potencialmente a lo largo de
+un eje. Devuelve \texttt{True} a menos que haya al menos un elemento dentro de
+una serie o a lo largo de un eje de DataFrame que sea \texttt{False} o
+equivalente (p. ej., cero o vacío).
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Indica qué eje o ejes deben
+                    reducirse. Para Series, este parámetro no se utiliza y se establece en 0 por
+                    defecto.
+              \item \textbf{Tipo:} \texttt{0} o \texttt{'index'}, \texttt{1} o
+                    \texttt{'columns'}, \texttt{None}
+              \item \textbf{Por defecto:} \texttt{0}
+          \end{itemize}
+    \item \texttt{bool\_only}
+          \begin{itemize}
+              \item \textbf{Descripción:} Incluye solo columnas booleanas. No
+                    implementado para Series.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+    \item \texttt{skipna}
+          \begin{itemize}
+              \item \textbf{Descripción:} Excluye valores NA/nulos. Si toda la
+                    fila/columna es NA y \texttt{skipna} es \texttt{True}, entonces el resultado
+                    será \texttt{True}, como en el caso de una fila/columna vacía. Si
+                    \texttt{skipna} es \texttt{False}, entonces los NA se tratan como
+                    \texttt{True}, porque no son iguales a cero.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+    \item \texttt{**kwargs}
+          \begin{itemize}
+              \item \textbf{Descripción:} Palabras clave adicionales no tienen
+                    efecto pero podrían ser aceptadas para compatibilidad con NumPy.
+              \item \textbf{Tipo:} Cualquiera
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Series o DataFrame
+\begin{itemize}
+    \item \textbf{Descripción:} Si se especifica un nivel, se devuelve un
+          DataFrame; de lo contrario, se devuelve una Series.
+    \item \textbf{Tipo:} Series o DataFrame
+\end{itemize}
+
+\paragraph{\texttt{DataFrame.any(*, axis=0, bool\_only=False, skipna=True,
+        **kwargs)}}
+Devuelve si algún elemento es \texttt{True}, potencialmente a lo largo de un
+eje. Devuelve \texttt{False} a menos que haya al menos un elemento dentro de
+una serie o a lo largo de un eje de DataFrame que sea \texttt{True} o
+equivalente (p.ej., no cero o no vacío).
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Indica qué eje o ejes deben
+                    reducirse. Para Series, este parámetro no se utiliza y se establece en 0 por
+                    defecto.
+              \item \textbf{Tipo:} \texttt{0} o \texttt{'index'}, \texttt{1} o
+                    \texttt{'columns'}, \texttt{None}
+              \item \textbf{Por defecto:} \texttt{0}
+          \end{itemize}
+    \item \texttt{bool\_only}
+          \begin{itemize}
+              \item \textbf{Descripción:} Incluye solo columnas booleanas. No
+                    implementado para Series.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+    \item \texttt{skipna}
+          \begin{itemize}
+              \item \textbf{Descripción:} Excluye valores NA/nulos. Si toda la
+                    fila/columna es NA y \texttt{skipna} es \texttt{True}, entonces el resultado
+                    será \texttt{False}, como en el caso de una fila/columna vacía. Si
+                    \texttt{skipna} es \texttt{False}, entonces los NA se tratan como
+                    \texttt{True}, porque no son iguales a cero.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+    \item \texttt{**kwargs}
+          \begin{itemize}
+              \item \textbf{Descripción:} Palabras clave adicionales no tienen
+                    efecto pero podrían ser aceptadas para compatibilidad con NumPy.
+              \item \textbf{Tipo:} Cualquiera
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Series o DataFrame
+\begin{itemize}
+    \item \textbf{Descripción:} Si se especifica un nivel, se devuelve un
+          DataFrame; de lo contrario, se devuelve una Series.
+    \item \textbf{Tipo:} Series o DataFrame
+\end{itemize}
+
+\paragraph{\texttt{head(n)}} Esta función retorna las primeras \( n \) filas
+del objeto basado en su posición. Es útil para comprobar rápidamente si el
+objeto contiene el tipo correcto de datos.
+
+Para valores negativos de \( n \), esta función devuelve todas las filas
+excepto las últimas \( |n| \) filas, equivalente a \( \text{df}[:n] \).
+
+Si \( n \) es mayor que el número de filas, esta función retorna todas las
+filas.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{n}
+          \begin{itemize}
+              \item \textbf{Descripción:} Número de filas a seleccionar.
+              \item \textbf{Tipo:} Entero
+              \item \textbf{Por defecto:} 5
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Mismo tipo que el objeto que llama
+\begin{itemize}
+    \item \textbf{Descripción:} Las primeras \( n \) filas del objeto que llama
+          la función.
+    \item \textbf{Tipo:} Mismo tipo que el objeto que llama
+\end{itemize}
+
+\subparagraph{Tipo de dato de salida} \texttt{DataFrame}
+
+\paragraph{\texttt{tail(n=5)}} Esta función retorna las últimas \( n \) filas
+del objeto basado en su posición. Es útil para verificar rápidamente los datos,
+por ejemplo, después de ordenar o agregar filas.
+
+Para valores negativos de \( n \), esta función devuelve todas las filas
+excepto las primeras \( |n| \) filas, equivalente a \( \text{df}[|n|:] \).
+
+Si \( n \) es mayor que el número de filas, esta función retorna todas las
+filas.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{n}
+          \begin{itemize}
+              \item \textbf{Descripción:} Número de filas a seleccionar.
+              \item \textbf{Tipo:} Entero
+              \item \textbf{Por defecto:} 5
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Tipo del objeto que llama la función
+\begin{itemize}
+    \item \textbf{Descripción:} Las últimas \( n \) filas del objeto que llama
+          la función.
+    \item \textbf{Tipo:} Tipo del objeto que llama la función
+\end{itemize}
+
+\paragraph{\texttt{info(verbose, buf, max\_cols, memory\_usage, show\_counts)}}
+Este método imprime información sobre un DataFrame incluyendo el tipo de datos
+del índice y las columnas, los valores no nulos y el uso de memoria.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{verbose}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se imprime el resumen completo.
+                    Por defecto, se sigue la configuración en
+                    \texttt{pandas.options.display.max\_info\_columns}.
+              \item \textbf{Tipo:} Booleano, opcional
+          \end{itemize}
+    \item \texttt{buf}
+          \begin{itemize}
+              \item \textbf{Descripción:} Dónde enviar la salida. Por defecto,
+                    la salida se imprime en \texttt{sys.stdout}. Se puede pasar un búfer escribible
+                    si se necesita procesar más la salida.
+              \item \textbf{Tipo:} Búfer escribible, valor por defecto
+                    \texttt{sys.stdout}
+          \end{itemize}
+    \item \texttt{max\_cols}
+          \begin{itemize}
+              \item \textbf{Descripción:} Cuándo cambiar de la salida detallada
+                    a la salida truncada. Si el DataFrame tiene más de \texttt{max\_cols} columnas,
+                    se utiliza la salida truncada.
+              \item \textbf{Tipo:} Entero, opcional
+          \end{itemize}
+    \item \texttt{memory\_usage}
+          \begin{itemize}
+              \item \textbf{Descripción:} Especifica si se debe mostrar el uso
+                    total de memoria de los elementos del DataFrame (incluido el índice).
+              \item \textbf{Tipo:} Booleano, cadena, opcional
+          \end{itemize}
+    \item \texttt{show\_counts}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se muestran los recuentos de no
+                    nulos. Por defecto, esto se muestra solo si el DataFrame es más pequeño que las
+                    opciones en \texttt{pandas.options.display.max\_info\_rows} y
+                    \texttt{pandas.options.display.max\_info\_columns}.
+              \item \textbf{Tipo:} Booleano, opcional
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Ninguno
+\begin{itemize}
+    \item \textbf{Descripción:} Este método imprime un resumen de un DataFrame
+          y no devuelve nada.
+    \item \textbf{Tipo:} Ninguno
+\end{itemize}
+
+\paragraph{\texttt{describe(percentiles, include, exclude)}}Genera estadísticas
+descriptivas. Las estadísticas descriptivas incluyen aquellas que resumen la
+tendencia central, la dispersión y la forma de la distribución del conjunto de
+datos, excluyendo los valores NaN. Analiza tanto series numéricas como de
+objeto, así como conjuntos de columnas de DataFrame de tipos de datos mixtos.
+La salida variará dependiendo de lo que se proporcione. Consulte las notas a
+continuación para obtener más detalles.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{percentiles}
+          \begin{itemize}
+              \item \textbf{Descripción:} Los percentiles a incluir en la
+                    salida. Todos deben estar entre 0 y 1. El valor por defecto es \([.25, .5,
+                            .75]\), que devuelve los percentiles 25, 50 y 75.
+              \item \textbf{Tipo:} Lista de números
+              \item \textbf{Por defecto:} Ninguno (Opcional)
+          \end{itemize}
+    \item \texttt{include}
+          \begin{itemize}
+              \item \textbf{Descripción:} Lista blanca de tipos de datos para
+                    incluir en el resultado. Ignorado para Series.
+              \item \textbf{Tipo:} ‘all’, lista de tipos de datos o Ninguno
+                    (Por defecto)
+              \item \textbf{Opciones:} ‘all’, lista de dtypes, Ninguno
+          \end{itemize}
+    \item \texttt{exclude}
+          \begin{itemize}
+              \item \textbf{Descripción:} Lista negra de tipos de datos para
+                    omitir del resultado. Ignorado para Series.
+              \item \textbf{Tipo:} Lista de tipos de datos o Ninguno (Por
+                    defecto)
+              \item \textbf{Opciones:} Lista de dtypes, Ninguno
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Series o DataFrame
+\begin{itemize}
+    \item \textbf{Descripción:} Estadísticas resumidas de la Series o DataFrame
+          proporcionado.
+    \item \textbf{Tipo:} Series o DataFrame
+\end{itemize}
+
+\paragraph{\texttt{len(df)}} Retorna el número de filas que hay en la tabla.
+\subparagraph{Tipo de dato de salida} \texttt{Int}
+
+\paragraph{\texttt{round(df,0)}} Retorna la tabla con los valores numéricos
+redondeados con las cifras especificadas.
+\subparagraph{Tipo de dato de salida} \texttt{Int}
+
+\paragraph{\texttt{mean(axis, skipna, numeric\_only, **kwargs)}} Calcula la
+media de los valores a lo largo del eje solicitado.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Eje sobre el que se aplica la
+                    función. Para Series, este parámetro no se utiliza y su valor predeterminado es
+                    0. Para DataFrames, especificar \texttt{axis=None} aplicará la agregación en
+                    ambos ejes.
+              \item \textbf{Tipo:} \{0 ('index'), 1 ('columns')\}
+              \item \textbf{Por defecto:} \texttt{0}
+          \end{itemize}
+
+    \item \texttt{skipna}
+          \begin{itemize}
+              \item \textbf{Descripción:} Excluir valores NA/nulos al calcular
+                    el resultado.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+
+    \item \texttt{numeric\_only}
+          \begin{itemize}
+              \item \textbf{Descripción:} Incluir solo columnas de tipo float,
+                    int, booleano. No implementado para Series.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+
+    \item \texttt{**kwargs}
+          \begin{itemize}
+              \item \textbf{Descripción:} Argumentos de palabras clave
+                    adicionales para pasar a la función.
+              \item \textbf{Tipo:} Cualquiera
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} Series o escalar
+\begin{itemize}
+    \item \textbf{Descripción:} La media de los valores a lo largo del eje
+          especificado.
+    \item \textbf{Tipo:} \texttt{Series} o escalar
+\end{itemize}
+
+\paragraph{\texttt{sort\_values(by, *, axis, ascending, inplace, kind,
+        na\_position, ignore\_index, key)}} Ordena por los valores a lo largo de
+cualquiera de los ejes.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{by}
+          \begin{itemize}
+              \item \textbf{Descripción:} Nombre o lista de nombres (índices)
+                    por los que ordenar.
+              \item \textbf{Tipo:} Cadena de caracteres o lista de cadenas de
+                    caracteres, según el índice.
+          \end{itemize}
+
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Eje que será ordenado.
+              \item \textbf{Tipo:} \{0 ('index'), 1 ('columns')\}
+              \item \textbf{Por defecto:} 0
+          \end{itemize}
+
+    \item \texttt{ascending}
+          \begin{itemize}
+              \item \textbf{Descripción:} Ordenar de forma ascendente vs
+                    descendente. Especifique una lista para múltiples órdenes de clasificación.
+              \item \textbf{Tipo:} Booleano o lista de booleanos
+              \item \textbf{Por defecto:} Verdadero
+          \end{itemize}
+
+    \item \texttt{inplace}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si es Verdadero, aplica el
+                    ordenamiento al objeto.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} Falso
+          \end{itemize}
+
+    \item \texttt{kind}
+          \begin{itemize}
+              \item \textbf{Descripción:} Elección del algoritmo de ordenación.
+              \item \textbf{Tipo:} \{'quicksort', 'mergesort', 'heapsort',
+                    'stable'\}
+              \item \textbf{Por defecto:} 'quicksort'
+          \end{itemize}
+
+    \item \texttt{na\_position}
+          \begin{itemize}
+              \item \textbf{Descripción:} Ubica los NaN al principio si es
+                    'first'; al final si es 'last'.
+              \item \textbf{Tipo:} \{'first', 'last'\}
+              \item \textbf{Por defecto:} 'last'
+          \end{itemize}
+
+    \item \texttt{ignore\_index}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si es Verdadero, el eje resultante se
+                    etiquetará 0, 1, ..., n - 1.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} Falso
+          \end{itemize}
+
+    \item \texttt{key}
+          \begin{itemize}
+              \item \textbf{Descripción:} Aplicar la función clave a los
+                    valores antes de ordenar.
+              \item \textbf{Tipo:} Función
+              \item \textbf{Opcional:} Verdadero
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno:} DataFrame o None
+\begin{itemize}
+    \item \textbf{Descripción:} DataFrame con valores ordenados o None si
+          \texttt{inplace=True}.
+    \item \textbf{Tipo:} DataFrame o None
+\end{itemize}
+
+\paragraph{Selección de columnas}
+
+Si se tiene un DataFrame, podemos usar el índice \texttt{[]} para seleccionar
+una o más columnas diferentes.
+
+\begin{verbatim}
+                    df["col1"]
+                    \end{verbatim}
+Una forma alternativa es mediante la notación de punto:
+
+\begin{verbatim}
+                    df.col1
+                    \end{verbatim}
+Si queremos obtener más de una columna, debemos ingresar las etiquetas de
+dichas columnas como una \textbf{lista}:
+\begin{verbatim}
+                    df[["col1","col2"]]
+                    \end{verbatim}
+\subparagraph{Tipo de dato de salida} Si se pone solamente la etiqueta de una
+columna como argumento, el tipo de retorno será \texttt{Series}. Si se pone una
+lista de una o más etiquetas, entonces la salida será otro \texttt{DataFrame}.
+
+\paragraph{\texttt{df.iloc[n,m]}} Este método retorna la información de la fila
+enésima y columna enésima. Se pueden seleccionar una o más filas/columnas, y si
+se requiere un conjunto específico de filas/columnas, deben ingresarse dentro
+de una lista
+\begin{verbatim}
+                    df.iloc[25:30]
+                    df.iloc[25,2]
+                    df.iloc[25:30,2:5]
+                    df.iloc[[100,345,778],[0,4]]
+                    \end{verbatim}
+\subparagraph{Tipo de dato de salida} \texttt{Series, DataFrame} o el tipo de
+objeto en la celda, cuando se especifica una sola celda.
+
+\paragraph{\texttt{df.loc[Rlabel,Clabel]}} Este método es muy similar al
+anterior, con la diferencia de que se asigna como argumento el texto de la
+etiqueta de la fila que se desea retornar. Si hay más de una fila con la misma
+etiqueta, entonces se retornan todas las filas.
+
+\subparagraph{Tipo de dato de salida} \texttt{Series, DataFrame} o el tipo de
+objeto en la celda, cuando se especifica una sola celda.
+
+Si se intenta capturar los datos de varias filas hasta una etiqueta
+especificada (por ejemplo, \texttt{df.loc[:"Clabel"]} mostrará error si esta
+etiqueta no es única.
+
+En general se puede acceder a las filas o columnas de un conjunto de datos
+pensando en la entrada de indexación como listas. Si por ejemplo se requiere un
+rango específico de filas más unas filas específicas, se puede usar lo
+siguiente
+
+\begin{verbatim}
+                        index = list(range(15,20)) + [35,45]
+                        df.iloc[index]
+                        \end{verbatim}
+O si se requieren, por ejemplo las tres primeras columnas, más dos columnas
+específicas más:
+\begin{verbatim}
+                        col_index = df.columns[:3].tolist() + ["col7","col9"]
+                        df.loc[:, col_index]
+                        \end{verbatim}
+
+\paragraph{\texttt{copy(deep)}} Realiza una copia de los índices y datos de
+este objeto.
+
+\subparagraph{\textbf{Descripción}}
+Cuando \texttt{deep=True} (por defecto), se crea un nuevo objeto con una copia
+de los datos e índices del objeto que hace la llamada. Las modificaciones en
+los datos o índices de la copia no se reflejarán en el objeto original.
+
+Cuando \texttt{deep=False}, se crea un nuevo objeto sin copiar los datos o el
+índice del objeto que hace la llamada (sólo se copian las referencias a los
+datos y el índice). Cualquier cambio en los datos del original se reflejará en
+la copia superficial (y viceversa).
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{deep}
+          \begin{itemize}
+              \item \textbf{Descripción:} Realizar una copia profunda,
+                    incluyendo una copia de los datos y los índices. Con \texttt{deep=False} ni los
+                    índices ni los datos se copian.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} Verdadero
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{\textbf{Retorno:} Series o DataFrame}
+\begin{itemize}
+    \item \textbf{Descripción:} El tipo de objeto coincide con el que hace la
+          llamada.
+    \item \textbf{Tipo:} Series o DataFrame
+\end{itemize}
+
+\paragraph{\texttt{nlargest(n, columns, keep)}} Devuelve las primeras \( n \)
+filas ordenadas por las columnas en orden descendente.
+
+\subparagraph{\textbf{Descripción}} Devuelve las primeras \( n \) filas con los
+valores más grandes en las columnas, en orden descendente. Las columnas que no
+se especifican también se devuelven, pero no se utilizan para ordenar. Este
+método es equivalente a \texttt{df.sort\_values(columns,
+    ascending=False).head(n)}, pero es más eficiente en términos de rendimiento.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{n}
+          \begin{itemize}
+              \item \textbf{Descripción:} Número de filas a devolver.
+              \item \textbf{Tipo:} Entero
+          \end{itemize}
+    \item \texttt{columns}
+          \begin{itemize}
+              \item \textbf{Descripción:} Etiqueta(s) de columna por las cuales
+                    ordenar.
+              \item \textbf{Tipo:} Etiqueta o lista de etiquetas
+          \end{itemize}
+    \item \texttt{keep}
+          \begin{itemize}
+              \item \textbf{Descripción:} Donde hay valores duplicados:
+                    \begin{itemize}
+                        \item \texttt{first}: da prioridad a la primera
+                              ocurrencia(s).
+                        \item \texttt{last}: da prioridad a la última
+                              ocurrencia(s).
+                        \item \texttt{all}: no elimina ningún duplicado,
+                              incluso si eso significa seleccionar más de \( n \) elementos.
+                    \end{itemize}
+              \item \textbf{Tipo:} \{`first', `last', `all'\}
+              \item \textbf{Por defecto:} `first'
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{\textbf{Retorno:} DataFrame}
+\begin{itemize}
+    \item \textbf{Descripción:} Las primeras \( n \) filas ordenadas por las
+          columnas dadas en orden descendente.
+    \item \textbf{Tipo:} DataFrame
+\end{itemize}
+
+\paragraph{\texttt{nsmallest(n, columns, keep)}} Devuelve las primeras \( n \)
+filas ordenadas por las columnas en orden ascendente.
+
+\subparagraph{\textbf{Descripción}}
+Devuelve las primeras \( n \) filas con los valores más pequeños en las
+columnas, en orden ascendente. Las columnas que no se especifican también se
+devuelven, pero no se utilizan para ordenar.
+
+Este método es equivalente a \texttt{df.sort\_values(columns,
+    ascending=True).head(n)}, pero es más eficiente en términos de rendimiento.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{n}
+          \begin{itemize}
+              \item \textbf{Descripción:} Número de elementos a recuperar.
+              \item \textbf{Tipo:} Entero
+          \end{itemize}
+    \item \texttt{columns}
+          \begin{itemize}
+              \item \textbf{Descripción:} Nombre o nombres de columna por los
+                    cuales ordenar.
+              \item \textbf{Tipo:} Lista o cadena de caracteres
+          \end{itemize}
+    \item \texttt{keep}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si hay valores duplicados:
+                    \begin{itemize}
+                        \item \texttt{first}: toma la primera ocurrencia.
+                        \item \texttt{last}: toma la última ocurrencia.
+                        \item \texttt{all}: no elimina ningún duplicado,
+                              incluso si eso significa seleccionar más de \( n \) elementos.
+                    \end{itemize}
+              \item \textbf{Tipo:} \{`first', `last', `all'\}
+              \item \textbf{Por defecto:} `first'
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{\textbf{Retorno:} DataFrame}
+\begin{itemize}
+    \item \textbf{Descripción:} Las primeras \( n \) filas ordenadas por las
+          columnas dadas en orden ascendente.
+    \item \textbf{Tipo:} DataFrame
+\end{itemize}
+
+\paragraph{\texttt{idxmin(axis, skipna, numeric\_only)}} Devuelve el índice de
+la primera ocurrencia del mínimo a lo largo del eje solicitado. Los valores
+NA/nulos son excluidos.
+
+\subparagraph{\textbf{Descripción}}
+Esta función retorna el índice de la primera aparición del valor mínimo a lo
+largo del eje especificado, excluyendo los valores NA/nulos.
+
+\subparagraph{\textbf{Parámetros}}
+\begin{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} El eje a utilizar. 0 o `index' para
+                    filas, 1 o `columns' para columnas.
+              \item \textbf{Tipo:} \{0 o `index', 1 o `columns'\}
+              \item \textbf{Por defecto:} 0
+          \end{itemize}
+    \item \texttt{skipna}
+          \begin{itemize}
+              \item \textbf{Descripción:} Excluir valores NA/nulos. Si una
+                    fila/columna entera es NA, el resultado será NA.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} Verdadero
+          \end{itemize}
+    \item \texttt{numeric\_only}
+          \begin{itemize}
+              \item \textbf{Descripción:} Incluir solo datos de tipo flotante,
+                    entero o booleano.
+              \item \textbf{Tipo:} Booleano
+              \item \textbf{Por defecto:} Falso
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{\textbf{Retorno:} Series}
+\begin{itemize}
+    \item \textbf{Descripción:} Índices de los mínimos a lo largo del eje
+          especificado.
+    \item \textbf{Tipo:} Series
+\end{itemize}
+
+\subparagraph{\textbf{Excepciones}}
+\begin{itemize}
+    \item \texttt{ValueError}
+          \begin{itemize}
+              \item \textbf{Descripción:} Se levanta si la fila o columna está
+                    vacía.
+          \end{itemize}
+\end{itemize}
+
+\paragraph{\texttt{DataFrame.reset\_index}}
+
+\subparagraph{Descripción:}
+Restablece el índice del DataFrame, y utiliza el índice predeterminado en su
+lugar.
+Si el DataFrame tiene un MultiIndex, este método puede eliminar uno o más
+niveles.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \texttt{level}
+          \begin{itemize}
+              \item \textbf{Descripción:} Solo elimina los niveles dados del
+                    índice. Elimina todos los niveles por defecto.
+              \item \textbf{Tipo:} int, str, tuple, o list
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+
+    \item \texttt{drop}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se activa, quita completamente la
+                    columna de índices que estaba anteriormente, y la borra.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+
+    \item \texttt{inplace}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se debe modificar el DataFrame en
+                    lugar de crear uno nuevo.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+
+    \item \texttt{col\_level}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si las columnas tienen múltiples
+                    niveles, determina en qué nivel se insertan las etiquetas. Por defecto, se
+                    insertan en el primer nivel.
+              \item \textbf{Tipo:} int o str
+              \item \textbf{Por defecto:} \texttt{0}
+          \end{itemize}
+
+    \item \texttt{col\_fill}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si las columnas tienen múltiples
+                    niveles, determina cómo se nombran los otros niveles.
+              \item \textbf{Tipo:} object
+              \item \textbf{Por defecto:} \texttt{''}
+          \end{itemize}
+
+    \item \texttt{allow\_duplicates}
+          \begin{itemize}
+              \item \textbf{Descripción:} Permite la creación de etiquetas de
+                    columna duplicadas.
+              \item \textbf{Tipo:} bool, opcional
+              \item \textbf{Por defecto:} \texttt{lib.no\_default}
+          \end{itemize}
+
+    \item \texttt{names}
+          \begin{itemize}
+              \item \textbf{Descripción:} Utilizando la cadena dada, renombra
+                    la columna del DataFrame que contiene los datos del índice.
+              \item \textbf{Tipo:} int, str o lista 1-dimensional
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+DataFrame con el nuevo índice o \texttt{None} si \texttt{inplace=True}.
+
+\paragraph{\texttt{DataFrame.set\_index}}
+
+\subparagraph{Descripción:}
+Establece el índice del DataFrame utilizando una o más columnas existentes o
+arrays del mismo tamaño. El índice puede reemplazar el índice existente o
+expandirse sobre él.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \texttt{keys}
+          \begin{itemize}
+              \item \textbf{Descripción:} Este parámetro puede ser una clave de
+                    columna única, un array del mismo tamaño que el DataFrame que llama al método,
+                    o una lista que contiene una combinación arbitraria de claves de columna y
+                    arrays.
+              \item \textbf{Tipo:} Etiqueta o array-like o lista de
+                    etiquetas/arrays
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+
+    \item \texttt{drop}
+          \begin{itemize}
+              \item \textbf{Descripción:} Elimina las columnas que se
+                    utilizarán como el nuevo índice.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+
+    \item \texttt{append}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se deben agregar columnas al
+                    índice existente.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+
+    \item \texttt{inplace}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se debe modificar el DataFrame en
+                    lugar de crear uno nuevo.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+
+    \item \texttt{verify\_integrity}
+          \begin{itemize}
+              \item \textbf{Descripción:} Verifica el nuevo índice en busca de
+                    duplicados. De lo contrario, aplaza la verificación hasta que sea necesario.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+DataFrame con las nuevas etiquetas de fila o \texttt{None} si
+\texttt{inplace=True}.
+
+\paragraph{\texttt{DataFrame.rename}}
+
+\subparagraph{Descripción:}
+Renombra las etiquetas de columnas o índices. Los valores de la función o
+diccionario deben ser únicos (1-a-1). Las etiquetas no contenidas en un
+diccionario o Serie se mantendrán como están. Las etiquetas adicionales
+listadas no generarán un error.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \texttt{mapper}
+          \begin{itemize}
+              \item \textbf{Descripción:} Transformaciones dict-like o función
+                    para aplicar a los valores del eje especificado.
+              \item \textbf{Tipo:} dict-like o función
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+
+    \item \texttt{index}
+          \begin{itemize}
+              \item \textbf{Descripción:} Alternativa para especificar el eje.
+              \item \textbf{Tipo:} dict-like o función
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+
+    \item \texttt{columns}
+          \begin{itemize}
+              \item \textbf{Descripción:} Alternativa para especificar el eje.
+              \item \textbf{Tipo:} dict-like o función
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} Eje para aplicar el renombramiento.
+              \item \textbf{Tipo:} \{0 o 'index', 1 o 'columns'\}
+              \item \textbf{Por defecto:} \texttt{0}
+          \end{itemize}
+
+    \item \texttt{copy}
+          \begin{itemize}
+              \item \textbf{Descripción:} También copia los datos subyacentes.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+
+    \item \texttt{inplace}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se debe modificar el DataFrame en
+                    lugar de crear uno nuevo.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+
+    \item \texttt{level}
+          \begin{itemize}
+              \item \textbf{Descripción:} En caso de un MultiIndex, solo
+                    renombra las etiquetas en el nivel especificado.
+              \item \textbf{Tipo:} int o nombre de nivel
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+
+    \item \texttt{errors}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si 'raise', genera un KeyError cuando
+                    un mapper dict-like, index, o columns contiene etiquetas que no están presentes
+                    en el índice que se transforma. Si 'ignore', las claves existentes serán
+                    renombradas y las claves adicionales serán ignoradas.
+              \item \textbf{Tipo:} \{'ignore', 'raise'\}
+              \item \textbf{Por defecto:} \texttt{'ignore'}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+DataFrame con las etiquetas de eje renombradas o \texttt{None} si
+\texttt{inplace=True}.
+
+\subsection{Objeto \textit{Series}}
+
+Cuando extraemos una columna entera con sus respectivas filas de un conjunto de
+datos, el resultado es del tipo \texttt{pandas.core.series.Series}. Este objeto
+se define dentro del contexto de Pandas como un arreglo unidimensional
+etiquetado.
+
+En este objeto hay algunos métodos que son los mismos para los DataFrame
+
+\begin{itemize}
+    \item \texttt{head()}
+    \item \texttt{tail()}
+    \item \texttt{dtype}
+    \item \texttt{shape}
+    \item \texttt{index}
+\end{itemize}
+
+\subsubsection{Métodos y atributos}
+
+\paragraph{\texttt{to\_frame()}} Convierte la serie en un dataframe. Su
+argumento de entrada. Su único parámetro de entrada es la serie a convertir, y
+su retorno es un objeto de l tipo DataFrame.
+
+Existen dos tipos principales de datos en una serie de datos: numéricos y no
+numéricos. En función del tipo de datos existen diferentes métodos de análisis
+de las series. Los siguientes son métodos para tipos numéricos.
+
+\paragraph{Series.describe()} Este método genera una descripción estadística de
+los datos.
+
+\subparagraph{Parámetros}
+
+\begin{itemize}
+    \item \textbf{percentiles}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{list-like of numbers}
+              \item \textbf{Descripción}: Los percentiles a incluir en la
+                    salida. Deben estar todos entre 0 y 1.
+              \item \textbf{Por defecto}: \texttt{[.25, .5, .75]}
+          \end{itemize}
+
+    \item \textbf{include}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{'all'}, \texttt{list-like of dtypes}
+                    o \texttt{None}
+              \item \textbf{Descripción}: Tipo de datos a describir. Si es
+                    \texttt{'all'}, se describen todos los tipos.
+              \item \textbf{Por defecto}: \texttt{None}
+          \end{itemize}
+
+    \item \textbf{exclude}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{list-like of dtypes} o \texttt{None}
+              \item \textbf{Descripción}: Tipo de datos a excluir de la
+                    descripción.
+              \item \textbf{Por defecto}: \texttt{None}
+          \end{itemize}
+
+    \item \textbf{datetime\_is\_numeric}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Descripción}: Si es \texttt{True}, se tratan las
+                    fechas como datos numéricos y se muestra un resumen numérico. Si es
+                    \texttt{False}, se muestra un resumen basado en fecha.
+              \item \textbf{Por defecto}: \texttt{False}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Retorno}
+\texttt{Series} o \texttt{DataFrame}
+Con la descripción estadística de la Serie.
+
+\paragraph{\texttt{Series.count()}} Cuenta la cantidad de datos no nulos. El
+tipo de salida es entero.
+
+\paragraph{\texttt{Series.sum()}} Retorna la suma de los elementos en la serie
+de datos. Como característica particular de Pandas, puede manejar de manera
+apropiada con datos incompletos, o faltantes.
+
+\subparagraph{Parámetros}
+
+\begin{itemize}
+    \item \textbf{axis}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{int}
+              \item \textbf{Descripción}: El eje a lo largo del cual se
+                    aplicará la operación. Para Series, solo se permite el valor 0.
+              \item \textbf{Por defecto}: \texttt{0}
+          \end{itemize}
+
+    \item \textbf{skipna}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Descripción}: Especifica si se deben excluir los
+                    valores \texttt{NaN} al calcular la suma.
+              \item \textbf{Por defecto}: \texttt{True}
+          \end{itemize}
+
+    \item \textbf{level}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{int} o \texttt{str}
+              \item \textbf{Descripción}: Si la Serie tiene un MultiIndex,
+                    especifica el nivel para calcular la suma.
+              \item \textbf{Por defecto}: \texttt{None}
+          \end{itemize}
+
+    \item \textbf{min\_count}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{int}
+              \item \textbf{Descripción}: El número mínimo de observaciones
+                    válidas (no-\texttt{NaN}) requeridas para realizar la suma. Si no se alcanza
+                    este número, se devuelve \texttt{NaN}.
+              \item \textbf{Por defecto}: \texttt{0}
+          \end{itemize}
+\end{itemize}
+
+\textbf{Retorno:}\texttt{scalar} Suma de los valores de la Serie.
+
+\paragraph{pandas.Series.mean()} Devuelve la media aritmética de los valores de
+la Serie.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \textbf{axis}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{int}
+              \item \textbf{Por defecto}: \texttt{0}
+          \end{itemize}
+    \item \textbf{skipna}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Por defecto}: \texttt{True}
+          \end{itemize}
+\end{itemize}
+
+\paragraph{pandas.Series.median()} Devuelve la mediana de los valores de la
+Serie.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \textbf{axis}, \textbf{skipna}, \textbf{numeric\_only}: Igual que en
+          \texttt{Series.mean()}.
+\end{itemize}
+
+\paragraph{pandas.Series.std()} Devuelve la desviación estándar de los valores
+de la Serie.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \textbf{axis}, \textbf{skipna}, \textbf{level}: Igual que en
+          \texttt{Series.mean()}.
+    \item \textbf{ddof}
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{int}
+              \item \textbf{Por defecto}: \texttt{1}
+              \item \textbf{Desripción}: Delta de los grados de libertad.
+          \end{itemize}
+\end{itemize}
+
+\paragraph{pandas.Series.min()} Devuelve el valor mínimo de la Serie.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \textbf{axis}, \textbf{skipna}, \textbf{numeric\_only}: Igual que en
+          \texttt{Series.mean()}.
+\end{itemize}
+
+\paragraph{pandas.Series.max()} Devuelve el valor máximo de la Serie.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \textbf{axis}, \textbf{skipna}, \textbf{numeric\_only}: Igual que en
+          \texttt{Series.mean()}.
+\end{itemize}
+
+\paragraph{pandas.Series.unique()} Devuelve los valores únicos de la Serie.
+
+\subparagraph{Parámetros:} Ninguno.
+
+\subparagraph{Tipo de retorno:} \texttt{ExtensionArray}
+
+\paragraph{pandas.Series.value\_counts()} Devuelve una Serie que representa la
+frecuencia de valores únicos.
+
+\subparagraph{Parámetros:}
+\begin{itemize}
+    \item \textbf{normalize}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Descripción}: Si es \texttt{True}, devuelve las
+                    proporciones en lugar de las cuentas.
+              \item \textbf{Por defecto}: \texttt{False}
+          \end{itemize}
+    \item \textbf{sort}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Por defecto}: \texttt{True}
+          \end{itemize}
+    \item \textbf{ascending}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Por defecto}: \texttt{False}
+          \end{itemize}
+    \item \textbf{bins}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{int}
+              \item \textbf{Descripción}: Solo para Series numéricas. Divide
+                    los valores en intervalos.
+              \item \textbf{Por defecto}: \texttt{None}
+          \end{itemize}
+    \item \textbf{dropna}:
+          \begin{itemize}
+              \item \textbf{Tipo}: \texttt{bool}
+              \item \textbf{Descripción}: Si es \texttt{True}, excluye los
+                    valores \texttt{NaN}.
+              \item \textbf{Por defecto}: \texttt{True}
+          \end{itemize}
+\end{itemize}
+\subparagraph{Tipo de retorno:} \texttt{Series}
+
+Para las series con valores no numéricos, los atributos y métodos como
+\texttt{shape}, \texttt{size}, \texttt{count()} son muy similares a los de
+valores numéricos. Por su parte otros métodos como \texttt{describe()} muestra
+información como cuál es el valor más repetido, su respectiva frecuencia, etc.
+
+Métodos como \texttt{min()} que retorna el valor más "pequeño" alfabéticamente
+hablando, tienen sus diferencias con los valores numéricos.
+
+\paragraph{Ejemplo} Para un conjunto de datos de las medallas de oro de los
+juegos olímpicos históricos de verano, el siguiente código realiza una
+exploración de cuál es el nombre del atleta que más oros consiguió en la
+edición de los juegos olímpicos de 1972:
+
+\begin{verbatim}
+        import pandas as pd
+        
+        df = pd.read_csv("summer1972.csv",index_col="Year")
+        
+        Athlete = df["Athlete"]
+        
+        print(Athlete.loc[1972].value_counts().index[0])
+        \end{verbatim}
+\subsubsection{Creación de series}
+
+A partir de cualquier conjunto de datos importado o creado, si seleccionamos o
+extraemos una de las columnas, sea total o filtrada de alguna manera, vamos a
+obtener un objeto del tipo \textit{Series}.
+La siguiente línea de código es un ejemplo de cómo se consigue una serie
+directamente importada del archivo:
+
+\begin{verbatim}
+        pd.read_csv("file.csv", usecols = ["name_col"]).squeeze()
+        \end{verbatim}
+De este modo, la variable retornada será del tipo \texttt{Series} en lugar de
+\texttt{DataFrame}.
+Por su parte, existe el método para convertir una lista de python a una serie
+de pandas:
+
+\begin{verbatim}
+        pd.Series([10,25,6,36,2])
+        \end{verbatim}
+Se pueden establecer las etiquetas a las filas de la serie creada de la
+siguiente forma:
+\begin{verbatim}
+        pd.Series([10,25,6,36,2], index = ["Mon","Tue","Wed","Thu","Fri"])
+        \end{verbatim}
+Y se puede añadir la etiqueta de la columna también:
+
+\begin{verbatim}
+        pd.Series([10,25,6,36,2], index = ["Mon","Tue","Wed","Thu","Fri"], name = "Sales")
+        \end{verbatim}
+\paragraph{\texttt{pd.Series}} Retorna un objeto del tipo \texttt{Series} a
+partir de los datos ingresados.
+
+\subparagraph{Parámetros}
+\begin{itemize}
+    \item \textbf{data}:
+          \begin{itemize}
+              \item \textbf{Descripción:} los datos que serán los elementos de
+                    la serie.
+              \item \textbf{Tipo:} elementos iterables, del tipo arreglo
+                    (\texttt{numpy.array}) o diccionarios.
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+    \item \textbf{index}:
+          \begin{itemize}
+              \item \textbf{Descripción:} Es el conjunto de etiquetas para las
+                    filas de la serie.
+              \item \textbf{Tipo:} Tipo arreglo, puede ser una lista con los
+                    nombres requeridos.
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+    \item \textbf{data}:
+          \begin{itemize}
+              \item \textbf{Descripción:} los datos que serán los elementos de
+                    la serie.
+              \item \textbf{Tipo:} elementos iterables, del tipo arreglo
+                    (\texttt{numpy.array}) o diccionarios.
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}: \texttt{Series}
+
+Por otro lado, se puede crear una variable del tipo \texttt{Series} a partir de
+arreglos de \textit{numpy}, una lista de python, tupla, o dicccionario:
+
+\begin{verbatim}
+        import pandas as pd
+        import numpy as np
+        sales = np.array([10,25,6,36,2])
+        pd.Series(sales)
+        sales = [10,25,6,36,2]
+        \end{verbatim}
+Es importante mencionar la diferencia entre las referencias de filas realizadas
+con \texttt{loc} y las de \texttt{iloc}. Esta última se refiere al
+\textbf{índice}, iniciando desde cero hasta la longitud menos uno. La primera,
+\texttt{loc} se refiere a la \textbf{etiqueta}, la cual puede variar.
+
+\paragraph{\texttt{sort\_index}}
+
+\subparagraph{Descripción:}
+Ordena la Serie por las etiquetas del índice. Devuelve una nueva Serie ordenada
+por etiqueta si el argumento \texttt{inplace} es \texttt{False}, de lo
+contrario, actualiza la Serie original y devuelve \texttt{None}.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{axis}
+          \begin{itemize}
+              \item \textbf{Descripción:} No utilizado. Parámetro necesario
+                    para compatibilidad con DataFrame.
+              \item \textbf{Tipo:} \{0 o 'index'\}
+              \item \textbf{Por defecto:} 0
+          \end{itemize}
+    \item \texttt{level}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si no es \texttt{None}, ordena los
+                    valores en el nivel de índice especificado.
+              \item \textbf{Tipo:} int, opcional
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+    \item \texttt{ascending}
+          \begin{itemize}
+              \item \textbf{Descripción:} Ordena en dirección ascendente o
+                    descendente.
+              \item \textbf{Tipo:} bool o lista de bools
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+    \item \texttt{inplace}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si es \texttt{True}, realiza la
+                    operación en el lugar.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+    \item \texttt{kind}
+          \begin{itemize}
+              \item \textbf{Descripción:} Elección del algoritmo de ordenación.
+              \item \textbf{Tipo:} \{'quicksort', 'mergesort', 'heapsort',
+                    'stable'\}
+              \item \textbf{Por defecto:} 'quicksort'
+          \end{itemize}
+    \item \texttt{na\_position}
+          \begin{itemize}
+              \item \textbf{Descripción:} Posición de los NaNs en la Serie
+                    ordenada.
+              \item \textbf{Tipo:} \{'first', 'last'\}
+              \item \textbf{Por defecto:} 'last'
+          \end{itemize}
+    \item \texttt{sort\_remaining}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si es \texttt{True}, también ordena
+                    por otros niveles después de ordenar por el nivel especificado.
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+    \item \texttt{ignore\_index}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si es \texttt{True}, el eje
+                    resultante se etiquetará de 0 a \( n - 1 \).
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+    \item \texttt{key}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si no es \texttt{None}, aplica la
+                    función clave a los valores del índice antes de ordenar.
+              \item \textbf{Tipo:} callable, opcional
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Serie o \texttt{None}. La Serie original ordenada por las etiquetas o
+\texttt{None} si \texttt{inplace=True}.
+
+\subsection{Objeto \texttt{index}}
+
+Uno de los atributos de un dataframe es \texttt{df.columns}, al imprimir este
+tipo de objeto vemos que su salida es del tipo
+
+\begin{verbatim}
+        Index(['col1', 'col2', 'col3'], dtype='object')
+        \end{verbatim}
+
+Estas son instancias de la clase \texttt{pandas.index} y se trata de una
+secuencia inmutable que se utiliza para la indexación y el alineamiento de los
+datos. Es el objeto en el que se guardan las etiquetas de los ejes en todos los
+objetos de Pandas.
+
+\subsubsection{Métodos}
+
+\paragraph{\texttt{Index.append}}
+
+\subparagraph{Descripción:}
+Agrega una colección de opciones de índice juntas.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{other}
+          \begin{itemize}
+              \item \textbf{Descripción:} Índice o lista/tupla de índices a
+                    agregar.
+              \item \textbf{Tipo:} Index o list/tuple de indices
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Índice (\texttt{Index}).
+
+\paragraph{\texttt{Index.drop}}
+
+\subparagraph{Descripción:}
+Crea un nuevo índice con la lista de etiquetas pasadas eliminadas.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{labels}
+          \begin{itemize}
+              \item \textbf{Descripción:} Etiquetas para eliminar del índice.
+              \item \textbf{Tipo:} array-like o escalar
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+    \item \texttt{errors}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si es 'ignore', suprime el error y se
+                    eliminan las etiquetas existentes.
+              \item \textbf{Tipo:} \{'ignore', 'raise'\}
+              \item \textbf{Por defecto:} 'raise'
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Índice (\texttt{Index}). Será del mismo tipo que el índice original, excepto
+para \texttt{RangeIndex}.
+
+\subparagraph{Excepciones}
+\texttt{KeyError} si no se encuentran todas las etiquetas en el eje
+seleccionado.
+
+\paragraph{\texttt{Index.isin}}
+
+\subparagraph{Descripción:}
+Devuelve un array booleano donde los valores del índice están en los valores
+pasados. Calcula un array booleano que indica si cada valor del índice se
+encuentra en el conjunto de valores pasado. La longitud del array booleano
+devuelto coincide con la longitud del índice.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{values}
+          \begin{itemize}
+              \item \textbf{Descripción:} Valores buscados.
+              \item \textbf{Tipo:} conjunto o lista
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+    \item \texttt{level}
+          \begin{itemize}
+              \item \textbf{Descripción:} Nombre o posición del nivel del
+                    índice a utilizar (si el índice es un \texttt{MultiIndex}).
+              \item \textbf{Tipo:} cadena o entero, opcional
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Array de NumPy de valores booleanos (\texttt{np.ndarray[bool]}).
+
+\subparagraph{Notas}
+En el caso de \texttt{MultiIndex}, debe especificar los valores como un objeto
+similar a una lista que contenga tuplas que tengan la misma longitud que el
+número de niveles, o especificar el nivel. De lo contrario, se generará un
+\texttt{ValueError}.
+
+\paragraph{\texttt{Index.unique}}
+
+\subparagraph{Descripción:}
+Devuelve los valores únicos en el índice. Los valores únicos se devuelven en el
+orden en que aparecen; esto no ordena los valores.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{level}
+          \begin{itemize}
+              \item \textbf{Descripción:} Devuelve solo los valores del nivel
+                    especificado (para \texttt{MultiIndex}). Si es un entero, obtiene el nivel por
+                    posición entera; de lo contrario, por nombre del nivel.
+              \item \textbf{Tipo:} entero o hashable, opcional
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Índice (\texttt{Index}).
+
+\subparagraph{Ver también}
+\begin{itemize}
+    \item \texttt{unique}: Array de NumPy de valores únicos en esa columna.
+    \item \texttt{Series.unique}: Devuelve los valores únicos del objeto
+          Series.
+\end{itemize}
+
+\paragraph{\texttt{Index.duplicated}}
+
+\subparagraph{Descripción:}
+Indica los valores duplicados del índice. Los valores duplicados se indican
+como valores \texttt{True} en el array resultante. Se pueden indicar todos los
+duplicados, todos excepto el primero o todos excepto el último.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{keep}
+          \begin{itemize}
+              \item \textbf{Descripción:} El valor o valores en un conjunto de
+                    duplicados que se marcarán como faltantes.
+              \item \textbf{Tipo:} \{'first', 'last', False\}
+              \item \textbf{Por defecto:} 'first'
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Array de NumPy de valores booleanos (\texttt{np.ndarray[bool]}).
+
+\subparagraph{Ejemplos}
+Por defecto, para cada conjunto de valores duplicados, la primera aparición se
+establece en \texttt{False} y todas las demás en \texttt{True}. Al usar 'last',
+la última aparición de cada conjunto de valores duplicados se establece en
+\texttt{False} y todas las demás en \texttt{True}. Al establecer \texttt{keep}
+en \texttt{False}, todos los duplicados son \texttt{True}.
+
+\paragraph{\texttt{Index.sort\_values}}
+
+\subparagraph{Descripción:}
+Devuelve una copia ordenada del índice. Opcionalmente, devuelve los índices que
+ordenaron el índice en sí.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{return\_indexer}
+          \begin{itemize}
+              \item \textbf{Descripción:} ¿Deberían devolverse los índices que
+                    ordenarían el índice?
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+    \item \texttt{ascending}
+          \begin{itemize}
+              \item \textbf{Descripción:} ¿Deberían ordenarse los valores del
+                    índice en orden ascendente?
+              \item \textbf{Tipo:} bool
+              \item \textbf{Por defecto:} \texttt{True}
+          \end{itemize}
+    \item \texttt{na\_position}
+          \begin{itemize}
+              \item \textbf{Descripción:} Argumento 'first' coloca NaNs al
+                    principio, 'last' coloca NaNs al final.
+              \item \textbf{Tipo:} \{'first', 'last'\}
+              \item \textbf{Por defecto:} 'last'
+          \end{itemize}
+    \item \texttt{key}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si no es \texttt{None}, aplica la
+                    función clave a los valores del índice antes de ordenar.
+              \item \textbf{Tipo:} callable, opcional
+              \item \textbf{Por defecto:} \texttt{None}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Índice (\texttt{pandas.Index}) y opcionalmente un array de NumPy
+(\texttt{numpy.ndarray}).
+
+\paragraph{\texttt{Index.get\_loc}}
+
+\subparagraph{Descripción:}
+Obtiene la ubicación entera, el segmento o la máscara booleana para la etiqueta
+solicitada.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{key}
+          \begin{itemize}
+              \item \textbf{Descripción:} Etiqueta para la cual se desea
+                    obtener la ubicación.
+              \item \textbf{Tipo:} label
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Entero si el índice es único, segmento si el índice es monótono, de lo
+contrario, máscara.
+
+\paragraph{\texttt{Index.get\_indexer}}
+
+\subparagraph{Descripción:}
+Calcula el indexador y la máscara para el nuevo índice dado el índice actual.
+El indexador debe usarse como entrada para \texttt{ndarray.take} para alinear
+los datos actuales con el nuevo índice.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{target}
+          \begin{itemize}
+              \item \textbf{Descripción:} Índice objetivo.
+              \item \textbf{Tipo:} Index
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+    \item \texttt{method}
+          \begin{itemize}
+              \item \textbf{Descripción:} Método para encontrar coincidencias
+                    inexactas.
+              \item \textbf{Tipo:} \{None, 'pad'/'ffill', 'backfill'/'bfill',
+                    'nearest'\}, opcional
+              \item \textbf{Por defecto:} Coincidencias exactas solamente
+          \end{itemize}
+    \item \texttt{limit}
+          \begin{itemize}
+              \item \textbf{Descripción:} Número máximo de etiquetas
+                    consecutivas en el objetivo para coincidencias inexactas.
+              \item \textbf{Tipo:} int, opcional
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+    \item \texttt{tolerance}
+          \begin{itemize}
+              \item \textbf{Descripción:} Distancia máxima entre las etiquetas
+                    originales y nuevas para coincidencias inexactas.
+              \item \textbf{Tipo:} opcional
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Array de NumPy de enteros (\texttt{np.ndarray[np.intp]}).
+
+\paragraph{\texttt{Index.intersection}}
+
+\subparagraph{Descripción:}
+Forma la intersección de dos objetos \texttt{Index}. Esto devuelve un nuevo
+\texttt{Index} con elementos comunes al índice y al otro objeto.
+
+\subparagraph{Parámetros:}
+
+\begin{itemize}
+    \item \texttt{other}
+          \begin{itemize}
+              \item \textbf{Descripción:} Otro índice o objeto similar a un
+                    array con el que formar la intersección.
+              \item \textbf{Tipo:} Index o array-like
+              \item \textbf{Por defecto:} No aplica
+          \end{itemize}
+    \item \texttt{sort}
+          \begin{itemize}
+              \item \textbf{Descripción:} Si se debe ordenar el índice
+                    resultante.
+              \item \textbf{Tipo:} True, False o None
+              \item \textbf{Por defecto:} \texttt{False}
+          \end{itemize}
+\end{itemize}
+
+\subparagraph{Tipo de retorno}
+Índice (\texttt{Index}).
+
+\paragraph{\texttt{Index.tolist}}
+
+\subparagraph{Descripción:}
+Devuelve una lista de los valores. Cada uno de estos es un tipo escalar, que es
+un escalar de Python (para \texttt{str}, \texttt{int}, \texttt{float}) o un
+escalar de Pandas (para \texttt{Timestamp/Timedelta/Interval/Period}).
+
+\subparagraph{Parámetros:}
+No tiene parámetros.
+
+\subparagraph{Tipo de retorno}
+Lista de Python (\texttt{list}).
+
+\subparagraph{Ver también}
+\begin{itemize}
+    \item \texttt{numpy.ndarray.tolist}: Devuelve el array como una lista de
+          Python anidada con \texttt{a.ndim} niveles de profundidad.
+\end{itemize}
+
+\subparagraph{Ejemplos}
+Para Series:
+\begin{verbatim}
+        >>> s = pd.Series([1, 2, 3])
+        >>> s.to_list()
+        [1, 2, 3]
+        \end{verbatim}
+Para Index:
+\begin{verbatim}
+        >>> idx = pd.Index([1, 2, 3])
+        >>> idx
+        Index([1, 2, 3], dtype='int64')
+        >>> idx.to_list()
+        [1, 2, 3]
+        \end{verbatim}
+
+\subsubsection{Atributos}
+
+la lista de métodos es la siguiente:
+
+\paragraph{~\hspace{2em} \texttt{array:}} El ExtensionArray de los datos que
+respaldan esta Serie o Índice.
+\paragraph{~\hspace{2em} \texttt{dtype:}} Devuelve el objeto dtype de los datos
+subyacentes.
+\paragraph{~\hspace{2em} \texttt{has\_duplicates:}} Verifica si el Índice tiene
+valores duplicados.
+\paragraph{~\hspace{2em} \texttt{hasnans:}} Devuelve True si hay algún NaN.
+\paragraph{~\hspace{2em} \texttt{inferred\_type:}} Devuelve una cadena del tipo
+inferido a partir de los valores.
+\paragraph{~\hspace{2em} \texttt{is\_monotonic\_decreasing:}} Devuelve un
+booleano si los valores son iguales o decrecientes.
+\paragraph{~\hspace{2em} \texttt{is\_monotonic\_increasing:}} Devuelve un
+booleano si los valores son iguales o crecientes.
+\paragraph{~\hspace{2em} \texttt{is\_unique:}} Devuelve si el índice tiene
+valores únicos.
+\paragraph{~\hspace{2em} \texttt{name:}} Devuelve el nombre del Índice o
+MultiÍndice.
+\paragraph{~\hspace{2em} \texttt{nbytes:}} Devuelve el número de bytes en los
+datos subyacentes.
+\paragraph{~\hspace{2em} \texttt{ndim:}} Número de dimensiones de los datos
+subyacentes, por definición 1.
+\paragraph{~\hspace{2em} \texttt{nlevels:}} Número de niveles.
+\paragraph{~\hspace{2em} \texttt{shape:}} Devuelve una tupla de la forma de los
+datos subyacentes.
+\paragraph{~\hspace{2em} \texttt{size:}} Devuelve el número de elementos en los
+datos subyacentes.
+\paragraph{~\hspace{2em} \texttt{values:}} Devuelve una matriz que representa
+los datos en el Índice.
+
+% -------- MÉTODOS ----------------------
+% \paragraph{\texttt{NOMBRE}}
+
+% \subparagraph{Descripción}
+% \subparagraph{Parámetros}
+
+% \begin{itemize}
+%     \item \texttt{}
+%         \begin{itemize}
+%             \item \textbf{Descripción:}
+%             \item \textbf{Tipo:}
+%             \item \textbf{Por defecto:}
+%         \end{itemize}
+% \end{itemize}
+
+% \subparagraph{Tipo de retorno}

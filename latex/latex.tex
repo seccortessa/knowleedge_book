@@ -1,0 +1,152 @@
+
+\chapter{Latex}
+
+\section{clases de documento \texttt{documentclass}}
+
+\raggedright  \texttt{\textbackslash documentclass['opcion1', 'opcion2', ...]\{clase de documento\}} \\
+
+  Definición de la clase de documento, en función del tipo de documento a escribir.
+
+\subsection*{Tipos de documentos}
+
+\subsubsection{\texttt{book}}
+
+Para libros y otros documentos más largos que deben incluir capítulos, prólogo, apéndices o incluso partes.
+
+\subparagraph{nota:}
+\raggedright Para poder incluir un capítulo (\texttt{ \textbackslash chapter}) es necesario cambiar el tipo de documento, el tipo \texttt{\textbackslash documentclass \{ article \} } no soporta capítulos. En cambio usar \texttt{book}
+
+\subsubsection{\texttt{article}}
+
+Para artículos académicos y otros documentos cortos que no es necesario dividir en capítulos, sino que bastan las secciones y subsecciones y sus párrafos y subpárrafos.
+
+\subsubsection{\texttt{report}}
+
+Para informes técnicos. Es similar a la clase \texttt{book}
+
+\paragraph{Nota:}  son muy similares, y ambas sirven para documentos grandes, como lo son, naturalmente, los libros y los reportes, entre otros trabajos. Sin embargo, existen ligeras diferencias. Por ejemplo, la clase \texttt{book} hace que los capítulos empiecen siempre en una página impar, de modo que si un capítulo anterior termina en una página impar, la página (par) siguiente quedará en blanco y el capítulo nuevo comenzará después de ella. Esto, en cambio, no sucede con la clase report, así es que un capítulo simplemente empieza en una página nueva, sea par o impar.
+
+\subsubsection{\texttt{memoir}}
+
+\subsubsection{\texttt{beamer}}
+
+\subsection*{Opciones}
+
+\subsubsection{tamaño de papel}
+
+\begin{itemize}
+    \item \texttt{a5paper} 210mm x 148mm
+    \item \texttt{a4paper} 
+    \item \texttt{b5paper} 250mm x 148mm
+    \item \texttt{legalpaper} (14in x 8.5in)
+    \item \texttt{executivepaper} (10.5in x 7.25in)
+\end{itemize}
+\paragraph{nota:} El valor por defecto es letterpaper, de Estados Unidos y México. En los documentos de otros países puede ser necesaria la opción a4paper.
+
+\subsubsection{\texttt{landscape}} Pone la página de forma horizontal.
+\subsubsection{\texttt{10pt, 11pt, 12pt}} Definen el tamaño de la fuente principal.
+\subsubsection{\texttt{oneside, twoside}} Indican si el documento debe estar adaptado a impresión por un sólo lado de la página o por ambos lados de ella.
+\subsubsection{\texttt{oneside, twoside}} Indican si el documento debe estar adaptado a impresión por un sólo lado de la página o por ambos lados de ella.
+\subsubsection{\texttt{titlepage, notitlepage}} Determinan si el documento debe o no incluir una página de título, i.e. si va a incluir o no una portada.
+\subsubsection{\texttt{openright, openany}} openright obliga a los capítulos a iniciar siempre sólo en páginas impares, mientras que con la opción openany permitimos que los capítulos se inicien en cualquier página.
+\subsubsection{\texttt{onecolumn, twocolumn}} Definen si el documento se va a escribir en una sola columna o a doble columna.
+
+\subsubsection{\texttt{fleqn}} Esta opción hace que las ecuaciones queden alineadas por la izquierda en lugar de que sean centradas (como sucede por defecto).
+\subsubsection{\texttt{leqno}} Con esta opción hacemos que el número de las ecuaciones quede alineado por la izquierda en lugar de por la derecha (como sucede por defecto).
+\subsubsection{\texttt{draft, final}} La opción draft se usa si queremos que la compilación del documento se haga a modo de "borrador". Con draft haremos que las líneas que sean demasiado largas queden marcadas mediante cajas negras. La opción final producirá simplemente que el documento se compile de manera normal.
+
+\section{Paquetes \texttt{usepackage}}
+
+\subsection{geometry}
+Ofrece unas herramientas para configurar el tamaño y el diseño de diferentes elementos como tamaño del papel, márgenes, notas de pie de página, cabecera. \\\
+
+\texttt{ \textbackslash usepackage[legalpaper, landscape, margin=2in]\{geometry\} } \\\
+
+Es equivalente a\\\ 
+
+\texttt{\textbackslash usepackage\{geometry\}}
+\texttt{geometry\{legalpaper, landscape, margin=2in\}}\\\
+
+Lo más importante de este paquete es cambiar el tamaño de las márgenes. Ejemplo:
+
+\raggedright \texttt{\textbackslash usepackage[tmargin=25.4mm,bmargin=25.4mm,lmargin=30mm,rmargin=30mm]\{geometry\}}
+
+\section{Algunos comandos}
+
+\subsection{General}
+
+\subsubsection{\texttt{\textbackslash makebox[ancho][pos]\{material\}}}
+
+Es una caja de texto sin marco, los argumentos optativos Ancho y Posición denotan, respectivamente, el ancho de la caja y la posición de Material dentro de ella; éste último puede tomar los valores l, r, c, s, correspondiendo a left, right, center, y stretched (estirado). Con la opción s, los elementos de Material se separan lo más posible, hasta agotar el ancho de la caja.
+
+Ejemplo de \makebox[5cm][r]{caja 5cm derecha} espacio.\\
+Ejemplo de \makebox[5cm][l]{caja 5cm izquierda} espacio\\
+Ejemplo de \makebox[5cm][c]{caja 5cm centrada} espacio\\
+Ejemplo de \makebox[5cm][s]{caja 5 cm estirada} espacio\\
+
+
+
+\subsubsection{\texttt{\textbackslash framebox[Ancho][Posición]{Material}}}
+
+Es una caja enmarcada igual a la anterior.\\
+
+
+Ejemplo de \framebox[5cm][r]{caja 5cm derecha} espacio.\\
+Ejemplo de \framebox[5cm][l]{caja 5cm izquierda} espacio\\
+Ejemplo de \framebox[5cm][c]{caja 5cm centrada} espacio\\
+Ejemplo de \framebox[5cm][s]{caja 5 cm estirada} espacio\\
+
+\subsubsection{\texttt{\textbackslash frame\{Material\}}}
+
+Es un cuadro más ajustado
+
+Ejemplo de \frame{caja sin espacio} espacio.\\
+
+
+\subsubsection{\texttt{\textbackslash parbox[Posición][Alto][PosRel]\{Ancho\}\{Material\}}}
+
+Un ejemplo de este estilo para un \fbox{
+\parbox[c][2cm][c]{2cm}{Cuadro de dos cm cuadrado}}
+
+
+Otro ejemplo de este estilo para un \fbox{
+\parbox[b][2cm][t]{2cm}{Cuadro de dos cm cuadrado}}
+
+
+Otro ejemplo de este estilo para un \fbox{
+\parbox[t][2cm][b]{2cm}{Cuadro de dos cm cuadrado}}
+
+\fbox{\parbox[c][4cm][c]{0.6\linewidth}{Condent}}
+\fbox{\parbox[c][4cm][c]{0.2\linewidth}{C}}
+
+
+\subsection{Ecuaciones}
+
+\subsubsection{\texttt{\textbackslash  begin\{gathered\}}}
+
+Sirve para centrar las ecuaciones.
+
+
+
+\section{Advertencias}
+
+\subsection{\texttt{Overfull \textbackslash hbox}}
+
+Sale porque hay secuencias de caracteres o palabras muy largas según las directivas del documento. se arregla (por ahora) anteponiendo \texttt{\textbackslash raggedright}
+
+\section{Errores}
+
+
+\section{Guía para llenar bibliografia}
+
+
+\subsection{Páginas de internet}
+\begin{verbatim}
+
+@misc{zzprb,
+    title       = {título},
+    url         = {https://www.ncbi.nlm.nih.gov/books/NBK525974/},
+    journal     = {StatPearls [Internet].},
+    publisher   = {quien lo publica}
+}
+\end{verbatim}

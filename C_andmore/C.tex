@@ -1,0 +1,488 @@
+\chapter*{C}
+
+\section*{Fundamentales}
+
+En C y en C++, una macro es una porción de código que se traduce en tiempo de preproceso.
+
+Cuando se realiza un programa en C o C++, existen varias etapas (varios pasos), entre escribir el código fuente y tener un programa ejecutable, y finalmente ejecutamos el programa. En conjunto las llamamos compilación, pero realmente consta de cuatro etapas, más la ejecución:
+
+\begin{enumerate}
+    \item preproceso
+    \item compilación
+    \item ensamble
+    \item enlace
+    \item ejecución
+\end{enumerate}
+
+\subsection*{Macros} Se ejecutan en el preproceso y sirven para varias cosas.
+
+\subsection*{Directivas}
+
+\subsubsection{\texttt{\#define NAME VALUE}} 
+Es un macro de sustitución simple, indica en el preprocesador que cualquier \texttt{NAME} dentro del código será sustituido por \texttt{VALUE}. 
+
+\subsubsection{\texttt{\#undef NAME}} 
+A partir del punto en que se llama esta directiva, el preprocesador deja de entender \texttt{NAME} como macro de sstitución. \\\
+
+Otro tipo de directivas más complejas pueden parecer funciones. Como ejemplo \\\
+
+\texttt{\#define LOOP(var,max) for(var=0;var<max;var++) } \\\
+
+Indica un macro de sustitución de un bucle for que puede ser utilizado muchas veces. Así en código puede haber\\\
+
+\texttt{LOOP(i,10) \{ \\\
+        printf("\% d \ n", i);  \
+    \} }
+
+\subsubsection{\texttt{\#ifndef NAME}}
+
+Si \texttt{NAME} \textbf{no} está definida, entonces ejecute las directivas (o definiciones de constantes) que estén antes de \texttt{\#endif}
+
+\subsubsection{\texttt{\#ifdef NAME}}
+
+Exactamente lo mismo que lo anterior.
+
+\subsubsection{\texttt{\#if conditional\_expression}}
+
+Indica al preprocesador que compile o no según la condición.
+
+\subsubsection{\texttt{\#elif conditional\_expression}}
+
+Funciona como el \texttt{else if} de toda la vida, pero para condcionales de compilación.
+
+\subsubsection{\texttt{\#else conditional\_expression}}
+
+Directiva que funciona como el \texttt{else} normal aplicado a condicional de compilación.
+
+\subsubsection{\texttt{\#warning message}}
+
+Envía un mensaje en el proceso de preprocesamiento para idicar lo que se necesite, el preprocesamiento continúa.
+
+\subsubsection{\texttt{\#error message}}
+
+Envía un mensaje de error y detiene el preprocesamiento.
+
+\subsection*{Tipos y estructuras}
+
+\subsubsection{\texttt{struct}}
+
+Arreglos que permiten definir tipos de variables que pueden contener varios datos del mismo tipo. Su declaración es como sigue: \\\
+
+\texttt{struct [structure tag] \{ } \\\
+\texttt{member definition;}\\\
+\texttt{member definition;}\\\
+\texttt{member definition;}\\\
+\textbf{...}\\\
+\texttt{\} [one or more structure variable]; }\\\
+
+\texttt{[structure tag]} es el nombre o etiqueta de la estructura, \texttt{member definition;} son declaraciones de variables de diferentes tipos, pertenecen a la estructura. 
+
+Ejemplo de estructura libro: como sigue se declara para un libro1\\\
+
+\texttt{struct Books Book1;}\\\
+
+
+\texttt{Book1.pages = 564;}\\\
+
+donde \texttt{pages} se declaro dentro de la definición de la estructura como \texttt{int}.
+
+Se le pueden asignar valores a una estructura a partir de una lista:
+
+\texttt{struct list lista[] = \{ }\\\
+\texttt{\{ 0value1, Avalue2, ... , AvalueN \},} \\\
+\texttt{\{ 1value1, Bvalue2, ... , BvalueN \},} \\\
+\texttt{\{ Mvalue1, Mvalue2, ... , MvalueN \},} \\\
+
+Donde M es el tamaño del arreglo y N es el número de diferentes componentes de la estructura, y el retorno del valor JvalueI sería \texttt{lista[J].nameI}
+
+\subsubsection{\texttt{static}}
+
+Dentro de una función un estático se declara y se modifica el valor de esta variable estática. Si por ejemplo en una función, se declara un estático y en esta función se le aumenta el valor. Al llamar 5 veces la función, la variable estática terminará aumentada en 5 veces; es decir, que el valor de esta variable \textbf{permanece.}
+
+Por otro lado las funciones estáticas solamente pueden ser accesadas dentro de su propio 'scope', por lo que si una función se declara como estática, en un archivo \texttt{file1.c}, dentro del \texttt{main.c} no se podrá acceder a esta función.
+
+\subsubsection{\texttt{typedef}}
+
+Es una nueva definición, dependiendo de lo que le siga, \texttt{typedef} se usa para darle un nombre a ese "nuevo tipo" de variable. Ejemplo:
+
+\texttt{typedef struct Books \{} \\
+\texttt{    char title[50];} \\
+\texttt{   char author[50];} \\
+\texttt{   char subject[100];} \\
+\texttt{   int book\_id;} \\
+\texttt{\} Book;} \\
+
+Entonces aquí \texttt{Book} puede usarse para referirse a \texttt{struct Books} y todos los componentes que se requieran.
+
+\texttt{Book Libro1;} \\ 
+Y así susecivamente.
+
+\subsubsection{\texttt{enum}}
+
+Es un tipo de estructura que sirve para dar significado y nombres a números que pueden pertenecer a una categoría específica. Un ejemplo es como se muestra a continuación
+
+\begin{verbatim}
+enum State {Working = 1, Failed = 0}; 
+\end{verbatim}
+
+
+\begin{verbatim}
+enum week{Mon, Tue, Wed, Thur, Fri, Sat, Sun};
+  
+int main()
+{
+    enum week day;
+    day = Wed;
+    printf("%d",day);
+    return 0;
+} 
+\end{verbatim}
+
+Su salida será \texttt{2}
+
+
+\subsubsection{Punteros o apuntadores}
+
+Al declarar una variable, siempre esa variable se almacena dentro de la memoria. La \textbf{LA POSICIÓN DE LA MEMORIA} es importante dentro del concepto de los punteros. Los punteros guardan direcciones de memoria. 
+
+\texttt{int a = 10;} Guarda la variable a (que tiene un valor de 10) en la memoria, para acceder a esa posición de memoria se usa \texttt{\& a}.
+
+\texttt{int dir\_a = \& a;} guarda en la variable \texttt{dir\_a} el número que corresponde a la dirección en la memoria donde está guardada la variable a.
+
+Para los arreglos, el nombre de la variable es un puntero hacia el valor de la primera componente:
+
+\texttt{p = \&p[0]} \\\
+De manera equivalente \\
+\texttt{*p = p[0]} \\
+\texttt{(*p)+1 = p[1]} \\
+y así sucesivamente.
+
+
+\subsubsection{Creación de variables}
+
+Al crear una variable dentro de una función, esta variable solo existe \textbf{en el ámbito de esa función}. 
+
+Al declarar un puntero, el valor de esa variable puntero, es la dirección donde está guardada la variable a donde apunta.
+
+
+\section*{Librerías}
+\subsection*{Esp32 de espidf}
+
+\subsubsection{driver/gpio.h}
+
+\paragraph{\texttt{gpio\_pad\_select\_gpio(number)}}
+Selecciona el pin \texttt{number} para ser cofigurado como \texttt{gpio}.
+
+\paragraph{\texttt{gpio\_set\_direction(number,mode)}}
+Selecciona el pin \texttt{gpio number} y lo establece con la configuración \texttt{mode} que puede ser las siguientes: \\
+
+\begin{itemize}
+    \item \texttt{GPIO\_MODE\_DISABLE}
+    \item \texttt{GPIO\_MODE\_INPUT}
+    \item \texttt{GPIO\_MODE\_OUTPUT}
+    \item \texttt{GPIO\_MODE\_OUTPUT\_OD}
+    \item \texttt{GPIO\_MODE\_INPUT\_OUTPUT\_OD}
+    \item \texttt{GPIO\_MODE\_INPUT\_OUTPUT}
+\end{itemize}
+
+\paragraph{\texttt{gpio\_get\_level(number)}}
+Retorna el valor leído del pin \texttt{number} que es una entrada.
+
+\paragraph{\texttt{gpio\_set\_level(number,value)}}
+Confogura la salida del pin \texttt{number} al valor \texttt{value}.
+
+\subsubsection{esp\_system.h}
+
+\paragraph{\texttt{esp\_chip\_info\_t}}
+Estructura que tiene información del chip: \texttt{model, features, cores, revision}.
+
+\paragraph{\texttt{esp\_chip\_info(esp\_chip\_info\_t out)}}
+Realiza el scan del chip y escribe en la estructura \texttt{out} la información pertinente.
+
+\subsubsection{Esp32cam: OV7670}
+
+\paragraph{\textbf{Subrutina}: \texttt{static int ov7670\_write\_array(sensor\_t, regval\_list)}}
+
+Tiene como entrada una estructura u objeto del tipo \texttt{*sensor} (puntero) y una estructura del tipo
+\texttt{regval\_list} también un apuntador.\\
+Recorre todos los registros almacenados en \texttt{regval\_list} hasta el final (\texttt{vals->reg\_num != 0xff}) o hasta que una variable llamada \texttt{ret} sea diferente de cero.
+
+Realiza escrituras a los registros que estén en \texttt{regval\_list} mediante la subrutina \texttt{SCCB\_Write}.\\\
+
+En el archivo se inicializan una serie de estructuras del tipo \texttt{regval\_list} que selecciona distintas configuraciones, y una serie de funciones cuyos argumentos son mayoritariamente del tipo \texttt{camera} y \texttt{feature} donde feature son objetos de configuración específicas. La mayoría de estas funciones realizan escrituras y lecturas a los registros de la cámara (\texttt{ov7670\_write\_array}) para configurarla como sea requerido.\\\
+
+Lista de funciones:
+
+\begin{itemize}
+    \item \texttt{ov7670\_frame\_control}
+    \item \texttt{reset}
+    \item \texttt{set\_pixformat}
+    \item \texttt{set\_framesize}
+    \item \texttt{set\_colorbar}
+    \item \texttt{set\_whitebal}
+    \item \texttt{set\_gain\_ctrl}
+    \item \texttt{set\_exposure\_ctrl}
+    \item \texttt{set\_hmirror}
+    \item \texttt{set\_vflip}
+    \item \texttt{init\_status}
+\end{itemize}
+
+\paragraph{\texttt{int ov7670\_init(sensor\_t *sensor)}}
+
+Asigna a cada elemento del objeto (estructura) \texttt{sensor} su correspondiente configuración estructurada arriba.
+
+\subsubsection{Esp32cam: sccb}
+
+Define varias constantes de configuración para implementar el protocolo $I^2S$ tal como el protocolo \texttt{SCCB} exige dentro de sus lineamientos.
+
+\paragraph{\texttt{SCCB\_Init(pin\_sda,pin\_scl)}}
+
+\paragraph{\texttt{SCCB\_Deinit(void)}}
+
+\paragraph{\texttt{SCCB\_Probe(void)}}
+
+\paragraph{\texttt{SCCB\_Read(slv\_addr,reg)}}
+
+\paragraph{\texttt{SCCB\_Write(slv\_addr,reg,data)}}
+
+\paragraph{\texttt{SCCB\_Read16(slv\_addr,reg)}}
+
+\paragraph{\texttt{SCCB\_Write16(slv\_addr,reg,dat)}}
+
+\subsubsection{FreeRTOS.h}
+
+\paragraph{\texttt{portSWITCH\_TO\_USER\_MODE()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+void portSWITCH_TO_USER_MODE( void );
+\end{verbatim}
+
+Esta función está destinada a usuarios avanzados y es relevante en puertos con protección de memoria. Los parámetros que se pasan a \texttt{xTaskCreateRestricted()} especifican para la tarea a ser creada cuándo debe ser una tarea de modo usuario (no privilegiada) o una tarea de modo supervisor (privilegiada). Una tarea de modo supervisor puede llamar esta directiva de macro \texttt{portSWITCH\_TO\_USER\_MODE()} para convertirse a sí mismo a una tarea de modo usuario. No admite ningún parámetro y tampoco tiene parámetro de retorno. No existe una función inversa que pueda convertir una tarea de modo usuario a modo supervisor.
+
+\paragraph{\texttt{vTaskAllocateMPURegions()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+void vTaskAllocateMPURegions(   TaskHandle_t xTaskToModify,
+                                const MemoryRegion_t * const xRegions );
+\end{verbatim}
+
+Esta función define un conjunto de regiones de Unidad de Memoria Protegida MPU para el uso de una tarea restringida MPU. Las regiones de memoria controlada pueden ser asignadas a una tarea restringida creada por \texttt{xTaskCreateRestricted()}.
+
+Los parámetros son
+
+\begin{itemize}
+    \item \texttt{xTaskToModify} Es el manejador de la tarea a la cual se le asigna región de memoria. El manejador se obtiene mediante el parámetro \texttt{pxCreatedTask} del constructor de tarea restringida. También la tarea puede modificarse su propio acceso a región de memoria pasando un \texttt{NULL} a este parámetro.
+    \item \texttt{xRegions} Es un arreglo de estructuras \texttt{MemoryRegion\_t}, el número de regiones está dado por \texttt{portNUM\_CONFIGURABLE\_REGIONS}.
+\end{itemize}
+
+La estructura de región de memoria es la siguiente
+
+\begin{verbatim}
+typedef struct xMEMORY_REGION
+{   
+    void *pvBaseAddress;
+    unsigned long ulLengthInBytes;
+    unsigned long ulParameters;
+} MemoryRegion_t;
+\end{verbatim}
+
+
+\paragraph{\texttt{xTaskAbortDelay()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+BaseType_t xTaskAbortDelay( TaskHandle_t xTask );
+\end{verbatim}
+
+Al llamar una función API que contenga un parámetro de tiempo timeout puede resultar que la tarea que llame esta función se boquee. Si una tarea está en estado bloqueado significa que está esperando que transcurra un periodo de tiempo timeout, o esperando con el tiempo a que ocurra un evento, para que vuelva al estado de listo. Hay dos ejemplos:
+
+\begin{itemize}
+    \item Si una tarea llama a \texttt{vTaskDelay()}, esta entrará en el estado de bloqueado hasta que el tiempo especificado termine. Una vez esto pasa, la tarea pasa al estado de preparada. 
+    \item Si una tarea llama a \texttt{ulTaskNotifyTake()} cuando su valor de notificación es cero, esta se bloqueará hasta que reciba una notificación o hasta que el tiempo especificado en su parámetro correspondiente se acabe, y entonces entrará la tarea al estado de preparada.
+\end{itemize}
+
+La función \texttt{xTaskAbortDelay()} moverá la tarea del estado bloqueada al estado preparada incluso si el evento que está esperando no ha ocurrido o el tiempo especificado no ha terminado.
+
+Mientras que una tarea esté bloqueada, no estará disponible para el planificado y por lo tanto no consumirá recursos de procesamiento.
+
+Parámetros
+
+\begin{itemize}
+    \item \texttt{xTask} Es el manejador de la tarea. Esta se obtiene al crear la tarea especificando el manejador en su parámetro \texttt{pxCreatedTask} correspondiente, también se obtiene al crear la tarea con \texttt{xTaskCreateStatic()} y guardando el valor de retorno, o también llamando la función \texttt{xTaskGetHandle()} cuyo parámetro es el nombre de la tarea. 
+\end{itemize}
+
+El valor de retorno será un \texttt{pdPASS} si la tarea en cuestión fue removida del estado bloqueado, si no, el valor retornado será un \texttt{pdFAIL}. El valor de \texttt{INCLUDE\_xTaskAbortDelay} deberá ser de 1 en la cabecera de configuración para que la función esté disponible.
+
+\paragraph{\texttt{xTaskCallApplicationTaskHook()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask, void *pvParameters );
+\end{verbatim}
+
+Es una función es destinada para usuarios avanzados. Esta función puede ser usada para asignarle un valor de 'etiqueta' a la tarea. El significado y uso de la etiqueta estarán determinados por el programador.
+
+
+\paragraph{\texttt{xTaskCheckForTimeOut()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+BaseType_t xTaskCheckForTimeOut(TimeOut_t * const pxTimeOut,
+                                TickType_t * const pxTicksToWait );
+\end{verbatim}
+
+Esta función está destinada para usuarios avanzados. Una tarea puede entrar al estado bloqueado para esperar por un evento. Típicamente la tarea no va a esperar en el estado bloqueada indefinidamente, sino que a cambio será especificado un periodo de tiempo timeout. La tarea se removerá del estado bloqueado si el periodo de tiempo se termina antes de que el evento que la tarea está esperando ocurra.\\
+
+Si una tarea entra y sale del estado bloqueado más de una vez mientras está esperando a que el evento ocurra entonces el plazo de tiempo usado cada vez que la tarea se bloquea debe ser ajustado para asegurar que el tiempo total empleado en el estado bloqueado no exceda el tiempo originalmente especificado. \texttt{xTaskCheckForTimeOut()} realiza el ajuste teniendo en cuenta las ocurrencias ocasionales, como los desbordamientos del conteo de ticks, que de otro modo harían que un ajuste manual fuera propenso a errores.\\
+
+\texttt{xTaskCheckForTimeOut()} se usa en conjunto con \texttt{vTaskSetTimeOutState()}. Esta últimia se llama para establecer la condición inicial, luego la primera función puede ser llamada para verificar una condición de tiempo timeout, y ajustar el bloque de tiempo restante si el plazo de tiempo no ha ocurrido.
+
+Parámetros 
+
+\begin{itemize}
+    \item \texttt{pxTimeOut} Es un puntero hacia la estructura que contiene la información necesaria para determinar si se va terminado un tiempo timeout. se inicializa mediante \texttt{vTaskSetTimeOutState()}.
+    \item \texttt{pxTicksToWait} Se usa para pasar un bloque de tiempo ajustado, el cual es el bloque de tiempo que resta después de tomar en cuenta el tiempo que ya ha sido gastado en el estado bloqueado.
+\end{itemize}
+
+La función retorna un \texttt{pdTRUE} significa que no hay un bloque de tiempo restante, y el periodo de tiempo timeout se gastó todo. Si la función retorna un \texttt{pdFALSE} entonces algún bloque de tiempo queda restante por lo que no se ha acabado el plazo de tiempo.
+
+ver \texttt{ex\_vTaskSetTimeOutState.c}
+
+\paragraph{\texttt{xTaskCreate()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+BaseType_t xTaskCreate( TaskFunction_t pvTaskCode,
+                        const char * const pcName,  
+                        unsigned short usStackDepth,
+                        void *pvParameters,
+                        UBaseType_t uxPriority,
+                        TaskHandle_t *pxCreatedTask );
+\end{verbatim}
+
+Crea una nueva instancia de una tarea. Cada tarea utiliza memoria RAM para mantener el estado de la tarea, y es usada como la pila de la tarea. Todas las tareas que se crean están inicialmente en el estado 'preparadas' pero inmediatamente pasan al estado 'ejecutando' si no hay tareas con mayor prioridad preparadas para ejecutarse. Las tareas pueden ser creadas antes o después que el planificador inicializa.\\
+
+\begin{itemize}
+    \item \texttt{pvTaskCode} Puntero hacia la función que determina la tarea.
+    \item \texttt{pcName} Nombre de la tarea 
+    \item \texttt{usStackDepth} Número de palabras que la pila de la tarea podrá albergar. El tamaño será el ancho de stack de la aquitectura multiplicado por este número en bytes.
+    \item \texttt{pvParameters} Los parámetros o variables de entrada de la función de la tarea. 
+    \item \texttt{uxPriority} Prioridad de la tarea. Desde cero hasta \texttt{configMAX\_PRIORITIES – 1}. Se recomienda usar un número pequeño de prioridades para no malgastar RAM.
+    \item \texttt{pxCreatedTask} Puede ser usada para pasar a un manejador de la tarea creada. Este manejador puede ser utilizado para hacer referencias a la tarea en llamados API para, por ejemplo, cambiar la prioridad de la tarea o borrar la tarea.
+\end{itemize}
+
+
+Retornos:
+
+\begin{itemize}
+    \item \texttt{pdPASS} Valor booleano que indica que la tarea fue exitosamente creada.
+    \item \texttt{errCOULD\_NOT\_ALLOCATE\_REQUIRED\_MEMORY} Indica que la tarea no pudo ser creada por insuficiencia de memoria disponible.
+\end{itemize}
+
+\paragraph{\texttt{xTaskCreateRestricted()}}
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+BaseType_t xTaskCreateRestricted(   TaskParameters_t *pxTaskDefinition,
+                                    TaskHandle_t *pxCreatedTask );
+\end{verbatim}          
+
+Esta función está enfocada para usuarios avanzados y solamente es relevante cuando se implementa un puerto FreeRTOS MPU (con unidad de protección de memoria).\\
+
+Crea una nueva instancia de una tarea restringida con protección de memoria.
+
+Los parámetros son
+\begin{itemize}
+    \item \texttt{TaskParameters\_t} Es un puntero hacia la estructura que define la tarea
+\end{itemize}
+
+
+\paragraph{\texttt{vTaskDelay()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+void vTaskDelay( TickType_t xTicksToDelay );
+\end{verbatim}
+
+
+Bloquea la tarea que llama la función durante la cantidad de interrupciones de ticks especificada en su argumento. Si se especifican cero ticks la tarea no se bloqueará sino que dará como resultado que la tarea llamante ceda el paso a cualquier tarea de igual prioridad a que esté en el estado preparada.\\
+
+Hacer \texttt{vTaskDelay(0)} es equivalente a \texttt{taskYIELD()}.
+
+
+\paragraph{\texttt{vTaskDelayUntil()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+void vTaskDelayUntil( TickType_t *pxPreviousWakeTime, TickType_t xTimeIncrement );
+\end{verbatim}
+
+Esta funcióon bloquea la tarea hasta que se alcance un tiempo absoluto. as tareas periódicas pueden usar esta función para conseguir una frecuencia de ejecución constante.
+
+Las diferencias entre esta función y \texttt{vTaskDelay()} son las siguientes:
+
+\texttt{vTaskDelay()} tiene como resultado que la tera entre en estado de bloqueo y se mantenga así en este estado, la cantidad de ticks especificado en su argumento, desde que se llama la función. Esto quiere decir que el tiempo en el que la tarea sale del estado bloqueado es \textbf{relativo} al momento en que se llama la función.
+
+\texttt{vTaskDelayUntil()} bloquea la tarea y la mantiene bloqueada, hasta que una cantidad \textbf{absoluta de tiempo} se alcanza. Y no es relativo al momento de llamada.
+
+Argumentos
+
+\begin{itemize}
+    \item \texttt{pxPreviousWakeTime} Este parámetro se nombra bajo el supuesto de que \texttt{vTaskDelayUntil()} está siendo utilizada para implementar una tarea que se ejecuta periódicamente y con una frecuencia fija. En este caso \texttt{pxPreviousWakeTime} contiene el tiempo en el que la tarea dejó por última vez el estado bloqueado (o en el que se 'despertó'). Este dato se usa como punto de referencia para establecer el tiempo en el que la tarea se va a volver a bloquear en el periodo siguiente.
+    La variable a la que apunta \texttt{pxPreviousWakeTime} se actualiza automáticamente dentro de la función \texttt{vTaskDelayUntil()}. <No debería ser modificada dentro del código de aplicación, excepto cuando se inicializa por primera vez la variable.
+    \item \texttt{xTimeIncrement} Este parámetro también esta dispuesto para el caso de una tarea periódica. La frecuencia fijada está configurada por el valor \texttt{xTimeIncrement}. Este valor está especificado en ticks. Se recomienda el uso de la macro \texttt{pdMS\_TO\_TICKS()}
+\end{itemize}
+
+
+
+\paragraph{\texttt{vTaskDelete()}}
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+void vTaskDelete( TaskHandle_t pxTask );
+\end{verbatim}
+
+Esta función elimina la instancia de una tarea previamente creada mediante \texttt{xTaskCreateStatic()} o \texttt{xTaskCreate()}. Se recomienda no tratar de usar el manejador de una tarea para referenciar una tarea que has sido eliminada.\\
+
+Cuando una tarea de elimina es responsabilidad de la tarea inactiva (idle) liberar la memoria que ha sido utilizada por la tarea borrada. Por lo tanto, si una aplicación hace uso de la función \texttt{vTaskDelete()}, es muy importante que la aplicación también se asegure de que la tarea idle no esté privado de tiempo de procesamiento. Se le debe asignar tiempo de ejecución a la tarea idle.
+
+Solamente la memoria asignada por el kernel es automáticamente liberada una vez se elimina la tarea. La memoria u otro recurso que la aplicación (distinta al kernel) asignada a la tarea debe ser liberada explícitamente por la app cuando la tarea se borra.
+
+Argumentos 
+
+\begin{itemize}
+    \item \texttt{pxTask} Es el manejador de la tarea que se va a borrar. Una tarea se puede borrar a sí misma; en este caso, se pasa \texttt{NULL} en este argumento.
+\end{itemize}
+
+\paragraph{\texttt{taskDISABLE\_INTERRUPTS()}}
+
+
+\begin{verbatim}
+#include “FreeRTOS.h”
+#include “task.h”
+void taskDISABLE_INTERRUPTS( void );
+\end{verbatim}
+
+
+Si el puerto de FreeRTOS no hace uso de las constantes de configuración \texttt{configMAX\_SYSCALL\_INTERRUPT\_PRIORITY} o \texttt{configMAX\_API\_CALL\_INTERRUPT\_PRIORITY}, entonces al llamar a la función \texttt{taskDISABLE\_INTERRUPTS()} se dejarán las interrupciones gobalmente desactivadas. 
+
+Si el sistema operativo sí hace uso de las constantes mencionadas arriba, entonces al usar la función, las interrupciones cuya prioridad estén por debajo de \texttt{configMAX\_SYSCALL\_INTERRUPT\_PRIORITY} quedarán desactivadas, y las que están por encima, activadas.t
+
+
+
+
+\section*{Errores}
+\paragraph{Segmetation fault} Este error se produce cuando se intenta acceder a una posición de memoria que está prohibido porque no está asignado para el programa.
+
+

@@ -1,0 +1,341 @@
+\chapter{Redes de telecomunicaciones}
+
+\subsection{DNS}
+
+Significa sistemas de nombres de dominio, y su caracteristicas principal es convertir el nombre de cualquier página en su dirección IP correspondiente. 
+
+\section{Modelos}
+
+\subsection{Modelo TCP/IP}
+
+Está dividido en capas, es más fácil desarrollar y diagnosticar.
+
+Importante el tema de la estandarización, con ello todos los dispositivos hablan el mismo idioma y se pueden comunica entre ellos. 
+
+en los años setenta, se implantó en la red ARPANET fue desarrollada por encargo para la agencia ded departamento de de defensa de los Estados Unidos.
+
+Diseñan 4 niveles, cada cual con funciones específicas. 
+
+Según el tipo de comunicación, puede necesitarse diferentes velocidades y formas de la transmisión de los datos. 
+
+
+\subsection{modelo OSI}
+
+En los 80's ISO realiza una estandarización de TCP/IP. Significa Modelo de interconexión de sistemas abiertos. Los niveles ahora son 7. 
+\subsubsection{Niveles distintos}
+
+\begin{enumerate}
+    \item Físico: cables, hardware, tensiones.
+    \item Enlace de datos: prepara la información que llega de niveles superiores. Acceso a los medios
+    \item Red: Direccionamiento y elección de mejor ruta
+    \item Transporte: Define cómo se trata la aplicación, según el tipo de información. 
+    \item Sesión: Comunicación entre Hosts
+    \item Presentación: Representación de los datos
+    \item Aplicación: Procesos de red a aplicaciones
+\end{enumerate}
+
+IP y número MAC son únicas siempre, no pueden haber repetidas, es como una forma de identificación.
+
+MAC es dirección física, IP es dirección lógica.
+
+
+\section{Principios de redes y topologías}
+
+\subsection{Encapsulamiento de los datos}
+
+En el envío de la información, los datos viajan a través de las capas y se va cambiando su formato o forma de representación. 
+
+\begin{enumerate}
+    \item Crear los datos. Un mensaje de correo electrónico se convierte en datos de caracteres, etc.
+    \item Empaquetar los datos para envío de extremo a extremo. Estos datos se empaquetan para recorrer la internetwork. Al utilizar segmentos, la función de transporte asegura que los hosts del mensaje en ambos extremos del sistema de correo electrónico se puedan comunicar de forma confiable.
+    \item Agregar al encabezado la direción de red. Los datos se colocan en un paquete en cuya cabecera o encabezado se colocan las direcciones lógicas de origen y de destino. Estas direcciones facilitan el envío de los paquetes a través de de la red por una ruta seleccionada.
+    \item Agregar al encabezado de enlace de datos la dirección local. Cada dispositivo de la red debe poner el paquete dentro de una trama. La trama le permite conectarse al próximo dispositivo de red conectado directamente al enlace. 
+    \item Realizar la conversión a bits para la transmisión. La trama se convierte en sus equivalentes códigos binarios y esta es la información o señal que se transmite por el cable o por el medio que corresponda.
+\end{enumerate}
+
+Cada capa del modelo del equipo de origen se comunica con su capa equivalente en el equipo de destino. Esto es la comunicación par a par.
+
+\subsection{Sistemas de clableado estructurado}
+
+Dentro de un edificio el cableado se divide en tramos o secciones muy bien definidas. Cada sección tiene sus correspondientes equipos  sus funciones específicas.
+
+\subsubsection{Punto de demarcación}
+
+Llamado en inglés como demarc; es el punto que divide el cableado externo del proveedor y el cableado interno perteneciente al cliente. Representa el límite de la responsabilidad entre estos dos actores. El estándar TIA/EIA-569-A da las especificaciones de los requisitos para el espacio del demarc.
+
+\subsubsection{Salas de equipamiento}
+
+El cableado que sale del punto de demarcación va hacia la instalación de entrada que se encuentra en la sala de equipamiento. Esta sala es el centro de red de voz y datos. La sala de equipamiento es esencialmente una gran sala de telecomunicaciones que puede albergar el marco de distribución, servidores de red, routers, switches, PBX telefónico, protección secundaria de voltaje, receptores satelitales, moduladores y equipos de Internet de alta velocidad, entre otros.
+
+Son regidos por los estándares TIA/EIA-569-A.
+
+\section{Capa 3: RED}
+
+
+\subsection{IPv4}
+
+
+
+Las direcciones de clase A solo incluyen direcciones desde 1 hasta 126.
+
+1.x.x.x hasta 126.x.x.x
+
+El rango de 127.x.x.x se reservan para las direcciones IP de loopback o monitoreos.
+
+Las direcciones de clase B incluyen las direcciones desde 128 hasta 191.
+
+desde 128.0.x.x hasta 191.255.x.x
+
+Tiene 16384 direcciones de red posibles ($2^14$), y 65534 direcciones de host($2^16-2$).
+
+Las direcciones de clase C solo incluyen direcciones desde 192 hasta 223. 
+
+192.0.0.x hasta 223.255.255.x
+
+Son 2097152 ($2^21$) direcciones de red y 254 direcciones de host. \\
+
+Hay diferencias entre IPs públicas y privadas, las primeras están en internet y las demás son reservadas para LAN's.\\
+
+Rangos para direcciones privadas:
+
+\begin{itemize}
+    \item Clase A: 10.0.0.0 hasta 10.255.255.255
+    \item Clase B: 172.16.0.0 hasta 172.31.255.255
+    \item Clase C: 192.168.0.0 hasta 192.168.255.255
+\end{itemize}
+
+ La IP de RED es la que tiene todos sus bits de hosts en \textbf{cero}. Ej: 10.0.0.0/8
+ 
+ La IP de BROADCAST es en la que todos sus bits de host en \textbf{uno}. Ej: 10.255.255.255/8
+ 
+ Las IP's válidas son todas las demás y son las que se pueden asignar a los dispositivos. 
+
+
+\subsection{IPv6}
+
+Tienen una longitud de 128 bits, y se escriben en formato \textbf{hexadecimal}.
+
+están compuestos por 32 dígitos hexadecimales.\\
+
+\texttt{2001:0DB8:AC10:FE01:0000:0000:0000:0000}
+
+En IPv6 se implementa el uso del slash para identificar la sección perteneciente para redes y para host.
+
+En este caso el prefijo es el nombre adecuado para la sección de red, y la interfaz para sección de host.
+
+\texttt{2001:DB8:A::/64}
+
+Aquí ya no hay una dirección de broadcast, solo la de red y las válidas.
+
+\subsubsection{Conversion IPv4 a IPv6}
+
+Sea \texttt{192.168.20.112}
+
+su binario es\\
+
+\texttt{11000000.10101000.00010100.01110000}
+
+Se agrupan en 4\\
+
+\texttt{1100 0000 1010 1000:0001 0100 0111 0000}
+
+Se convierte a Hexadecimal\\
+
+\texttt{C0A8:1470}
+
+Y se expande a IPv6 de la siguiente manera
+
+\texttt{::FFFF:C0A8:1470}
+
+Siempre se ponen 5 hextetos de ceros seguidos de cuatro \texttt{F}.\\
+
+\subsubsection{Unicast}
+Es un broadcast controlado. Se usa para identificar una interface de nodo. Un paquete enviado a una dirección unicast es entregado a la interface por esa dirección. \\
+
+Las unicast globales constan de tres partes:
+
+\begin{enumerate}
+    \item Prefijo global, tienen el número \texttt{001} binario en el inicio: \texttt{2000} hasta \texttt{3FFF}. Son para redes públicas o globales.
+    \item las de enlace local el primer hexteto da en el rango \texttt{FE80::/10} y permite conectividad local inmediata.
+\end{enumerate}
+
+
+
+
+\subsubsection{Multicast}
+
+Se usa para identificar a un grupo de interfaces IPv6.
+
+
+\subsection{Capa de transporte}
+
+Define la manera en que son enviados los paquetes a partir del tipo de paquete (voz, stream, mail, etc). Es como la interfaz entre la aplicación y la red. 
+
+Mantiene la comunicación de aplicaciones. Prepara y separa el flujo de datos para enviarse a través de los medios en partes manejables.
+Realiza la identificación de aplicaciones. Los protocolos TCP y UDP denominan a este identificador un número de puerto.\\
+
+En algunos casos \textbf{todos los datos} deben recibirse sin importar si se tienen retrasos: un correo electrónico.\\
+
+En otros casos, una aplicación puede tolerar cierta pérdida de datos durante la transmisión de red, pero necesita velocidad de transmisión.\\
+
+\subsubsection{UDP}
+
+Protocolo de datagrama de usuario, sistema de nombres de dominio (DNS) Streaming video Voz sobre IP (VOIP).
+
+DNS guarda y relaciona las direcciones IP con los nombres de dominio. 
+
+La navegación se hace en http y estos paquetes se hacen en TCP. Sin embargo la consulta al DNS se hace por UDP. Se necesita rapidez en la consulta del nombre del dominio.
+
+\subsubsection{TCP}
+
+Orientado a la conexión, más recibo, bandera de retransmisión, navegación, correo, pérdida de información es más crítico. Por aquí se hace la encriptación de paquetes. 
+
+\subsection{Capa de aplicación}
+
+Servicios TCO/IP estándar:
+
+\begin{itemize}
+    \item FTP: El protocolo de transferencia de archivos
+    \item TFTP: El protocolo de transferencia de archivos trivial
+    \item Telnet: Proporciona una interfaz de usuario a través de la cual se pueden comunicar dos hosts caracter por caracter o línea por línea.
+    \item SSH (Secure Shell) Hace posible que un cliente inicie una sesión interactiva en una máquina remota para envia comandos o ficheros a través de un canal seguro.  
+    \item DNS Sistema de nombre de dominio que proporciona nombres al host
+    \item LDAP Servicio de directorios, que proporciona las mismas funciones que un servicio de nombres con funcionalidades adicionales.
+    \item Administración de la red. El protocolo simple de admin de red (SNMP) permite vr la distribución de la red y el estado de los equipos clave. SNMP también permite obtener estadísticas de red complejas del software basado en una GUI.
+\end{itemize}
+
+
+
+
+
+
+\section{Comandos de configuración}
+
+La exclusión es muy importante en DHCP. Algunas IP's se deben asignar manualmente, como la de los servidores. 
+
+
+Se define el IP de red que se va a utilizar para cada red.
+ 
+ 
+En la configuración del terminal para los routers, se usan los siguientes comandoss
+
+\texttt{enable} \\
+\texttt{configure terminal} \\
+\texttt{interface gigabitEthernet 6/0} esto es para entrar en la interfaz del puerto gigaEthernet 6/0 que es el que está conectado al switch. \\
+\texttt{no shutdown} para activarlo. \\
+\texttt{ip address xxx.xxx.xxx.xxx xxx.xxx.xxx.xxx} \\
+
+se hace ctrl+z para volver al router \\ 
+
+\texttt{write} para guardar la configuración. \\
+
+Con esto se configuran las ip's de manera manual, para hacer dhcp: \\
+
+\texttt{configure terminal} \\
+\texttt{ip dhcp pool nombre} \\
+\texttt{network (IP de red y mascara)} \\
+\texttt{default-router (IP)} \\
+\texttt{dns-server (IP)} \\
+\texttt{exit} para salir a config, porque desde ahí se hace la exclusion. \\
+\texttt{ip dhcp excluded-address (IP's inicio y fin)} \\
+    
+volver a guardar configuración \\
+
+
+\texttt{show running config} muestra toda la configuracion hecha.\\
+
+
+Para hacer enrutamiento estático.\\
+
+\texttt{ip route IP\_de\_red\_destino Ip\_entrada} \\
+
+Importante hacer la configuración para cada dirección (ida y vuelta)
+
+
+
+\texttt{}
+
+
+
+\subsection{VLAN}
+
+Una LAN virtual sirve para hacer de una red física, varias redes. \\
+
+Se queda en los switches.
+
+Redes lógicas. Pueden ser con una red física. UN atque solo podría afectar una lan virtual y no a toda la lan.
+
+Es necesario definir cuáles puertos reciben terminales, y cuáles van a estar conectados a otros witches o routers. Los primeros son puertos de acceso. Los segundos son puertos troncales. Todas las vlan deben estar configuradas entre sí. \\
+
+switch(config) interface range fa0/1-4 -> definimos primero el rango. \\
+
+switch(config-if-range) switchport mode trunk -> modo troncal \\
+
+switch(config) vlan xx\\
+switch(config-vlan) name yyyy \\
+
+
+ejemplo: vlan 10 -> IP 192.168.10.0/24
+ejemplo: vlan 20 -> IP 192.168.2    0.0/24
+ejemplo: vlan 30 -> IP 192.168.30.0/24
+ 
+La VLAN número 1 o nativa no se debe configurar, no se debe tocar.
+
+switch(config-if-range) switchport mode acces -> modo acceso\\
+
+switch(config-if-range) switchport acces vlan 10 -> asignación de vlan a los puertos.\\
+
+sh vlan brief -> para ver un resume de los puertos.
+
+
+
+\section{Vlans}
+
+Generación de varias LAN's virtuales a partir de una física.\\
+
+Es un concepto que se queda en los switches. Es una configuración de \textbf{nivel 2}. Son útiles para reducir el tamaño del dominio del broadcast. Ayuda también en la administración de la red, separando segmentos lógicos de una red de área local. En la parte de la seguridad, ayuda a sectorizar los fallos en la seguridad a la VLAN infectada.\\
+
+Dos conceptos importantes: Puertos que reciben \textbf{terminales} \textbf{(acceso)} y cuáles estarán conectados a otros switches \textbf{(troncales)}.
+
+Un puerto de acceso solo puede transportar información de una sola vlan, mientras que los puertos troncales pueden transportar tráfico de múltiples vlans. Las vlans deben estar configuradas en todo el camino, en cada switch por el que pasan.\\
+
+Para crearlas se usan los siguientes comandos:\\
+
+\begin{verbatim}
+    switch(config)#vlan xx
+    switch(config-vlan)#name YYYY
+\end{verbatim}
+
+Se asignan los nombres de las vlans coherentemente:
+
+Gestión: vlan 10 -> IP 192.168.10.0/24
+Profesores: vlan 20 -> IP 192.168.20.0/24
+Alumnos: vlan 30 -> IP 192.168.30.0/24 \\\
+
+
+Como los switches tienen tantos puertos, se pueden configurar rangos de los puertos. \\
+
+\begin{verbatim}
+    switch(config)#interface range fa0/1-4
+    switch(config-if-range)#switchport mode trunk
+    switch(config-if-range)#switchport mode access
+    switch(config-if-range)#switchport acces vlan 10
+\end{verbatim}
+
+Hay una vlan nativa en cada switch, esta no se debe configurar y no se debe tocar. Generalmente una sectorización de nivel 2 con vlans viene acompañada de una sectorización de nivel 3 con diferentes direcciones IP de red. Para eso se utiliza un protocolo que es el 802.1Q\\
+
+Este anterior protocolo permite a múltiples redes compartir de forma transparente el mismo medio físico, sin problemas de interferencia.\\
+
+En el router se crean varias sub interfaces para cada vlan.
+
+\begin{verbatim}
+    router#configure term
+    router(config)# interface fastEthernet 0/0
+    router(config-if)#no shutdown
+    router(config-if)# interface fastEthernet 0/0.10
+    router(config-subif)# encapsulation dot1Q 10
+    router(config-subif)#ip address XXXXXXX XXXXXXX
+\end{verbatim}
+
+
+Lo anterior es para la \textbf{vlan 10}.

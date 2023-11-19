@@ -1,0 +1,855 @@
+\chapter{Repaso de temas en Matemática}
+
+\section{Aproximaciones polinomiales, sucesiones y eries infinitas}
+
+\section{Cálculo en varias variables}
+
+
+La ecuación de un plano en el espacio con vector normal $\vec{u}$ y que contiene al punto $P_0(x_0,y_0,z0)$ es 
+
+\begin{equation*}
+\vec{u} \cdot (x-x_0,y-y_0,z-z_0) = 0
+\end{equation*}
+
+La ecuación de la recta en el punto $(x_0,y_0,z0)$ con vector direccional $\vec{u}=(u_x,u_y,u_z)$ es
+\begin{equation*}
+\frac{x-x_0}{u_x} +\frac{y-y_0}{u_y} +\frac{z-z_0}{u_z} 
+\end{equation*} \\\
+
+\subsection{Integrales múltiples}
+
+Para las integrales dobles se tienen las siguientes definiciones y teoremas.\\
+
+Sea $f$ una función de dos variables definida en una región rectangular cerrada $R$. La \textbf{integral doble} de $f$ en $R$, denotada por $\iint f(x,y) dA$, está definida por
+
+\begin{equation*}
+\iint_R f(x,y) dA = \lim_{||\Delta|| \to 0} \sum_{i=1}^{n} f(u_i,v_i)\Delta_i A
+\end{equation*}
+
+Si la integral doble existe, entonces se dice que $f$ es integrable en la región. El teorema siguiente proporciona una condición suficiente para que una funcion de dos variables sea integrable. \\
+
+Si una función de dos variables es continua en una región rectangular cerrada $R$, entonces $f$ es integrable en $R$. 
+
+El siguiente teorema indica cómo calcular el volumen de un sólido acotado por el plano $xy$: Sea $f(x,y)$ continua en $R$ tal que $f(x,y)>0 \ \forall (x,y) \in R$. Si $V$ es el volumen del sólido $S$ que tiene la región $R$ como base y cya altura es $f(x,y)$, entonces 
+
+\begin{eqnarray*}
+V &=& \lim_{||\Delta||\to 0} \sum_{i=1}^{n} f(u_i,v_i) \Delta_i A \\
+&=& \iint_{R} f(x,y) d A
+\end{eqnarray*}
+
+Algunas propiedades de las integrales también son
+
+\begin{equation*}
+\begin{aligned}
+\text{1. } && \iint_R c f(x,y) dA = c \iint f(x,y) d A \\
+\text{2. } && \iint_R \left[ f(x,y) + g(x,y) \right] d A = \iint_R f(x,y) dA + \iint_R g(x,y) dA\\
+\text{3. } && \iint_R f(x,y) dA \geq \iint_R g(x,y) dA \ \text{ si } \ f(x,y) \geq g(x,y) \forall (x,y) \in R \\
+\text{4. } && m A \leq \iint_R f(x,y) dA \leq MA \ \text{ si m y M son numeros tales que} \ m \leq f(x,y) \leq M \ \forall (x,y) \in R \\
+\end{aligned}
+\end{equation*}
+
+La integral sobre la region $R$ de la función continua $f(x,y)=1$ es el área de la región.
+
+\begin{equation*}
+A = \iint_R dA
+\end{equation*}
+
+Tambien se puede determinar el área que tiene una superficie definida por una función sobre una región: Sea $f$. Si las primeras derivadas de $f$ son continuas en $R$, entonces el área de la superficie definida por $z=f(x,y)$ sobre $R$ es
+
+\begin{equation*}
+A = \iint_R
+\sqrt{f_x^2(x,y)+f_y^2(x,y)+1}dx \ dy
+\end{equation*}
+
+De forma similar, el volumen de un sólido conformado por $V$
+
+\begin{equation*}
+V = \iiint_S dV
+\end{equation*}
+
+
+\subsection{Multiplicadores de Lagrange}
+
+Suponga que $f$ y $g$ son funciones de dos variables cuyas primeras derivadas parciales son continuas. Si $f$ tiene un extremo relativo en el punto $(x_0,y_0,f(x_0,y_0))$ sujeto a la condición $g(x,y)=0$, y $\nabla g(x_0,y_0)\neq 0$, entonces existe una constante $\lambda$ tal que
+
+\begin{equation*}
+\nabla f(x_0,y_0) + \lambda g (x_0,y_0) = 0
+\end{equation*}
+
+Se introduce una nueva variable denominada multiplicador de Lagrange y se forma la funcion auxiliar de F de ls tres variables x, y y lambda para la cual 
+
+\begin{equation*}
+F(x,y,\lambda) = f(x,y)+ \lambda g)x,y=
+\end{equation*}
+
+De este modo el problema se transforma en un problea en el que se deben determinar los puntos críticos de F en los que las tres primeras derivadas parciales de f son cero. Luego considere el sistema de ecuacuines qye se forma al igualar a cero las tres primeras derivadas parciales de F:
+
+\begin{equation*}
+\left\{
+\begin{aligned}
+ F_x(x,y,\lambda) = 0 \\   
+ F_y(x,y,\lambda) = 0 \\   
+ F_\lambda(x,y,\lambda) = 0    
+\end{aligned}
+\right.
+\end{equation*}
+
+Se resuelve este sistmea de ecuaciones para determinar los puntos crítiicos de F. Y finalmente entre las primeras dos coordenadas de los puntos críticos de F obtenuisod se encuentran los valores de x y y que proporcionan los extremos relativos deseados.
+
+
+\subsection{Cálculo vectorial}
+
+Si se requiere verificar si un campo $\mathbf{F}(x,y)=M(x,y)\mathbf{a}_x + N(x,y)\mathbf{a}_y$ es un gradiente, se tiene el teorema: Suponga que $M$ y $N$ son funciones de $x,y$ y definidas en un disco abierto $B$ en $\mathbb{R}^2$, y que $M$ y $N$ son continuas en $B$, entonces el vector
+
+\begin{equation*}
+M(x,y)\mathbf{a}_x + N(x,y)\mathbf{a}_y
+\end{equation*}
+
+es un gradiente en $B$ si y solo si
+
+\begin{equation*}
+M_y(x,y) = N_x(x,y), \ \forall (x,y) \in B
+\end{equation*}
+
+Si $\mathbf{F}$ es el gradiente de una función $\phi$, $\mathbf{F} = \nabla \phi$, la función $\phi$ se considera \textbf{función potencial para} $\mathbf{F}$. Recordar que si $\mathbf{F}$ es gradiente, es un campo conservativo.
+
+
+Existen dos campos que involucran derivadas y que se asocian von un vampo vctorial. Uno es el campo vectorial llamado \textbf{rotacional} de $\mathbf{F}$, y el otro es el campo denominado \textbf{divergencia} de $\mathbf{F}$, el cual es un campo escalar.
+
+\subsubsection{Rotacional de un campo vectorial}
+
+Sea $\mathbf{F}$ un campo vectorial sobre alguna bola abierta $B \in \mathbb{R}^3$ tal que $F(x,y,z) = M(x,y,z) \mathbf{a_x} + N(x,y,z) \mathbf{a}_y + R(x,y,z) \mathbf{a}_z$. El \textbf{rotacional} de $\mathbf{F}$se define:
+
+\begin{equation*}
+\textbf{Rot} (\mathbf{F}) \equiv \nabla \times \mathbf{F} =  \left( \frac{\partial R }{\partial y } - \frac{\partial N }{\partial z } \right) \mathbf{a_x} + \left( \frac{\partial M }{\partial z } - \frac{\partial R }{\partial x } \right) \mathbf{a}_y + \left( \frac{\partial N }{\partial x } - \frac{\partial M }{\partial y } \right) \mathbf{a}_z
+\end{equation*}
+
+Para las coordenadas rectangulares.
+
+\subsubsection{Divergencia de un campo vectorial}
+
+Sea $\mathbf{F}$ un campo vectorial sobre alguna bola abierta $B \in \mathbb{R}^3$ tal que $F(x,y,z) = M(x,y,z) \mathbf{a_x} + N(x,y,z) \mathbf{a}_y + R(x,y,z) \mathbf{a}_z$. La \textbf{divergencia} de $\mathbf{F}$ se define:
+
+\begin{equation*}
+\textbf{div } \mathbf{F} \equiv \nabla \cdot \mathbf{F} = \frac{ \partial M }{ \partial x } + \frac{ \partial N }{ \partial y } + \frac{ \partial R }{ \partial z }
+\end{equation*}
+
+un teorema importante es el siguiente:
+
+\paragraph*{Teorema} Suponga que $\mathbf{F}$ es un campo vectorial sobre $B \in \mathbb{R}^3$, donde 
+
+\begin{equation*}
+\mathbf{F}(x,y,z) = M(x,y,z) \mathbf{a_x} + N(x,y,z) \mathbf{a}_y + R(x,y,z) \mathbf{a}_z
+\end{equation*}
+
+Si las segundas derivadas parciales de $M,N \text{ y } R$ son continuas en $B$, entonces
+
+\begin{eqnarray*}
+\text{div} (\text{rot} \mathbf{F}) = 0 \\
+\nabla \cdot ( \nabla \times \mathbf{F} ) = 0
+\end{eqnarray*}
+
+\paragraph*{Teorema} Si $f$ es campo escalar sobre $B \in \mathbb{R}^3$ abierta, y las segundas derivadas parciales de $f$ son continuas en $B$, entonces
+
+\begin{equation*}
+\nabla \times ( \nabla f ) = 0
+\end{equation*}
+
+Considere la divergencia del gradiente de $f$
+
+\begin{equation*}
+\nabla \cdot ( \nabla f )
+\end{equation*}
+
+que se puede escribir
+
+\begin{equation*}
+\nabla \cdot \nabla f = \nabla^2 f
+\end{equation*}
+
+quedaría definido un nuevo operador llamado \textbf{laplaciano de f}:
+
+\begin{equation*}
+\nabla^2 f(x,y,z) = \frac{ \partial^2 f }{ \partial x^2 } + \frac{ \partial^2 f }{ \partial y^2 } + \frac{ \partial^2 f }{ \partial z^2 }
+\end{equation*}
+
+Si el laplaciano de $f$ es igualado a cero, se tiene la ecuación de Laplace:
+
+\begin{equation*}
+\frac{ \partial^2 f }{ \partial x^2 } + \frac{ \partial^2 f }{ \partial y^2 } + \frac{ \partial^2 f }{ \partial z^2 } = 0
+\end{equation*}
+
+Una función que cumple con la ecuación de Laplace se dice que es ua \textbf{función armónica}. 
+
+\subsubsection{Integrales de línea}
+
+Recordemos el concepto de que si una fuerza constante de medida vectorial $\mathbf{F}$ mueve una partícula a lo largo de una recta de un punto $A$ a un punto $B$ y si $W$ es la medida del trabajo realizado, entonces
+
+\begin{equation*}
+W = \mathbf{F} \cdot \mathbf{V}(\vec{AB})
+\end{equation*}
+
+Si el vector de fuerza no es constante, y el movimiento es a lo largo de cualquier curva que une los puntos $A$ y $B$ definida por la ecuación paramétrica $\mathbf{R}(t) = f(t) \mathbf{a}_x + g(t) \mathbf{a}_y$. Entonces podemos definir la integral que simboliza el producto punto del campo en un punto por un elemento diferencial de línea $d \mathbf{l}$. La integral de línea se define como sigue
+
+\begin{equation*}
+\int_C \mathbf{F} \cdot d \mathbf{l} = \int_a^b \mathbf{F}(\mathbf{R}(t)) \cdot \mathbf{R'}(t) \ dt
+\end{equation*}
+
+O de forma equivalente, en su forma diferencial,
+
+\begin{equation*}
+\int_C M(x,y) dx + N(x,y) dy = \int_a^b \left[ M(f(t),g(t)) f'(t) + N(f(t),g(t)) g'(t) \right] \ dt 
+\end{equation*}
+
+\paragraph*{Definición}: Si la curva $C$ consiste de $C_1, C_2, \dots, C_n$, entonces la integral de línea de $\mathbf{F}$ es
+
+\begin{equation*}
+\int_C \mathbf{F} \cdot d \mathbf{l} = \sum_{i=1}^{n} \left( \int_{a_i}^{b_i} \mathbf{F}(\mathbf{R}(t)) \cdot \mathbf{R}'(t) \ d t \right)
+\end{equation*}
+
+La definición de la integral se puede extrapolar a tres dimensiones:
+
+\paragraph*{Definición}: Sea $C$ una curva contenida en una bola abierta $B \in \mathbb{R}^3$ con ecuación vectorial
+
+\begin{equation*}
+\mathbf{R}(t) = f(t) \mathbf{a}_x  +  g(t) \mathbf{a}_y  +  h(t) \mathbf{a}_z, \ a \leq t \leq b 
+\end{equation*}
+
+Sea $\mathbf{F}$ un campo vectorial sobre $B$ definido por 
+
+\begin{equation*}
+\mathbf{F}(x,y,z) = M(x,y,z) \mathbf{a}_x  + N(x,y,z) \mathbf{a}_y  + R(x,y,z) \mathbf{a}_z
+\end{equation*}
+
+donde todas las funciones de la parte derecha de la ecuación son continuas en $B$, la integral de línea de $\mathbf{F}$ sobre $C$ es
+
+\begin{equation*}
+\int_C \mathbf{F} \cdot d \mathbf{l} = \int_{a}^{b} \mathbf{F}(\mathbf{R}(t)) \cdot \mathbf{R}'(t) \ dt
+\end{equation*}
+
+En algunas ocasiones la integral de línea no cambia si la trayectaoria sobre la que se evalúa cambia.
+
+\paragraph*{Teorema} Sea $C \in \mathbb{R}^2$ cualqueir curva a trozos desde $(x_1,y_1)$ hasta $(x_2,y_2)$. Si $\mathbf{F}$ es un campo vectorial conservativo continuo sobre $B$ y $\phi$ es su función potencial, entonces
+
+\begin{equation*}
+\int_C \mathbf{F} \cdot d \mathbf{l}
+\end{equation*}
+
+es independiente de la trayectoria y es igual a 
+
+\begin{equation*}
+\int_C \mathbf{F} \cdot d \mathbf{l} = \phi(x_2,y_2) - \phi(x_1,y_1)
+\end{equation*}
+
+De lo anterior se puede deducir fácilmente el siguiente teorema
+
+\paragraph*{Teorema} Si $\mathbf{F}$ es un campo conservativo y continuo en $B$, entonces la integral de línea sobre la curva cerrada $C \in \mathbb{R}^2$, entonces
+
+\begin{equation*}
+\oint_C \mathbf{F} \cdot d \mathbf{l} = 0
+\end{equation*}
+
+Estas definiciones y teoremas también aplican para curvas $C \in \mathbb{R}^3$.
+
+\subsubsection{Teorema de Green}
+
+Este teorema se refiere a las integrales cerradas de línea en el espacio o el plano suave a trozos, en que la dirección indica que se tiene a mano izquierda el interior de la curva, denotado por $\oint_C$.
+
+\paragraph*{Teorema} Sean $M(x,y)$ y $N(x,y)$ tales que sus primeras derivadas parciales son continuas en un disco abierto $C \in \mathbb{R}^2$. Y sea $\mathbf{F}(x,y) = M(x,y) \mathbf{a}_x+ N(x,y) \mathbf{a}_y$ Si $C$ es curva cerrada simple, y suave a trozos contenida completamente en $B$ y si $R$ es la región limitada por $C$,
+
+\begin{equation*}
+\oint_C \mathbf{F} \cdot d \mathbf{l}  = \oint_C M(x,y) dx + N(x,y) dy = \iint_R \left(  \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right) dA
+\end{equation*}
+
+Como consecuencia del teorema, se puede calcular el área de cualquier curva cerrada mediante el teorama de Green
+
+\paragraph*{Teorema} Si la curva cerrada $C$ encierra la región $R$, el área de $R$ está dada por 
+
+\begin{equation*}
+A = \frac{1}{2} \oint_C x dy - y dx
+\end{equation*}
+
+El cual es la consecuencia de hacer
+
+\begin{equation*}
+\iint_R dA
+\end{equation*}
+
+
+Existen dos formas vectoriales del teorema de Green. Suponga que la curva cerrada $C$ está descrita de forma paramétrica como sigue:
+
+\begin{equation*}
+\mathbf{R}(s) = f(s) \mathbf{a}_x + g(s) \mathbf{a}_y
+\end{equation*}
+
+Para la curva parametrizada $\mathbf{R}(s)$, el vector tangente unitario de $C$ en el punto $P$, es 
+
+\begin{equation*}
+\mathbf{T}(s) = \frac{\partial \mathbf{R}(s)}{\partial s} = \frac{d x}{d s} \mathbf{a}_x + \frac{d y}{d s} \mathbf{a}_y
+\end{equation*}
+
+El vector normal $\mathbf{N}(s)$ definido por
+
+\begin{equation*}
+\mathbf{N}(s) = \frac{d y}{d s} \mathbf{a}_x - \frac{dx}{ds} \mathbf{a}_y
+\end{equation*}
+
+es un vector normal unitario de $C$ en $P$. Este vector normal unitario de ha elegido en lugar de su valor negativo debido a que cuando el sentido en que se recorre $C$ es contrario al giro de las manecillas del reloj, $\mathbf{N}(s)$ apuntará hacia afuera de la región $R$ limitada por $C$. Este es el \textbf{vector saliente unitario}. Sea
+
+\begin{equation*}
+\mathbf{F}(x,y) = M(x,y) \mathbf{a}_x + N(x,y) \mathbf{a}_y
+\end{equation*}
+
+donde $M$ y $N$ satisfacen las hipótesis del teorema de Green. Como
+\begin{eqnarray*}
+\mathbf{F}(s,y) \cdot \mathbf{N}(s) ds &=& \left[ M(x,y) \mathbf{a}_x + N(x,y) \mathbf{a}_y \right] \cdot \left( \frac{dy}{ds} \mathbf{a}_x - \frac{dx}{ds} \mathbf{a}_y \right) ds \\
+&=& M(x,y) dy - N(x,y) dx
+\end{eqnarray*}
+
+Entonces 
+
+\begin{eqnarray*}
+\oint_C \mathbf{F}(x,y) \cdot \mathbf{N}(s) \ ds &=& \iint_R \left[ \frac{\partial M}{\partial x} - \frac{\partial}{\partial y} (-N) \right] dA \\
+&=& \iint_R \left( \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y} \right) dA \\
+&=& \iint_R \nabla \cdot F \ dA
+\end{eqnarray*}
+
+Este es el teorema de la divergencia de Gauss
+
+\paragraph*{Teorema} Considere las funciones $M$ y $N$, la curva cerrada $C$ y la región $R$ que esta encierra. Si $\mathbf{F}(x,y) = M(x,y) \mathbf{a}_x + N(x,y)\mathbf{a}_y$ y $\mathbf{N}(s)$ es el vector normal saliente unitario de $C$ en $P$ sonde $s$ unidades es la longitud de arco medida en el sentido antihorario desde un punto particular $P_0$ hasta $P$, entonces
+
+\begin{equation*}
+\oint_C \mathbf{F} \cdot \mathbf{N} dl = \iint_R \nabla \cdot \mathbf{F} d A
+\end{equation*}
+
+
+Para campos vectoriales en el espacio, la región $S$ es una superficie cerrada con vector normal $d \mathbf{s}$, y $V$ es el volumen que lo encierra, entonces
+
+\begin{equation*}
+\oiint_S \mathbf{F} \cdot d s = \iiint_V (\nabla \cdot \mathbf{F}) dV
+\end{equation*}
+
+Si un campo vectorial es tal que 
+
+\begin{equation*}
+\iint_R \nabla \cdot \mathbf{F} d A = 0
+\end{equation*}
+
+Se dice que es libre de divergencia.
+
+Se interpreta de este teorema que la integral cerrada del producto punto entre el campo y los vectores \textbf{normales} a $C$ corresponde al flujo neto de $F$ a través de $C$.
+
+\subsubsection{Teorema de Stokes} Sea $\mathbf{F}(x,y) =  M(x,y) \mathbf{a}_x + N(x,y) \mathbf{a}_y$ un campo, y sea $C$ una curva cerrada con vector unitario $d \mathbf{l}$ tangente a la curva, que encierra la superficie $R$ con vector normal $d \mathbf{s}$, entonces
+
+\begin{equation*}
+\oint_C \mathbf{F} \cdot d \mathbf{l} = \iint_R \left( \nabla \times F \right) \cdot d \mathbf{s}
+\end{equation*}
+
+\section{Álgebra lineal}
+
+Presentamos en esta sección un repaso de los conceptos más importantes del álgebra lineal, empezando desde el concepto de espacio lineal o espacio vectorial.
+
+\subsection{Espacios lineales}
+
+Vamos a definir un campo arbitrario $\mathbb{F} $ que puede ser el conjunto de los números reales $\mathbb{R}$ o los complejos $\mathbb{C}$.  Para realizar la definición de un espacio lineal o vectorial.
+
+Supongamos que $\mathcal{V}$ es un conjunto no vacío. y que sus elementos cumplen unas operaciones de adición y multiplicación por escalar definidas de la siguiente forma
+
+\begin{enumerate}[label=\alph*.]
+    \item Para cada par $u,v \in \mathcal{V} $  se le asigna un único elemento $u+v \in \mathcal{V}$  llamado suma.
+    \item Para cada $\alpha \in \mathbb{F}$ y  $u \in \mathcal{V} $ , hay un único elemento $\alpha v \in \mathcal{V}$ llamando el producto escalar. 
+\end{enumerate}
+
+Entonces el conjunto $\mathcal{V}$ es un espacio vectorial si para todos los elementos $u,vm w \in \mathcal{V}$ y para todos los $\alpha,\beta \in \mathbb{F}$ se cumplen las siguientes propiedades:
+
+\begin{enumerate}[label=\roman*.]
+    \item Existe un elemento cero en $\mathcal{V}$ denotado por $0$ tal que $v+0 = v$
+    \item Existe un vector $-v \in \mathcal{V}$ tal que $v+(-v)=0$
+    \item La propiedad asociativa $u+(v+w)=(u+v)+w$
+    \item La propiedad conmutativa $u+v=v+u$
+    \item La propiedad distributiva $\alpha(u+v) = \alpha u + \alpha v$
+    \item La propiedad distributiva $(\alpha + \beta )v = \alpha v + \beta v$
+    \item La regla asociativa $(\alpha \beta ) v = \alpha (\beta v)$
+    \item Para la unidad escalar $1 \in \mathbb{F}$,  se tiene $1 v = v$
+\end{enumerate}
+
+Dados dos espacios vectoriales $\mathcal{V}_1$ y $\mathcal{V}_2$ con el mismo campo escalar $ \mathbb{F}$, se usa la notación $\mathcal{V}_1 \times \mathcal{V}_2$ para denotar el campo vectorial formado por su producto cartesiano. Así, cada elemento de  $\mathcal{V}_1 \times \mathcal{V}_2$ tiene la forma
+
+\begin{equation*}
+(v_1,v_2) \ \text{donde } v_2 \in \mathcal{V}_1 \text{y } v_2 \in \mathcal{V}_2 
+\end{equation*}
+
+Un ejemplo muy común es el espacio $\mathbb{R}^n$ , que se representa con la siguiente notación
+
+\begin{equation*}
+x = \left[ 
+    \begin{array}{c}
+        x_1 \\
+        \vdots  \\
+        x_n \\
+    \end{array}
+\right] \in \mathbb{R}^n, \ \ \text{donde cada } x_k \in \mathbb{R} 
+\end{equation*}
+
+Su suma y multiplicación por escalar se realizan para cada componente:
+
+\begin{equation*}
+x+y = \left[ 
+    \begin{array}{c}
+
+        x_1+y_1 \\
+        \vdots  \\
+        x_n + y_n \\
+    \end{array}
+\right], \ \ \alpha x = \left[ 
+    \begin{array}{c}
+        \alpha x_1 \\
+        \vdots  \\
+        \alpha x_n \\
+    \end{array}
+\right]
+\end{equation*}
+
+
+Otro ejemplo es el espacio $\mathbb{C}^{m\times n}$. Este es el espacio de matrices $m \times n$ de valores complejos
+
+\begin{equation*}
+A = \left[  \begin{array}{ccc}
+    a_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1} & \cdots & a_{mn} 
+\end{array}\right]
+\end{equation*}
+
+Un espacio vectorial usado en diferentes campos está determinado por la matriz hermitiana conjugada o adjunta de $A$:
+
+\begin{equation*}
+A^{\ast} = \left[  \begin{array}{ccc}
+    a_{11}^{*} & \cdots & a_{m1}^{*} \\
+    \vdots & \ddots & \vdots \\
+    a_{1n}^{*} & \cdots & a_{mn}^{*} 
+\end{array}\right] \in \mathbb{C}^{n \times m}
+\end{equation*}
+
+Se trata de la matriz transpuesta conjugada de $A$.  Si una matriz cuadrada es igual a su transpuesta conjugada, entonces se denomina \textbf{matriz hermitiana o autoadjunta}. 
+El conjunto de todas las matrices hermitianas es un espacio y se denomina $\mathbb{H}^n$.  Si una matriz hermitiana es real, se denomina también \textit{simétrica}. El espacio de matrices simétricas se denota con $\mathbb{S}^n$. 
+
+Otro ejemplo de espacio vectorial es el \textit{conjunto de funciones de m variables en n variables} $\mathcal{F}(\mathbb{R}^m,\mathbb{R}^n)$. En este campo, la suma se define de la siguiente forma
+
+\begin{equation*}
+(f_1+f_2)(x_1,...,x_m) = f_1(x_1,...,x_m) + f_2(x_1,...,x_m)
+\end{equation*}
+
+Otro ejemplo menos usual es el conjunto de los multinomios en $m$ variables que tienen un órden homogéneo $n$. Este conjunto se denota $P_{m}^{[n]}$. Como ejemplo
+
+\begin{eqnarray*}
+p_1(x_1,x_2,x_3) &=& x_1^2 x_2 x_3 \\
+p_2(x_1,x_2,x_3) &=& x_1^3 x_2 \\
+p_3(x_1,x_2,x_3) &=& x_1 x_2 x_3 
+\end{eqnarray*}
+Todos son multinomios de $3$ variables, sin embargo $p_1$ y $p_2$ son de orden $4$ y $p_3$ es de orden $3$. Entonces 
+
+
+\begin{eqnarray*}
+p_1 \in P_{3}^{[4]} \\
+p_2 \in P_{3}^{[4]}
+\end{eqnarray*}
+Al igual que 
+
+\begin{eqnarray*}
+p_4(x_1,x_2,x_3) = x_1^4+x_2 x_3^3 \in P_{3}^{[4]}
+\end{eqnarray*}
+Y por ejemplo
+
+\begin{eqnarray*}
+p_4(x_1,x_2,x_3) = x_1^4+x_2
+\end{eqnarray*}
+No pertenecereía a $P_{3}^{[n]}$, puesto que no es homogéneo.
+
+\subsubsection{Subespacios}
+
+Un subespacio  del espacio lineal $\mathcal{V}$ es un subconjunto de $\mathcal{V}$  que también es espacio lineal con respecto al mismo campo escalar y las mismas operaciones . 
+
+El ejemplo más simple de un subespacio es el subespacio cero $\{0\}$ que solamente contiene ese elemento.
+
+Otro ejemplo de subespacio es uno de la forma
+
+\begin{equation*}
+\mathcal{S}_v = \{ s \in \mathcal{V}: s = \alpha v, \ \text{para algunos } \alpha \in \mathbb{R}\}
+\end{equation*}
+
+Esto indica que cada elemento en $\mathcal{V}$ genera un sub-espacio al multiplicar este elemento por cualquier número real. Si representamos este subespacio de forma geométrica en $\mathbb{R}^2$ y $\mathbb{R}^3$ estos sub-espacios son líneas rectas que pasan por el origen.
+
+Si nos devolvemos al ejemplo anterior de los multinomios, podemos ver que $P_{m}^{[n]}$ son subespacios de $\mathcal{F}(\mathbb{R}^m,\mathbb{R})$, para cualquier $n$.
+
+Sabemos que el espacio $\mathbb{R}^n$ tiene muchos subespacios. Un conjunto importante de ellos son los asociados a inserciones de $\mathbb{R}^m$ a $\mathbb{R}^n$ cuando $m<n$. Los elementos de estos subespacios son de la forma
+
+\begin{equation*}
+x = \left[\begin{array}{c}
+     \bar{x}  \\
+     0 
+\end{array}  \right]
+\end{equation*}
+
+donde $\bar{x} \in \mathbb{R}^n$ y $0 \in \mathbb{R}^{n-m}$.
+
+Dados dos subespacios $\mathcal{S}_1$ y $\mathcal{S}_2$ podemos definir su suma como sigue:
+
+\begin{equation*}
+ \mathcal{S}_1 +\mathcal{S}_2 = \{ s \in \mathcal{V} : s = s_1+s_2 \ \text{para algún } s_1 \in \mathcal{S}_1 \text{y } s_2 \in \mathcal{S}_2\}
+\end{equation*}
+
+\subsubsection{Bases, generado, e independencia lineal}
+
+Ahora vamos a definir algunos conceptos importantes. Dados los elementos $v_1,...,v_n$ en un espacio vectorial, vamos a denotar su generador o "span" $span\{ v_1,...,v_n \}$, el cual es el conjunto de todos los vectores de la forma 
+
+\begin{eqnarray*}
+v=\alpha_1 v_1, ... , \alpha_n v_n
+\end{eqnarray*}
+para cualquier escalar $\alpha_i \in \mathbb{F}$;  la expresión de arriba se denomina \textit{combinación lineal} de los $n$ vectores. Es evidente ver que el generador siempre define un subespacio. Si para algunos vectores tenemos 
+
+\begin{equation*}
+span\{ v_1,...,v_n \} = \mathcal{V}
+\end{equation*}
+Es decir, que el espacio vectorial puede generarse a partir de un número finito de vectores, decimos que el espacio vectorial $\mathcal{V}$ es dimensional finito. Si dicho conjunto de vectores no existe, entonces el espacio es infinito dimensional.
+
+Si un espacio vectorial $\mathcal{V}$ es finito dimensional definimos su dimensión $dim(\mathcal{V})$ como el menor número $n$ tal que existen vectores $v_1,...,v_n$ que satisfacen
+
+\begin{equation*}
+ \{v_1,...,v_n \} \text{ es una base de  } \mathcal{V}
+\end{equation*}
+Una base es un conjuntos de vectores \textbf{linealmente independientes} que forma un subespacio vectorial. Que sea linealmente independiente significa que para la ecuación
+
+\begin{equation*}
+\alpha_1 v_1 + \dots + \alpha_n v_n =0
+\end{equation*}
+La única solución que existe es 
+
+\begin{equation*}
+\alpha_1 = \dots = \alpha_n = 0  
+\end{equation*}
+Si existieran otras soluciones distintas a la anterior, significa que uno de los vectores puede escribirse como una combinación lineal de los otros; lo cual es dependencia lineal y el subespacio podría generarse con un número menor de vectores. Esto significa que para un vector dado $v \in \mathcal{V}$ los escalares que cumplen 
+
+\begin{equation*}
+\alpha_1 v_1 + \dots + \alpha_n v_n = v
+\end{equation*}
+son únicos. Y se denominan como las coordenadas del vector $v$ en la base $\{ v_1, \dots, v_n \}$. El número máximo de vectores linealmente independientes es $n$, la dimensión del espacio; de hecho cualquier conjunto linealmente independiente puede ser extendido con vectores adicionales para formar una base.
+
+\paragraph*{Ejemplos.} De los ejemplos anteriores, tenemos que $\mathbb{R}^n$, $\mathbb{C}^{m \times n}$ y $P_{m}^{[n]}$ son todos espacios lineales de dimensión finita; sin embargo $\mathcal{F}(\mathbb{R}^m,\mathbb{R}^n)$ es de dimensión infinita. 
+
+Un concepto computacional importante en el análisis de espacios lineales es asociar un espacio lineal general $\mathcal{V}$ de dimensión $k$ con el espacio vectorial $\mathbb{F}^{k}$. Esto se consigue tomando una base $\{ v_1,\dots, v_k \}$ de $\mathcal{V}$ y asociando cada vector de $\mathcal{V}$ con el vector de coordenadas en la base dada,
+
+\begin{equation*}
+\left[\begin{array}{c}
+    \alpha_1 \\
+    \vdots \\
+    \alpha_k 
+\end{array}  \right] \in \mathbb{F}^k
+\end{equation*}
+De manera equivalente, cada vector $v_i$ en la base se asocia con el vector
+
+\begin{equation*}
+e_i = \left[\begin{array}{c}
+    0 \\
+    \vdots \\
+    0 \\
+    1 \\
+    0 \\
+    \vdots \\
+    0
+\end{array}  \right] \in \mathbb{F}^k
+\end{equation*}
+Esto es: $e_i$ es el vector con ceros, excepto en la entrada $i$, donde es $1$. De este modo estamos identificando la base  $\{ v_1,\dots, v_k \}$ en $\mathcal{V}$ con el conjunto   $\{ e_1,\dots, e_k \}$ el cual es de hecho la base canónica de $\mathbb{F}^k$.
+
+Si por ejemplo se está trabajando con el espacio \( \mathbb{R}^{2 \times 2} \) de matrices \( 2 \times 2 \), estas matrices tienen 4 entradas, por lo que cualquier matriz en este espacio se puede describir de forma única mediante 4 números reales.
+
+Una base canónica para este espacio podría consistir en las siguientes cuatro matrices:
+
+\[
+E_{11} = \begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}, \quad
+E_{12} = \begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}, \quad
+E_{21} = \begin{pmatrix}
+0 & 0 \\
+1 & 0
+\end{pmatrix}, \quad
+E_{22} = \begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}
+\]
+
+Cualquier matriz   \(A \in \mathbb{R}^{2 \times 2} \) puede ser escrita como una combinación lineal de estas matrices de base. Por ejemplo, si tenemos la matriz:
+
+\[
+A = \begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\]
+
+Entonces:
+
+\[
+A = a \cdot E_{11} + b \cdot E_{12} + c \cdot E_{21} + d \cdot E_{22}
+\]
+
+El espacio \( \mathbb{F}^k \) al que asociaríamos \( \mathbb{R}^{2 \times 2} \) sería \( \mathbb{R}^4 \), ya que necesitamos 4 coeficientes para describir de forma única cualquier elemento en \( \mathbb{R}^{2 \times 2} \).
+
+Por lo tanto, cada matriz \( A \) en \( \mathbb{R}^{2 \times 2} \) se asociaría con un vector en \( \mathbb{R}^4 \) dado por:
+
+\[
+\left[\begin{array}{c}
+    \alpha_1 \\
+    \alpha_2 \\
+    \alpha_3 \\
+    \alpha_4
+\end{array}  \right] = \left[\begin{array}{c}
+    a \\
+    b \\
+    c \\
+    d
+\end{array}  \right] \in \mathbb{R}^4
+\]
+
+En este contexto, \( \alpha_1 = a \), \( \alpha_2 = b \), \( \alpha_3 = c \), y \( \alpha_4 = d \).
+
+\subsubsection{Mapeos y representaciones matriciales} 
+Ahora podemos introducir un concepto importante que es el mapeo lineal entre espacios vectoriales. El mapeo $\mathcal{A}:\mathcal{V} \to \mathcal{W}$ es un mapeo lineal si
+
+\begin{equation*}
+A(\alpha v_1 + \beta v_2) = \alpha A v_1 + \beta A v_2, \quad \forall v_1, v_2 \in \mathcal{V}, \forall \alpha, \beta \in \mathbb{F}
+\end{equation*}
+
+Aquí $\mathcal{V}$ y $\mathcal{W}$ son espacios vectoriales con el mismo campo asociado $\mathbb{F}$. El espacio  $\mathcal{V}$ se denomina \textit{donimio} del mapeo, y  $\mathcal{W}$ es el \textit{codominio}.
+
+Dadas las bases de $\mathcal{V}$ $\{ v_1, \dots v_n \}$ y  $\mathcal{W}$  $\{ w_1, \dots w_m \}$,  asociamos escalares $a_{kj}$ con el mapeo $A \in \mathbb{R}^{m \times n}$, de manera que satisface
+
+\begin{equation*}
+Av_k = a_{1k} w_1 + a_{2k} w_2 + \dots + a_{mk} w_m
+\end{equation*}
+para cada $1 \leq k \leq n$. Esto quiere decir que dado cualquier vector de la base $v_k$, los coeficientes $a_{jk}$ son las coordenadas de $Av_k$  en la base de  $\mathcal{W}$.
+
+\paragraph*{Ejemplo} sea $A$
+
+\begin{equation*}
+A = \left[ \begin{array}{ccc}
+    1 & 0 & -1\\
+    2 & 1 & 0\\
+    0 & -3 & 1
+\end{array}
+\right]
+\end{equation*}
+
+Aquí,  $\mathcal{V} = \mathbb{R}^3$  y $\mathcal{W} = \mathbb{R}^3$ . Para el vector $[1,0,0]^T$ de la base de  $\mathcal{V}$, tenemos que 
+
+\begin{equation*}
+A v_1 =  \left[ \begin{array}{ccc}
+    1 & 0 & -1\\
+    2 & 1 & 0\\
+    0 & -3 & 1
+\end{array}
+\right] \left[ \begin{array}{c}
+    1 \\
+    0 \\
+    0 
+\end{array}
+\right] = \left[ \begin{array}{c}
+    1 \\
+    2 \\
+    0 
+\end{array}
+\right]
+\end{equation*}
+
+Que son las coordenadas de la base canónica de $\mathcal{W}$ . Para los demás vectores de la base:
+
+\begin{equation*}
+A v_2 =  \left[ \begin{array}{ccc}
+    1 & 0 & -1\\
+    2 & 1 & 0\\
+    0 & -3 & 1
+\end{array}
+\right] \left[ \begin{array}{c}
+    0 \\
+    1 \\
+    0 
+\end{array}
+\right] = \left[ \begin{array}{c}
+    0 \\
+    1 \\
+    -3 
+\end{array}
+\right]
+\end{equation*}
+\begin{equation*}
+A v_3 =  \left[ \begin{array}{ccc}
+    1 & 0 & -1\\
+    2 & 1 & 0\\
+    0 & -3 & 1
+\end{array}
+\right] \left[ \begin{array}{c}
+    0 \\
+    0 \\
+    1 
+\end{array}
+\right] = \left[ \begin{array}{c}
+    -1 \\
+    0 \\
+    1 
+\end{array}
+\right]
+\end{equation*}
+
+aquí decimos que 
+
+\begin{eqnarray*}
+w_1 = \left[ \begin{array}{c}
+    1 \\
+    2 \\
+    0 
+\end{array}
+\right] \\
+w_2 = \left[ \begin{array}{c}
+    0 \\
+    1 \\
+    -3 
+\end{array}
+\right] \\
+w_3 = \left[ \begin{array}{c}
+    -1 \\
+    0 \\
+    1 
+\end{array}
+\right]
+\end{eqnarray*}
+
+
+Para el vector $v = [-7,3,4]^T$, tenemos 
+
+\begin{equation*}
+ v = \left[ \begin{array}{c}
+    -7 \\
+    3 \\
+    4 
+\end{array}
+\right] = -7 \left[ \begin{array}{c}
+    1 \\
+    0 \\
+    0 
+\end{array}
+\right] + 3 \left[ \begin{array}{c}
+    0 \\
+    1 \\
+    0 
+\end{array}
+\right] + 4 \left[ \begin{array}{c}
+    0 \\
+    0 \\
+    1 
+\end{array}
+\right]
+\end{equation*}
+
+Aquí podemos ver que $\alpha_1 = -7, \alpha_2 = -3 $ y $\alpha_3 = 4$ . Su transformación o mapeo es 
+
+\begin{equation*}
+w = A v =  \left[ \begin{array}{ccc}
+    1 & 0 & -1\\
+    2 & 1 & 0\\
+    0 & -3 & 1
+\end{array}
+\right] \left[ \begin{array}{c}
+    -7 \\
+    3 \\
+    4 
+\end{array}
+\right] = \left[ \begin{array}{c}
+    -11 \\
+    -11 \\
+    -5 
+\end{array}
+\right] =  -11 \left[ \begin{array}{c}
+    1 \\
+    0 \\
+    0 
+\end{array}
+\right] -11 \left[ \begin{array}{c}
+    0 \\
+    1 \\
+    0 
+\end{array}
+\right] - 5 \left[ \begin{array}{c}
+    0 \\
+    0 \\
+    1 
+\end{array}
+\right]
+\end{equation*}
+donde podemos ver que  $\beta_1 = -11, \beta_2 = -11 $ y  $\beta_3 = -5$.
+
+Entonces
+
+\begin{eqnarray*}
+w = Av = A(\alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3) = (\beta_1 w_1 + \beta_2 w_2 + \beta_3 w_3) \\
+A\alpha_1 v_1 + A\alpha_2 v_2 + A\alpha_3 v_3 = \beta_1 w_1 + \beta_2 w_2 + \beta_3 w_3 \\
+\alpha_1 \left[ \begin{array}{c}
+    1 \\
+    2 \\
+    0 
+\end{array}
+\right] + \alpha_2 \left[ \begin{array}{c}
+    0 \\
+    1 \\
+    -3 
+\end{array}
+\right] + \alpha_3 \left[ \begin{array}{c}
+    -1 \\
+    0 \\
+    1 
+\end{array}
+\right] =  \beta_1 w_1 + \beta_2 w_2 + \beta_3 w_3 \\
+\end{eqnarray*}
+Si miramos componente a componente,
+
+\begin{eqnarray*}
+\beta_1 &=& \alpha_1 a_{11} + \alpha_2 a_{12} + \alpha_3 a_{13} \\
+\beta_2 &=& \alpha_1 a_{21} + \alpha_2 a_{22} + \alpha_3 a_{23} \\
+\beta_3 &=& \alpha_1 a_{31} + \alpha_2 a_{32} + \alpha_3 a_{33} 
+\end{eqnarray*}
+Que se puede escribir de la siguiente forma
+
+\begin{equation*}
+\beta_j = \sum_{k=1}^{n} \alpha_k a_{jk}, \text{para } j=1, \dots, m
+\end{equation*}
+
+Y de manera general podemos escribir $w$ como
+
+\begin{equation*}
+w = \sum_{j=1}^{m} \left( \sum_{k=1}^{n} \alpha_k a_{jk} \right) w_j
+\end{equation*}
+De modo que los coeficientes de $w$ se pueden escribir de manera matricial de la siguiente forma
+
+\begin{equation*}
+\left[ \begin{array}{c}
+      \beta_1 \\
+      \vdots \\
+      \beta_m 
+\end{array}
+\right] = \left[ \begin{array}{ccc}
+      a_{11} & \dots & a_{1n}\\
+      \vdots & \ddots & \vdots \\
+      a_{m1} & \dots & a_{mn}\\
+\end{array}
+\right] \left[ \begin{array}{c}
+      \alpha_1 \\
+      \vdots \\
+      \alpha_m 
+\end{array}
+\right]
+\end{equation*}
