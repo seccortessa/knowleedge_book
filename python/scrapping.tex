@@ -85,3 +85,105 @@
         print(languages)
     \end{verbatim}
  
+    Por su parte, la librería \texttt{lxml} también provee un extractor para las clases y con esto se puede obtener la misma lista:
+
+    \begin{verbatim}
+        idiomas = parser.find_class("central-featured-lang")
+        for idioma in idiomas:
+            print(idioma.text_content())
+    \end{verbatim}
+    
+    Para el buscador de \texttt{xpath}, las clases definidas para los divs con los textos de losd idiomas son \texttt{"central-featured-lang lang1"}, etc. Por eso para extraerlos todos se ha utilizado la palara \texttt{contains}, sin embargo, \texttt{lxml} conoce que el espacio para cada div, indica una clase adicional, al solamente rquerir la clase común, se retorna la lista con todos los divs. \\
+
+    La herramienta \texttt{beautiful soup} es muy similar a la de \texttt{lxml} par aextraer datos, un ejemplo de uso sería al siguiente:
+
+    \begin{verbatim}
+        
+    \end{verbatim}
+
+    El método \texttt{find()} de Beautiful Soup es una función esencial en la biblioteca para analizar y manipular HTML y XML. Se utiliza para buscar el primer elemento que coincide con un criterio de búsqueda específico en un documento HTML o XML.
+
+    \begin{itemize}
+        \item \textbf{Función Básica:} 
+            \textit{find()} busca en el árbol de elementos del documento y devuelve el primer elemento que coincide con los criterios especificados.
+          
+        \item \textbf{Sintaxis Básica:} 
+            \textit{find(name, attrs, recursive, string, **kwargs)}
+            \begin{itemize}
+                \item \textit{name}: El nombre de la etiqueta que quieres buscar (por ejemplo, 'div', 'span').
+                \item \textit{attrs}: Un diccionario de atributos y valores para buscar en las etiquetas (por ejemplo, \{'class': 'some-class'\}).
+                \item \textit{recursive}: Si es \textit{True} (por defecto), busca en todos los hijos del elemento; si es \textit{False}, sólo busca en los hijos directos.
+                \item \textit{string}: Se utiliza para buscar una cadena de texto dentro de los elementos.
+                \item \textit{**kwargs}: Argumentos adicionales basados en atributos de etiquetas específicas (por ejemplo, id='element-id').
+            \end{itemize}
+      
+        \item \textbf{Uso Típico:}
+            \begin{itemize}
+                \item Para buscar la primera etiqueta \textit{<div>} con una clase específica, se usaría: \texttt{soup.find('div', class\_='nombre-clase')}
+                \item Si se busca un elemento con un \textit{id} específico: \textit{soup.find(id='element-id')}
+            \end{itemize}
+      
+        \item \textbf{Retorno:} 
+            Devuelve el primer elemento que coincide con los criterios o \textit{None} si no se encuentra ningún elemento.
+      
+        \item \textbf{Uso Combinado con Otros Métodos:} 
+            A menudo se usa en combinación con métodos como \textit{find\_all()} o métodos de navegación de árboles para acceder a elementos específicos de la estructura del documento.
+    \end{itemize}
+      
+    \texttt{Beautiful Soup} tiene una verntaja sobre \texttt{lxml}, y es que en caso de que alguna etiqueta no contenga un identificador o alguna clase que sea sencillo de obtener, pero la etiqueta prima anterior sí contiene una, se puede usar el método \texttt{find\_next\_sibling('div')} \\
+
+    Scrapy es un framework mucho más completo de extracción de datos. Para extraer datos de html de una página, se debe definir una clase heredada de \texttt{Item} en la cual se definan los campos necesarios o requeridos (esto es en función del tipo de información). En el ejemplo, se desea extraer las preguntas de la pagina, y esta tiene la pregunta principal y un texto pequeño de descripción, entonces se definen esos campos:
+
+    \begin{verbatim}
+        from scrapy.item import Field
+        from scrapy.item import Item
+        from scrapy.spiders import Spider
+        from scrapy.selector import Selector
+        from scrapy.loader import ItemLoader
+            
+        class Question(Item):
+            quest_title = Field()
+            quest_description = Field()
+            
+        class StackSpider(Spider):
+            name = "SpiderForStackOverflow"
+            custom_settings = {
+                'USER_AGENT':   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 
+                                (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'
+            }
+            start_urls = ["http://stackoverflow.com/questions/"]
+            
+            def parse(self, response):
+                sel = Selector(response)
+                questions =     sel.xpath("//div[@id = 'questions']//div[@class = 
+                                's-post-summary--content']")
+                print(questions)
+                for question in questions:
+                    item = ItemLoader(Question(), question)
+                    item.add_xpath("quest_title", "./h3/a/text()")
+                    item.add_xpath("quest_description", ".//div[@class = 's-post-
+                                    summary--content-excerpt']/text()")
+                    yield item.load_item()
+        #   Para ejecutar el script debemos poner en consola C:\Users\seb-c\AppData\
+            local\packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache
+            \local-packages\Python310\Scripts\scrapy.exe runspider scrapy_prb.py -o 
+            questions.json -t json
+    \end{verbatim}
+
+    En la clase \texttt{StackSpider} se definen los parámetros de la extracción. Notar cómo se implementa el xpath para recuperar la onformación necesaria y cómo se almacenan en los campos definidos para la clase personalizada \texttt{Question}. \\
+
+    Por último, es posible configurar ael ejecutador del crawler para que se realice el sctapping sin necesidad de ejecutar comandos en la consola:
+
+    \begin{verbatim}
+        from scrapy.crawler     import CrawlerProcess
+                       
+        process = CrawlerProcess(
+            {
+                'FEED_Format': 'json',
+                'FEED_URI': 'results.json'
+            }
+        )
+        process.crawl(StackSpider)
+    \end{verbatim}
+
+    

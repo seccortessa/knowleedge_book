@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.19)  20 NOV 2023 07:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.19)  20 NOV 2023 12:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -918,22 +918,27 @@ Overfull \hbox (78.73076pt too wide) in paragraph at lines 86--86
 []        \OT1/txtt/m/n/10 languages = parser.xpath("//div[contains(@class, 'central-featured-lang')]//strong/text()")[] 
  []
 
-) [54]
+[54]
+Overfull \hbox (20.98093pt too wide) in paragraph at lines 171--171
+[]            \OT1/txtt/m/n/10 local\packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache[] 
+ []
+
+[55]) [56]
 \openout2 = `Github/git.aux'.
 
  (./Github/git.tex
 Chapter 5.
-<Github/Git_f1.png, id=1155, 821.0675pt x 295.1025pt>
+<Github/Git_f1.png, id=1167, 821.0675pt x 295.1025pt>
 File: Github/Git_f1.png Graphic file (type png)
 <use Github/Git_f1.png>
 Package pdftex.def Info: Github/Git_f1.png  used on input line 16.
 (pdftex.def)             Requested size: 264.61333pt x 95.10565pt.
-<Github/Git_f2.png, id=1157, 1587.9325pt x 580.1675pt>
+<Github/Git_f2.png, id=1169, 1587.9325pt x 580.1675pt>
 File: Github/Git_f2.png Graphic file (type png)
 <use Github/Git_f2.png>
 Package pdftex.def Info: Github/Git_f2.png  used on input line 26.
 (pdftex.def)             Requested size: 264.61333pt x 96.67958pt.
-<Github/Git_f3.png, id=1158, 534.99875pt x 201.75375pt>
+<Github/Git_f3.png, id=1170, 534.99875pt x 201.75375pt>
 File: Github/Git_f3.png Graphic file (type png)
 <use Github/Git_f3.png>
 Package pdftex.def Info: Github/Git_f3.png  used on input line 38.
@@ -941,19 +946,19 @@ Package pdftex.def Info: Github/Git_f3.png  used on input line 38.
 
 Underfull \vbox (badness 1708) has occurred while \output is active []
 
- [55
+ [57
 
 
 
 
- <./Github/Git_f1.png> <./Github/Git_f2.png>] [56 <./Github/Git_f3.png>] [57] [58] [59]
-<Github/Git_f4.png, id=1194, 694.09312pt x 483.30562pt>
+ <./Github/Git_f1.png> <./Github/Git_f2.png>] [58 <./Github/Git_f3.png>] [59] [60] [61]
+<Github/Git_f4.png, id=1206, 694.09312pt x 483.30562pt>
 File: Github/Git_f4.png Graphic file (type png)
 <use Github/Git_f4.png>
 Package pdftex.def Info: Github/Git_f4.png  used on input line 269.
 (pdftex.def)             Requested size: 347.04572pt x 241.65222pt.
- [60 <./Github/Git_f4.png>]
-<Github/Git_f5.png, id=1202, 633.36626pt x 460.72125pt>
+ [62 <./Github/Git_f4.png>]
+<Github/Git_f5.png, id=1214, 633.36626pt x 460.72125pt>
 File: Github/Git_f5.png Graphic file (type png)
 <use Github/Git_f5.png>
 Package pdftex.def Info: Github/Git_f5.png  used on input line 331.
@@ -961,7 +966,7 @@ Package pdftex.def Info: Github/Git_f5.png  used on input line 331.
 
 Underfull \vbox (badness 1087) has occurred while \output is active []
 
- [61]
+ [63]
 Overfull \hbox (10.48096pt too wide) in paragraph at lines 372--372
 []\OT1/txtt/m/n/10 f9dd3785bbc39a5e1ae9f8fed003f7b696f17f6b Se cambia apertura de navegador para form OVH[] 
  []
@@ -971,44 +976,44 @@ Overfull \hbox (146.98056pt too wide) in paragraph at lines 372--372
 []\OT1/txtt/m/n/10 e1b1a7f0632ef745d02749468aa02eee016e62f9 Merge branch 'test2' of https://github.com/JhoAraSan/Process into test2[] 
  []
 
-[62 <./Github/Git_f5.png>]
+[64 <./Github/Git_f5.png>]
 Overfull \hbox (41.98087pt too wide) in paragraph at lines 386--386
 []\OT1/txtt/m/n/10 04bf774da85b9db1a059da4111887240ad2b3d4e renombramiento de carpeta a sugerencia de Sebastian[] 
  []
 
-<Github/Git_f6.png, id=1216, 892.08281pt x 559.33969pt>
+<Github/Git_f6.png, id=1227, 892.08281pt x 559.33969pt>
 File: Github/Git_f6.png Graphic file (type png)
 <use Github/Git_f6.png>
 Package pdftex.def Info: Github/Git_f6.png  used on input line 418.
 (pdftex.def)             Requested size: 356.8268pt x 223.7319pt.
-[63]
+[65]
 Overfull \hbox (26.23091pt too wide) in paragraph at lines 455--455
 []    \OT1/txtt/m/n/10 Directory: C:\Users\seb-c\OneDrive\Documentos\Project_Process\Process\.git\refs\heads[] 
  []
 
-[64 <./Github/Git_f6.png>]
-<Github/Git_f7.png, id=1240, 782.17218pt x 316.18124pt>
+[66 <./Github/Git_f6.png>]
+<Github/Git_f7.png, id=1251, 782.17218pt x 316.18124pt>
 File: Github/Git_f7.png Graphic file (type png)
 <use Github/Git_f7.png>
 Package pdftex.def Info: Github/Git_f7.png  used on input line 499.
 (pdftex.def)             Requested size: 391.08513pt x 158.09023pt.
- [65 <./Github/Git_f7.png>]
-<Github/Git_f8.png, id=1249, 1275.76625pt x 624.3325pt>
+ [67 <./Github/Git_f7.png>]
+<Github/Git_f8.png, id=1262, 1275.76625pt x 624.3325pt>
 File: Github/Git_f8.png Graphic file (type png)
 <use Github/Git_f8.png>
 Package pdftex.def Info: Github/Git_f8.png  used on input line 507.
 (pdftex.def)             Requested size: 382.73283pt x 187.3012pt.
-<Github/Git_f9.png, id=1250, 708.39656pt x 509.65407pt>
+<Github/Git_f9.png, id=1263, 708.39656pt x 509.65407pt>
 File: Github/Git_f9.png Graphic file (type png)
 <use Github/Git_f9.png>
 Package pdftex.def Info: Github/Git_f9.png  used on input line 529.
 (pdftex.def)             Requested size: 354.1974pt x 254.8264pt.
- [66 <./Github/Git_f8.png>]
+ [68 <./Github/Git_f8.png>]
 Overfull \hbox (5.23097pt too wide) in paragraph at lines 576--576
 []\OT1/txtt/m/n/10 PS C:\Users\seb-c\OneDrive\Documentos\Project_Process\Process> git remote show origin[] 
  []
 
-[67 <./Github/Git_f9.png>] [68] [69]
+[69 <./Github/Git_f9.png>] [70] [71]
 Overfull \hbox (136.48059pt too wide) in paragraph at lines 688--688
 []\OT1/txtt/m/n/10 73acf27141929dd1f890236317cb54009914c35a                branch 'test2' of https://github.com/JhoAraSan/Process[] 
  []
@@ -1018,39 +1023,39 @@ Overfull \hbox (141.73058pt too wide) in paragraph at lines 688--688
 []\OT1/txtt/m/n/10 629fab88a1c5954a9389c827f0e7b4829ce734ba        not-for-merge   tag '1' of https://github.com/JhoAraSan/Process[] 
  []
 
-[70] [71]) [72]
+[72] [73]) [74]
 \openout2 = `Data/Data.aux'.
 
  (./Data/Data.tex
 Chapter 6.
-[73
+[75
 
 
 
 
 ]
-<Data/datafig2.png, id=1313, 277.78781pt x 207.02344pt>
+<Data/datafig2.png, id=1324, 277.78781pt x 207.02344pt>
 File: Data/datafig2.png Graphic file (type png)
 <use Data/datafig2.png>
 Package pdftex.def Info: Data/datafig2.png  used on input line 89.
 (pdftex.def)             Requested size: 166.67395pt x 124.21501pt.
- [74 <./Data/datafig2.png>]
+ [76 <./Data/datafig2.png>]
 Overfull \hbox (52.86234pt too wide) in paragraph at lines 161--180
  [][] 
  []
 
-[75] [76]
-<Data/datafig3.png, id=1348, 345.54094pt x 176.91093pt>
+[77] [78]
+<Data/datafig3.png, id=1359, 345.54094pt x 176.91093pt>
 File: Data/datafig3.png Graphic file (type png)
 <use Data/datafig3.png>
 Package pdftex.def Info: Data/datafig3.png  used on input line 307.
 (pdftex.def)             Requested size: 345.54008pt x 176.91049pt.
- [77 <./Data/datafig3.png>] [78]
+ [79 <./Data/datafig3.png>] [80]
 Overfull \hbox (57.40208pt too wide) in paragraph at lines 437--446
  [][] 
  []
 
-[79] [80] [81] [82] [83] [84] [85] [86]) [87] (./main.aux (./latex/latex.aux) (./python/python_section.aux) (./python/pandas_section.aux) (./python/scrapping.aux) (./Github/git.aux) (./Data/Data.aux))
+[81] [82] [83] [84] [85] [86] [87] [88]) [89] (./main.aux (./latex/latex.aux) (./python/python_section.aux) (./python/pandas_section.aux) (./python/scrapping.aux) (./Github/git.aux) (./Data/Data.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1058,18 +1063,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 265954D20D66043BDA3F4C12F02DCD9B;17958.
  ) 
 Here is how much of TeX's memory you used:
- 40095 strings out of 480247
- 898960 string characters out of 5896150
- 1397045 words of memory out of 5000000
+ 40097 strings out of 480247
+ 898974 string characters out of 5896150
+ 1397046 words of memory out of 5000000
  56872 multiletter control sequences out of 15000+600000
  503340 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,12n,94p,1148b,1001s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (87 pages, 1117929 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (89 pages, 1127290 bytes).
 PDF statistics:
- 1637 PDF objects out of 1728 (max. 8388607)
- 1489 compressed objects within 15 object streams
- 607 named destinations out of 1000 (max. 500000)
+ 1652 PDF objects out of 1728 (max. 8388607)
+ 1500 compressed objects within 15 object streams
+ 609 named destinations out of 1000 (max. 500000)
  956 words of extra memory for PDF output out of 10000 (max. 10000000)
 
