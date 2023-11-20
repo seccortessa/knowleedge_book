@@ -487,20 +487,20 @@ En esta sección se describirán algunas características no antes vistas sobre 
 Este es un comando que puede ser útil para ver y evidenciar las diferencias entre un archivo modificado su anterior versión dentro de la consola. Al usar el comando podemos ver el hash provisional del nuevo archivo (el que tendria si se realiza el commit), las líneas agregadas- quitadas-modificadas.
 
 \section{Fusión o combinación de ramas}
-Es importante tener clara la perspectiva de dónde está apuntando \texttt{HEAD}. De ello depende la información que vamos a obtener al llamar al comando \texttt{git log}. Si estamos visualizando commits anteriores, ese commit será el actual para la vista que tengamos en el momento. \\\\
+Es importante tener clara la perspectiva de dónde está apuntando \texttt{HEAD}. De ello depende la información que vamos a obtener al llamar al comando \texttt{git log}. Si estamos visualizando commits anteriores, ese commit será el actual para la vista que tengamos en el momento. \\
 Ahora teniendo en cuenta lo anterior, suponemos que hemos creado una rama para agregar cualquier especificación; hemos creado esa rama desde la rama principal. Luego hemos realizado cambios en dicha rama y hemos confirmado dichos cambios. Posteriormente volvemos a cambiar la vista hacia la rama principal y \textbf{desde esta rama traemos o unimos los cambios realizados en la rama secundaria}; ese es el proceso de fusión o combinación de ramas. 
 
 \begin{verbatim}
 git merge <feature-branch>
 \end{verbatim}
-En esencia, cuando hacemos la fusión de ramas, lo que estamos realizando es un cambio del apuntador de la rama hacia la que fusionamos (la principal) para apuntar ahora al último commit realizado en la rama que estamos trayendo. Este caso aplica cuando en la rama principal no hay cambios después de haber creado la rama secundaria.\\\\
+En esencia, cuando hacemos la fusión de ramas, lo que estamos realizando es un cambio del apuntador de la rama hacia la que fusionamos (la principal) para apuntar ahora al último commit realizado en la rama que estamos trayendo. Este caso aplica cuando en la rama principal no hay cambios después de haber creado la rama secundaria.\\
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{Github/Git_f7.png}
 \end{figure}
-Supongamos ahora que tenemos nuestra rama principal, creamos una rama para trabajar en características secundarias, pero al mismo tiempo también realizamos cambios en la rama principal. Si en este momento queremos hacer una fusión de las ramas, ya no podemos simplemente cambiar el puntero de la rama principal; ahora es necesario realizar una fusión de 3 direcciones. \\\\
+Supongamos ahora que tenemos nuestra rama principal, creamos una rama para trabajar en características secundarias, pero al mismo tiempo también realizamos cambios en la rama principal. Si en este momento queremos hacer una fusión de las ramas, ya no podemos simplemente cambiar el puntero de la rama principal; ahora es necesario realizar una fusión de 3 direcciones. \\
 En la fusión de tres direcciones tenemos tres versiones importantes: la versión ancestro, que corresponde a la última versión en común que tienen las dos ramas a unir; la última versión de la rama secundaria y la última versión de la principal.
-Como en la fusión anterior, también se debe ir a la versión de la rama receptora; se crea una nueva versión de fusión en esta rama; \textbf{dicha versión tendrá como versiones padres la última de la rama receptora y la última de la rama secundaria}. Si no existen conflictos entre archivos que se hayan modificado en ambas ramas, simplemente la nueva versión combinará los archivos nuevos.\\\\
+Como en la fusión anterior, también se debe ir a la versión de la rama receptora; se crea una nueva versión de fusión en esta rama; \textbf{dicha versión tendrá como versiones padres la última de la rama receptora y la última de la rama secundaria}. Si no existen conflictos entre archivos que se hayan modificado en ambas ramas, simplemente la nueva versión combinará los archivos nuevos.\\
 
 \begin{figure}[H]
     \centering
@@ -624,10 +624,10 @@ Para realizar un \texttt{git pull}, se combinan varios conceptos previamente dis
     \item \texttt{git fetch} antes del \texttt{pull}, git efectúa un \texttt{fetch} para obtener todos los cambios desde el repositorio remoto
 \end{enumerate}
 
-El proceso de \texttt{git pull} se realiza en dos pasos:\\\\
+El proceso de \texttt{git pull} se realiza en dos pasos:\\
 Primero se ejecuta un \texttt{git fetch}, que tona todas las actualizaciones del repositorio remoto y las escribe en el repositorio local. Esto incluye todas las nuevas reamas y versiones creadas en el repositorio remoto.
 
-Luego de ejecuta un \texttt{git merge}. Esta fusión es local, es decir, se hace en el repositorio local sin interactuar con el repositorio remoto. Durante este proceso, se utilizan dos ramas: la rama receptora será la rama local y la rama "feature" será la rama remota correspondiente. Git mezclará la rama remota en la rama local. \\\\
+Luego de ejecuta un \texttt{git merge}. Esta fusión es local, es decir, se hace en el repositorio local sin interactuar con el repositorio remoto. Durante este proceso, se utilizan dos ramas: la rama receptora será la rama local y la rama "feature" será la rama remota correspondiente. Git mezclará la rama remota en la rama local. \\
 Es relevante notar que Git usa un término especial, "Fetch Head", en lugar del nombre de la rama remota durante este proceso. Como limitación, \texttt{git pull} actualiza solo la rama local que está actualmente en uso. No afecta ninguna otra rama local.
 
 
