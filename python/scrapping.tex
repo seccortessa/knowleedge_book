@@ -4,7 +4,7 @@
 
     El web scraping es una técnica poderosa utilizada para extraer información de páginas web. Esta técnica emplea programas o scripts para simular la navegación de un usuario en la web, accediendo a páginas web y extrayendo los datos necesarios de ellas. La flexibilidad del web scraping permite su aplicación en una variedad de contextos, desde la recopilación de datos para análisis de mercado hasta la automatización de tareas de recolección de datos para investigación académica o desarrollo de productos.
 
-    Una característica notable del web scraping es su capacidad para interactuar tanto con páginas web estáticas como dinámicas. Las páginas estáticas son aquellas cuyo contenido no cambia con cada solicitud y generalmente se sirven directamente desde el servidor en formato HTML. Por otro lado, las páginas dinámicas son aquellas cuyos contenidos pueden cambiar en función de la interacción del usuario, los datos de entrada, o incluso el tiempo, y a menudo implican la carga de datos a través de APIs o tecnologías de frontend como JavaScript.
+    Una característica notable del web scraping es su capacidad para interactuar tanto con páginas web estáticas como dinámicas. Las páginas estáticas son aquellas cuyo contenido no cambia con cada solicitud y generalmente se sirven directamente desde el servidor en formato HTML. Por 9otro lado, las páginas dinámicas son aquellas cuyos contenidos pueden cambiar en función de la interacción del usuario, los datos de entrada, o incluso el tiempo, y a menudo implican la carga de datos a través de APIs o tecnologías de frontend como JavaScript.
 
     Además, el web scraping moderno puede manejar desafíos más complejos como el análisis y la interacción con APIs, así como la superación de CAPTCHAs, que son mecanismos diseñados para diferenciar entre usuarios humanos y bots automatizados. El manejo de CAPTCHAs es un área avanzada del web scraping, que a menudo implica técnicas sofisticadas y, en algunos casos, cuestiones éticas y legales.
 
@@ -31,7 +31,7 @@
             \item \texttt{..}: Selecciona el nodo padre del nodo actual.
             \item \texttt{@}: Selecciona atributos. Ejemplo: \texttt{@class}.
             \item \texttt{*}: Selecciona todos los nodos hijos del nodo actual.
-            \item \texttt{node()}: Selecciona todos los tipos de nodos bajo el nodo actual.
+            \item \texttt{node0()}: Selecciona todos los tipos de nodos bajo el nodo actual.
             \item \texttt{[]}: Aplica un filtro, seleccionando elementos que cumplen el criterio dentro de los corchetes.
             \item \texttt{|}: Combina expresiones y devuelve la unión de sus resultados.
             \item \texttt{text()}: Selecciona todos los nodos de texto bajo el nodo actual.
@@ -46,4 +46,44 @@
         \end{itemize}
 
         
-        
+    \section{Scrapping para una sola página estática}
+
+    La extracción de los datos se realiza en dos fases; primero se realiza una solicitud o requerimiento para obtener la respuesta que corresponde al HTML de la página. Una vez se obtiene esta, es necesario analizarlo. El análisis se realiza mediante la librería \texttt{lxml}.
+
+    \begin{verbatim}
+        import requests
+        from lxml import html
+
+        headers = {
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+        }
+
+        url = "http://www.wikipedia.org"
+
+        response = requests.get(url, headers = headers)
+        parser = html.fromstring(response.text)
+    \end{verbatim}
+
+    El \texttt{parser} es un objeto del tipo \texttt{html} del cual se puede extraer la información que sea requerida. Por ejemplo, de la página que estamos analizando podemos ver que hay una serie de idiomas, queremos extraer esta información. Inspeccionando la página podemos ver que todos los idiomas están dentro de una etiqueta \texttt{<strong>} dentro de una etiqueta \texttt{a} cuya id es \texttt{"js-link-box-es"}, así que intentamos extraer esta informacón:
+
+    \begin{verbatim}
+        spanish = parser.get_element_by_id("js-link-box-es")
+        print(spanish.text_content())
+    \end{verbatim}
+
+    También es posible recuperar la información con comandos de XPath:
+
+    \begin{verbatim}
+        spanish = parser.xpath("//a[@id = 'js-link-box-es']/strong/text()")
+        print(spanish)
+    \end{verbatim}
+
+    Ahora, en este caso particular se puede extraer toda la lista xon los idiomas usando xpath, entendiendo que todos los idiomas están dentro de un div con \texttt{class = 'central-featured-lang'}:
+
+    \begin{verbatim}
+        languages = parser.xpath("//div[contains(@class, 'central-featured-lang')]//strong/text()")
+        print(languages)
+    \end{verbatim}
+
+    hola
+ 

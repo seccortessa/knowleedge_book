@@ -291,6 +291,7 @@
 \contentsline {chapter}{\numberline {3}Scrapping}{47}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introducción al Scrapping}{47}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}XPath}{47}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Scrapping para una sola página estática}{48}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Git and github}{49}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Algunas extensiones de VSCode para Git}{49}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Git History}{49}{subsection.4.1.1}%
