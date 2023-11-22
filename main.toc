@@ -385,29 +385,32 @@
 \contentsline {section}{\numberline {6.2}SQL}{79}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Conceptos}{79}{subsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.1.1}Query}{79}{subsubsection.6.2.1.1}%
-\contentsline {subsection}{\numberline {6.2.2}Pasos para crear una database y usarla}{80}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.2}Pasos para crear una database y usarla}{81}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Tipos de datos}{81}{subsection.6.2.3}%
 \contentsline {subsubsection}{\numberline {6.2.3.1}Cadenas de caracteres}{81}{subsubsection.6.2.3.1}%
 \contentsline {subsubsection}{\numberline {6.2.3.2}Enteros}{81}{subsubsection.6.2.3.2}%
 \contentsline {subsection}{\numberline {6.2.4}Variables de puntos flotantes y puntos fijos}{81}{subsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.2.5}Otros tipos de datos}{82}{subsection.6.2.5}%
 \contentsline {subsection}{\numberline {6.2.6}Creación de tablas}{82}{subsection.6.2.6}%
-\contentsline {subsection}{\numberline {6.2.7}Restricciones de SQL}{82}{subsection.6.2.7}%
-\contentsline {subsubsection}{\numberline {6.2.7.1}\texttt {primary key}}{82}{subsubsection.6.2.7.1}%
+\contentsline {subsection}{\numberline {6.2.7}Restricciones de SQL}{83}{subsection.6.2.7}%
+\contentsline {subsubsection}{\numberline {6.2.7.1}\texttt {primary key}}{83}{subsubsection.6.2.7.1}%
 \contentsline {subsubsection}{\numberline {6.2.7.2}\texttt {Clave foránea}}{83}{subsubsection.6.2.7.2}%
-\contentsline {paragraph}{Tabla Padre:}{83}{section*.172}%
+\contentsline {paragraph}{Tabla Padre:}{84}{section*.172}%
 \contentsline {paragraph}{Tabla Hija:}{84}{section*.173}%
 \contentsline {subsubsection}{\numberline {6.2.7.3}\texttt {Clave única}}{84}{subsubsection.6.2.7.3}%
 \contentsline {paragraph}{Implementación de Claves Únicas como Índices}{85}{section*.174}%
 \contentsline {subparagraph}{Consideraciones Adicionales:}{85}{section*.175}%
 \contentsline {subsubsection}{\numberline {6.2.7.4}Por defecto}{85}{subsubsection.6.2.7.4}%
 \contentsline {subsubsection}{\numberline {6.2.7.5}\texttt {NOT NULL}}{85}{subsubsection.6.2.7.5}%
-\contentsline {subsection}{\numberline {6.2.8}Buenas prácticas}{85}{subsection.6.2.8}%
+\contentsline {subsection}{\numberline {6.2.8}Buenas prácticas}{86}{subsection.6.2.8}%
 \contentsline {subsection}{\numberline {6.2.9}Manipulación de datos}{86}{subsection.6.2.9}%
 \contentsline {subsubsection}{\numberline {6.2.9.1} \texttt {SELECT}}{86}{subsubsection.6.2.9.1}%
 \contentsline {subsubsection}{\numberline {6.2.9.2}Funciones agregadas}{87}{subsubsection.6.2.9.2}%
 \contentsline {paragraph}{Ordenación}{87}{section*.176}%
 \contentsline {paragraph}{\texttt {GROUP BY}}{88}{section*.177}%
 \contentsline {paragraph}{alias}{88}{section*.178}%
-\contentsline {paragraph}{\texttt {HAVING}}{88}{section*.179}%
-\contentsline {subsubsection}{\numberline {6.2.9.3}Inserción de datos \texttt {INSERT}}{89}{subsubsection.6.2.9.3}%
+\contentsline {paragraph}{\texttt {HAVING}}{89}{section*.179}%
+\contentsline {subsubsection}{\numberline {6.2.9.3}Inserción de datos \texttt {INSERT}}{90}{subsubsection.6.2.9.3}%
+\contentsline {subsubsection}{\numberline {6.2.9.4}Declaración de actualización}{90}{subsubsection.6.2.9.4}%
+\contentsline {subsubsection}{\numberline {6.2.9.5}Declaración de borrado}{90}{subsubsection.6.2.9.5}%
+\contentsline {subsubsection}{\numberline {6.2.9.6}Funciones de agregación}{91}{subsubsection.6.2.9.6}%
