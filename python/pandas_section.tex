@@ -94,7 +94,30 @@
                         \item \textbf{Por defecto:} Es opcional.
                     \end{itemize}
 
+                \paragraph{\texttt{names}}
 
+                    \begin{itemize}
+                        \item \textbf{Descripción:} Se pueden configurar manualmente los nombres de los encabezados. 
+                        \item \textbf{Tipo:} Lista de \texttt{hashables}.
+                        \item \textbf{Por defecto:} Es opcional.
+                    \end{itemize}
+
+                \paragraph{\texttt{skiprows}}
+
+                    \begin{itemize}
+                        \item \textbf{Descripción:} Descartar las primeras \texttt{n} filas, es esencialmente útil cuando se tiene un conjunto de datos desorganizado
+                        \item \textbf{Tipo:} \texttt{Int}
+                        \item \textbf{Por defecto:} Es opcional
+                    \end{itemize}
+
+                \paragraph{\texttt{skiprofooter}}
+
+                    \begin{itemize}
+                        \item \textbf{Descripción:} Exactamente igual que \texttt{skiprows}, pero con las últimas \texttt{n} filas.
+                        \item \textbf{Tipo:} \texttt{Int}
+                        \item \textbf{Por defecto:} Es opcional
+                    \end{itemize}
+        
 
             % \subparagraph{\texttt{}}
             % \begin{itemize}
@@ -105,8 +128,16 @@
 
             % \subparagraph{\texttt{}}
             % \subparagraph{\texttt{}}
+        
+        \subsection{\texttt{pandas.read\_excel()}}
+        
+        Los parámetros son iguales a los de los arcivos csv. Apenas existens algunas diferencias remarcables; el parámetro \texttt{usecols} puede ser implementado con los argumentos \texttt{"A:D,G"} o \texttt{":C"} para especificar las columnas de excel para usasr como las columnas. \\
+        
+        Adicionalmente, cuando el archivo de excel tiene más de una hoja de trabajo, Pandas por defecto solamente importa la primera, por tanto, el parámetro \texttt{sheetname}, es muy importante y útil. Se puede poner como argumento el nombre de la hoja, o el índice contando desde cero.
 
-    \section{Funciones generales}
+        \subsection{\texttt{pandas.read\_html()}}
+                Si una url contiene elementos \texttt{<table>} en su html, se importarán en una lista con este método. 
+        \section{Funciones generales}
 
         \subsection{Filtrado de información}
 
@@ -434,7 +465,69 @@
                     summer[summer["Event"].str.contains("100M")]
                 \end{verbatim}
 
+        \subsection{Limpieza de los datos}
 
+            En el contexto de la limpieza de datos con Pandas, los métodos \texttt{df.col.replace()} y \texttt{DataFrame.rename(columns=...)} son herramientas esenciales. Estos métodos son utilizados para modificar el contenido y la estructura de los DataFrames, lo que facilita el análisis y procesamiento de los datos. Además, métodos como \texttt{DataFrame.info()}, \texttt{pd.Series.unique()} y \texttt{pd.Series.value\_counts()} juegan un papel importante en la verificación y exploración de los datos, lo cual es crucial para una gestión efectiva de los mismos.
+
+            Por su parte el método \texttt{pd.DataFrame.rename(columns=...)} se utiliza para cambiar los nombres de las columnas de un \texttt{DataFrame}. La sintaxis es:
+            \begin{verbatim}
+            DataFrame.rename(columns = {'old_name' : 'new_name', ...}, inplace = False)
+            \end{verbatim}
+            donde \{\texttt{'old\_name'}: \texttt{'new\_name'}, \ldots\} es un diccionario que mapea los nombres actuales de las columnas a sus nuevos nombres, y \texttt{inplace=False} determina si el cambio se aplica directamente al \texttt{DataFrame} existente. Este método es fundamental para mantener la claridad y coherencia en la estructura de los datos.
+
+            Para las columnas cuyos valores son \texttt{str}, se pueden hacer modificaciones a partir de \texttt{df.col.str}, por ejemplo, para una columna de valores con \texttt{"\$200"}, vemos que es una cadena de texto, y que se puede eliminar el caracter '\$'. de la siguiente manera
+
+            \begin{verbatim}
+                titanic.fare.str.replace('$', '')
+            \end{verbatim}
+
+            Luego de eso, ya es posible la conversión de valores de string a numérico.
+            
+            \begin{verbatim}
+                titanic["fare"] = titnic.fare.astype('float')
+            \end{verbatim}
+
+            Es muy importante saber identificar los valores nulos de la tabla, con una combicación adecuada de los métodos \texttt{info}, \texttt{describe} y \texttt{value\_counts}, ademas de \texttt{dataframe.isna()}, el cual retona toda la tabla con los valores de verdad para cada valor.
+
+            El método contrario \texttt{dataframe.notna()} también puede ser útil, en conjunto con la visualización de \texttt{seaborn}:
+
+            \begin{verbatim}
+                plt.figure(figsize = (12,8))
+                seaborn.heatmap(titanic.notna())
+                plt.show()
+            \end{verbatim}
+
+            Una forma rápida de eliminar todas las filas que tengan algún valor \texttt{None} es \texttt{df.dropna()}. Esto puede ser peligroso ya que en función de cada conjunto de datos se puede eliminar mnucha información importante. Se puede implementar con elparámetro \texttt{thresh}; este parámetro toma un valor entero que indica la cantidad mínima de valores no NaN que debe contener una fila o columna para ser conservada. Es decir, si el número de valores no NaN en una fila o columna es menor que el valor establecido en thresh, entonces esa fila o columna se eliminará del DataFrame. Se pueden defini subconjntos para eliminar filas con un numero suficientemente gande de valores faltantes:
+
+            \begin{verbatim}
+                titanic.dropna(axis=0, subset=["survived","class","gender","age"], thresh=4)
+            \end{verbatim}
+
+            En este ejemplo, se conservarán todas las filan que contengan menos de 4 o más valores válidos (no nulos) para el conjunto dado, y se eliminarán las demás. Como el conjunto dado son precisamente 4 columnas, entonces se eliminarán todas las filas con tengan al menos un valor nulo. 
+
+            Por su parte, en algunas ocasiones es deseable no borrar las filas con alores nulos, sino reemplazarlos por un valor que puede ser la media o mediana para datos numéricos, esto se logra mediante:
+
+            \begin{verbatim}
+                titanic.age.fillna(mean, incplace = True)
+            \end{verbatim}
+
+            \subsubsection{Valores duplicados}
+
+                Mediante el método \texttt{df.duplicate()} aplicado a una columna, se retorna una columna con valores de verdad para cada fila. 
+
+                \begin{verbatim}
+                    df.duplicate(keep = False)
+                \end{verbatim}
+                
+                El parámetro \texttt{keep = False} indica que se marcarán como verdaderos todas las ocurrencias de los repetidos. Es importante tener en cuenta muchas característicse a la hora de identificar filas duplicadas. Según el tipo de conjunto de datos, dos entradas pueden tener exactamente los mismos valores, pero pertenecer a dos datos disntitos, es decir, no están realmente duplicados. 
+
+            \subsubsection{Dato categóricos}
+
+                En varias oasiones podemos identificar que es más adecuado redefinir una columna con un tipo de dato categórico, por ejemplo, género, color, etc.
+
+                \begin{verbatim}
+                    titanic.gencer = titanic.gender.astype("category")
+                \end{verbatim}
 
     \section{Objeto \texttt{DataFrame}}
 
@@ -443,8 +536,8 @@
         \subsection{Constructor} El constructor es el siguiente
 
         \begin{verbatim}
-                    class pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
-                    \end{verbatim}
+            class pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
+        \end{verbatim}
         \subsubsection{Parámetros}
 
         \paragraph{\texttt{data}}
@@ -1347,9 +1440,6 @@
         \paragraph{Tipo de retorno}
         DataFrame con las etiquetas de eje renombradas o \texttt{None} si \texttt{inplace=True}.
 
-
-
-
     \section{Objeto \textit{Series}}
 
     Cuando extraemos una columna entera con sus respectivas filas de un conjunto de datos, el resultado es del tipo \texttt{pandas.core.series.Series}. Este objeto se define dentro del contexto de Pandas como un arreglo unidimensional etiquetado.
@@ -1682,8 +1772,6 @@
 
     \paragraph{Tipo de retorno}
     Serie o \texttt{None}. La Serie original ordenada por las etiquetas o \texttt{None} si \texttt{inplace=True}.
-
-
 
     \section{Objeto \texttt{index}}
 
