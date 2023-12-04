@@ -24,7 +24,7 @@ los modelos tienen generalmente dos tipos de tablas
 
 \begin{enumerate}
     \item Tablas de datos: contiene números o valores, típicamente a nivel granular, con una columna de identificación o Id que puede ser
-    \item Tablas de Vista: provee atributos descriptivos normalmente basados een texto sobre cada dimensión de la tabla. en este caso, este tipo de tablas provee mucha información sobre objetos como pueden ser "clientes" o "Productos".
+    \item Tablas de Vista: provee atributos descriptivos normalmente basados een texto sobre cada dimensión de la tabla. En este caso, este tipo de tablas provee mucha información sobre objetos como pueden ser ''clientes'' o ''Productos''.
 \end{enumerate}
 
 \subsection{Expresiones de análisis de datos}
@@ -76,13 +76,13 @@ A manera de regla general, use este tipo de cálculo cuando una única fila no p
 
 \subsubsection{Mediciones implícitas y explícitas}
 
-Las mediciones implícitas están en los elementos de visualización cuando uno arrastra un campo numérico a dicho elemento. Ahí es cuando se puede seleccionar el modo de agregación (suma, media, mínimo, máximo, etc.
+Las mediciones implícitas están en los elementos de visualización cuando uno arrastra un campo numérico a dicho elemento. Ahí es cuando se puede seleccionar el modo de agregación (suma, media, mínimo, máximo, etc).
 
 Las mediciones explícitas, son por el contrario las que se definen de manera literal con la sintaxis de DAX
 
 Recordando que las mediciones son evaluadas con base en el contexto de filtrado, según el filtro aplicado el resultado de la medición sera distinta. 
 
-Por ejemplo, para la siguiente imagen, el valor sombreado es la suma del campo "Valor" está canlculado con base en el siguiente contexto de filtro: \texttt{IDLookup[Nombre]="Pago Obligatorio"}
+Por ejemplo, para la siguiente imagen, el valor sombreado es la suma del campo ´Valor´ está canlculado con base en el siguiente contexto de filtro: \texttt{IDLookup[Nombre]="Pago Obligatorio"}
 
 \begin{figure}[H]
     \centering
@@ -928,3 +928,100 @@ Este tipo de parámetros son esencialmente parámetros DAX preconfigurados que p
                 \item \textbf{IFNULL}: Evalúa dos expresiones y devuelve la primera si no es NULL; de lo contrario, devuelve la segunda. Esta función es particularmente útil para tratar con valores NULL, permitiendo definir un valor de reemplazo cuando un campo es NULL.
             \end{enumerate}
         
+            Una de las anteriores que pueden causar alguna confusión es \texttt{COALESCE}, esta función devuekve ek primer valor no nulo en una lista de argumentos. Como ejemplo, sea una tabla de empleados con columnas \texttt{ID\_empleado}, \texttt{Nombre}, \texttt{Telefono}, \texttt{Email}. En algunos casos, los empleados no han proporciondi su número de teléfono o email, por lo que estas columnas pueden contener valore nulos. Supóngase que se desea generar una lista de contactos de los empleados prefiriendo udar el teléfono, pero en caso de no estar disponible, usar el email. Es aquí donde \texttt{COALESCE} resulta útil.
+
+            \begin{verbatim}
+                SELECT
+                    ID_empleado,
+                    Nombre,
+                    COALESCE(Telefono, Email) AS contacto,
+                FROM
+                    Empleados;
+            \end{verbatim} 
+
+            Esta consulta intentará primero mostrar el teléfono, pero en caso de que este valor sea nulo, entonces intentará mostrar el email. En cao de que ambos estén nulos, el resultado también será nulo. La diferencia entre \texttt{COALESCE()} y \texttt{IFNULL()} en SQL radica en su funcionalidad y flexibilidad al manejar valores nulos. Aunque ambas funciones se utilizan para lidiar con valores nulos, tienen diferencias clave en su comportamiento y uso. \texttt{COALESCE()} es más flexible y se adhiere al estándar SQL, siendo útil para múltiples argumentos, mientras que \texttt{IFNULL()} es una función más limitada y específica de MySQL, adecuada para situaciones simples de dos valores. La elección entre las dos dependerá de tus necesidades específicas y del sistema de base de datos que estés utilizando.
+
+    \subsection{Uniones}
+
+        Las unión es la heramienta de SQL que permite construir una relación etre las tablas. La mejor herramienta que ayuda en la búqueda de estrategias para enlazar las tablas es el esquema relacional. Como resultado, una juntura muestra un conjunto de resultados que contienen los campos derivados de dos o más tablas.
+
+        La sintaxis para la solicitud \texttt{JOIN} es la siguiente:
+
+        \begin{verbatim}
+            SELECT
+                table_1.column_name(s), table_2.column_name(s)
+            FROM
+                table_1
+            JOIN
+                table_2 ON table_1.column_name = table_2.column_name;
+        \end{verbatim}
+
+        En el primer \texttt{SELECT} se deben especificar las columinas que queremos extraer, las que queremos ver. Una forma abreviada y muy útil para este comando es:
+
+        \begin{verbatim}
+            SELECT
+                t1.column_name(s), t2.column_name(s)
+            FROM
+                table_1 t1
+            JOIN
+                table_2 t2 ON t1.column_name = t2.column_name;
+        \end{verbatim}
+
+        Como consejo general, el mombre de la columna de la tabla 2 se refiere a la tabla referencia o 'Lookup'. La siguiente forma también es válida y se usa cuando se quiere primero asignar los alias de las tablas
+
+        \begin{verbatim}
+            FROM dept_manager_dup m
+            INNER JOIN 
+            departments_dup d ON m.dept_no = d.dept_no
+        \end{verbatim}
+
+        Anteriormente, para realizar junturas en las tabls y por ende, relaciones entre ellas, se usaba la clausula \texttt{WHERE}:
+
+        \begin{verbatim}
+            SELECT
+                t1.col1, t2.col2, t3.col3
+            FROM
+                table1 t1
+                table2 t2
+            WHERE
+                t1.col_name = t2.col_name
+        \end{verbatim}
+
+        Actualmente, realizar uniones de esta manera está desconsejado, pues consume más procesamiento y por ende más tiempo.
+
+        \subsubsection{Entradas duplicadas}
+
+        Cuando hay presencia de filas que tienen exactamente los mismos valores para todas las columnas. Generalmente, no se permiten filas duplicdas en una base de datos o tabla de datos,  es una práctica común para muchas empresas limpiar sus datos de tales ocurrencias. Sin embarago, pueden encontrarse, especialmente en datos nuevos, sin procesar o no controlados. Para manejar duplicados y evitar filas duplicadas en los resultados de las consultas, se recomienda agrupar por el campo que más difiere entre los registros. En este ejemplo, sería el número de empleado. Este enfoque apilará todas las filas que tengan el mismo número de empleado, devolviendo la salida inicial sin valores duplicados. Se resalta la importancia de esta herramienta, especialmente en bases de datos con millones de filas, donde no se debe asumir la ausencia de filas duplicadas y se aconseja acostumbrarse a agrupar las uniones por el campo que más varía entre los registros.
+
+        \subsubsection{Función \texttt{LEFT JOIN}}
+
+        La función \texttt{LEFT JOIN} recupera todas las filas correspondientes a la tabla derecha (la segunda tabla). Si no hay coincidencias entre las filas de la tabla izquierda y la derecha, el resultado aún uncluirá todas las filas de la tabla izquierda, pero con valores \texttt{NULL} en las columnas de la tabla derecha. Recordemos que la tabla derecha es hacia donde relacionamos (puede ser la tabla Lookup) 
+
+        Esta función es particularmente útil cuando se necesita incluir todos los registros de de una tabla, independientemente de sis tienen una coincidencia en la otra tabla. Por ejemplo, en una consulta que une una tabla de empleados (tabla izquierda) mediante \texttt{LEFT JOIN}, se obtendrían todos los empleados incluyendo aquellos que noestén asignados a nungún departamento. Las columnas correspondientes a la taabla de departamentos mostrarían un \texttt{NULL} para  estos emopleados sin departamento asignado.
+
+        Por su parte, tenemos la función \texttt{RIGHT JOIN}, Se trata de la función análoga a la anterior, mostrando todos los resultados de la tabla de la derecha.
+        
+        
+        Cuando en una solicitud SQL se usan tanto \texttt{JOIN} como \texttt{WHERE}, esta última es utilizada para definir la condicioón o condiciones que determinarán cuáles van a ser los puntos de conexión entre las dos tablas
+
+        \subsubsection{Uniones cruzadas}
+
+        Las uniones cruzadas van a tomar los valores de cierta tabla y conectarlos con todos los valores de las tablas con las que se requiere realizar la unión. La función `CROSS JOIN` en SQL se utiliza para realizar un producto cartesiano entre dos tablas, es decir, combina cada fila de la primera tabla con cada fila de la segunda tabla. A diferencia de otros tipos de JOIN como `INNER JOIN` o `LEFT JOIN`, `CROSS JOIN` no requiere una condición de unión explícita, ya que simplemente empareja cada fila de una tabla con todas las filas de la otra tabla.
+
+        El resultado de un `CROSS JOIN` es una tabla que contiene todas las posibles combinaciones de filas entre las dos tablas originales. Si la primera tabla tiene \( N \) filas y la segunda tabla tiene \( M \) filas, entonces el resultado del `CROSS JOIN` tendr   á \( N \times M \) filas. 
+        
+        Por ejemplo, si se realiza un `CROSS JOIN` entre una tabla de `Productos` y una tabla de `Vendedores`, el resultado incluirá todas las combinaciones posibles de productos y vendedores, lo cual puede ser útil para análisis que requieren considerar todas las posibles asociaciones entre dos conjuntos de datos.
+        
+        `CROSS JOIN` se utiliza en situaciones específicas donde se necesita explorar o analizar todas las combinaciones posibles entre dos conjuntos de datos. Sin embargo, debido a que puede generar un gran número de filas, su uso debe ser cuidadoso y bien justificado. La sintaxis sería la siguiente
+
+        \begin{verbatim}
+            SELECT 
+                dm.*, d.*
+            FROM
+                dept_manager dm
+                    CROSS JOIN
+                departments d
+            ORDER BY dm.emp_no , d.dept_no;
+        \end{verbatim}
+
+
