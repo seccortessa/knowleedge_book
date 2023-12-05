@@ -336,6 +336,7 @@
 \contentsline {section}{\numberline {4.1}Introducción al Scrapping}{54}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}XPath}{54}{subsection.4.1.1}%
 \contentsline {section}{\numberline {4.2}Scrapping para una sola página estática}{55}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Extracción vertical y horizontal de páginas}{58}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Git and github}{59}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algunas extensiones de VSCode para Git}{59}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Git History}{59}{subsection.5.1.1}%
@@ -425,3 +426,4 @@
 \contentsline {subsection}{\numberline {6.2.10}Uniones}{94}{subsection.6.2.10}%
 \contentsline {subsubsection}{\numberline {6.2.10.1}Entradas duplicadas}{94}{subsubsection.6.2.10.1}%
 \contentsline {subsubsection}{\numberline {6.2.10.2}Función \texttt {LEFT JOIN}}{95}{subsubsection.6.2.10.2}%
+\contentsline {subsubsection}{\numberline {6.2.10.3}Uniones cruzadas}{95}{subsubsection.6.2.10.3}%

@@ -130,7 +130,10 @@
             A menudo se usa en combinación con métodos como \textit{find\_all()} o métodos de navegación de árboles para acceder a elementos específicos de la estructura del documento.
     \end{itemize}
       
-    \texttt{Beautiful Soup} tiene una verntaja sobre \texttt{lxml}, y es que en caso de que alguna etiqueta no contenga un identificador o alguna clase que sea sencillo de obtener, pero la etiqueta prima anterior sí contiene una, se puede usar el método \texttt{find\_next\_sibling('div')} \\
+    \texttt{Beautiful Soup} tiene una verntaja sobre \texttt{lxml}, y es que en caso de que alguna etiqueta no contenga un identificador o alguna clase que sea sencillo de obtener, pero la etiqueta prima anterior sí contiene una, se puede usar el método \texttt{find\_next\_sibling('div')}. \\\
+
+
+
 
     Scrapy es un framework mucho más completo de extracción de datos. Para extraer datos de html de una página, se debe definir una clase heredada de \texttt{Item} en la cual se definan los campos necesarios o requeridos (esto es en función del tipo de información). En el ejemplo, se desea extraer las preguntas de la pagina, y esta tiene la pregunta principal y un texto pequeño de descripción, entonces se definen esos campos:
 
@@ -186,4 +189,39 @@
         process.crawl(StackSpider)
     \end{verbatim}
 
-    
+    \section{Extracción vertical y horizontal de páginas}
+
+        En muchas páginas podemos ver secciones en las que se enlista un conjunto de items y, usualmente resultados de bpuaquedsa y estos se organizan de modo que quedan en varias páginas. Esto es denominado como paginación y se puede lograr la extracción de estas páginas. Esta es la denominada extracción horizontal.
+
+        El proceso de la extracción suele empezar con relizar un 'scrolling' vertical y a partir de aho ir cambiando de páginas. El primer ejemplo será realizara este srolling vertical en una página de tripadvisor.
+
+        Paso a paso, realizamos la extracción mediante \texttt{Scrapy}. Primero se importan los módulos requeridos
+
+        \begin{verbatim}
+        from scrapy.item import Field
+        from scrapy.item import Item
+        from scrapy.spiders import CrawlSpider, Rule
+        from scrapy.selector import Selector
+        from scrapy.loader.processors import MapCompose
+        from scrapy.linkextractors import LinkExtractors
+        from scrapy.loader import ItemLoader        
+        \end{verbatim}
+
+        Se define una clase heredada de \texttt{Item}
+
+        \begin{verbatim}
+        class Restaurant(Item):
+            name        = Field()
+            price       = Field()
+            description = Field()
+            amenities   = Field()
+        \end{verbatim}
+
+        Ahora se defineotra clase heredada de \texttt{CrawlSpider}
+
+        \begin{verbatim}
+        class TripAdvisor(CrawlSpider):
+            name = "Restaurants"
+            custom_settings = {'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) 
+            AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
+        \end{verbatim}
