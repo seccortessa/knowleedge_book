@@ -217,11 +217,41 @@
             amenities   = Field()
         \end{verbatim}
 
-        Ahora se defineotra clase heredada de \texttt{CrawlSpider}
+        Ahora se define otra clase heredada de \texttt{CrawlSpider}. La elección entre Spider y CrawlSpider depende en gran medida de los requisitos específicos del proyecto de scraping. Si solo se necesita raspar datos de unas pocas páginas con URLs conocidas, Spider puede ser suficiente. Sin embargo, para un crawling más complejo y amplio en el que se necesite seguir enlaces de manera automática, CrawlSpider es la opción más adecuada.
 
         \begin{verbatim}
         class TripAdvisor(CrawlSpider):
             name = "Restaurants"
             custom_settings = {'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) 
             AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
+            start_urls = ["https://www.tripadvisor.co/Restaurants-g294074-Bogota.html"]
+            download_delay = 2
+        \end{verbatim}
+
+        En la clase \texttt{CrawlSpider} se definen el nombre, la configuración de user agent, la lista de la(s) URLs. Adicionalmente, se define el tiempo entre solicitudes, está dado en segundos. Más adelante, se definen las reglas de extracción; es importante tener en cuenta que para cada caso particular las reglas serán distintas. En este ejemplo, se requiere visitar cada restaurante de una lista y extraer la información de nombre, descripción y dirección. En función de cada elemento que se requiere extraer, se debe encontrar un patrón dentro de su código fuente. Para el ejemplo, toda la lista de los restaurantes se encuentran dentro de una etiqueta \texttt{<div>} cuya clase tiene el nombre \texttt{class="Ikpld f e"}. Por su parte las URLs que corresponden con cada restaurante tiene el siguiente patrón: \texttt{https://www.tripadvisor.co/Restaurant\_Review-g294074-<aquí empieza a diferir las urls>}. Entonces utilizamos esta información para crear las reglas.
+
+        \begin{verbatim}
+            rules = (
+                Rule(
+                    LinkExtractor(
+                        allow = r'/Restaurant_Review-g294074'
+                        ), follow = True, callback= "parse_restaurant"
+                    )
+                )
+        \end{verbatim}
+
+        La regla se compone de una tupla, cuyo primer parámetro corresponde a un extractor de links, con \texttt{allow = r'/Restaurant\_Review-g294074'} estamos indicando que se sigan las urls que contengan esa porción de texto. El método \texttt{callback} será el método a invocar para cada enlace que cumpla con la regla. El objeto \texttt{LinkExtractor} se utiliza para definir cómo el \texttt{CrawlSpider} debería identificar y extraer enlaces de las páginas que visita. Cuando se defune una regla en un \texttt{CrawlSpider}, el \texttt{LinkExtractor} es utilizado par aespecificar qué enlaces deben ser seguidoos y procesados. Los parámetros que utiliza son los siguientes: 
+
+        \begin{itemize}
+            \item \texttt{allow}: Un parámetro que acepta una expresión regular o una lista de expresiones regulares que los URLs deben coincidir para ser extraídos. Por ejemplo, si solo se quiere seguir enlaces que contienen la palabra "categoría" se puede usar \texttt{allow='categoria'}.
+            \item \texttt{deny}: Un parámetro que, al igual que \texttt{allow},, acepta una expresión regular o lista de ellasa , pero en este caso, los URLs que coincidan con estas expresiones regulares no serán extraídos.
+            \item \texttt{allow\_domains}: Una lista de dominios permitidos. Los enlaces se extraerán solo si están dentro de los dominios especificados.
+            \item \texttt{deny\_domains}: Similar al anterior pero para especificar los dominios de los cuales no se deben extraer enlaces
+            \item \texttt{restrict\_xpaths}: Un parámetro para restringir la búsqueda de enlaces a ciertas áreas de la página. Acepta un XPath y solo extraerá enlaces que se encuentren dentro de los elementos seleccionados por esa ruta.
+        \end{itemize}
+
+        \begin{verbatim}
+        def parse_restaurant(self, response):
+            sel = Selector(response)
+            item = ItemLoader(Hotel(), sel)
         \end{verbatim}
