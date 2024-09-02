@@ -1,0 +1,58 @@
+\chapter{Algoritmos}
+
+    \section{Introducción}
+
+        Una de las cosas más importants a tener en cuenta sobre los algoritmos es tener muy clara su definición: un algoritmo es un conjunto de reglas o pasos bien definidos que tienen el objrtivo de resolver algún problema computacional. Entender bien las reglas de los algoritmos es esencial para poder efectuar y ejecutar un diseño óptimo para cualquier problema computacional. La teoría de los algoritmos ha sido de vital importancia a lo largo de los años para optimizar diversos tipos de problemas computacionales; por ejemplo, las redes de telecomunicaciones y los enrutamientos de la red utilizan algorritmos clásicos de ruta más corta; la efectividad de la criptografía actual pública, la cual se basa en los algoritmos de teoría de números; los gráficos de las computadoras que implementan diferentes algoritmos geométricos; los ínices de las bases de datos que se basan en estructuras de datos equilibradas del árbol de búsquedas; biología cimputacional que utiliza algoritmos de programación dinámica, ente muchos otros ejemplos. Por su parte, los algoritmos desempeñan un papel fundamental en la innovación tecnolóhica moderna, como los motores de búsqueda que utilizan una avariedad de algoritnos para calcular de manera eficiente la relevancia de vaarias páginas web áara una consulta de búqueda determinada. El diseño de los algoritmos se debe definir un patrón; una definición de cuáles son las entradas y cuáles son las salidas; liego se procede a dar una solución que consiste en el algoritmo que convierte la entrda en la salida. La forma en la que se evalúa el rendimiento de un algoritmo es mediante la cantidad de operaciones básicasque se realizan.
+
+        \subsection{Ejemplo de algoritmo}
+
+            Un ejemplo que puede servir para ilustrar es el algoritmo implementado para realizar una multiplicación de dos número enteros, aprendido en primaria. Se puede pasar a evaluar el desempeño a partir de cuántas son las operaciones básicas en función del tamaño de los números de entrada.
+
+            Podemos ver que para un número \texttt{n} de dígitos del segundo número y \texttt{m} números del primere dígito, es necesario realizar \texttt{n} multiplicaciones del número de \texttt{m} dígitos por uno de un solo dígito, y luego sumar los resultados, con los correspondientes corrimientos (\texttt{n-1} corrimientos). Si establecemos un solo número para la longitud de los dos números, \texttt{n}, al realizar la primera de las multiplicaciones parciales, multiplicamos el últimjo dígito del segundo número por cada uno de los dígitos del primero. Esto es \texttt{n} multiplicaciones básicas de un dígito; si para todas esas multiplicaciones llevamos un acarreo, entonces podemos acotar la primera multiplicación parcial como menor que \texttt{2n}. Como se deben hacer \texttt{n} multiplicaciones parciales, cada una acotada por \texttt{2n} entonces tenemos $2n^2$ máximas operaciones básicas para todas esas multiplicaciones paraciales. En conclusión, al terminar de analizar este algoritmo, se observa que en esencia, el número de operaciones básicas realizadas en la multiplicación crece con el cuadrado de $n$. Surge entonces la pregunta ¿Existe un método mejor para realizar la multiplicación?
+            
+            Este curso de algoritmos cubre cinco temas principales: el vocabulario para razonar sobre el rendimiento de los algoritmos, el paradigma de diseño de algoritmos "divide y vencerás", la aleatorización en diseño de algoritmos, primitivas para razonar sobre grafos y el uso e implementación de estructuras de datos básicas. El objetivo es brindar una introducción y alfabetización básica en cada tema.
+
+            El curso comienza con la notación Big O, crucial para analizar el rendimiento de los algoritmos. Aunque no existe una única técnica de diseño de algoritmos aplicable a todos los problemas, este curso se centra en el paradigma "divide y vencerás", con aplicaciones en problemas como la multiplicación de enteros grandes, la clasificación y la multiplicación de matrices.
+                
+            Se explorarán algoritmos aleatorizados, como el quicksort aleatorizado y el test de primalidad, y se discutirá su aplicación en partición de grafos y funciones hash. Además, se abordarán primitivas computacionales rápidas para operaciones en grafos, como la conectividad y los caminos más cortos, y se examinarán estructuras de datos clave como los árboles de búsqueda binaria balanceados y las tablas hash.
+                
+            El curso asume cierta familiaridad con la programación y los conceptos matemáticos básicos, pero no requiere conocimientos avanzados en matemáticas o en lenguajes de programación específicos. Los algoritmos se describirán en pseudocódigo o en inglés para fomentar el pensamiento abstracto. Los materiales de apoyo incluirán notas de clase y no se requiere un libro de texto específico.
+                
+            Este curso, que no es exclusivamente de programación o matemáticas, tiene como objetivo mejorar las habilidades de programación y análisis matemático de los estudiantes, proporcionando una comprensión profunda de los algoritmos y estructuras de datos cubiertos. Además, busca desarrollar la habilidad de pensar algorítmicamente, útil en diversas disciplinas.
+
+            \subsection{Multiplicación de Karatsuba}
+
+                Vamos a utilizar un ejemplo don dos números de 4 dígitos para ilustrar este algoritmo: Sean $x=5678$ y $y=1234$; se desea multiplicar estos dos números. Entonces vamos a cosiderar las mitades de cada uno de estos números: para $x$, la mitad $56$ vamos a llamarla \texttt{a}, el número $78$ será \texttt{b}, $c=12$ y $d=34$. Los pasos del algoritmo son los siguientes:
+                
+                \begin{enumerate}
+                    \item multiplicamos $a \cdot c = 672$
+                    \item Multiplicamos $b \cdot d = 2652$
+                    \item Realizamos la operación $(a+b)(c+d) = 6164$
+                    \item Restamos del resultado anterior, los resultados de los primeros dos pasos: $6164-2652-672 = 2840$
+                    \item El número del primer paso, le añadimos $4$ ceros: $6720000$, luego tomo el segundo resultado, sin modificacion $2652$, luego tomo el resultado del cuarto paso, y le añado dos ceros $284000$; al sumar estos números, obtenemos el resultado de la multiplicación $7006652$.
+                \end{enumerate}
+
+                Damos ahora una explicación más formal
+
+                \begin{equation*}
+                     x \cdot y = 10^{n} a \cdot c + 10^{n/2} (a \cdot d + b \cdot c) + b \cdot d 
+                \end{equation*}
+
+                Como se puede observar, se necesitarían hacer 4 multiplicaciones de dígitos menores
+
+                \begin{equation*}
+                     a \cdot c, \ a \cdot d, \ b \cdot c, \ b \cdot d
+                \end{equation*}
+
+                Sin embargo,
+                
+                \begin{equation*}
+                    (a+b)(c+d) - a \cdot c - b \cdot d = a \cdot d + b \cdot c     
+                \end{equation*}
+
+                Entonces solo es necesario realizar tres operaciones menores, de manera recursiva.
+
+
+            \subsection{Algoritmo de ordenamiento por mezcla}
+
+                Este algoritmo es importante de estudiar porque es una muy buena introducción al paradigma de 'divide y vencerás'

@@ -1,0 +1,31 @@
+\chapter{Essentials for Cibersecurity}
+
+    La guía de manejor de incidentes en la seguridad de sistemas NIST 800-61 indica un proceso de respuesta ante incidentes. \\
+
+    El primer paso para cualquier respuesta a incidentes es la preparación. Es muy importante tener la seguridad y la certeza de cómo se debe actuar ante un incidente. Es necesario tener muy bien establecido un proceso de respuesta par acad atipode incidente. Una vez se presenta el incidente, el siguiente paso para el manejo es la detección y el análisis; cosas como determinar el nivel de criticidad del incidente, cuál es el tipo de impacto que potencialmente se tiene con este incidente, si se trata de un positivo real o un falso positivo. El siguiente paso es la contención, erradicación y recuperación; la contención implica el aislamiento, de ser posible, de los dispositivos afectados. Es necesario a veces volver al paso anterior de análisis y detección, porque dentro de la mitigación se pueden determinar nuevos elementos no detectados anteriormente y ser analizados. Finalmente el último paso es la actividad post-incidente: esta está estrechamente relacionada con el primer paso de preparación porque en este paso se obtienen nuevos elementos y lecciones que se implementan en la preparación par evitar nuevos incidentes.
+
+    \subsection{Herramientas de gestión}
+        Es importante mencionar las herramientas más implementadas dentro de un equipo de operaciones de seguridad. 
+        \subsubsection{EDR} El significado de EDR es (Endpoint Detection and Response). Es una tecnología dieñada para monitorear continuamente los endpoint (que son dispositivos finales como computadoras, teléfonos y dispositivos IoT) con el objetivo de realizar detección y respuesta ante diferentes incidentes de seguridad. Es una tecnología que recopila datos de actividad de los enspoints, los analiza para identificar patrones de amenazas y si se detecta una amenaza, responder automáticamente en tiempo real para contener o eliminar la amenaza y notificar al personal de seguridad. Las principales funcionalidades que puede desempeñar un EDR son las siguientes:
+
+        \begin{itemize}
+            \item Monitoreo y análisis en tiempo real
+            \item Detección de amenazas
+            \item Respuesta automática
+            \item Análisis forense
+        \end{itemize}
+
+        \subsubsection{XDR} El XDR significa Respuesta y detección extendida. La principar diferencia con EDR es su alcance y capacidad de integración. EDR se centra exclusivamente en la protección y respuesta a incidentes en los endpoints. XDR amplía el enfoque al integrar la detección y erspuesta a través de últiples coponentes de la infraestructura, incluyendo endpoints, redes, servidores, aplicaciones den la nube, etc. Con un análisis enfocado en la correlación de datos y análisis de eventos en toda la infraestructura, y una respuesta coordinada y atutomatizada. 
+
+        \subsubsection{SIEM} Security Information and Event Management. Es un sistema centralizado cuyo objetivo es recolectar, correlacionar y analizar todos los datos como logs y eventos de todos los incidentes de seguridad. Se centra en la agregación de datos y posterior análisis. Esta tecnología implementa reglas predefinidas y personalizables para correlacionar eventos y detectar posibles incidentes de seguridad. Genera alertas en tiempo real cuando se detectan eventos que coinciden con las reglas de correlación permitiendo una respuesta rápida a incidentes. 
+
+        \subsubsection{SOAR} Es una tecnología cuyo objetivo es implementar automatizaciones y mejorar la eficiencia y eficacia de las operaciones. Permite la integración de múltiples herramientas y sistemas de seguridad, facilitando la coordinación de flujos de trabajo de seguridad a través de diferentes sistemas y equipos. Implementa la automatizacón de procesos repetitivos y rutinarios, tales como la recopilación de datos, anáñlisis de eventos y respuesta inicial a incidentes.
+
+        Normalmente los equipos de SOC en grandes empresas se dividen en dos sub equipos más pequeños: Equipo azul y equipo Rojo.
+        El equipo azul se encarga mayormente de realizar las tareas más típicas de analista de SOC: monitoreo de seguridad, respuesta a incidentes, análisis forense, seguimiento de amenazas, etc. Por otro lado, el equipo Rojo está más enfocado en la evaluación de vulnerabilidades, testeo de penetración, ingenieía social, y en general, simulación de procedimientos, técnicas y tácticas de adversarios. 
+
+
+
+
+
+

@@ -1,429 +1,51 @@
-\contentsline {chapter}{\numberline {1}Latex}{4}{chapter.1}%
-\contentsline {section}{\numberline {1.1}clases de documento \texttt {documentclass}}{4}{section.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.0.1}\texttt {book}}{4}{subsubsection.1.1.0.1}%
-\contentsline {subparagraph}{nota:}{4}{section*.3}%
-\contentsline {subsubsection}{\numberline {1.1.0.2}\texttt {article}}{4}{subsubsection.1.1.0.2}%
-\contentsline {subsubsection}{\numberline {1.1.0.3}\texttt {report}}{4}{subsubsection.1.1.0.3}%
-\contentsline {paragraph}{Nota:}{4}{section*.4}%
-\contentsline {subsubsection}{\numberline {1.1.0.4}\texttt {memoir}}{4}{subsubsection.1.1.0.4}%
-\contentsline {subsubsection}{\numberline {1.1.0.5}\texttt {beamer}}{4}{subsubsection.1.1.0.5}%
-\contentsline {subsubsection}{\numberline {1.1.0.6}tamaño de papel}{4}{subsubsection.1.1.0.6}%
-\contentsline {paragraph}{nota:}{5}{section*.6}%
-\contentsline {subsubsection}{\numberline {1.1.0.7}\texttt {landscape}}{5}{subsubsection.1.1.0.7}%
-\contentsline {subsubsection}{\numberline {1.1.0.8}\texttt {10pt, 11pt, 12pt}}{5}{subsubsection.1.1.0.8}%
-\contentsline {subsubsection}{\numberline {1.1.0.9}\texttt {oneside, twoside}}{5}{subsubsection.1.1.0.9}%
-\contentsline {subsubsection}{\numberline {1.1.0.10}\texttt {oneside, twoside}}{5}{subsubsection.1.1.0.10}%
-\contentsline {subsubsection}{\numberline {1.1.0.11}\texttt {titlepage, notitlepage}}{5}{subsubsection.1.1.0.11}%
-\contentsline {subsubsection}{\numberline {1.1.0.12}\texttt {openright, openany}}{5}{subsubsection.1.1.0.12}%
-\contentsline {subsubsection}{\numberline {1.1.0.13}\texttt {onecolumn, twocolumn}}{5}{subsubsection.1.1.0.13}%
-\contentsline {subsubsection}{\numberline {1.1.0.14}\texttt {fleqn}}{5}{subsubsection.1.1.0.14}%
-\contentsline {subsubsection}{\numberline {1.1.0.15}\texttt {leqno}}{5}{subsubsection.1.1.0.15}%
-\contentsline {subsubsection}{\numberline {1.1.0.16}\texttt {draft, final}}{5}{subsubsection.1.1.0.16}%
-\contentsline {section}{\numberline {1.2}Paquetes \texttt {usepackage}}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}geometry}{5}{subsection.1.2.1}%
-\contentsline {section}{\numberline {1.3}Algunos comandos}{6}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}General}{6}{subsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.1.1}\texttt {\textbackslash makebox[ancho][pos]\{material\}}}{6}{subsubsection.1.3.1.1}%
-\contentsline {subsubsection}{\numberline {1.3.1.2}\texttt {\textbackslash framebox[Ancho][Posición]{Material}}}{6}{subsubsection.1.3.1.2}%
-\contentsline {subsubsection}{\numberline {1.3.1.3}\texttt {\textbackslash frame\{Material\}}}{6}{subsubsection.1.3.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1.4}\texttt {\textbackslash parbox[Posición][Alto][PosRel]\{Ancho\}\{Material\}}}{6}{subsubsection.1.3.1.4}%
-\contentsline {subsection}{\numberline {1.3.2}Ecuaciones}{7}{subsection.1.3.2}%
-\contentsline {subsubsection}{\numberline {1.3.2.1}\texttt {\textbackslash begin\{gathered\}}}{7}{subsubsection.1.3.2.1}%
-\contentsline {section}{\numberline {1.4}Advertencias}{7}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}\texttt {Overfull \textbackslash hbox}}{7}{subsection.1.4.1}%
-\contentsline {section}{\numberline {1.5}Errores}{7}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Guía para llenar bibliografia}{7}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Páginas de internet}{7}{subsection.1.6.1}%
-\contentsline {chapter}{\numberline {2}Python}{8}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Fundamentos}{8}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Scope y variables del entorno}{8}{subsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.1.1}Espacio de nombres}{9}{subsubsection.2.1.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.1.2}Cómo modificar una variable global}{9}{subsubsection.2.1.1.2}%
-\contentsline {section}{\numberline {2.2}Tipos de datos, estructuras, objetos incorporados, funciones}{10}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}variables y su almacenamiento}{10}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Funciones}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Tupla}{10}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Lista}{11}{subsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.4.1}Lista de funciones}{11}{subsubsection.2.2.4.1}%
-\contentsline {paragraph}{\texttt {len(list)}}{11}{section*.7}%
-\contentsline {paragraph}{\texttt {max(list)}}{11}{section*.8}%
-\contentsline {paragraph}{\texttt {min(list)}}{11}{section*.9}%
-\contentsline {paragraph}{\texttt {list(seq)}}{11}{section*.10}%
-\contentsline {paragraph}{\texttt {sorted(list)}}{11}{section*.11}%
-\contentsline {subsubsection}{\numberline {2.2.4.2}Lista de métodos}{11}{subsubsection.2.2.4.2}%
-\contentsline {paragraph}{\texttt {list.append(obj)}}{11}{section*.12}%
-\contentsline {paragraph}{\texttt {list.count(obj)}}{11}{section*.13}%
-\contentsline {paragraph}{\texttt {list.extend(seq)}}{11}{section*.14}%
-\contentsline {paragraph}{\texttt {list.index(obj)}}{11}{section*.15}%
-\contentsline {paragraph}{\texttt {list.insert(index, obj)}}{11}{section*.16}%
-\contentsline {paragraph}{\texttt {list.pop(obj = list[-1])}}{11}{section*.17}%
-\contentsline {paragraph}{\texttt {list.remove(obj)}}{11}{section*.18}%
-\contentsline {paragraph}{\texttt {list.reverse()}}{11}{section*.19}%
-\contentsline {paragraph}{\texttt {list.sort(key=None)}}{12}{section*.20}%
-\contentsline {paragraph}{\texttt {list.clear(}}{12}{section*.21}%
-\contentsline {paragraph}{\texttt {list.copy()}}{12}{section*.22}%
-\contentsline {subparagraph}{Nota}{12}{section*.23}%
-\contentsline {subsection}{\numberline {2.2.5}Diccionario}{12}{subsection.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.5.1}Funciones}{12}{subsubsection.2.2.5.1}%
-\contentsline {paragraph}{\texttt {len(dic)}}{12}{section*.24}%
-\contentsline {paragraph}{\texttt {srt(dic)}}{12}{section*.25}%
-\contentsline {subsubsection}{\numberline {2.2.5.2}Métodos}{12}{subsubsection.2.2.5.2}%
-\contentsline {paragraph}{\texttt {dic.clear()}}{12}{section*.26}%
-\contentsline {paragraph}{\texttt {dic.copy()}}{12}{section*.27}%
-\contentsline {paragraph}{\texttt {dic.fromkeys(iterable,value)}}{12}{section*.28}%
-\contentsline {paragraph}{\texttt {dic.get(key, default=None)}}{12}{section*.29}%
-\contentsline {paragraph}{\texttt {dic.items()}}{13}{section*.30}%
-\contentsline {paragraph}{\texttt {dic.keys()}}{13}{section*.31}%
-\contentsline {paragraph}{\texttt {dic.setdefault(key, default = None)}}{13}{section*.32}%
-\contentsline {paragraph}{\texttt {dic.update(dict2)}}{13}{section*.33}%
-\contentsline {paragraph}{\texttt {dic.values()}}{13}{section*.34}%
-\contentsline {subsection}{\numberline {2.2.6}\texttt {open()}}{13}{subsection.2.2.6}%
-\contentsline {subsubsection}{\numberline {2.2.6.1}Concatenación especial de cadenas de caracteres.}{13}{subsubsection.2.2.6.1}%
-\contentsline {section}{\numberline {2.3}Errores y debuggeo de los mismos}{13}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Tipos de testeo}{13}{subsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.1.1}Test unitario}{13}{subsubsection.2.3.1.1}%
-\contentsline {subsubsection}{\numberline {2.3.1.2}back box testing}{14}{subsubsection.2.3.1.2}%
-\contentsline {subsubsection}{\numberline {2.3.1.3}glass box testing}{14}{subsubsection.2.3.1.3}%
-\contentsline {subsection}{\numberline {2.3.2}Errores}{14}{subsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.2.1}\texttt {IndexError}}{14}{subsubsection.2.3.2.1}%
-\contentsline {subsubsection}{\numberline {2.3.2.2}\texttt {TypeError}}{14}{subsubsection.2.3.2.2}%
-\contentsline {subsubsection}{\numberline {2.3.2.3}\texttt {NameError}}{14}{subsubsection.2.3.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.2.4}\texttt {SyntaxError}}{14}{subsubsection.2.3.2.4}%
-\contentsline {subsubsection}{\numberline {2.3.2.5}\texttt {AttributeError}}{14}{subsubsection.2.3.2.5}%
-\contentsline {subsubsection}{\numberline {2.3.2.6}\texttt {ValueError}}{14}{subsubsection.2.3.2.6}%
-\contentsline {subsubsection}{\numberline {2.3.2.7}\texttt {IOError}}{14}{subsubsection.2.3.2.7}%
-\contentsline {subsection}{\numberline {2.3.3}Handlers}{15}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}assertions}{15}{subsection.2.3.4}%
-\contentsline {section}{\numberline {2.4}POO}{15}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Métodos importantes}{16}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Sobre algoritmos}{16}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Pandas}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}\texttt {Funciones de entradas y salidas}}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}\texttt {pandas.read\_csv()}}{18}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.1.1}Parámetros}{18}{subsubsection.3.1.1.1}%
-\contentsline {paragraph}{\texttt {filepath\_or\_buffer}}{18}{section*.37}%
-\contentsline {paragraph}{\texttt {sep}}{18}{section*.38}%
-\contentsline {paragraph}{\texttt {header}}{18}{section*.39}%
-\contentsline {paragraph}{\texttt {index\_col}}{18}{section*.40}%
-\contentsline {paragraph}{\texttt {usecols}}{18}{section*.41}%
-\contentsline {paragraph}{\texttt {names}}{18}{section*.42}%
-\contentsline {paragraph}{\texttt {skiprows}}{18}{section*.43}%
-\contentsline {paragraph}{\texttt {skiprofooter}}{19}{section*.44}%
-\contentsline {subsection}{\numberline {3.1.2}\texttt {pandas.read\_excel()}}{19}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}\texttt {pandas.read\_html()}}{19}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Funciones generales}{19}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Filtrado de información}{19}{subsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.1.1}Una sola condición:}{19}{subsubsection.3.2.1.1}%
-\contentsline {subsubsection}{\numberline {3.2.1.2}Varias condiciones:}{19}{subsubsection.3.2.1.2}%
-\contentsline {subsection}{\numberline {3.2.2}ELiminación de filas y columnas}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Añadidura de columnas}{20}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Manupulación de valores}{21}{subsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.4.1}Consejos de buena práctica:}{23}{subsubsection.3.2.4.1}%
-\contentsline {subsection}{\numberline {3.2.5}Métodos de ordenamiento}{23}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Estadísticas con agregación}{23}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Uso de funciones definidas en las tablas}{23}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}Multiindexación}{24}{subsection.3.2.8}%
-\contentsline {subsubsection}{\numberline {3.2.8.1}Operaciones con cadenas de texto}{25}{subsubsection.3.2.8.1}%
-\contentsline {subsection}{\numberline {3.2.9}Limpieza de los datos}{25}{subsection.3.2.9}%
-\contentsline {subsubsection}{\numberline {3.2.9.1}Valores duplicados}{26}{subsubsection.3.2.9.1}%
-\contentsline {subsubsection}{\numberline {3.2.9.2}Dato categóricos}{26}{subsubsection.3.2.9.2}%
-\contentsline {section}{\numberline {3.3}Objeto \texttt {DataFrame}}{26}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Constructor}{26}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.1}Parámetros}{26}{subsubsection.3.3.1.1}%
-\contentsline {paragraph}{\texttt {data}}{26}{section*.45}%
-\contentsline {paragraph}{\texttt {index}}{27}{section*.46}%
-\contentsline {paragraph}{\texttt {columns}}{27}{section*.47}%
-\contentsline {subsection}{\numberline {3.3.2}Atributos}{27}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.2.1}\nobreakspace {}\hspace {2em} \texttt {T}:}{27}{subsubsection.3.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.3.2.2}\nobreakspace {}\hspace {2em}\texttt {at}:}{27}{subsubsection.3.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.3.2.3}\nobreakspace {}\hspace {2em}\texttt {attrs}:}{27}{subsubsection.3.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.3.2.4}\nobreakspace {}\hspace {2em}\texttt {axes}:}{27}{subsubsection.3.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.3.2.5}\nobreakspace {}\hspace {2em}\texttt {columns[]}:}{27}{subsubsection.3.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.3.2.6}\nobreakspace {}\hspace {2em}\texttt {dtypes}:}{27}{subsubsection.3.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.3.2.7}\nobreakspace {}\hspace {2em}\texttt {empty}:}{27}{subsubsection.3.3.2.7}%
-\contentsline {subsubsection}{\numberline {3.3.2.8}\nobreakspace {}\hspace {2em}\texttt {flags}:}{27}{subsubsection.3.3.2.8}%
-\contentsline {subsubsection}{\numberline {3.3.2.9}\nobreakspace {}\hspace {2em}\texttt {iat}:}{27}{subsubsection.3.3.2.9}%
-\contentsline {subsubsection}{\numberline {3.3.2.10}\nobreakspace {}\hspace {2em}\texttt {iloc}:}{27}{subsubsection.3.3.2.10}%
-\contentsline {subsubsection}{\numberline {3.3.2.11}\nobreakspace {}\hspace {2em}\texttt {index[]}:}{27}{subsubsection.3.3.2.11}%
-\contentsline {subsubsection}{\numberline {3.3.2.12}\nobreakspace {}\hspace {2em}\texttt {loc}:}{28}{subsubsection.3.3.2.12}%
-\contentsline {subsubsection}{\numberline {3.3.2.13}\nobreakspace {}\hspace {2em}\texttt {ndim}:}{28}{subsubsection.3.3.2.13}%
-\contentsline {subsubsection}{\numberline {3.3.2.14}\nobreakspace {}\hspace {2em}\texttt {shape}:}{28}{subsubsection.3.3.2.14}%
-\contentsline {subsubsection}{\numberline {3.3.2.15}\nobreakspace {}\hspace {2em}\texttt {size}:}{28}{subsubsection.3.3.2.15}%
-\contentsline {subsubsection}{\numberline {3.3.2.16}\nobreakspace {}\hspace {2em}\texttt {style}:}{28}{subsubsection.3.3.2.16}%
-\contentsline {subsubsection}{\numberline {3.3.2.17}\nobreakspace {}\hspace {2em}\texttt {values}:}{28}{subsubsection.3.3.2.17}%
-\contentsline {subsection}{\numberline {3.3.3}Métodos}{28}{subsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.3.1}\texttt {abs()}}{28}{subsubsection.3.3.3.1}%
-\contentsline {paragraph}{\textbf {parámetros}}{28}{section*.48}%
-\contentsline {subparagraph}{\textbf {Retorno:}}{28}{section*.49}%
-\contentsline {subsubsection}{\numberline {3.3.3.2}\texttt {add(other, axis, level, fill\_value)}}{28}{subsubsection.3.3.3.2}%
-\contentsline {paragraph}{\textbf {parámetros}}{28}{section*.50}%
-\contentsline {paragraph}{Retorno:}{29}{section*.51}%
-\contentsline {subsubsection}{\numberline {3.3.3.3}\texttt {add\_prefix(prefix, axis)}}{29}{subsubsection.3.3.3.3}%
-\contentsline {paragraph}{\textbf {parámetros}}{29}{section*.52}%
-\contentsline {paragraph}{Retorno:}{29}{section*.53}%
-\contentsline {subsubsection}{\numberline {3.3.3.4}\texttt {add\_suffix(suffix, axis)}}{29}{subsubsection.3.3.3.4}%
-\contentsline {paragraph}{\textbf {parámetros}}{29}{section*.54}%
-\contentsline {paragraph}{Retorno:}{29}{section*.55}%
-\contentsline {subsubsection}{\numberline {3.3.3.5}\texttt {agg(func, axis)}}{29}{subsubsection.3.3.3.5}%
-\contentsline {paragraph}{\textbf {parámetros}}{30}{section*.56}%
-\contentsline {paragraph}{Retorno:}{30}{section*.57}%
-\contentsline {subsubsection}{\numberline {3.3.3.6}\texttt {align(other, join, axis, level, copy, fill\_value)}}{30}{subsubsection.3.3.3.6}%
-\contentsline {paragraph}{\textbf {Parámetros}}{30}{section*.58}%
-\contentsline {paragraph}{Retorno:}{31}{section*.59}%
-\contentsline {subsubsection}{\numberline {3.3.3.7}\texttt {all(axis, bool\_only, skipna, **kwargs)}}{31}{subsubsection.3.3.3.7}%
-\contentsline {paragraph}{\textbf {Parámetros}}{31}{section*.60}%
-\contentsline {paragraph}{Retorno:}{31}{section*.61}%
-\contentsline {subsubsection}{\numberline {3.3.3.8}\texttt {DataFrame.any(*, axis=0, bool\_only=False, skipna=True, **kwargs)}}{31}{subsubsection.3.3.3.8}%
-\contentsline {paragraph}{\textbf {Parámetros}}{32}{section*.62}%
-\contentsline {paragraph}{Retorno:}{32}{section*.63}%
-\contentsline {subsubsection}{\numberline {3.3.3.9}\texttt {head(n)}}{32}{subsubsection.3.3.3.9}%
-\contentsline {paragraph}{\textbf {Parámetros}}{32}{section*.64}%
-\contentsline {paragraph}{Retorno:}{32}{section*.65}%
-\contentsline {paragraph}{Tipo de dato de salida}{32}{section*.66}%
-\contentsline {subsubsection}{\numberline {3.3.3.10}\texttt {tail(n=5)}}{33}{subsubsection.3.3.3.10}%
-\contentsline {paragraph}{\textbf {Parámetros}}{33}{section*.67}%
-\contentsline {paragraph}{Retorno:}{33}{section*.68}%
-\contentsline {subsubsection}{\numberline {3.3.3.11}\texttt {info(verbose, buf, max\_cols, memory\_usage, show\_counts)}}{33}{subsubsection.3.3.3.11}%
-\contentsline {paragraph}{\textbf {Parámetros}}{33}{section*.69}%
-\contentsline {paragraph}{Retorno:}{34}{section*.70}%
-\contentsline {subsubsection}{\numberline {3.3.3.12}\texttt {describe(percentiles, include, exclude)}}{34}{subsubsection.3.3.3.12}%
-\contentsline {paragraph}{\textbf {Parámetros}}{34}{section*.71}%
-\contentsline {paragraph}{Retorno:}{34}{section*.72}%
-\contentsline {subsubsection}{\numberline {3.3.3.13}\texttt {len(df)}}{34}{subsubsection.3.3.3.13}%
-\contentsline {subparagraph}{Tipo de dato de salida}{34}{section*.73}%
-\contentsline {paragraph}{\texttt {round(df,0)}}{34}{section*.74}%
-\contentsline {paragraph}{Tipo de dato de salida}{34}{section*.75}%
-\contentsline {subsubsection}{\numberline {3.3.3.14}\texttt {mean(axis, skipna, numeric\_only, **kwargs)}}{34}{subsubsection.3.3.3.14}%
-\contentsline {paragraph}{\textbf {Parámetros}}{35}{section*.76}%
-\contentsline {paragraph}{Retorno:}{35}{section*.77}%
-\contentsline {subsubsection}{\numberline {3.3.3.15}\texttt {sort\_values(by, *, axis, ascending, inplace, kind, na\_position, ignore\_index, key)}}{35}{subsubsection.3.3.3.15}%
-\contentsline {paragraph}{\textbf {Parámetros}}{35}{section*.78}%
-\contentsline {paragraph}{Retorno:}{36}{section*.79}%
-\contentsline {subsubsection}{\numberline {3.3.3.16}Selección de columnas}{36}{subsubsection.3.3.3.16}%
-\contentsline {paragraph}{Tipo de dato de salida}{36}{section*.80}%
-\contentsline {subsubsection}{\numberline {3.3.3.17}\texttt {df.iloc[n,m]}}{36}{subsubsection.3.3.3.17}%
-\contentsline {paragraph}{Tipo de dato de salida}{37}{section*.81}%
-\contentsline {subsubsection}{\numberline {3.3.3.18}\texttt {df.loc[Rlabel,Clabel]}}{37}{subsubsection.3.3.3.18}%
-\contentsline {paragraph}{Tipo de dato de salida}{37}{section*.82}%
-\contentsline {subsubsection}{\numberline {3.3.3.19}\texttt {copy(deep)}}{37}{subsubsection.3.3.3.19}%
-\contentsline {paragraph}{\textbf {Descripción}}{37}{section*.83}%
-\contentsline {paragraph}{\textbf {Parámetros}}{37}{section*.84}%
-\contentsline {paragraph}{\textbf {Retorno:} Series o DataFrame}{37}{section*.85}%
-\contentsline {subsubsection}{\numberline {3.3.3.20}\texttt {nlargest(n, columns, keep)}}{37}{subsubsection.3.3.3.20}%
-\contentsline {subparagraph}{\textbf {Descripción}}{37}{section*.86}%
-\contentsline {paragraph}{\textbf {Parámetros}}{38}{section*.87}%
-\contentsline {paragraph}{\textbf {Retorno:} DataFrame}{38}{section*.88}%
-\contentsline {subsubsection}{\numberline {3.3.3.21}\texttt {nsmallest(n, columns, keep)}}{38}{subsubsection.3.3.3.21}%
-\contentsline {paragraph}{\textbf {Descripción}}{38}{section*.89}%
-\contentsline {paragraph}{\textbf {Parámetros}}{38}{section*.90}%
-\contentsline {paragraph}{\textbf {Retorno:} DataFrame}{39}{section*.91}%
-\contentsline {subsubsection}{\numberline {3.3.3.22}\texttt {idxmin(axis, skipna, numeric\_only)}}{39}{subsubsection.3.3.3.22}%
-\contentsline {paragraph}{\textbf {Descripción}}{39}{section*.92}%
-\contentsline {paragraph}{\textbf {Parámetros}}{39}{section*.93}%
-\contentsline {paragraph}{\textbf {Retorno:} Series}{39}{section*.94}%
-\contentsline {paragraph}{\textbf {Excepciones}}{39}{section*.95}%
-\contentsline {paragraph}{\texttt {DataFrame.reset\_index}}{39}{section*.96}%
-\contentsline {paragraph}{Descripción:}{39}{section*.97}%
-\contentsline {paragraph}{Parámetros:}{40}{section*.98}%
-\contentsline {paragraph}{Tipo de retorno}{40}{section*.99}%
-\contentsline {subsubsection}{\numberline {3.3.3.23}\texttt {DataFrame.set\_index}}{40}{subsubsection.3.3.3.23}%
-\contentsline {paragraph}{Descripción:}{40}{section*.100}%
-\contentsline {paragraph}{Parámetros:}{41}{section*.101}%
-\contentsline {subparagraph}{Tipo de retorno}{41}{section*.102}%
-\contentsline {subsubsection}{\numberline {3.3.3.24}\texttt {DataFrame.rename}}{41}{subsubsection.3.3.3.24}%
-\contentsline {paragraph}{Descripción:}{41}{section*.103}%
-\contentsline {paragraph}{Parámetros:}{41}{section*.104}%
-\contentsline {paragraph}{Tipo de retorno}{42}{section*.105}%
-\contentsline {section}{\numberline {3.4}Objeto \textit {Series}}{42}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Métodos y atributos}{43}{subsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.1.1}\texttt {to\_frame()}}{43}{subsubsection.3.4.1.1}%
-\contentsline {subsubsection}{\numberline {3.4.1.2}Series.describe()}{43}{subsubsection.3.4.1.2}%
-\contentsline {paragraph}{Parámetros}{43}{section*.106}%
-\contentsline {paragraph}{Retorno}{43}{section*.107}%
-\contentsline {subsubsection}{\numberline {3.4.1.3}\texttt {Series.count()}}{43}{subsubsection.3.4.1.3}%
-\contentsline {subsubsection}{\numberline {3.4.1.4}\texttt {Series.sum()}}{43}{subsubsection.3.4.1.4}%
-\contentsline {paragraph}{Parámetros}{43}{section*.108}%
-\contentsline {subsubsection}{\numberline {3.4.1.5}pandas.Series.mean()}{44}{subsubsection.3.4.1.5}%
-\contentsline {paragraph}{Parámetros:}{44}{section*.109}%
-\contentsline {subsubsection}{\numberline {3.4.1.6}pandas.Series.median()}{44}{subsubsection.3.4.1.6}%
-\contentsline {paragraph}{Parámetros:}{44}{section*.110}%
-\contentsline {subsubsection}{\numberline {3.4.1.7}pandas.Series.std()}{44}{subsubsection.3.4.1.7}%
-\contentsline {paragraph}{Parámetros:}{44}{section*.111}%
-\contentsline {subsubsection}{\numberline {3.4.1.8}pandas.Series.min()}{45}{subsubsection.3.4.1.8}%
-\contentsline {paragraph}{Parámetros:}{45}{section*.112}%
-\contentsline {subsubsection}{\numberline {3.4.1.9}pandas.Series.max()}{45}{subsubsection.3.4.1.9}%
-\contentsline {paragraph}{Parámetros:}{45}{section*.113}%
-\contentsline {subsubsection}{\numberline {3.4.1.10}pandas.Series.unique()}{45}{subsubsection.3.4.1.10}%
-\contentsline {paragraph}{Parámetros:}{45}{section*.114}%
-\contentsline {paragraph}{Tipo de retorno:}{45}{section*.115}%
-\contentsline {subsubsection}{\numberline {3.4.1.11}pandas.Series.value\_counts()}{45}{subsubsection.3.4.1.11}%
-\contentsline {paragraph}{Parámetros:}{45}{section*.116}%
-\contentsline {paragraph}{Tipo de retorno:}{46}{section*.117}%
-\contentsline {subsubsection}{\numberline {3.4.1.12}Ejemplo}{46}{subsubsection.3.4.1.12}%
-\contentsline {subsection}{\numberline {3.4.2}Creación de series}{46}{subsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.2.1}\texttt {pd.Series}}{46}{subsubsection.3.4.2.1}%
-\contentsline {paragraph}{Parámetros}{46}{section*.118}%
-\contentsline {paragraph}{Tipo de retorno}{47}{section*.119}%
-\contentsline {subsubsection}{\numberline {3.4.2.2}\texttt {sort\_index}}{47}{subsubsection.3.4.2.2}%
-\contentsline {paragraph}{Descripción:}{47}{section*.120}%
-\contentsline {paragraph}{Parámetros:}{47}{section*.121}%
-\contentsline {paragraph}{Tipo de retorno}{48}{section*.122}%
-\contentsline {section}{\numberline {3.5}Objeto \texttt {index}}{48}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Métodos}{48}{subsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.1.1}\texttt {Index.append}}{48}{subsubsection.3.5.1.1}%
-\contentsline {paragraph}{Descripción:}{48}{section*.123}%
-\contentsline {paragraph}{Parámetros:}{48}{section*.124}%
-\contentsline {paragraph}{Tipo de retorno}{48}{section*.125}%
-\contentsline {subsubsection}{\numberline {3.5.1.2}\texttt {Index.drop}}{49}{subsubsection.3.5.1.2}%
-\contentsline {paragraph}{Descripción:}{49}{section*.126}%
-\contentsline {paragraph}{Parámetros:}{49}{section*.127}%
-\contentsline {paragraph}{Tipo de retorno}{49}{section*.128}%
-\contentsline {paragraph}{Excepciones}{49}{section*.129}%
-\contentsline {paragraph}{\texttt {Index.isin}}{49}{section*.130}%
-\contentsline {paragraph}{Descripción:}{49}{section*.131}%
-\contentsline {paragraph}{Parámetros:}{49}{section*.132}%
-\contentsline {paragraph}{Tipo de retorno}{49}{section*.133}%
-\contentsline {paragraph}{Notas}{49}{section*.134}%
-\contentsline {subsubsection}{\numberline {3.5.1.3}\texttt {Index.unique}}{49}{subsubsection.3.5.1.3}%
-\contentsline {paragraph}{Descripción:}{49}{section*.135}%
-\contentsline {paragraph}{Parámetros:}{50}{section*.136}%
-\contentsline {paragraph}{Tipo de retorno}{50}{section*.137}%
-\contentsline {paragraph}{Ver también}{50}{section*.138}%
-\contentsline {subsubsection}{\numberline {3.5.1.4}\texttt {Index.duplicated}}{50}{subsubsection.3.5.1.4}%
-\contentsline {paragraph}{Descripción:}{50}{section*.139}%
-\contentsline {paragraph}{Parámetros:}{50}{section*.140}%
-\contentsline {paragraph}{Tipo de retorno}{50}{section*.141}%
-\contentsline {paragraph}{Ejemplos}{50}{section*.142}%
-\contentsline {subsubsection}{\numberline {3.5.1.5}\texttt {Index.sort\_values}}{50}{subsubsection.3.5.1.5}%
-\contentsline {paragraph}{Descripción:}{50}{section*.143}%
-\contentsline {paragraph}{Parámetros:}{50}{section*.144}%
-\contentsline {paragraph}{Tipo de retorno}{51}{section*.145}%
-\contentsline {subsubsection}{\numberline {3.5.1.6}\texttt {Index.get\_loc}}{51}{subsubsection.3.5.1.6}%
-\contentsline {paragraph}{Descripción:}{51}{section*.146}%
-\contentsline {paragraph}{Parámetros:}{51}{section*.147}%
-\contentsline {paragraph}{Tipo de retorno}{51}{section*.148}%
-\contentsline {subsubsection}{\numberline {3.5.1.7}\texttt {Index.get\_indexer}}{51}{subsubsection.3.5.1.7}%
-\contentsline {paragraph}{Descripción:}{51}{section*.149}%
-\contentsline {paragraph}{Parámetros:}{51}{section*.150}%
-\contentsline {paragraph}{Tipo de retorno}{52}{section*.151}%
-\contentsline {subsubsection}{\numberline {3.5.1.8}\texttt {Index.intersection}}{52}{subsubsection.3.5.1.8}%
-\contentsline {paragraph}{Descripción:}{52}{section*.152}%
-\contentsline {paragraph}{Parámetros:}{52}{section*.153}%
-\contentsline {paragraph}{Tipo de retorno}{52}{section*.154}%
-\contentsline {subsubsection}{\numberline {3.5.1.9}\texttt {Index.tolist}}{52}{subsubsection.3.5.1.9}%
-\contentsline {paragraph}{Descripción:}{52}{section*.155}%
-\contentsline {paragraph}{Parámetros:}{52}{section*.156}%
-\contentsline {paragraph}{Tipo de retorno}{52}{section*.157}%
-\contentsline {paragraph}{Ver también}{52}{section*.158}%
-\contentsline {paragraph}{Ejemplos}{52}{section*.159}%
-\contentsline {subsection}{\numberline {3.5.2}Atributos}{52}{subsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.2.1}\nobreakspace {}\hspace {2em} \texttt {array:}}{52}{subsubsection.3.5.2.1}%
-\contentsline {subsubsection}{\numberline {3.5.2.2}\nobreakspace {}\hspace {2em} \texttt {dtype:}}{53}{subsubsection.3.5.2.2}%
-\contentsline {subsubsection}{\numberline {3.5.2.3}\nobreakspace {}\hspace {2em} \texttt {has\_duplicates:}}{53}{subsubsection.3.5.2.3}%
-\contentsline {subsubsection}{\numberline {3.5.2.4}\nobreakspace {}\hspace {2em} \texttt {hasnans:}}{53}{subsubsection.3.5.2.4}%
-\contentsline {subsubsection}{\numberline {3.5.2.5}\nobreakspace {}\hspace {2em} \texttt {inferred\_type:}}{53}{subsubsection.3.5.2.5}%
-\contentsline {subsubsection}{\numberline {3.5.2.6}\nobreakspace {}\hspace {2em} \texttt {is\_monotonic\_decreasing:}}{53}{subsubsection.3.5.2.6}%
-\contentsline {subsubsection}{\numberline {3.5.2.7}\nobreakspace {}\hspace {2em} \texttt {is\_monotonic\_increasing:}}{53}{subsubsection.3.5.2.7}%
-\contentsline {subsubsection}{\numberline {3.5.2.8}\nobreakspace {}\hspace {2em} \texttt {is\_unique:}}{53}{subsubsection.3.5.2.8}%
-\contentsline {subsubsection}{\numberline {3.5.2.9}\nobreakspace {}\hspace {2em} \texttt {name:}}{53}{subsubsection.3.5.2.9}%
-\contentsline {subsubsection}{\numberline {3.5.2.10}\nobreakspace {}\hspace {2em} \texttt {nbytes:}}{53}{subsubsection.3.5.2.10}%
-\contentsline {subsubsection}{\numberline {3.5.2.11}\nobreakspace {}\hspace {2em} \texttt {ndim:}}{53}{subsubsection.3.5.2.11}%
-\contentsline {subsubsection}{\numberline {3.5.2.12}\nobreakspace {}\hspace {2em} \texttt {nlevels:}}{53}{subsubsection.3.5.2.12}%
-\contentsline {subsubsection}{\numberline {3.5.2.13}\nobreakspace {}\hspace {2em} \texttt {shape:}}{53}{subsubsection.3.5.2.13}%
-\contentsline {subsubsection}{\numberline {3.5.2.14}\nobreakspace {}\hspace {2em} \texttt {size:}}{53}{subsubsection.3.5.2.14}%
-\contentsline {subsubsection}{\numberline {3.5.2.15}\nobreakspace {}\hspace {2em} \texttt {values:}}{53}{subsubsection.3.5.2.15}%
-\contentsline {chapter}{\numberline {4}Scrapping}{54}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introducción al Scrapping}{54}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}XPath}{54}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Scrapping para una sola página estática}{55}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Extracción vertical y horizontal de páginas}{58}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Git and github}{60}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Algunas extensiones de VSCode para Git}{60}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Git History}{60}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Git Blame}{60}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Git Lens}{61}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}Fundamentos de Git: cómo funciona por dentro}{61}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Crear un nuevo repositorio}{61}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Objetos en Git}{61}{subsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}Blob}{62}{subsubsection.5.2.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2.2}Tree}{62}{subsubsection.5.2.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.3}Commit}{62}{subsubsection.5.2.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.2.4}Annotated Tag}{62}{subsubsection.5.2.2.4}%
-\contentsline {subsection}{\numberline {5.2.3}JSON}{62}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Hash}{62}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}Exploración de objetos de git mediante \texttt {cat}}{63}{subsection.5.2.5}%
-\contentsline {subsection}{\numberline {5.2.6}Creación de objetos mediante comandos de git}{63}{subsection.5.2.6}%
-\contentsline {subsection}{\numberline {5.2.7}Tree}{64}{subsection.5.2.7}%
-\contentsline {subsection}{\numberline {5.2.8}Permisos de objetos de git}{64}{subsection.5.2.8}%
-\contentsline {subsection}{\numberline {5.2.9}Creación de objetos Tree}{64}{subsection.5.2.9}%
-\contentsline {subsection}{\numberline {5.2.10}Tres pilares importantes}{64}{subsection.5.2.10}%
-\contentsline {subsection}{\numberline {5.2.11}Git checkout index}{65}{subsection.5.2.11}%
-\contentsline {section}{\numberline {5.3}Operaciones básicas de Git}{65}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}¿Qué es commit?}{65}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Creación de las primeras versiones}{65}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Comandos básicos de git}{66}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Historial de un archivo}{67}{subsection.5.3.4}%
-\contentsline {section}{\numberline {5.4}Las ramas}{68}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}HEAD}{68}{subsection.5.4.1}%
-\contentsline {section}{\numberline {5.5}Repositorios remotos}{70}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}git diff}{70}{subsection.5.5.1}%
-\contentsline {section}{\numberline {5.6}Fusión o combinación de ramas}{70}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}conflictos de fusión}{71}{subsection.5.6.1}%
-\contentsline {section}{\numberline {5.7}Comandos para los repositorios remotos}{71}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Git push}{71}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Git fetch y pull}{72}{subsection.5.7.2}%
-\contentsline {subsection}{\numberline {5.7.3}Ramas rastreadas}{73}{subsection.5.7.3}%
-\contentsline {subsection}{\numberline {5.7.4}Proceso pull}{74}{subsection.5.7.4}%
-\contentsline {subsection}{\numberline {5.7.5}Fetch head}{74}{subsection.5.7.5}%
-\contentsline {subsection}{\numberline {5.7.6}Git pull con modificacion de repositorio remoto}{75}{subsection.5.7.6}%
-\contentsline {subsection}{\numberline {5.7.7}Subida de cambios al repositorio remoto}{75}{subsection.5.7.7}%
-\contentsline {subsection}{\numberline {5.7.8}De rama local a rama nueva remota}{75}{subsection.5.7.8}%
-\contentsline {subsection}{\numberline {5.7.9}Actualización de estados de ramas}{76}{subsection.5.7.9}%
-\contentsline {subsubsection}{\numberline {5.7.9.1}comando \texttt {git show-ref}}{76}{subsubsection.5.7.9.1}%
-\contentsline {section}{\numberline {5.8}Pull Requests}{76}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Paso a paso del proceso de solicitudes de integración}{77}{subsection.5.8.1}%
-\contentsline {chapter}{\numberline {6}Datos}{78}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Modelo de datos}{78}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Normalización de los datos}{78}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Expresiones de análisis de datos}{78}{subsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.1}Columnas calculadas}{79}{subsubsection.6.1.2.1}%
-\contentsline {subsubsection}{\numberline {6.1.2.2}Mediciones}{79}{subsubsection.6.1.2.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.3}Mediciones implícitas y explícitas}{79}{subsubsection.6.1.2.3}%
-\contentsline {subsubsection}{\numberline {6.1.2.4}Sintaxis de las expresiones DAX}{80}{subsubsection.6.1.2.4}%
-\contentsline {subsection}{\numberline {6.1.3}Parámetros 'what if'}{82}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}SQL}{82}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Conceptos}{82}{subsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.1.1}Query}{82}{subsubsection.6.2.1.1}%
-\contentsline {subsection}{\numberline {6.2.2}Pasos para crear una database y usarla}{84}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Tipos de datos}{84}{subsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.3.1}Cadenas de caracteres}{84}{subsubsection.6.2.3.1}%
-\contentsline {subsubsection}{\numberline {6.2.3.2}Enteros}{84}{subsubsection.6.2.3.2}%
-\contentsline {subsection}{\numberline {6.2.4}Variables de puntos flotantes y puntos fijos}{84}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Otros tipos de datos}{85}{subsection.6.2.5}%
-\contentsline {subsection}{\numberline {6.2.6}Creación de tablas}{85}{subsection.6.2.6}%
-\contentsline {subsection}{\numberline {6.2.7}Restricciones de SQL}{86}{subsection.6.2.7}%
-\contentsline {subsubsection}{\numberline {6.2.7.1}\texttt {primary key}}{86}{subsubsection.6.2.7.1}%
-\contentsline {subsubsection}{\numberline {6.2.7.2}\texttt {Clave foránea}}{86}{subsubsection.6.2.7.2}%
-\contentsline {paragraph}{Tabla Padre:}{87}{section*.175}%
-\contentsline {paragraph}{Tabla Hija:}{87}{section*.176}%
-\contentsline {subsubsection}{\numberline {6.2.7.3}\texttt {Clave única}}{87}{subsubsection.6.2.7.3}%
-\contentsline {paragraph}{Implementación de Claves Únicas como Índices}{88}{section*.177}%
-\contentsline {subparagraph}{Consideraciones Adicionales:}{88}{section*.178}%
-\contentsline {subsubsection}{\numberline {6.2.7.4}Por defecto}{88}{subsubsection.6.2.7.4}%
-\contentsline {subsubsection}{\numberline {6.2.7.5}\texttt {NOT NULL}}{88}{subsubsection.6.2.7.5}%
-\contentsline {subsection}{\numberline {6.2.8}Buenas prácticas}{89}{subsection.6.2.8}%
-\contentsline {subsection}{\numberline {6.2.9}Manipulación de datos}{89}{subsection.6.2.9}%
-\contentsline {subsubsection}{\numberline {6.2.9.1} \texttt {SELECT}}{89}{subsubsection.6.2.9.1}%
-\contentsline {subsubsection}{\numberline {6.2.9.2}Funciones agregadas}{90}{subsubsection.6.2.9.2}%
-\contentsline {paragraph}{Ordenación}{90}{section*.179}%
-\contentsline {paragraph}{\texttt {GROUP BY}}{91}{section*.180}%
-\contentsline {paragraph}{alias}{91}{section*.181}%
-\contentsline {paragraph}{\texttt {HAVING}}{92}{section*.182}%
-\contentsline {subsubsection}{\numberline {6.2.9.3}Inserción de datos \texttt {INSERT}}{93}{subsubsection.6.2.9.3}%
-\contentsline {subsubsection}{\numberline {6.2.9.4}Declaración de actualización}{93}{subsubsection.6.2.9.4}%
-\contentsline {subsubsection}{\numberline {6.2.9.5}Declaración de borrado}{93}{subsubsection.6.2.9.5}%
-\contentsline {subsubsection}{\numberline {6.2.9.6}Funciones de agregación}{94}{subsubsection.6.2.9.6}%
-\contentsline {subsection}{\numberline {6.2.10}Uniones}{95}{subsection.6.2.10}%
-\contentsline {subsubsection}{\numberline {6.2.10.1}Entradas duplicadas}{95}{subsubsection.6.2.10.1}%
-\contentsline {subsubsection}{\numberline {6.2.10.2}Función \texttt {LEFT JOIN}}{96}{subsubsection.6.2.10.2}%
-\contentsline {subsubsection}{\numberline {6.2.10.3}Uniones cruzadas}{96}{subsubsection.6.2.10.3}%
+\contentsline {chapter}{\numberline {1}Git and github}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Algunas extensiones de VSCode para Git}{2}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Git History}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Git Blame}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Git Lens}{3}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Fundamentos de Git: cómo funciona por dentro}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Crear un nuevo repositorio}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Objetos en Git}{3}{subsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}Blob}{4}{subsubsection.1.2.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2.2}Tree}{4}{subsubsection.1.2.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.3}Commit}{4}{subsubsection.1.2.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.2.4}Annotated Tag}{4}{subsubsection.1.2.2.4}%
+\contentsline {subsection}{\numberline {1.2.3}JSON}{4}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Hash}{5}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Exploración de objetos de git mediante \texttt {cat}}{5}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Creación de objetos mediante comandos de git}{5}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}Tree}{6}{subsection.1.2.7}%
+\contentsline {subsection}{\numberline {1.2.8}Permisos de objetos de git}{6}{subsection.1.2.8}%
+\contentsline {subsection}{\numberline {1.2.9}Creación de objetos Tree}{6}{subsection.1.2.9}%
+\contentsline {subsection}{\numberline {1.2.10}Tres pilares importantes}{7}{subsection.1.2.10}%
+\contentsline {subsection}{\numberline {1.2.11}Git checkout index}{7}{subsection.1.2.11}%
+\contentsline {section}{\numberline {1.3}Operaciones básicas de Git}{7}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}¿Qué es commit?}{7}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Creación de las primeras versiones}{8}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Comandos básicos de git}{8}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Historial de un archivo}{9}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}Las ramas}{10}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}HEAD}{10}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Repositorios remotos}{12}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}git diff}{12}{subsection.1.5.1}%
+\contentsline {section}{\numberline {1.6}Fusión o combinación de ramas}{12}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}conflictos de fusión}{13}{subsection.1.6.1}%
+\contentsline {section}{\numberline {1.7}Comandos para los repositorios remotos}{13}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Git push}{13}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Git fetch y pull}{14}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Ramas rastreadas}{15}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}Proceso pull}{16}{subsection.1.7.4}%
+\contentsline {subsection}{\numberline {1.7.5}Fetch head}{16}{subsection.1.7.5}%
+\contentsline {subsection}{\numberline {1.7.6}Git pull con modificacion de repositorio remoto}{17}{subsection.1.7.6}%
+\contentsline {subsection}{\numberline {1.7.7}Subida de cambios al repositorio remoto}{17}{subsection.1.7.7}%
+\contentsline {subsection}{\numberline {1.7.8}De rama local a rama nueva remota}{17}{subsection.1.7.8}%
+\contentsline {subsection}{\numberline {1.7.9}Actualización de estados de ramas}{18}{subsection.1.7.9}%
+\contentsline {subsubsection}{\numberline {1.7.9.1}comando \texttt {git show-ref}}{18}{subsubsection.1.7.9.1}%
+\contentsline {section}{\numberline {1.8}Pull Requests}{18}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Paso a paso del proceso de solicitudes de integración}{19}{subsection.1.8.1}%
+\contentsline {chapter}{\numberline {2}Essentials for Cibersecurity}{20}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Herramientas de gestión}{20}{subsection.2.0.1}%
+\contentsline {subsubsection}{\numberline {2.0.1.1}EDR}{20}{subsubsection.2.0.1.1}%
+\contentsline {subsubsection}{\numberline {2.0.1.2}XDR}{20}{subsubsection.2.0.1.2}%
+\contentsline {subsubsection}{\numberline {2.0.1.3}SIEM}{21}{subsubsection.2.0.1.3}%
+\contentsline {subsubsection}{\numberline {2.0.1.4}SOAR}{21}{subsubsection.2.0.1.4}%
