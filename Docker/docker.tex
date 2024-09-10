@@ -1,0 +1,99 @@
+\chapter{Docker}
+
+Empezamos dando una definición de qué es docker. En un projecto que tiene utiliza tantas tecnologías y diferentes, cada una con sus dependencias y librerías necesarias, es difícil poder realizar despliegues y ejecuciones de los mismos de manera estandarizada cuando cambiamos de plataforma. Docker entrega una solución a esto. Se trata de una plataforma que permite configurar contenedores y empaquetar toda la aplicación y sus dependencias y librerías de forma aislada para poder ser ejecutada en cualquier entorno o máquina. Dicho empaquetamiento se realiza en lo que se conoce como contenedor.  \\
+
+Un contenedor es una unidad estándar de software que empaqueta el código de una aplicación y todas sus dependencias para que esta pueda ejecutarse de manera rápida y confiable en diferentes entornos. A diferencia de una máquina virtual, un contenedor no incluye un sistema operativo, por tanto son más ligeros y rápidos. 
+
+Docker puede configurar también algo llamado imagen. Una imagen no es más que un paquete que funciona como plantilla con la que se pueden crear uno o más contenedores. Por tanto, un contenedor es una instancia de la imagen que ha sido aislada y tiene su propio entorno y conjunto de dependencias
+
+\section{Comandos de Docker}
+
+El primer comando a aprender es el de \texttt{run}. Este comando ejecuta un contenedor a partir de una imagen. 
+
+\texttt{docker run nginx} ejecuta e instancia un contenedor con base en la imagen \texttt{nginx}. Docker buscará la imagen de manera local, y si no la encuentra, entonces buscará en el docer hub y descargará esta imagen para ejecutarla. \\
+\texttt{\textbf{docker ps}} Lista todos los contenedores que están siendo ejecutados. Imprime también alguna información como el ID del contenedor, el nombre de la imagen de la que está instanciado el contenedor, el estado actual y el nombre del contenedor. En cada ejecución, docker asigna un identificador ID y nombre al contenedor de manera aleatoria. \\
+\texttt{\textbf{docker ps -a}} lista todos los contenedores que han sido ejecutados, aunque hayan parado ya.
+\texttt{\textbf{docker stop <container\_name>}} Con este comando detenemos el contenedor seleccionado. \\
+\texttt{\textbf{docker rm <container\_name>}} Con este comando quitamos o removemos el contenedor. De este modo ya no aparecerá en la lista de contenedores anteriores.
+\texttt{\textbf{docker images}} Con este comando se imprime una lista de las imágenes disponibles en el dispositivo local.
+\texttt{\textbf{docker rmi name}} Este comando se utiliza para eliminar o remover una imagen que ya no es necesaria. Es importante tener en cuenta que no deben haber contenedores ejecutándose, o en la lista de anteriormente ejecutados al momento de intentar eliminar su imagen.
+\texttt{\textbf{docker pull name}} Este comando sirve para 'halar' (descargar) una imagen dada, pero sin ejecutar un contenedor a partir de dicha imagen. 
+
+Es importante notar que un contenedor solo está ejecutándose tanto tiempo como su proceso interno. \\
+Hay un comando que sirve para ejecutar otros comandos dentro del contenedor que se está ejecutando. Sea un contenedor \texttt{\textbf{practical\_taussig}}, que es una instancia de la imagen de ubuntu. Se puede ejecutar un comando dentro de dicho contenedor, si ejecutamos el contenedor de tal forma que esté activo durante 100 segundos\\
+
+\begin{VerbatimBold}
+    docker run ubuntu sleep 100
+\end{VerbatimBold}
+
+Luego el comando para ejecutar cualquier comando dentro de mi contenedor es 
+
+\begin{VerbatimBold}
+    docker exec practical_taussig ls -la
+\end{VerbatimBold}
+
+De esta manera se ejecutará el comando \texttt{ls -la} dentro del contenedor que se está ejecutando. \\
+
+Una opción para poder ejecutar un contenedor y quedarse en segundo plano es mediante la opción 'detached' \texttt{-d}
+
+\begin{VerbatimBold}
+    docker run -d kodekloud/simple-webapp
+\end{VerbatimBold}
+
+De esta forma la terminal seguirá disponible para ejecutar otros comandos. Si dentro de la tarminal quiero adjuntar este contenedor para ver su estado actual, simplemente ejecutamos el comando 
+
+\begin{VerbatimBold}
+    docker attach name
+\end{VerbatimBold}
+
+Existe una combinación de opciones para ejecutar un contenedor que tenga la imagen de centos por ejemplo, y permita interactuar con su terminal:
+
+\begin{VerbatimBold}
+docker run -it centos bash
+\end{VerbatimBold}
+
+La opción \texttt{\textbf{-it}} es una combinación de \texttt{\textbf{-i}} e \texttt{\textbf{-t}}. La primera, indica interactivo, lo cual indica a Docker que mantenga la entrada estándar 'stdin' abierta, de modo que se pueda interactuar de manera activa con el contenedor. Por su parte, la opción \texttt{\textbf{-t}} indica a Docker que asigne un terminal pseudo-TTY al contenedor. und TTY es lo que proporciona una interfaz de terminal dentro del contenedor.
+
+Para ejecutar un contenedor desde una imagen y darle un nombre específico, se usa el siguiente comando:
+\begin{VerbatimBold}
+docker run --name mycontainer image
+\end{VerbatimBold}
+
+Desde la terminal, el comando para ingresar las credenciales de docker hub es el siguiente
+
+\begin{VerbatimBold}
+docker login
+\end{VerbatimBold}
+Por otro lado, es posible ejecutar contenedores desde versiones anteriores de imágenes. Por ejemplo, si quiero ejecutar una versión anterior de \texttt{\textbf{redis}} utilizamos
+
+\begin{VerbatimBold}
+docker run redis:4.0
+\end{VerbatimBold}
+
+La parte \texttt{\textbf{:4.0}} se denomina etiqueta. Si no se utiliza etiqueta, por defecto Docker utiliza la última versión. En la págiina web de docker hub, están todas las etiquetas soportadas para cada imagen. 
+
+\subsection{Mapeos de puertos}
+
+En docker, cuando se inicia un contenedor que ejecuta un servicio que escucha un puerto, este puerto está por defecto solo accesible dentro del contenedor. Para que este puerto sea accesible desde el host o desde una red externa, es necesario mapearlo a un puerto del host:
+
+\begin{VerbatimBold}
+docker run -p 8080:5000 mysql
+\end{VerbatimBold}
+Este ejemplo se ejecuta un contenedor con la imagen de sql cuyo puerto para comunicación con el host de docker es \texttt{\textbf{8080}}, y el puerto de la instancia del contenedor \texttt{\textbf{mySQL}} es \texttt{\textbf{5000}}. la opción \texttt{\textbf{-p}} indica la configuración del puerto. Dentro de un host de docker, pueden haber diferentes contenedores instanciados. Cada uno tendrá su respectivo puerto y siempre será único.
+
+\subsection{Persistencia de datos} Sea una instancia de \texttt{\textbf{mySQL}} \texttt{\textbf{docker run mysql}}. Los datos cualesquiera dentro de esta base de datos estarán dentro del sistema de archivos del host de docker en \texttt{\textbf{/var/lib/mysql}}. Si se detiene la instancia del contenedor, entonces todos los datos presentes en la base también desaparecerán. Para solucionar esto, se puede manter una persistencia de los datos desde una localización fuera del contenedor pero dentro del host. 
+
+\begin{VerbatimBold}
+docker run -v /opt/datadir:/var/lib/mysql mysql
+\end{VerbatimBold}
+
+Con este comando, la opción \texttt{\textbf{-v}} monta un volumen virtual en el contenedor. La dirección \texttt{\textbf{/opt/datadir}} es el volumen creado dentro del host (la máquina). \\
+Se puede inspeccionar un contenedor, averiguando detalles y datos característicos en formato \texttt{\textbf{JSON}} mediante el siguiente comando
+\begin{VerbatimBold}
+docker inspect nameorID
+\end{VerbatimBold}
+
+Por otro lado, también se pueden ver los logs de un contenedor aunque esté ejecutándose en segundo plano:
+\begin{VerbatimBold}
+docker logs nameorID
+\end{VerbatimBold}

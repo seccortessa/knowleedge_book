@@ -21,8 +21,8 @@
 \contentsline {paragraph}{\texttt {list.index(obj)}}{6}{section*.10}%
 \contentsline {paragraph}{\texttt {list.insert(index, obj)}}{6}{section*.11}%
 \contentsline {paragraph}{\texttt {list.pop(obj = list[-1])}}{6}{section*.12}%
-\contentsline {paragraph}{\texttt {list.remove(obj)}}{6}{section*.13}%
-\contentsline {paragraph}{\texttt {list.reverse()}}{6}{section*.14}%
+\contentsline {paragraph}{\texttt {list.remove(obj)}}{7}{section*.13}%
+\contentsline {paragraph}{\texttt {list.reverse()}}{7}{section*.14}%
 \contentsline {paragraph}{\texttt {list.sort(key=None)}}{7}{section*.15}%
 \contentsline {paragraph}{\texttt {list.clear(}}{7}{section*.16}%
 \contentsline {paragraph}{\texttt {list.copy()}}{7}{section*.17}%
@@ -34,8 +34,8 @@
 \contentsline {subsubsection}{\numberline {1.2.5.2}Métodos}{7}{subsubsection.1.2.5.2}%
 \contentsline {paragraph}{\texttt {dic.clear()}}{7}{section*.21}%
 \contentsline {paragraph}{\texttt {dic.copy()}}{7}{section*.22}%
-\contentsline {paragraph}{\texttt {dic.fromkeys(iterable,value)}}{7}{section*.23}%
-\contentsline {paragraph}{\texttt {dic.get(key, default=None)}}{7}{section*.24}%
+\contentsline {paragraph}{\texttt {dic.fromkeys(iterable,value)}}{8}{section*.23}%
+\contentsline {paragraph}{\texttt {dic.get(key, default=None)}}{8}{section*.24}%
 \contentsline {paragraph}{\texttt {dic.items()}}{8}{section*.25}%
 \contentsline {paragraph}{\texttt {dic.keys()}}{8}{section*.26}%
 \contentsline {paragraph}{\texttt {dic.setdefault(key, default = None)}}{8}{section*.27}%
@@ -55,67 +55,155 @@
 \contentsline {subsubsection}{\numberline {1.3.2.4}\texttt {SyntaxError}}{9}{subsubsection.1.3.2.4}%
 \contentsline {subsubsection}{\numberline {1.3.2.5}\texttt {AttributeError}}{9}{subsubsection.1.3.2.5}%
 \contentsline {subsubsection}{\numberline {1.3.2.6}\texttt {ValueError}}{9}{subsubsection.1.3.2.6}%
-\contentsline {subsubsection}{\numberline {1.3.2.7}\texttt {IOError}}{9}{subsubsection.1.3.2.7}%
+\contentsline {subsubsection}{\numberline {1.3.2.7}\texttt {IOError}}{10}{subsubsection.1.3.2.7}%
 \contentsline {subsection}{\numberline {1.3.3}Handlers}{10}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}assertions}{10}{subsection.1.3.4}%
-\contentsline {section}{\numberline {1.4}POO}{10}{section.1.4}%
+\contentsline {section}{\numberline {1.4}POO}{11}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Métodos importantes}{11}{subsection.1.4.1}%
 \contentsline {section}{\numberline {1.5}Sobre algoritmos}{11}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Sobre desarrollo de Software}{11}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}Requerimientos}{12}{subsection.1.6.1}%
 \contentsline {subsection}{\numberline {1.6.2}Modelo WRSPM}{12}{subsection.1.6.2}%
-\contentsline {subsubsection}{\numberline {1.6.2.1}Ejemplo WRSPM}{12}{subsubsection.1.6.2.1}%
+\contentsline {subsubsection}{\numberline {1.6.2.1}Ejemplo WRSPM}{13}{subsubsection.1.6.2.1}%
 \contentsline {subsection}{\numberline {1.6.3}Arquitectura de Software}{13}{subsection.1.6.3}%
 \contentsline {subsubsection}{\numberline {1.6.3.1}Modelos de arquitectura}{13}{subsubsection.1.6.3.1}%
-\contentsline {subsubsection}{\numberline {1.6.3.2}Proceso en la arquitectura}{13}{subsubsection.1.6.3.2}%
-\contentsline {chapter}{\numberline {2}Git and github}{14}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Algunas extensiones de VSCode para Git}{14}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Git History}{14}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Git Blame}{14}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Git Lens}{15}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Fundamentos de Git: cómo funciona por dentro}{15}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Crear un nuevo repositorio}{15}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Objetos en Git}{15}{subsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.1}Blob}{16}{subsubsection.2.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2.2}Tree}{16}{subsubsection.2.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.3}Commit}{16}{subsubsection.2.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.2.4}Annotated Tag}{16}{subsubsection.2.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.3}JSON}{16}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Hash}{17}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Exploración de objetos de git mediante \texttt {cat}}{17}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}Creación de objetos mediante comandos de git}{17}{subsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.2.7}Tree}{18}{subsection.2.2.7}%
-\contentsline {subsection}{\numberline {2.2.8}Permisos de objetos de git}{18}{subsection.2.2.8}%
-\contentsline {subsection}{\numberline {2.2.9}Creación de objetos Tree}{18}{subsection.2.2.9}%
-\contentsline {subsection}{\numberline {2.2.10}Tres pilares importantes}{19}{subsection.2.2.10}%
-\contentsline {subsection}{\numberline {2.2.11}Git checkout index}{19}{subsection.2.2.11}%
-\contentsline {section}{\numberline {2.3}Operaciones básicas de Git}{19}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}¿Qué es commit?}{19}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Creación de las primeras versiones}{20}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Comandos básicos de git}{20}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Historial de un archivo}{21}{subsection.2.3.4}%
-\contentsline {section}{\numberline {2.4}Las ramas}{22}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}HEAD}{22}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Repositorios remotos}{24}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}git diff}{24}{subsection.2.5.1}%
-\contentsline {section}{\numberline {2.6}Fusión o combinación de ramas}{24}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}conflictos de fusión}{25}{subsection.2.6.1}%
-\contentsline {section}{\numberline {2.7}Comandos para los repositorios remotos}{25}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Git push}{25}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Git fetch y pull}{26}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Ramas rastreadas}{27}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Proceso pull}{28}{subsection.2.7.4}%
-\contentsline {subsection}{\numberline {2.7.5}Fetch head}{28}{subsection.2.7.5}%
-\contentsline {subsection}{\numberline {2.7.6}Git pull con modificacion de repositorio remoto}{29}{subsection.2.7.6}%
-\contentsline {subsection}{\numberline {2.7.7}Subida de cambios al repositorio remoto}{29}{subsection.2.7.7}%
-\contentsline {subsection}{\numberline {2.7.8}De rama local a rama nueva remota}{29}{subsection.2.7.8}%
-\contentsline {subsection}{\numberline {2.7.9}Actualización de estados de ramas}{30}{subsection.2.7.9}%
-\contentsline {subsubsection}{\numberline {2.7.9.1}comando \texttt {git show-ref}}{30}{subsubsection.2.7.9.1}%
-\contentsline {section}{\numberline {2.8}Pull Requests}{30}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Paso a paso del proceso de solicitudes de integración}{31}{subsection.2.8.1}%
-\contentsline {chapter}{\numberline {3}Essentials for Cibersecurity}{32}{chapter.3}%
-\contentsline {subsection}{\numberline {3.0.1}Herramientas de gestión}{32}{subsection.3.0.1}%
-\contentsline {subsubsection}{\numberline {3.0.1.1}EDR}{32}{subsubsection.3.0.1.1}%
-\contentsline {subsubsection}{\numberline {3.0.1.2}XDR}{32}{subsubsection.3.0.1.2}%
-\contentsline {subsubsection}{\numberline {3.0.1.3}SIEM}{33}{subsubsection.3.0.1.3}%
-\contentsline {subsubsection}{\numberline {3.0.1.4}SOAR}{33}{subsubsection.3.0.1.4}%
+\contentsline {subsubsection}{\numberline {1.6.3.2}Proceso en la arquitectura}{14}{subsubsection.1.6.3.2}%
+\contentsline {subsection}{\numberline {1.6.4}Diseño del software}{14}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}Modularidad}{15}{subsection.1.6.5}%
+\contentsline {subsubsection}{\numberline {1.6.5.1}Acoplamiento en el diseño}{15}{subsubsection.1.6.5.1}%
+\contentsline {paragraph}{Acoplamiento de contenido y común}{16}{section*.32}%
+\contentsline {paragraph}{Acoplamiento externo}{16}{section*.33}%
+\contentsline {paragraph}{Acoplamiento de control}{16}{section*.34}%
+\contentsline {paragraph}{Acoplamiento de estructura de datos}{16}{section*.35}%
+\contentsline {paragraph}{Acoplamiento de datos}{16}{section*.36}%
+\contentsline {paragraph}{Acoplamiento de mensajes}{16}{section*.37}%
+\contentsline {subsubsection}{\numberline {1.6.5.2}Cohesión en el diseño}{16}{subsubsection.1.6.5.2}%
+\contentsline {paragraph}{Cohesión coincidente}{16}{section*.38}%
+\contentsline {paragraph}{Cohesión temporal}{16}{section*.39}%
+\contentsline {paragraph}{Cohesión procedural}{16}{section*.40}%
+\contentsline {paragraph}{Asociación lógica}{16}{section*.41}%
+\contentsline {paragraph}{Cohesión comunicacional}{16}{section*.42}%
+\contentsline {paragraph}{Cohesión secuencial}{16}{section*.43}%
+\contentsline {paragraph}{Cohesión de objetos}{16}{section*.44}%
+\contentsline {paragraph}{Cohesión funcional}{17}{section*.45}%
+\contentsline {subsection}{\numberline {1.6.6}Implementación}{17}{subsection.1.6.6}%
+\contentsline {subsubsection}{\numberline {1.6.6.1}Despliegue}{17}{subsubsection.1.6.6.1}%
+\contentsline {paragraph}{Cold Backup}{17}{section*.46}%
+\contentsline {paragraph}{Warm Standby}{17}{section*.47}%
+\contentsline {paragraph}{Hot Failover}{17}{section*.48}%
+\contentsline {subsection}{\numberline {1.6.7}Testeo del Software}{18}{subsection.1.6.7}%
+\contentsline {subsubsection}{\numberline {1.6.7.1}EL bug}{18}{subsubsection.1.6.7.1}%
+\contentsline {subsubsection}{\numberline {1.6.7.2}Verificación}{18}{subsubsection.1.6.7.2}%
+\contentsline {subsubsection}{\numberline {1.6.7.3}Validación}{18}{subsubsection.1.6.7.3}%
+\contentsline {subsubsection}{\numberline {1.6.7.4}Estrategias de testeo}{19}{subsubsection.1.6.7.4}%
+\contentsline {paragraph}{Prueba incremental}{19}{section*.49}%
+\contentsline {paragraph}{Prueba top-down}{19}{section*.50}%
+\contentsline {paragraph}{Prueba down-top}{19}{section*.51}%
+\contentsline {paragraph}{Prueba back to back}{20}{section*.52}%
+\contentsline {paragraph}{Axiomas en las pruebas}{20}{section*.53}%
+\contentsline {subsubsection}{\numberline {1.6.7.5}Algunas perspectivas}{20}{subsubsection.1.6.7.5}%
+\contentsline {paragraph}{Prueba de caja negra}{20}{section*.54}%
+\contentsline {paragraph}{Prueba de caja blanca}{20}{section*.55}%
+\contentsline {subsubsection}{\numberline {1.6.7.6}Etapas de pruebas}{20}{subsubsection.1.6.7.6}%
+\contentsline {subsection}{\numberline {1.6.8}Modelos de desarrollo de software}{21}{subsection.1.6.8}%
+\contentsline {subsubsection}{\numberline {1.6.8.1}Modelos iterativos}{21}{subsubsection.1.6.8.1}%
+\contentsline {chapter}{\numberline {2}Git and github}{22}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Algunas extensiones de VSCode para Git}{22}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Git History}{22}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Git Blame}{22}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Git Lens}{23}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Fundamentos de Git: cómo funciona por dentro}{23}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Crear un nuevo repositorio}{23}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Objetos en Git}{23}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}Blob}{24}{subsubsection.2.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2.2}Tree}{24}{subsubsection.2.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.3}Commit}{24}{subsubsection.2.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.2.4}Annotated Tag}{24}{subsubsection.2.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.3}JSON}{24}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Hash}{25}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Exploración de objetos de git mediante \texttt {cat}}{25}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Creación de objetos mediante comandos de git}{25}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Tree}{26}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}Permisos de objetos de git}{26}{subsection.2.2.8}%
+\contentsline {subsection}{\numberline {2.2.9}Creación de objetos Tree}{26}{subsection.2.2.9}%
+\contentsline {subsection}{\numberline {2.2.10}Tres pilares importantes}{27}{subsection.2.2.10}%
+\contentsline {subsection}{\numberline {2.2.11}Git checkout index}{27}{subsection.2.2.11}%
+\contentsline {section}{\numberline {2.3}Operaciones básicas de Git}{27}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}¿Qué es commit?}{27}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Creación de las primeras versiones}{28}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Comandos básicos de git}{29}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Historial de un archivo}{30}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Las ramas}{30}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}HEAD}{31}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Repositorios remotos}{32}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}git diff}{32}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Fusión o combinación de ramas}{32}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}conflictos de fusión}{33}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Comandos para los repositorios remotos}{34}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Git push}{34}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Git fetch y pull}{34}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Ramas rastreadas}{36}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Proceso pull}{36}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Fetch head}{37}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}Git pull con modificacion de repositorio remoto}{37}{subsection.2.7.6}%
+\contentsline {subsection}{\numberline {2.7.7}Subida de cambios al repositorio remoto}{38}{subsection.2.7.7}%
+\contentsline {subsection}{\numberline {2.7.8}De rama local a rama nueva remota}{38}{subsection.2.7.8}%
+\contentsline {subsection}{\numberline {2.7.9}Actualización de estados de ramas}{38}{subsection.2.7.9}%
+\contentsline {subsubsection}{\numberline {2.7.9.1}comando \texttt {git show-ref}}{39}{subsubsection.2.7.9.1}%
+\contentsline {section}{\numberline {2.8}Pull Requests}{39}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Paso a paso del proceso de solicitudes de integración}{39}{subsection.2.8.1}%
+\contentsline {chapter}{\numberline {3}Datos}{41}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Modelo de datos}{41}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Normalización de los datos}{41}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Expresiones de análisis de datos}{41}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Columnas calculadas}{42}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Mediciones}{42}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}Mediciones implícitas y explícitas}{42}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}Sintaxis de las expresiones DAX}{43}{subsubsection.3.1.2.4}%
+\contentsline {subsection}{\numberline {3.1.3}Parámetros 'what if'}{45}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}SQL}{46}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Conceptos}{46}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Query}{46}{subsubsection.3.2.1.1}%
+\contentsline {subsection}{\numberline {3.2.2}Pasos para crear una database y usarla}{47}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Tipos de datos}{47}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}Cadenas de caracteres}{47}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}Enteros}{47}{subsubsection.3.2.3.2}%
+\contentsline {subsection}{\numberline {3.2.4}Variables de puntos flotantes y puntos fijos}{48}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Otros tipos de datos}{48}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Creación de tablas}{48}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Restricciones de SQL}{49}{subsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.7.1}\texttt {primary key}}{49}{subsubsection.3.2.7.1}%
+\contentsline {subsubsection}{\numberline {3.2.7.2}\texttt {Clave foránea}}{50}{subsubsection.3.2.7.2}%
+\contentsline {paragraph}{Tabla Padre:}{50}{section*.72}%
+\contentsline {paragraph}{Tabla Hija:}{50}{section*.73}%
+\contentsline {subsubsection}{\numberline {3.2.7.3}\texttt {Clave única}}{51}{subsubsection.3.2.7.3}%
+\contentsline {paragraph}{Implementación de Claves Únicas como Índices}{51}{section*.74}%
+\contentsline {subparagraph}{Consideraciones Adicionales:}{51}{section*.75}%
+\contentsline {subsubsection}{\numberline {3.2.7.4}Por defecto}{52}{subsubsection.3.2.7.4}%
+\contentsline {subsubsection}{\numberline {3.2.7.5}\texttt {NOT NULL}}{52}{subsubsection.3.2.7.5}%
+\contentsline {subsection}{\numberline {3.2.8}Buenas prácticas}{52}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.9}Manipulación de datos}{52}{subsection.3.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.9.1} \texttt {SELECT}}{52}{subsubsection.3.2.9.1}%
+\contentsline {subsubsection}{\numberline {3.2.9.2}Funciones agregadas}{53}{subsubsection.3.2.9.2}%
+\contentsline {paragraph}{Ordenación}{54}{section*.76}%
+\contentsline {paragraph}{\texttt {GROUP BY}}{54}{section*.77}%
+\contentsline {paragraph}{alias}{55}{section*.78}%
+\contentsline {paragraph}{\texttt {HAVING}}{55}{section*.79}%
+\contentsline {subsubsection}{\numberline {3.2.9.3}Inserción de datos \texttt {INSERT}}{56}{subsubsection.3.2.9.3}%
+\contentsline {subsubsection}{\numberline {3.2.9.4}Declaración de actualización}{56}{subsubsection.3.2.9.4}%
+\contentsline {subsubsection}{\numberline {3.2.9.5}Declaración de borrado}{57}{subsubsection.3.2.9.5}%
+\contentsline {subsubsection}{\numberline {3.2.9.6}Funciones de agregación}{57}{subsubsection.3.2.9.6}%
+\contentsline {subsection}{\numberline {3.2.10}Uniones}{58}{subsection.3.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.10.1}Entradas duplicadas}{59}{subsubsection.3.2.10.1}%
+\contentsline {subsubsection}{\numberline {3.2.10.2}Función \texttt {LEFT JOIN}}{59}{subsubsection.3.2.10.2}%
+\contentsline {subsubsection}{\numberline {3.2.10.3}Uniones cruzadas}{59}{subsubsection.3.2.10.3}%
+\contentsline {chapter}{\numberline {4}Essentials for Cibersecurity}{61}{chapter.4}%
+\contentsline {subsection}{\numberline {4.0.1}Herramientas de gestión}{61}{subsection.4.0.1}%
+\contentsline {subsubsection}{\numberline {4.0.1.1}EDR}{61}{subsubsection.4.0.1.1}%
+\contentsline {subsubsection}{\numberline {4.0.1.2}XDR}{61}{subsubsection.4.0.1.2}%
+\contentsline {subsubsection}{\numberline {4.0.1.3}SIEM}{62}{subsubsection.4.0.1.3}%
+\contentsline {subsubsection}{\numberline {4.0.1.4}SOAR}{62}{subsubsection.4.0.1.4}%
+\contentsline {chapter}{\numberline {5}Docker}{63}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Comandos de Docker}{63}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Mapeos de puertos}{64}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Persistencia de datos}{65}{subsection.5.1.2}%

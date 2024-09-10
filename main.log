@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.19)  28 AUG 2024 20:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.19)  9 SEP 2024 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -568,3 +568,858 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box66
 \tikz@tempbox=\box67
 \tikz@tempbox@bg=\box68
+\tikztreelevel=\count313
+\tikznumberofchildren=\count314
+\tikznumberofcurrentchild=\count315
+\tikz@fig@count=\count316
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count317
+\pgfmatrixcurrentcolumn=\count318
+\pgf@matrix@numberofcolumns=\count319
+)
+\tikz@expandcount=\count320
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowinset=\dimen282
+\pgfarrowlength=\dimen283
+\pgfarrowwidth=\dimen284
+\pgfarrowlinewidth=\dimen285
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgftransformnonlinearflatness=\dimen286
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@curvilinear@time@a=\dimen287
+\pgf@curvilinear@length@a=\dimen288
+\pgf@curvilinear@length@b=\dimen289
+\pgf@curvilinear@length@c=\dimen290
+\pgf@curvilinear@length@d=\dimen291
+)
+\pgf@arrows@the@rigidity=\dimen292
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
+\pgf@circ@count@a=\count321
+\pgf@circ@count@b=\count322
+\pgf@circ@count@c=\count323
+\pgf@circ@res@up=\dimen293
+\pgf@circ@res@down=\dimen294
+\pgf@circ@res@zero=\dimen295
+\pgf@circ@res@left=\dimen296
+\pgf@circ@res@right=\dimen297
+\pgf@circ@res@other=\dimen298
+\pgf@circ@res@step=\dimen299
+\pgf@circ@res@temp=\dimen300
+\pgf@circ@Rlen=\dimen301
+\pgf@circ@scaled@Rlen=\dimen302
+\pgfstartlinewidth=\dimen303
+) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircutils.tex
+\ctikz@scratchbox=\box69
+) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
+\pgf@circ@res@count=\count324
+) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
+\pgfcirc@labelshift=\dimen304
+) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex)) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip58
+\enit@outerparindent=\dimen305
+\enit@toks=\toks42
+\enit@inbox=\box70
+\enit@count@id=\count325
+\enitdp@description=\count326
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip59
+\f@nch@O@elh=\skip60
+\f@nch@O@erh=\skip61
+\f@nch@O@olh=\skip62
+\f@nch@O@orh=\skip63
+\f@nch@O@elf=\skip64
+\f@nch@O@erf=\skip65
+\f@nch@O@olf=\skip66
+\f@nch@O@orf=\skip67
+) (/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count327
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
+\FV@CodeLineNo=\count328
+\FV@InFile=\read3
+\FV@TabBox=\box71
+\c@FancyVerbLine=\count329
+\FV@StepNumber=\count330
+\FV@OutFile=\write4
+) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+))
+(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count331
+\output=\toks43
+\linenoprevgraf=\count332
+\linenumbersep=\dimen306
+\linenumberwidth=\dimen307
+\c@linenumber=\count333
+\c@pagewiselinenumber=\count334
+\c@LN@truepage=\count335
+\c@internallinenumber=\count336
+\c@internallinenumbers=\count337
+\quotelinenumbersep=\dimen308
+\bframerule=\dimen309
+\bframesep=\dimen310
+\bframebox=\box72
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\c@FV@TrueTabGroupLevel=\count338
+\c@FV@TrueTabCounter=\count339
+\FV@TabBox@Group=\box73
+\FV@TmpLength=\skip68
+\c@FV@HighlightLinesStart=\count340
+\c@FV@HighlightLinesStop=\count341
+\FV@LoopCount=\count342
+\FV@NCharsBox=\box74
+\FV@BreakIndent=\dimen311
+\FV@BreakIndentNChars=\count343
+\FV@BreakSymbolSepLeft=\dimen312
+\FV@BreakSymbolSepLeftNChars=\count344
+\FV@BreakSymbolSepRight=\dimen313
+\FV@BreakSymbolSepRightNChars=\count345
+\FV@BreakSymbolIndentLeft=\dimen314
+\FV@BreakSymbolIndentLeftNChars=\count346
+\FV@BreakSymbolIndentRight=\dimen315
+\FV@BreakSymbolIndentRightNChars=\count347
+\c@FancyVerbLineBreakLast=\count348
+\FV@LineBox=\box75
+\FV@LineIndentBox=\box76
+\FV@LineWidth=\dimen316
+) (/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/txr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/txmi/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/txsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/txex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/txr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/txmi/bx/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/txsy/bx/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/txex/bx/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/txr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/txss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/txr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/txtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/txr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/txss/b/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/txr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/txtt/b/n --> OT1/lmtt/m/n on input line 38.
+)
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 41.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count349
+\l__pdf_internal_box=\box77
+) (./main.aux (./python/python_section.aux) (./Github/git.aux) (./Data/Data.aux) (./ciberSec/ciberSec.aux) (./Docker/docker.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 41.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 41.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
+File: omltxmi.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 41.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 41.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
+File: omstxsy.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 41.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 41.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
+File: omxtxex.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 41.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 41.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
+File: utxexa.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 441.01773pt, 85.35826pt)
+* v-part:(T,H,B)=(72.26997pt, 700.5069pt, 72.26997pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=441.01773pt
+* \textheight=700.5069pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=13.08827pt
+* \topmargin=-30.0675pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count350
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count351
+\scratchdimen=\dimen317
+\scratchbox=\box78
+\nofMPsegments=\count352
+\nofMParguments=\count353
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count354
+\MPscratchDim=\dimen318
+\MPnumerator=\count355
+\makeMPintoPDFobject=\count356
+\everyMPtoPDFconversion=\toks45
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package hyperref Info: Link coloring OFF on input line 41.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count357
+)
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
+ (./main.out) (./main.out)
+\@outlinefile=\write5
+\openout5 = `main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ (./main.toc
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2.
+ (/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 2.
+ (/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 2.
+ (/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 2.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
+File: utxsya.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
+File: utxsyb.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
+File: ot1txr.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
+File: utxmia.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
+File: utxsyc.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 44.
+ (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+ [2]
+\openout2 = `python/python_section.aux'.
+
+ (./python/python_section.tex
+Chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+[3
+
+
+] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--142
+
+ []
+
+[5]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 163.
+ (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 174.
+ (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 180.
+[6] [7]
+LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 280.
+
+Overfull \hbox (110.23067pt too wide) in paragraph at lines 286--286
+[]\OT1/lmtt/m/n/10 open (file, mode=\TS1/lmtt/m/n/10 '\OT1/lmtt/m/n/10 r\TS1/lmtt/m/n/10 '\OT1/lmtt/m/n/10 , buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)[] 
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
+
+ []
+
+
+Overfull \hbox (188.98044pt too wide) in paragraph at lines 328--328
+[]        \OT1/lmtt/m/n/10 """Asume x y eps como flotantes, mayores que cero o igual para x, y retorna un res tal que x-eps <= res <= x+eps[] 
+ []
+
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
+
+ []
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 564--566
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 578--579
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
+
+ []
+
+[15]
+Overfull \hbox (7.6273pt too wide) in paragraph at lines 608--609
+ []\OT1/lmr/bx/n/10 Acoplamiento de datos[] \OT1/lmr/m/n/10 Es un acoplamiento m^^Sas d^^Sebil y ocurre cuando solo se com-parten par^^Sametros
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 656--658
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 680--681
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
+
+ []
+
+[20]
+Overfull \hbox (9.67645pt too wide) in paragraph at lines 712--713
+[]\OT1/lmr/m/n/10 Prueba de sis-tema: aqu^^S^^P ya se haceen prue-bas difer-entes de todo el sis-tema, cosas como rendimiento,
+ []
+
+<imgs/unifiedModel.png, id=691, 440.39531pt x 237.13594pt>
+File: imgs/unifiedModel.png Graphic file (type png)
+<use imgs/unifiedModel.png>
+Package pdftex.def Info: imgs/unifiedModel.png  used on input line 724.
+(pdftex.def)             Requested size: 441.01773pt x 237.47908pt.
+) [21 <./imgs/unifiedModel.png>]
+\openout2 = `Github/git.aux'.
+
+ (./Github/git.tex
+Chapter 2.
+<Github/Git_f1.png, id=706, 821.0675pt x 295.1025pt>
+File: Github/Git_f1.png Graphic file (type png)
+<use Github/Git_f1.png>
+Package pdftex.def Info: Github/Git_f1.png  used on input line 16.
+(pdftex.def)             Requested size: 264.61333pt x 95.10565pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+<Github/Git_f2.png, id=707, 1587.9325pt x 580.1675pt>
+File: Github/Git_f2.png Graphic file (type png)
+<use Github/Git_f2.png>
+Package pdftex.def Info: Github/Git_f2.png  used on input line 26.
+(pdftex.def)             Requested size: 264.61333pt x 96.67958pt.
+<Github/Git_f3.png, id=708, 534.99875pt x 201.75375pt>
+File: Github/Git_f3.png Graphic file (type png)
+<use Github/Git_f3.png>
+Package pdftex.def Info: Github/Git_f3.png  used on input line 38.
+(pdftex.def)             Requested size: 264.61333pt x 99.79298pt.
+[22
+
+
+
+
+ <./Github/Git_f1.png> <./Github/Git_f2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+[23 <./Github/Git_f3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--174
+
+ []
+
+[25] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
+
+ []
+
+<Github/Git_f4.png, id=748, 694.09312pt x 483.30562pt>
+File: Github/Git_f4.png Graphic file (type png)
+<use Github/Git_f4.png>
+Package pdftex.def Info: Github/Git_f4.png  used on input line 269.
+(pdftex.def)             Requested size: 347.04572pt x 241.65222pt.
+
+Underfull \vbox (badness 7613) has occurred while \output is active []
+
+ [27] [28 <./Github/Git_f4.png>]
+<Github/Git_f5.png, id=761, 633.36626pt x 460.72125pt>
+File: Github/Git_f5.png Graphic file (type png)
+<use Github/Git_f5.png>
+Package pdftex.def Info: Github/Git_f5.png  used on input line 331.
+(pdftex.def)             Requested size: 411.6832pt x 299.46526pt.
+ [29 <./Github/Git_f5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+
+Overfull \hbox (10.48096pt too wide) in paragraph at lines 372--372
+[]\OT1/lmtt/m/n/10 f9dd3785bbc39a5e1ae9f8fed003f7b696f17f6b Se cambia apertura de navegador para form OVH[] 
+ []
+
+
+Overfull \hbox (146.98056pt too wide) in paragraph at lines 372--372
+[]\OT1/lmtt/m/n/10 e1b1a7f0632ef745d02749468aa02eee016e62f9 Merge branch \TS1/lmtt/m/n/10 '\OT1/lmtt/m/n/10 test2\TS1/lmtt/m/n/10 ' \OT1/lmtt/m/n/10 of https://github.com/JhoAraSan/Process into test2[] 
+ []
+
+
+Overfull \hbox (41.98087pt too wide) in paragraph at lines 386--386
+[]\OT1/lmtt/m/n/10 04bf774da85b9db1a059da4111887240ad2b3d4e renombramiento de carpeta a sugerencia de Sebastian[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+
+ []
+
+[30]
+<Github/Git_f6.png, id=774, 892.08281pt x 559.33969pt>
+File: Github/Git_f6.png Graphic file (type png)
+<use Github/Git_f6.png>
+Package pdftex.def Info: Github/Git_f6.png  used on input line 418.
+(pdftex.def)             Requested size: 356.8268pt x 223.7319pt.
+ [31 <./Github/Git_f6.png>]
+Overfull \hbox (26.23091pt too wide) in paragraph at lines 455--455
+[]    \OT1/lmtt/m/n/10 Directory: C:\Users\seb-c\OneDrive\Documentos\Project_Process\Process\.git\refs\heads[] 
+ []
+
+<Github/Git_f7.png, id=793, 782.17218pt x 316.18124pt>
+File: Github/Git_f7.png Graphic file (type png)
+<use Github/Git_f7.png>
+Package pdftex.def Info: Github/Git_f7.png  used on input line 499.
+(pdftex.def)             Requested size: 391.08513pt x 158.09023pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--500
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 501--504
+
+ []
+
+<Github/Git_f8.png, id=800, 1275.76625pt x 624.3325pt>
+File: Github/Git_f8.png Graphic file (type png)
+<use Github/Git_f8.png>
+Package pdftex.def Info: Github/Git_f8.png  used on input line 507.
+(pdftex.def)             Requested size: 382.73283pt x 187.3012pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
+
+ []
+
+[33 <./Github/Git_f7.png> <./Github/Git_f8.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+
+ []
+
+<Github/Git_f9.png, id=811, 708.39656pt x 509.65407pt>
+File: Github/Git_f9.png Graphic file (type png)
+<use Github/Git_f9.png>
+Package pdftex.def Info: Github/Git_f9.png  used on input line 529.
+(pdftex.def)             Requested size: 354.1974pt x 254.8264pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
+
+ []
+
+[34 <./Github/Git_f9.png>]
+Overfull \hbox (5.23097pt too wide) in paragraph at lines 576--576
+[]\OT1/lmtt/m/n/10 PS C:\Users\seb-c\OneDrive\Documentos\Project_Process\Process> git remote show origin[] 
+ []
+
+[35] [36]
+Overfull \hbox (136.48059pt too wide) in paragraph at lines 688--688
+[]\OT1/lmtt/m/n/10 73acf27141929dd1f890236317cb54009914c35a                branch \TS1/lmtt/m/n/10 '\OT1/lmtt/m/n/10 test2\TS1/lmtt/m/n/10 ' \OT1/lmtt/m/n/10 of https://github.com/JhoAraSan/Process[] 
+ []
+
+
+Overfull \hbox (141.73058pt too wide) in paragraph at lines 688--688
+[]\OT1/lmtt/m/n/10 629fab88a1c5954a9389c827f0e7b4829ce734ba        not-for-merge   tag \TS1/lmtt/m/n/10 '\OT1/lmtt/m/n/10 1\TS1/lmtt/m/n/10 ' \OT1/lmtt/m/n/10 of https://github.com/JhoAraSan/Process[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
+
+ []
+
+
+Overfull \hbox (1.95332pt too wide) in paragraph at lines 711--712
+[]\OT1/lmr/m/n/10 Se sube la nueva rama al repos-i-to-rio re-moto con el co-mando \OT1/lmtt/m/n/10 git push -v -u origin feature-2 
+ []
+
+[38] [39]) [40]
+\openout2 = `Data/Data.aux'.
+
+ (./Data/Data.tex
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+[41
+
+
+
+
+]
+<Data/datafig2.png, id=871, 277.78781pt x 207.02344pt>
+File: Data/datafig2.png Graphic file (type png)
+<use Data/datafig2.png>
+Package pdftex.def Info: Data/datafig2.png  used on input line 89.
+(pdftex.def)             Requested size: 166.67395pt x 124.21501pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
+
+ []
+
+[42 <./Data/datafig2.png>]
+Overfull \hbox (94.87457pt too wide) in paragraph at lines 161--180
+ [][] 
+ []
+
+[43] [44]
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+<Data/datafig3.png, id=908, 345.54094pt x 176.91093pt>
+File: Data/datafig3.png Graphic file (type png)
+<use Data/datafig3.png>
+Package pdftex.def Info: Data/datafig3.png  used on input line 307.
+(pdftex.def)             Requested size: 345.54008pt x 176.91049pt.
+[45 <./Data/datafig3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
+
+ []
+
+
+Overfull \hbox (7.21921pt too wide) in paragraph at lines 361--362
+[]\OT1/lmtt/m/n/10 INSERT INTO sales (purchase[]number, date[]of[]purchase) VALUES(1, '2017-10-11'); \OT1/lmr/m/n/10 a~nade
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
+
+ []
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
+
+ []
+
+
+Overfull \hbox (87.10846pt too wide) in paragraph at lines 437--446
+ [][] 
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 470--472
+
+ []
+
+[48]
+Overfull \hbox (0.89555pt too wide) in paragraph at lines 512--513
+[]\OT1/lmr/m/n/10 la sen-ten-cia \OT1/lmtt/m/n/10 auto[]increment \OT1/lmr/m/n/10 asigna el n^^Sumero de ID a esta columna y la aunemta au-tom^^Saticamente. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
+
+ []
+
+[49] [50] [51] [52] [53] [54] [55] [56]
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
+
+ []
+
+[57] [58] [59]) [60]
+\openout2 = `ciberSec/ciberSec.aux'.
+
+ (./ciberSec/ciberSec.tex
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 7.
+
+[61
+
+
+
+
+]) [62]
+\openout2 = `Docker/docker.aux'.
+
+ (./Docker/docker.tex
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
+
+ []
+
+[63
+
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+[64]) [65] (./main.aux (./python/python_section.aux) (./Github/git.aux) (./Data/Data.aux) (./ciberSec/ciberSec.aux) (./Docker/docker.aux))
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 6C807B9CE549EDE90B7FCD2FA0A18D6C;14744.
+ ) 
+Here is how much of TeX's memory you used:
+ 41566 strings out of 480247
+ 925755 string characters out of 5896150
+ 1431778 words of memory out of 5000000
+ 58514 multiletter control sequences out of 15000+600000
+ 517830 words of font info for 71 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 99i,12n,94p,1559b,999s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (65 pages, 1318081 bytes).
+PDF statistics:
+ 1238 PDF objects out of 1440 (max. 8388607)
+ 1109 compressed objects within 12 object streams
+ 413 named destinations out of 1000 (max. 500000)
+ 785 words of extra memory for PDF output out of 10000 (max. 10000000)
+

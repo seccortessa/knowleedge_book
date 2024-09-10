@@ -16,6 +16,8 @@
 \usepackage[RPvoltages]{circuitikz}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
+\usepackage{fvextra}
+\usepackage{lmodern} % Para manejar bien las fuentes
 
 \newcommand{\eq}{=}
 
@@ -33,6 +35,8 @@
 \title{Programming stuff}
 \author{Sebastian Cortes}
 \date{June 2021}
+
+\DefineVerbatimEnvironment{VerbatimBold}{Verbatim}{formatcom=\bfseries}
 
 \begin{document}
 
@@ -59,10 +63,11 @@
 % \include{CoreGames/Core}
 % \include{Control/Control}
 % \include{VSC/vscode}
-% \include{Data/Data}
+\include{Data/Data}
 % \include{android_apps/android}
 % \include{Elect_circ/circuitos}
 % \include{Electronica/electronics}
 \include{ciberSec/ciberSec}
+\include{Docker/docker}
 
 \end{document}

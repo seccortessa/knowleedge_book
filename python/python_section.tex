@@ -713,31 +713,18 @@ Las siguientes son las diferentes etapas de pruebas
     \item Prueba de aceptación: aquí ya tenemos las pruebas realizadas por el usuario. Normalmente se les puede llamar pruebas alfa, beta.
 \end{enumerate}
 
+\subsection{Modelos de desarrollo de software}
 
+\subsubsection{Modelos iterativos}
 
-Between arch and implementation
+Si nos fijamos en el modelo cascada, visto anteriormente, es probablemente uno de los modelos más usados y populares. Sin embargo, existen modelos dierentes que pueden tener ciertas ventajas. Uno de ellos es el modelo unificado. 
 
-polymorphism
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/unifiedModel.png}
+\end{figure}
 
-The ability to use a built in function of a programming language to generate a random number is an example of which of the following?
-information hiding, coupling, modularity, cohesion   information hiding
-
-coupling
-cohesion
-allowing one module to affect the program flow of another via the use of a state massage
-
-which of the following is least desirable?
-including functionality which occurs around the same time
-including functionality which relys on the same input
-including functionality which entirely encapsulates al the necessary function for a specific task
-including functionality which modifies an objects own attributes - same time
-
-inputs, expected outputs and oracle
-fault
-
-which of the following is an example of validation - definitions
-software is well received
-
-In your current project, you have access to some intern development resources, which are not currently operating at full capacity. You also know that the testing timeline will be truncated, due to delays in critical-path module development. Which strategy should you employ? strategies
-
-
+Las área de colores indican el nivel de esfuerzo que según este modelo se debe poner en cada una de las fases. Podemos ver que hay cuatro fases: inicio, elaboración, construcción y transición. El inicio está dividido en una sola iteración, la elaboración está dividida en dos iteraciones, y así.\\
+El inicio se centra principalmente en el modelado empresarial y los requisitos; por tanto es la fase más corta de todas. EN esta fase se establece el modelo de negocio, también se define el alcance. Luego se hace un estudio de viabilidad para determinar si el proyecto es posible desde el punto de vista del mercado y de la capacidad de ejecución de la companía. Se determina también qué elementos del proyecto serán construidos y cuáles seran comprados. \\
+La siguiente es la fase de la elaboración; en esta fase se desarrollan y llevan a cabo muchas actividades en torno a los requisitos. El objetivo clave de esta fase es que se puedan determinar dos objetivos: abordar todos los riesgos conocidos; se hace mucho enfoque en lo que puede salir mal y en cómo puede resolverse. El segundo objetivo es validar la arquitectura del sistema; determinar cómo se va a construir el sistema. Todo esto deriva en una estimación muy creíble para la siguiente fase. \\
+Luego viene la fase de construcción. Esta es la fase más grande de todo el proyecto. En esta fase se construye el software mediante múltiples iteraciones, y de cada iteración se produce un lanzamiento; esto quiere ecir que se publica algo en cada iteración y se recibe feedback. 
