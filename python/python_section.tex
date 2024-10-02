@@ -663,7 +663,7 @@ Los datos de prueba son aquellos que insertamos a la unidad como entrada al real
 
 \subsubsection{Estrategias de testeo} Existen diferentes estrategias de pruebas, cada unoa tiene utilidades para encontrar diferentes tipos de errores. 
 
-\paragraph{Prueba incremental} Consideremos dos módulos A y B, y tres casos de pruebas T1, T2 y T3. Se realizan las pruebas de A y B, una vez terminadas, no se desechan las pruebas sino que nos quedamos con ellas. Luego, si se añade un tercer módulo C, también se añadirá un caso de prueba T4 necesario para probar C de forma aislada, como prueba unitaria. Añadimos esta prueba a las pruebas de A y B, y entonces las ejecutamos todas. De esta manera se puede verificar y determinar si algo cambió en el código correcto anterior con base en el nuevo módulo añadido, así como comprobar que los m´+odulos actuales siguen funcionando según lo previsto. Se siguen añadiendo módulos y pruebas, y volviendo a ejecutar todas las pruebas a medida que se avanza. La técnica de volver a ejecutar pruebas antiguas en un conjunto más grande se denomina prueba de regresión. 
+\paragraph{Prueba incremental} Consideremos dos módulos A y B, y tres casos de pruebas T1, T2 y T3. Se realizan las pruebas de A y B, una vez terminadas, no se desechan las pruebas sino que nos quedamos con ellas. Luego, si se añade un tercer módulo C, también se añadirá un caso de prueba T4 necesario para probar C de forma aislada, como prueba unitaria. Añadimos esta prueba a las pruebas de A y B, y entonces las ejecutamos todas. De esta manera se puede verificar y determinar si algo cambió en el código correcto anterior con base en el nuevo módulo añadido, así como comprobar que los módulos actuales siguen funcionando según lo previsto. Se siguen añadiendo módulos y pruebas, y volviendo a ejecutar todas las pruebas a medida que se avanza. La técnica de volver a ejecutar pruebas antiguas en un conjunto más grande se denomina prueba de regresión. 
 
 \paragraph{Prueba top-down} Cuando se está desarrollando software utilizando un enfoque de arriba hacia abajo (top-down), se necesita crear algo que supla los elementos de niveles inferiores que aún no has creado. Estos elementos se llaman "Stubs". 
 
@@ -728,3 +728,334 @@ Las área de colores indican el nivel de esfuerzo que según este modelo se debe
 El inicio se centra principalmente en el modelado empresarial y los requisitos; por tanto es la fase más corta de todas. EN esta fase se establece el modelo de negocio, también se define el alcance. Luego se hace un estudio de viabilidad para determinar si el proyecto es posible desde el punto de vista del mercado y de la capacidad de ejecución de la companía. Se determina también qué elementos del proyecto serán construidos y cuáles seran comprados. \\
 La siguiente es la fase de la elaboración; en esta fase se desarrollan y llevan a cabo muchas actividades en torno a los requisitos. El objetivo clave de esta fase es que se puedan determinar dos objetivos: abordar todos los riesgos conocidos; se hace mucho enfoque en lo que puede salir mal y en cómo puede resolverse. El segundo objetivo es validar la arquitectura del sistema; determinar cómo se va a construir el sistema. Todo esto deriva en una estimación muy creíble para la siguiente fase. \\
 Luego viene la fase de construcción. Esta es la fase más grande de todo el proyecto. En esta fase se construye el software mediante múltiples iteraciones, y de cada iteración se produce un lanzamiento; esto quiere ecir que se publica algo en cada iteración y se recibe feedback. 
+
+
+\section{Elementos especializados de la arquitectura en Python}
+
+\subsection{Proceso en la arquitectura} 
+
+El proceso de diseño de una arquitectura se puede desglosar a tres preocupaciones principales:
+
+\begin{itemize}
+    \item Estructura del sistema. Se refiere a cómo el sistema se descompone en estos varios subsistemas principales, y cómo estos se comunican entre sí.
+    \item Modelamiento de control. Es la forma en la que la arquitectura realiza un modelo de las relaciones de control entre las diferentes partes del sistema
+    \item Descomposición modular. Es la forma en que se identifican las particiones de los subsistemas
+\end{itemize}
+
+Otra cosa importante a nivel arquitectónico es cómo podemos evaluar la calidad de un software. Los sisguientes son algunos atributos de calidad que se tienen en cuenta para el Software:
+
+\begin{enumerate}
+    \item Modificabilidad
+    \item Capacidad de prueba
+    \item Escalabilidad y desempeño
+    \item Disponibilidad
+    \item seguridad
+    \item Capacidad de implementación
+\end{enumerate}
+
+\subsubsection{Modificabilidad}
+
+Indica la facilidad con la que los cambios pueden ser realizados en el sistema y la flexibilidad con la cual el sistema se ajusta a dichos cambios. Los intereses dentro de la modificabilidad son los siguientes
+
+\begin{itemize}
+    \item Dificultad. La facilidad con la que se pueden hacer cambios en el sistema.
+    \item Costo. En términos de tiempo y recursos requeridos para hacer los cambios.
+    \item Riesgos. Cualquier riesgo asociado con realizar los cambios del sistema.
+\end{itemize}
+
+Los tipos de cambios de los que hablamos son cambios en código, cambios de la implementación, cambios incluso de la misma arquitectura. Estos cambios pueden ser a los siguientes niveles:
+
+\begin{enumerate}
+    \item Locales. Son cambios sencillos que solamente afectan elementos específicos, Por ejempli una función o método, una clase, un archivo de confguración como un \texttt{\textbf{XML}} o \texttt{\textbf{JSON}}, etc. Esos cambios generalmente no generan un efecto colateral a algún otro elemento cercano. Son los más sencillos de implementar y pueden ser fácolmente validados mediante pruebas unitarias.
+    \item No locales. Estos cambios envuelven a más de un elemento. Por ejemplo la modificación de un esquema de base de datos, esto puede llevar a necesitar modificar las abstracciones de las tablas, o los modelos utilizados. Estos cambios ssuelen ser más complicasdos de gestionar y requieren ser validadoos a través de pruebas de integración.
+    \item Globales. Pueden ser cambios que estén relacionados directamente con la arquitectura completa, o modificar elementos globales que afectarán a una gran parte de subsistemas. Un ejemplo puede ser el cambio de una aquitectura de RESTful a por ejemplo una arquitectura de mendajes como SOAP. Otro ejemplo puede ser el cambio de framework, pasando de \texttt{\textbf{FastAPI}} a \texttt{\textbf{Flask}}. Estos son los cambios que representan los mayores riesgos y también los mayores costos en términos de tiempo, recursos y dinero.
+\end{enumerate}
+
+Los aspectos de cohesión y acoplamiento también determinan una mejor modificabilidad del sistema. Recordemos que la cohesión es el nivel de claridad en la definición de los roles y responsabilidades que tiene un módulo o clase. Y el acoplamiento es el nivel de afectabilidad que puede tener un módulo con otro al ser modificado. Mientras menor sea el acoplamiento y mayor la cohesión, más alta será la modificabilidad.
+
+\subsubsection{Capacidad de prueba} Esta capacidad se refiere a qué tan susceptible a demostrar los fallos mediante pruebas tiene un sistema de software. En otras palabras, se puede referir a una medida de qué tanto el sistema esconde sus fallos a los usuarios finales y a las pruebas de integración. Mientras más testeables es un sistema, menos es capaz de esconder estos errores. También se puede relacional la capacidad de prueba de un sistema con qué tan predecible puede ser su comportamiento. Para recrear la sesión de prueba o el estado en el momento de la falla, a menudo se utiliza una estrategia de record o playback, mediante algún doftware especializado (como Selenium) el cual graba todas las acciones del usuario que llevan a un fallo en particular y las guarda en forma de caso de prueba. La capacidad de prueba también está relacionado con el acoplamiento del código. Mientras menor sea el acoplamiento del código, mayor será la capacidad de prueba del mismo. Otro aspecto importante de esto es la reducción de la aleatoriedad, o el no determinismo. Cuando se escriben bancos de pruebas, es necesario aislar los elementos que se testean de los elementos de su alrededor
+
+
+\subsubsection{Escalabilidad} Este es un concepto muy importante en los tiempos actuales. En cualquier aplicación de software moderno es muy probable escuchar acerca de trabajar en una aplicación escrita sobre la nube, la cual se puede escalar elásticamente a demanda. La escalabilidad es la capacidad de acomodar o adaptarse al crecimiento de la carga de trabajo en función de la demanda siempre y cuando se mantenga el desempeño dentro de unos límites aceptables. El concepto de escalabilidad siempre se divide en dos categorías principales: 
+
+
+\paragraph{Escalabilidad horizontal} Este tipo de escalabilidad se refiere a el aumento o adición de nodos computacionales a un sistema de software. Esto ha sido posible gracias a los avances en computación en cluster (lo cual significa el agrupamiento de varios computadores conectados entre sí para trabajar como un solo sistema) en las últimas décadas. Cada uno de estos computadores son denominados ’nodos’ y cada nodo usualmente se trata de servidores virtuales privados. La escalabilidad se logra cuando se añade un nodo adicional, típicamente administrado por un balanceador de cargas. Desescalar es
+cuando se eliminan nodos al sistema. 
+
+\paragraph{Escalabilidad vertical} La escalabilidad vertical es cuando se añaden o eliminan más recursos en un solo nodo. Típicamente esto se logra cuando se añaden recursos de hardware como procesadores o memorias RAM.
+
+\subsubsection{Desempeño} El desempeño de un software está relacionado con su escalabilidad. Este puede ser definido de la siguiente forma: el el desempeño de un sistema computacional es la cantidad de trabajo logrado por un sistema utilizando una unidad de recurso de computación dada. A mayor razón trabajo/unidad, mayor será el rendimento. Esta unidad de recurso de computación para medir el desempeño puede ser uno de los siguientes:
+
+\begin{itemize}
+    \item Tiempo de respuesta. La cantidad de tiempo que toma una función o cualquier unidad de ejecución en ejecutarse, ya sea en términos de tiempo real o en tiempo de ciclos de reloj.
+    \item Latencia. El tiempo que toma un sistema en aceptar una estimulacón y dar una respuesta a esta.
+    \item Rendimiento o flujo de procesos. Es la razón a la cual un sistema procesa su información por unidad de tiempo. Un sistema que tiene un mayor desempeño usualmente tendrá un flujo de procesos mayor, y en correcpondencia, una mayor escalabilidad
+\end{itemize}
+
+\subsubsection{Disponibilidad} Como su nombre lo indica, es la propiedad de estar listo que tiene un sistema de software para llevar a cabo sus operaciones cuando se necesita. Este atributo de calidad está relacionado de manera directa con la fiabilidad del software. Un factor que también puede modificar la disponibilidad es la habilidad del sistema que tiene para recuperarse de fallos. Hay tres medidas importantes a la hora de manejar los posibles fallos que pueden presentarse en un sistema.
+
+\begin{itemize}
+    \item Detección del fallo.
+    \item Reuperación del fallo.
+    \item Prevención del fallo.
+\end{itemize}
+
+Por otra parte, la disponibilidad se puede relacionar con la escalabilidad horizontal de la siguiente forma: Si el sistema es altamente escalable horizontalmente, este tendrá una alta disponibilidad ya que permite al balanceador de carga determinar nodos inactivos y apuntarlos en la configuración rápidamente. Por su parte, la escalabilidad vertical afeca a la disponibilidad teniendo en cuenta que los recursos del nodo no son suficientemente amplios y el programa puede colapsar, disminuyendo así la disponibilidad. 
+
+Con el auge de las aplicaciones web y la computación distribuida, la seguridad de un sistema también se vuelve un factor importante que afecta a la disponibilidad. Si una vulnerabilidad es
+explotada por alguna persona maliciosa, el sistema ppuede volverse temporalmente no disponible durante el tiempo en que el ataque esté activo.
+
+\subsubsection{Seguridad} Define el grado de habilidad que tiene un sistema para evitar daños a sus datos y a su lógica de accesos no autorizados, a la vez que continúa proveyendo los servicios a otros sistemas y roles que sí son apropiadamente autorizados y autenticados.
+
+\subsection{Scripting modificable y legible}
+
+En esta sección vamos a adentrarnos de manera profunda en el atributo de modificabilidad y legibilidad. Vamos a dar respuestas claras y completas a las siguientes preguntas:
+
+\begin{itemize}
+    \item ¿Qué es la modificabilidad?
+    \item Aspectos relacionados a la modificabilidad
+    \item Entendimiento de la legibilidad
+    \item Fundamentos de la modificabilidad - cohesión y acoplamiento
+    \item Exploración de estrategias para conseguir modificabilidad
+    \item Métricas - herramientas para el análisis de estadísticas
+    \item Refactorización de código
+\end{itemize}
+
+\subsubsection{¿Qué es la modificabilidad?} La definición de modificabilidad es la siguiente: Modificabilidad se define como el grado de facilidad con la que se pueden hacer cambios en un sistema y la flexibilidad con la que el sistema se adapta a dichos cambios.
+
+\subsubsection{Aspectos relacionados con la modificabilidad} Hay muchos aspectos que están estrechamente relacionados con la modificabilidad. Entre ellos los siguientes atributos de calidad:
+
+
+\paragraph{Legibilidad} Se define como la facilidad con la que la lógica de un programa puede ser seguido y entendido. Un software legible contiene un código que ha sido escrito de una manera específica, siguiendo unos parámetros que son típicamente adoptados por el lenguaje de programación y cuya lógica utiliza las características proveídas por el  lenguaje en una manera clara y concisa.
+
+\paragraph{Modularidad} Significa que el código está escrito en módulos bien encapsulados, los cuales desarrollan funciones bien documentadas y específicas. En otras palabras, un cósigo modular provee al programador APIs amigables al resto del sistema. 
+
+\paragraph{Reusabilidad} Es una medida del número de partes del software, ya sea código, herramientas, diseños, y demás, que pueden ser reutilizados en otras partes del sistema con nula o muy poca modificación. Un buen diseño debería enfatizar en la reusabiidad desde el principio. 
+
+\paragraph{Manteniblidad} Se define como la facilidad y eficiencia con la que el sistema puede ser actualizado y mantenerse trabajando de una manera efectiva para sus personas interesadas.
+
+\subsubsection{Entendimiento de la legibilidad} Un códico que esté bien escrito y documentado, manteniendo los estándares y adoptando buenas prácticas en función del lenguaje de programación, tenderá a producir código simple y conciso que será fácil de leer y de modificar. No solamente está relacionado con buenas prácticas de escritura de código, sino también en la claridad misma de la lógica de los algoritmos, la modularidad, ydemás aspectos. Podemos resumir los aspectos de la siguiente manera:
+
+
+\begin{itemize}
+    \item Bien escrito. Se considera si el código contiene una sintaxis simple, una lógica clara y concisa, utilizando nombres para las variables, funciones y clases o módulos con un significado claro y definido, expresando qué es lo que hace.
+    \item Bien documentado. Se refiere a los comentarios entre líneas dentro del archivo. Una sección de código bien documentado indica qué es lo que hace, cuáles son las entradas y cuál o cuáles son los valores de retorno si los hay, a lo largo de la lógica del algoritmo, con un cierto nivel de detalle. También se documenta cualquier uso de alguna librería o API externa y la configuración requerida para ejecutar el código.
+    \item Bien formateado. En lenguajes como ppython tan ampliamente desarrollados por la comunidad, hay una seria de pautas bien definidas en aspectos tales como estios, identación y formateo.
+\end{itemize}
+
+\paragraph{Algunos antipatrones} Aunque python es un lenguaje que facilita la escritura de código legible, no es cierto que todo código que se escriba será siempre legible; se pueden encontrar en la web muchos ejemplos de código difícil de leer que está mal escrito. Algunas de las prácticas que pueden llevar a escritura incorrecta de código, también llamadas antipatrones, son las siguientes:
+
+\begin{enumerate}
+    \item Códifgo sin comentarios o con pocos comentarios. Sobre toso porque una documentación siempre ayuda a informar sobre por qué se impementó algún patrón de escritura en particular. Cuando no se escriben comentarios apropiadamente, otros programadores o el mismo programador puede no entender el código o el porqué de ese enfoque.
+    \item código que rompe las mejores prácticas de lenguaje. En ocasiones, cuando los programadores son novatos o vienen de otro lenguaje doferente, pueden tener tendencias a escribir código que no se alinea con las práctias que se han venido desarrollando y evolucionando a lo largo de los años por la comunidad de desarrolladores.
+    \item Código espagueti. Son las porciones de código que no tienen una estructura discernible o un flujo de control. Genralmente se compone de una lógica extensa y compleja con saltos extraños y manejo de excepciones no estructuradas, etc.
+    \item Gran bola de lodo. Estos son programas o módulos con porciones de código que no muestran claramente una estructura u objetivo general. típicamente está hecho de varias piezas espagueti, y usualmente es un signo de código que ha sido escrito por múltiples personas, parcheadas y modificadas varias veces y sin dócumentación. 
+    \item Copy-paste. Esto puede producir patrones de código repetitivos y largos, que hacen lo mismo una y otra vez.
+    \item Programación con ego. Generalmente cuando un desarrollador experimentado pone su proppio estilo de código, diferente a los patrones recomendados, con florituras que pueden ser difíciles de entender para otras personas.
+    \item Indentación mezclada. Esto suele ser especialmente importante cuando se mezclan los espacios con las tabulaciones en las indentaciones. Es importante tenerlo en cuenta.
+    \item Mezclas de tipos literales. Las comillas para escribir cadenas de texto ’, " y """ suelen ser a menudo mezcladas y esto dificulta también el entendimiento del código, así como la misma sintaxis.
+\end{enumerate}
+
+\paragraph{Técnicas para la legibilidad} Uno de los enfoques que se deben tener en cuenta para mejorar el nivel de legibilidad del código es la documentación apropiada de qué es lo que esta pieza de código hace. La documentación puede verse separada o categorizada de la siguiente forma:
+
+\begin{itemize}
+    \item Documentación entre líneas: Estos comentarios están dispuestos dentro del código en sí mismo, y provee documentación acerca de partes de código, funciones, módulos, entre otros.
+    \item Documentación externa: Esta es documentación adicional que se encuentra en archivos externos al código y explica cosas como el uso del código, cambios en el mismo, instruccioes de instalación, o despliegue, etc. Como ejemplo tenemos el típico archivo \texttt{\textbf{readme}}.
+    \item Manuales de usuario. Estos ya son documentos formales escritos específicamente para personas
+    involucradas en particular.
+\end{itemize}
+
+El siguiente es un ejemplo de cómo puede verser la documentación en comentarios de una sola línea (con \texttt{\textbf{\#}}):
+
+\begin{VerbatimBold}
+# This loop performs a network fetch of the URL, retrying up to 3
+# times in case of errors. In case the URL can't be fetched,
+# an error is returned.
+# Initialize all state
+count, ntries, result, error = 0, 3, None, None
+while count < ntries:
+try:
+    # NOTE: We are using an explicit timeout of 30s here
+    result = requests.get(url, timeout=30)
+except Exception as error:
+    print('Caught exception', error, 'trying again after a while')
+    # increment count
+    count += 1
+# sleep 1 second every time
+time.sleep(1)
+if result == None:
+    print("Error, could not fetch URL",url)
+    # Return a tuple of (<return code>, <lasterror>)
+    return (2, error)
+    # Return data of URL
+    return result.content
+\end{VerbatimBold}
+
+
+Por otro lado, tenemos la documentación docstring, la cual es una manera simple de explicar qué hace una función mediante una cadena justo después de la declaración de la misma:
+
+\begin{VerbatimBold}
+def fetch_url(url, ntries=3, timeout=30):
+""" Fetch a given url and return its contents.
+@params
+    url - The URL to be fetched.
+    ntries - The maximum number of retries.
+    timeout - Timout per call in seconds.
+@returns
+    On success - Contents of URL.
+    On failure - (error_code, last_error)
+"""
+# This loop performs a network fetch of the URL,
+# retrying up to
+# 'ntries' times in case of errors. In case the URL
+# can't be fetched, an error is returned.
+# Initialize all state
+count, result, error = 0, None, None
+while count < ntries:
+    try:
+        result = requests.get(url, timeout=timeout)
+    except Exception as error:
+        print('Caught exception', error, 'trying again after a while')
+        # increment count
+        count += 1
+        # sleep 1 second every time
+        time.sleep(1)
+if result == None:
+    print("Error, could not fetch URL",url)
+    # Return a tuple of (<return code>, <lasterror>)
+    return (2, error)
+    # Return data of the URL
+return result.content
+\end{VerbatimBold}
+
+El siguiente es un ejemplo para el docstring de una clase, que tiene una estructura similar a la anterior
+
+\begin{VerbatimBold}
+class UrlFetcher(object):
+    """ Implements the steps of fetching a URL.
+    Main methods:
+    fetch - Fetches the URL.
+    get - Return the URLs data.
+    """
+    def __init__(self, url, timeout=30, ntries=3, headers={}):
+        """ Initializer.
+        @params
+            url - URL to fetch.
+            timeout - Timeout per connection (seconds).
+            ntries - Max number of retries.
+            headers - Optional request headers.
+        """
+        self.url = url
+        self.timeout = timeout
+        self.ntries = retries
+        self.headers = headers
+        # Enapsulated result object
+        self.result = result
+    
+    def fetch(self):
+        """ Fetch the URL and save the result """
+        # This loop performs a network fetch of the URL,
+        # retrying
+        # up to 'ntries' times in case of errors.
+        count, result, error = 0, None, None
+        while count < self.ntries:
+            try:
+                result = requests.get(self.url,
+                timeout=self.timeout,
+                headers = self.headers)
+            except Exception as error:
+                print('Caught exception', error, 'trying againafter a while')
+                # increment count
+                count += 1
+                # sleep 1 second every time
+                time.sleep(1)
+            if result != None:
+            # Save result
+                self.result = result
+
+    def get(self):
+        """ Return the data for the URL """
+        if self.result != None:
+            return self.result.content
+\end{VerbatimBold}
+
+El docstring aqupi describe algunos de los métodos principales de la clase.
+
+Finalmente, los docstring para módulos que recolectan la información a nivel de módulo, principalmente sobre la funcionalidad del módulo y también algún detalle sobre qué hace cada parte del módulo. También puede contener información acerca de dependencias externas específicas.
+
+
+\begin{VerbatimBold}
+"""
+urlhelper - Utility classes and functions to work with URLs.
+Members:
+# UrlFetcher - A class which encapsulates action of
+# fetching content of a URL.
+# get_web_url - Converts URLs so they can be used on the
+# web.
+# get_domain - Returns the domain (site) of the URL.
+"""
+
+import urllib
+import time
+
+
+def get_domain(url):
+    """ Return the domain name (site) for the URL"""
+    urlp = urllib.parse.urlparse(url)
+    return urlp.netloc
+
+def get_web_url(url, default='http'):
+    """ Make a URL useful for fetch requests
+    - Prefix network scheme in front of it if not present already
+    """
+    urlp = urllib.parse.urlparse(url)
+    if urlp.scheme == '' and urlp.netloc == '':
+        # No scheme, prefix default
+        return default + '://' + url
+    return url
+
+class UrlFetcher(object):
+    """ Implements the steps of fetching a URL.
+    Main methods:
+    fetch - Fetches the URL.
+    get - Return the URLs data.
+    """
+    def __init__(self, url, timeout=30, ntries=3, headers={}):
+        """ Initializer.
+        @params
+            url - URL to fetch.
+            timeout - Timeout per connection (seconds).
+            ntries - Max number of retries.
+            headers - Optional request headers.
+        """ 
+        self.url = url
+        self.timeout = timeout
+        self.ntries = ntries
+        self.headers = headers
+        # Enapsulated result object
+        self.result = result
+    def fetch(self):
+        """ Fetch the URL and save the result """
+        
+        # This loop performs a network fetch of the URL, retrying
+        # up to 'ntries' times in case of errors.
+        count, result, error = 0, None, None
+        while count < self.ntries:
+            try:
+                result = requests.get(self.url,
+                timeout=self.timeout,
+                headers = self.headers)
+            except Exception as error:
+                print('Caught exception', error, 'trying againafter a while')
+                # increment count
+                count += 1
+                # sleep 1 second every time
+                time.sleep(1)
+        if result != None:
+            # Save result
+            self.result = result
+    def get(self):
+        """ Return the data for the URL """
+        if self.result != None:
+            return self.result.content
+\end{VerbatimBold}
