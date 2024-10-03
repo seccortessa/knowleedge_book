@@ -1059,3 +1059,97 @@ class UrlFetcher(object):
         if self.result != None:
             return self.result.content
 \end{VerbatimBold}
+
+\paragraph{Seguimiento de pautas de código y estilo} Es común que las empresas tengan sus propias pauas de estilo de código. Para python existe un conjunto bien definido de pautas de elaboración de código para la comunidad de programadores. Estas pautas se llaman PEP-8, se puede encontrar en línea en https://www.python.org/dev/peps/pep-0008/
+Estas pautas fueron creadas en 2001 y han sido ampliamente modificadas a lo largo de los años. 
+
+La filosofía de PEP-8 pueden resumirse en los siguientes puntos importantes
+
+\begin{itemize}
+    \item Todo código será más leído de lo que será escrito. De manera que con una serie de pautas se puede conseguir un código más legible y hacerlo consistente a lo largo de un espectro total de código.
+    \item La consistencia dentro de un proyecto es importante. Sin embargo, la consistencia dentro de un paquete o módulo es aún más importante. Y la consistencia dentro de una unidad de código tales una clase o función es lo más importante.
+    \item Es importante saber en qué momento ignorar una pauta. Por ejemplo si dicha pauta puede hacer que el código sea más complicado de leer o rompa la compatibilidad con el código al rededor.
+    \item Si una pauta no es directamente aplicable o útil para la organización, se puede personalizar. Para cualquier duda es importante saber que se puede pedir ayuda a la comunidad. 
+\end{itemize}
+
+\paragraph{Revisión y Refactorización de código} Es importante tener en cuenta que todo código debe tener mantenimientos. Las revisiones periodicas de código es útil para mantener el cógido legible y saludable ayudando a la modificabilidad y la mantenibilidad. 
+
+\paragraph{Comentarios de código} Los comentarios deben ser muy claros y descriptivos; deben explicar lo que hace cada cosa. Algunas pautas que pueden ser útilez a la hora de hacer comentarios son:
+
+\begin{itemize}
+    \item Los comentarios en bloque deben estar encima de la lína o líneas que explican. Deben ser claros y concisos, sin redundar ni decir lo obvio.
+    \item Los comentarios en líneas (inline) deben evitarse lo máximo posible, solo deben estar si es estrictamente necesario aclarar o explicar por qué esa línea hace lo que hace.
+    \item Los comentarios superfluos o que no aporten realmente información deben ser evitados. 
+\end{itemize}
+
+\subsubsection{Fundamentos de modificabilidad: cohesión y acoplamiento}
+
+Recordemos las definiciones importantes: kla cohesión se refiere al nivel de cercanía, o qué tan estrechamente relacionadas están las responsabilidades de un módulo con el otro. Un módulo que ejecuta una tarea específica, o un grupo de tareas relacionadas entre sí es uno con alta cohesión. Por otro lado, el acoplamiento se refiere al nivel con el que una unidad de código puede afectar el comportamiento de otra unidad. Si son dos unidades diferentes, estas deberían no tener una estrecha relación, por tanto, el acoplamiento debería ser bajo. 
+
+Por lo anterior, siempre hay que buscar para cualquier programa la mayor cohesión y el menor acoplamiento posible.
+
+\paragraph{Medida para la cohesión y el acoplamiento}
+
+Sea el siguiente código un módulo que implementa funciones que operan con una serie de números.
+
+\begin{VerbatimBold}
+""" Module A (a.py) – Provides functions that operate on series of
+numbers """
+
+def squares(narray):
+    """ Return array of squares of numbers """
+    return pow_n(narray, 2)
+
+def cubes(narray):
+    """ Return array of cubes of numbers """
+    return pow_n(narray, 3)
+
+def pow_n(narray, n):
+    """ Return array of numbers raised to arbitrary power n each """
+    return [pow(x, n) for x in narray]
+
+def frequency(string, word):
+    """ Find the frequency of occurrences of word in string
+    as percentage """
+    word_l = word.lower()
+    string_l = string.lower()
+    # Words in string
+    words = string_l.split()
+    count = w.count(word_l)
+    # Return frequency as percentage
+    return 100.0*count/len(words)
+\end{VerbatimBold}
+
+Por su parte, sea el siguiente módulo B:
+
+\begin{VerbatimBold}
+    """ Module B (b.py) – Provides functions implementing some statistical
+    methods """
+    
+    import a
+    
+    def rms(narray):
+        """ Return root mean square of array of numbers"""
+        return pow(sum(a.squares(narray)), 0.5)
+    
+    def mean(array):
+        """ Return mean of an array of numbers """
+        return 1.0*sum(array)/len(array)
+    def variance(array):
+        """ Return variance of an array of numbers """
+        # Square of variation from mean
+        avg = mean(array)
+        array_d = [(x – avg) for x in array]
+        variance = sum(a.squares(array_d))
+        return variance
+    def standard_deviation(array):
+        """ Return standard deviation of an array of numbers """
+        # S.D is square root of variance
+        return pow(variance(array), 0.5)
+\end{VerbatimBold}
+
+Podemos ver del módulo A que una de las funciones no está relacionada con las demás, dando un nuvel de cohesion más bajo. Por otro lado, el módulo B tiene funciones que dependen directamente de A, como se puede ver \texttt{\textbf{squares}}. Esto idica un acoplamiento grande del módulo B al módulo A. Mientras que el módulo B no tiene ningún acoplamiento con A.
+
+Por su parte, al analizar el acoplamiento de B a A, observamos que la función de dependencia \texttt{\textbf{squares}} es sencilla, aceptando un arreglo y retornando sus raíces. La probabilidad de que hayan cambion en la estructura de esta función es baja, además, no hay un acoplamiento en doble dirección. Por estas razones, el acoplamiento de B a A es un buen acoplamiento y no afecta en la modificabilidad del sistema.
+
+Si dos módulos estuvieran acoplados en ambas direcciones, es decir, que el módulo A importa y utiliza funciones de B, y viceversa, entonces el acoplamiento sería un mal acoplamiento porque cualquier cambio en uno de los módulos puede afectar negativamente y en cascada la dependencia.

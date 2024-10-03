@@ -1,121 +1,23 @@
-"""
-urlhelper - Utility classes and functions to work with URLs.
-Members:
-# UrlFetcher - A class which encapsulates action of
-# fetching content of a URL.
-# get_web_url - Converts URLs so they can be used on the
-# web.
-# get_domain - Returns the domain (site) of the URL.
-"""
+""" Module B (b.py) – Provides functions implementing some statistical
+methods """
 
-import urllib
-import time
+import a
 
+def rms(narray):
+    """ Return root mean square of array of numbers"""
+    return pow(sum(a.squares(narray)), 0.5)
 
-def get_domain(url):
-    """ Return the domain name (site) for the URL"""
-    urlp = urllib.parse.urlparse(url)
-    return urlp.netloc
-
-def get_web_url(url, default='http'):
-    """ Make a URL useful for fetch requests
-    - Prefix network scheme in front of it if not present already
-    """
-    urlp = urllib.parse.urlparse(url)
-    if urlp.scheme == '' and urlp.netloc == '':
-        # No scheme, prefix default
-        return default + '://' + url
-    return url
-
-class UrlFetcher(object):
-    """ Implements the steps of fetching a URL.
-    Main methods:
-    fetch - Fetches the URL.
-    get - Return the URLs data.
-    """
-    def __init__(self, url, timeout=30, ntries=3, headers={}):
-        """ Initializer.
-        @params
-            url - URL to fetch.
-            timeout - Timeout per connection (seconds).
-            ntries - Max number of retries.
-            headers - Optional request headers.
-        """ 
-        self.url = url
-        self.timeout = timeout
-        self.ntries = ntries
-        self.headers = headers
-        # Enapsulated result object
-        self.result = result
-    def fetch(self):
-        """ Fetch the URL and save the result """
-        
-        # This loop performs a network fetch of the URL, retrying
-        # up to 'ntries' times in case of errors.
-        count, result, error = 0, None, None
-        while count < self.ntries:
-            try:
-                result = requests.get(self.url,
-                timeout=self.timeout,
-                headers = self.headers)
-            except Exception as error:
-                print('Caught exception', error, 'trying againafter a while')
-                # increment count
-                count += 1
-                # sleep 1 second every time
-                time.sleep(1)
-        if result != None:
-            # Save result
-            self.result = result
-    def get(self):
-        """ Return the data for the URL """
-        if self.result != None:
-            return self.result.content
-        
-        
-class UrlFetcher(object):
-    """ Implements the steps of fetching a URL.
-    Main methods:
-    fetch - Fetches the URL.
-    get - Return the URLs data.
-    """
-    def __init__(self, url, timeout=30, ntries=3, headers={}):
-        """ Initializer.
-        @params
-            url - URL to fetch.
-            timeout - Timeout per connection (seconds).
-            ntries - Max number of retries.
-            headers - Optional request headers.
-        """
-        self.url = url
-        self.timeout = timeout
-        self.ntries = retries
-        self.headers = headers
-        # Enapsulated result object
-        self.result = result
-    
-    def fetch(self):
-        """ Fetch the URL and save the result """
-        # This loop performs a network fetch of the URL,
-        # retrying
-        # up to 'ntries' times in case of errors.
-        count, result, error = 0, None, None
-        while count < self.ntries:
-            try:
-                result = requests.get(self.url,
-                timeout=self.timeout,
-                headers = self.headers)
-            except Exception as error:
-                print('Caught exception', error, 'trying againafter a while')
-                # increment count
-                count += 1
-                # sleep 1 second every time
-                time.sleep(1)
-            if result != None:
-            # Save result
-                self.result = result
-
-    def get(self):
-        """ Return the data for the URL """
-        if self.result != None:
-            return self.result.content
+def mean(array):
+    """ Return mean of an array of numbers """
+    return 1.0*sum(array)/len(array)
+def variance(array):
+    """ Return variance of an array of numbers """
+    # Square of variation from mean
+    avg = mean(array)
+    array_d = [(x – avg) for x in array]
+    variance = sum(a.squares(array_d))
+    return variance
+def standard_deviation(array):
+    """ Return standard deviation of an array of numbers """
+    # S.D is square root of variance
+    return pow(variance(array), 0.5)

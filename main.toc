@@ -1,0 +1,232 @@
+\contentsline {chapter}{\numberline {1}Python}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Fundamentos}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Scope y variables del entorno}{3}{subsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.1}Espacio de nombres}{4}{subsubsection.1.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.2}Cómo modificar una variable global}{4}{subsubsection.1.1.1.2}%
+\contentsline {section}{\numberline {1.2}Tipos de datos, estructuras, objetos incorporados, funciones}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}variables y su almacenamiento}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Funciones}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Tupla}{5}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Lista}{6}{subsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.4.1}Lista de funciones}{6}{subsubsection.1.2.4.1}%
+\contentsline {paragraph}{\texttt {len(list)}}{6}{section*.2}%
+\contentsline {paragraph}{\texttt {max(list)}}{6}{section*.3}%
+\contentsline {paragraph}{\texttt {min(list)}}{6}{section*.4}%
+\contentsline {paragraph}{\texttt {list(seq)}}{6}{section*.5}%
+\contentsline {paragraph}{\texttt {sorted(list)}}{6}{section*.6}%
+\contentsline {subsubsection}{\numberline {1.2.4.2}Lista de métodos}{6}{subsubsection.1.2.4.2}%
+\contentsline {paragraph}{\texttt {list.append(obj)}}{6}{section*.7}%
+\contentsline {paragraph}{\texttt {list.count(obj)}}{6}{section*.8}%
+\contentsline {paragraph}{\texttt {list.extend(seq)}}{6}{section*.9}%
+\contentsline {paragraph}{\texttt {list.index(obj)}}{6}{section*.10}%
+\contentsline {paragraph}{\texttt {list.insert(index, obj)}}{6}{section*.11}%
+\contentsline {paragraph}{\texttt {list.pop(obj = list[-1])}}{6}{section*.12}%
+\contentsline {paragraph}{\texttt {list.remove(obj)}}{7}{section*.13}%
+\contentsline {paragraph}{\texttt {list.reverse()}}{7}{section*.14}%
+\contentsline {paragraph}{\texttt {list.sort(key=None)}}{7}{section*.15}%
+\contentsline {paragraph}{\texttt {list.clear(}}{7}{section*.16}%
+\contentsline {paragraph}{\texttt {list.copy()}}{7}{section*.17}%
+\contentsline {subparagraph}{Nota}{7}{section*.18}%
+\contentsline {subsection}{\numberline {1.2.5}Diccionario}{7}{subsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.5.1}Funciones}{7}{subsubsection.1.2.5.1}%
+\contentsline {paragraph}{\texttt {len(dic)}}{7}{section*.19}%
+\contentsline {paragraph}{\texttt {str(dic)}}{7}{section*.20}%
+\contentsline {subsubsection}{\numberline {1.2.5.2}Métodos}{7}{subsubsection.1.2.5.2}%
+\contentsline {paragraph}{\texttt {dic.clear()}}{7}{section*.21}%
+\contentsline {paragraph}{\texttt {dic.copy()}}{7}{section*.22}%
+\contentsline {paragraph}{\texttt {dic.fromkeys(iterable,value)}}{8}{section*.23}%
+\contentsline {paragraph}{\texttt {dic.get(key, default=None)}}{8}{section*.24}%
+\contentsline {paragraph}{\texttt {dic.items()}}{8}{section*.25}%
+\contentsline {paragraph}{\texttt {dic.keys()}}{8}{section*.26}%
+\contentsline {paragraph}{\texttt {dic.setdefault(key, default = None)}}{8}{section*.27}%
+\contentsline {paragraph}{\texttt {dic.update(dict2)}}{8}{section*.28}%
+\contentsline {paragraph}{\texttt {dic.values()}}{8}{section*.29}%
+\contentsline {subsection}{\numberline {1.2.6}\texttt {open()}}{8}{subsection.1.2.6}%
+\contentsline {subsubsection}{\numberline {1.2.6.1}Concatenación especial de cadenas de caracteres.}{8}{subsubsection.1.2.6.1}%
+\contentsline {section}{\numberline {1.3}Errores y debuggeo de los mismos}{8}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Tipos de testeo}{8}{subsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.1}Test unitario}{8}{subsubsection.1.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.2}back box testing}{9}{subsubsection.1.3.1.2}%
+\contentsline {subsubsection}{\numberline {1.3.1.3}glass box testing}{9}{subsubsection.1.3.1.3}%
+\contentsline {subsection}{\numberline {1.3.2}Errores}{9}{subsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2.1}\texttt {IndexError}}{9}{subsubsection.1.3.2.1}%
+\contentsline {subsubsection}{\numberline {1.3.2.2}\texttt {TypeError}}{9}{subsubsection.1.3.2.2}%
+\contentsline {subsubsection}{\numberline {1.3.2.3}\texttt {NameError}}{9}{subsubsection.1.3.2.3}%
+\contentsline {subsubsection}{\numberline {1.3.2.4}\texttt {SyntaxError}}{9}{subsubsection.1.3.2.4}%
+\contentsline {subsubsection}{\numberline {1.3.2.5}\texttt {AttributeError}}{9}{subsubsection.1.3.2.5}%
+\contentsline {subsubsection}{\numberline {1.3.2.6}\texttt {ValueError}}{9}{subsubsection.1.3.2.6}%
+\contentsline {subsubsection}{\numberline {1.3.2.7}\texttt {IOError}}{10}{subsubsection.1.3.2.7}%
+\contentsline {subsection}{\numberline {1.3.3}Handlers}{10}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}assertions}{10}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}POO}{11}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Métodos importantes}{11}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Sobre algoritmos}{11}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Sobre desarrollo de Software}{11}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Requerimientos}{12}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Modelo WRSPM}{12}{subsection.1.6.2}%
+\contentsline {subsubsection}{\numberline {1.6.2.1}Ejemplo WRSPM}{13}{subsubsection.1.6.2.1}%
+\contentsline {subsection}{\numberline {1.6.3}Arquitectura de Software}{13}{subsection.1.6.3}%
+\contentsline {subsubsection}{\numberline {1.6.3.1}Modelos de arquitectura}{13}{subsubsection.1.6.3.1}%
+\contentsline {subsubsection}{\numberline {1.6.3.2}Proceso en la arquitectura}{14}{subsubsection.1.6.3.2}%
+\contentsline {subsection}{\numberline {1.6.4}Diseño del software}{14}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}Modularidad}{15}{subsection.1.6.5}%
+\contentsline {subsubsection}{\numberline {1.6.5.1}Acoplamiento en el diseño}{15}{subsubsection.1.6.5.1}%
+\contentsline {paragraph}{Acoplamiento de contenido y común}{16}{section*.32}%
+\contentsline {paragraph}{Acoplamiento externo}{16}{section*.33}%
+\contentsline {paragraph}{Acoplamiento de control}{16}{section*.34}%
+\contentsline {paragraph}{Acoplamiento de estructura de datos}{16}{section*.35}%
+\contentsline {paragraph}{Acoplamiento de datos}{16}{section*.36}%
+\contentsline {paragraph}{Acoplamiento de mensajes}{16}{section*.37}%
+\contentsline {subsubsection}{\numberline {1.6.5.2}Cohesión en el diseño}{16}{subsubsection.1.6.5.2}%
+\contentsline {paragraph}{Cohesión coincidente}{16}{section*.38}%
+\contentsline {paragraph}{Cohesión temporal}{16}{section*.39}%
+\contentsline {paragraph}{Cohesión procedural}{16}{section*.40}%
+\contentsline {paragraph}{Asociación lógica}{16}{section*.41}%
+\contentsline {paragraph}{Cohesión comunicacional}{16}{section*.42}%
+\contentsline {paragraph}{Cohesión secuencial}{16}{section*.43}%
+\contentsline {paragraph}{Cohesión de objetos}{16}{section*.44}%
+\contentsline {paragraph}{Cohesión funcional}{17}{section*.45}%
+\contentsline {subsection}{\numberline {1.6.6}Implementación}{17}{subsection.1.6.6}%
+\contentsline {subsubsection}{\numberline {1.6.6.1}Despliegue}{17}{subsubsection.1.6.6.1}%
+\contentsline {paragraph}{Cold Backup}{17}{section*.46}%
+\contentsline {paragraph}{Warm Standby}{17}{section*.47}%
+\contentsline {paragraph}{Hot Failover}{17}{section*.48}%
+\contentsline {subsection}{\numberline {1.6.7}Testeo del Software}{18}{subsection.1.6.7}%
+\contentsline {subsubsection}{\numberline {1.6.7.1}EL bug}{18}{subsubsection.1.6.7.1}%
+\contentsline {subsubsection}{\numberline {1.6.7.2}Verificación}{18}{subsubsection.1.6.7.2}%
+\contentsline {subsubsection}{\numberline {1.6.7.3}Validación}{18}{subsubsection.1.6.7.3}%
+\contentsline {subsubsection}{\numberline {1.6.7.4}Estrategias de testeo}{19}{subsubsection.1.6.7.4}%
+\contentsline {paragraph}{Prueba incremental}{19}{section*.49}%
+\contentsline {paragraph}{Prueba top-down}{19}{section*.50}%
+\contentsline {paragraph}{Prueba down-top}{19}{section*.51}%
+\contentsline {paragraph}{Prueba back to back}{20}{section*.52}%
+\contentsline {paragraph}{Axiomas en las pruebas}{20}{section*.53}%
+\contentsline {subsubsection}{\numberline {1.6.7.5}Algunas perspectivas}{20}{subsubsection.1.6.7.5}%
+\contentsline {paragraph}{Prueba de caja negra}{20}{section*.54}%
+\contentsline {paragraph}{Prueba de caja blanca}{20}{section*.55}%
+\contentsline {subsubsection}{\numberline {1.6.7.6}Etapas de pruebas}{20}{subsubsection.1.6.7.6}%
+\contentsline {subsection}{\numberline {1.6.8}Modelos de desarrollo de software}{21}{subsection.1.6.8}%
+\contentsline {subsubsection}{\numberline {1.6.8.1}Modelos iterativos}{21}{subsubsection.1.6.8.1}%
+\contentsline {section}{\numberline {1.7}Elementos especializados de la arquitectura en Python}{22}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Proceso en la arquitectura}{22}{subsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.1.1}Modificabilidad}{22}{subsubsection.1.7.1.1}%
+\contentsline {subsubsection}{\numberline {1.7.1.2}Capacidad de prueba}{23}{subsubsection.1.7.1.2}%
+\contentsline {subsubsection}{\numberline {1.7.1.3}Escalabilidad}{23}{subsubsection.1.7.1.3}%
+\contentsline {paragraph}{Escalabilidad horizontal}{23}{section*.57}%
+\contentsline {paragraph}{Escalabilidad vertical}{23}{section*.58}%
+\contentsline {subsubsection}{\numberline {1.7.1.4}Desempeño}{23}{subsubsection.1.7.1.4}%
+\contentsline {subsubsection}{\numberline {1.7.1.5}Disponibilidad}{23}{subsubsection.1.7.1.5}%
+\contentsline {subsubsection}{\numberline {1.7.1.6}Seguridad}{24}{subsubsection.1.7.1.6}%
+\contentsline {subsection}{\numberline {1.7.2}Scripting modificable y legible}{24}{subsection.1.7.2}%
+\contentsline {subsubsection}{\numberline {1.7.2.1}¿Qué es la modificabilidad?}{24}{subsubsection.1.7.2.1}%
+\contentsline {subsubsection}{\numberline {1.7.2.2}Aspectos relacionados con la modificabilidad}{24}{subsubsection.1.7.2.2}%
+\contentsline {paragraph}{Legibilidad}{24}{section*.59}%
+\contentsline {paragraph}{Modularidad}{24}{section*.60}%
+\contentsline {paragraph}{Reusabilidad}{25}{section*.61}%
+\contentsline {paragraph}{Manteniblidad}{25}{section*.62}%
+\contentsline {subsubsection}{\numberline {1.7.2.3}Entendimiento de la legibilidad}{25}{subsubsection.1.7.2.3}%
+\contentsline {paragraph}{Algunos antipatrones}{25}{section*.63}%
+\contentsline {paragraph}{Técnicas para la legibilidad}{26}{section*.64}%
+\contentsline {subsubsection}{\numberline {1.7.2.4}Seguimiento de pautas de código y estilo}{29}{subsubsection.1.7.2.4}%
+\contentsline {subsubsection}{\numberline {1.7.2.5}Revisión y Refactorización de código}{29}{subsubsection.1.7.2.5}%
+\contentsline {subsubsection}{\numberline {1.7.2.6}Comentarios de código}{29}{subsubsection.1.7.2.6}%
+\contentsline {chapter}{\numberline {2}Git and github}{30}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Algunas extensiones de VSCode para Git}{30}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Git History}{30}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Git Blame}{30}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Git Lens}{31}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Fundamentos de Git: cómo funciona por dentro}{31}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Crear un nuevo repositorio}{31}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Objetos en Git}{31}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}Blob}{32}{subsubsection.2.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2.2}Tree}{32}{subsubsection.2.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.3}Commit}{32}{subsubsection.2.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.2.4}Annotated Tag}{32}{subsubsection.2.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.3}JSON}{32}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Hash}{33}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Exploración de objetos de git mediante \texttt {cat}}{33}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Creación de objetos mediante comandos de git}{33}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Tree}{34}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}Permisos de objetos de git}{34}{subsection.2.2.8}%
+\contentsline {subsection}{\numberline {2.2.9}Creación de objetos Tree}{34}{subsection.2.2.9}%
+\contentsline {subsection}{\numberline {2.2.10}Tres pilares importantes}{35}{subsection.2.2.10}%
+\contentsline {subsection}{\numberline {2.2.11}Git checkout index}{35}{subsection.2.2.11}%
+\contentsline {section}{\numberline {2.3}Operaciones básicas de Git}{35}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}¿Qué es commit?}{35}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Creación de las primeras versiones}{36}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Comandos básicos de git}{37}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Historial de un archivo}{38}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Las ramas}{38}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}HEAD}{39}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Repositorios remotos}{40}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}git diff}{40}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Fusión o combinación de ramas}{40}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}conflictos de fusión}{41}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Comandos para los repositorios remotos}{42}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Git push}{42}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Git fetch y pull}{42}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Ramas rastreadas}{44}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Proceso pull}{44}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Fetch head}{45}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}Git pull con modificacion de repositorio remoto}{45}{subsection.2.7.6}%
+\contentsline {subsection}{\numberline {2.7.7}Subida de cambios al repositorio remoto}{46}{subsection.2.7.7}%
+\contentsline {subsection}{\numberline {2.7.8}De rama local a rama nueva remota}{46}{subsection.2.7.8}%
+\contentsline {subsection}{\numberline {2.7.9}Actualización de estados de ramas}{46}{subsection.2.7.9}%
+\contentsline {subsubsection}{\numberline {2.7.9.1}comando \texttt {git show-ref}}{47}{subsubsection.2.7.9.1}%
+\contentsline {section}{\numberline {2.8}Pull Requests}{47}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Paso a paso del proceso de solicitudes de integración}{47}{subsection.2.8.1}%
+\contentsline {chapter}{\numberline {3}Datos}{49}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Modelo de datos}{49}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Normalización de los datos}{49}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Expresiones de análisis de datos}{49}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Columnas calculadas}{50}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Mediciones}{50}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}Mediciones implícitas y explícitas}{50}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}Sintaxis de las expresiones DAX}{51}{subsubsection.3.1.2.4}%
+\contentsline {subsection}{\numberline {3.1.3}Parámetros 'what if'}{53}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}SQL}{54}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Conceptos}{54}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Query}{54}{subsubsection.3.2.1.1}%
+\contentsline {subsection}{\numberline {3.2.2}Pasos para crear una database y usarla}{55}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Tipos de datos}{55}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}Cadenas de caracteres}{55}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}Enteros}{55}{subsubsection.3.2.3.2}%
+\contentsline {subsection}{\numberline {3.2.4}Variables de puntos flotantes y puntos fijos}{56}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Otros tipos de datos}{56}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Creación de tablas}{56}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Restricciones de SQL}{57}{subsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.7.1}\texttt {primary key}}{57}{subsubsection.3.2.7.1}%
+\contentsline {subsubsection}{\numberline {3.2.7.2}\texttt {Clave foránea}}{58}{subsubsection.3.2.7.2}%
+\contentsline {paragraph}{Tabla Padre:}{58}{section*.80}%
+\contentsline {paragraph}{Tabla Hija:}{58}{section*.81}%
+\contentsline {subsubsection}{\numberline {3.2.7.3}\texttt {Clave única}}{59}{subsubsection.3.2.7.3}%
+\contentsline {paragraph}{Implementación de Claves Únicas como Índices}{59}{section*.82}%
+\contentsline {subparagraph}{Consideraciones Adicionales:}{59}{section*.83}%
+\contentsline {subsubsection}{\numberline {3.2.7.4}Por defecto}{60}{subsubsection.3.2.7.4}%
+\contentsline {subsubsection}{\numberline {3.2.7.5}\texttt {NOT NULL}}{60}{subsubsection.3.2.7.5}%
+\contentsline {subsection}{\numberline {3.2.8}Buenas prácticas}{60}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.9}Manipulación de datos}{60}{subsection.3.2.9}%
+\contentsline {subsubsection}{\numberline {3.2.9.1} \texttt {SELECT}}{60}{subsubsection.3.2.9.1}%
+\contentsline {subsubsection}{\numberline {3.2.9.2}Funciones agregadas}{61}{subsubsection.3.2.9.2}%
+\contentsline {paragraph}{Ordenación}{62}{section*.84}%
+\contentsline {paragraph}{\texttt {GROUP BY}}{62}{section*.85}%
+\contentsline {paragraph}{alias}{63}{section*.86}%
+\contentsline {paragraph}{\texttt {HAVING}}{63}{section*.87}%
+\contentsline {subsubsection}{\numberline {3.2.9.3}Inserción de datos \texttt {INSERT}}{64}{subsubsection.3.2.9.3}%
+\contentsline {subsubsection}{\numberline {3.2.9.4}Declaración de actualización}{64}{subsubsection.3.2.9.4}%
+\contentsline {subsubsection}{\numberline {3.2.9.5}Declaración de borrado}{65}{subsubsection.3.2.9.5}%
+\contentsline {subsubsection}{\numberline {3.2.9.6}Funciones de agregación}{65}{subsubsection.3.2.9.6}%
+\contentsline {subsection}{\numberline {3.2.10}Uniones}{66}{subsection.3.2.10}%
+\contentsline {subsubsection}{\numberline {3.2.10.1}Entradas duplicadas}{67}{subsubsection.3.2.10.1}%
+\contentsline {subsubsection}{\numberline {3.2.10.2}Función \texttt {LEFT JOIN}}{67}{subsubsection.3.2.10.2}%
+\contentsline {subsubsection}{\numberline {3.2.10.3}Uniones cruzadas}{67}{subsubsection.3.2.10.3}%
+\contentsline {chapter}{\numberline {4}Essentials for Cibersecurity}{69}{chapter.4}%
+\contentsline {subsection}{\numberline {4.0.1}Herramientas de gestión}{69}{subsection.4.0.1}%
+\contentsline {subsubsection}{\numberline {4.0.1.1}EDR}{69}{subsubsection.4.0.1.1}%
+\contentsline {subsubsection}{\numberline {4.0.1.2}XDR}{69}{subsubsection.4.0.1.2}%
+\contentsline {subsubsection}{\numberline {4.0.1.3}SIEM}{70}{subsubsection.4.0.1.3}%
+\contentsline {subsubsection}{\numberline {4.0.1.4}SOAR}{70}{subsubsection.4.0.1.4}%
+\contentsline {chapter}{\numberline {5}Docker}{71}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Comandos de Docker}{71}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Mapeos de puertos}{72}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Persistencia de datos}{73}{subsection.5.1.2}%
